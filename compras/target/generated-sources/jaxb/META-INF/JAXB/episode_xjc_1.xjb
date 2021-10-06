@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bindings version="2.1" xmlns="http://java.sun.com/xml/ns/jaxb">
+  <!--
+
+Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.2 
+Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
+Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
+Generado el: 2021.10.06 a las 02:48:58 PM ART 
+
+  -->
+  <bindings scd="x-schema::tns" xmlns:tns="http://spring.io/guides/gs-producing-web-service">
+    <schemaBindings map="false">
+      <package name="io.spring.guides.gs_producing_web_service"/>
+    </schemaBindings>
+    <bindings scd="tns:getUsuarioRequest">
+      <class ref="io.spring.guides.gs_producing_web_service.GetUsuarioRequest"/>
+    </bindings>
+    <bindings scd="tns:getUsuarioResponse">
+      <class ref="io.spring.guides.gs_producing_web_service.GetUsuarioResponse"/>
+    </bindings>
+    <bindings scd="~tns:usuario">
+      <class ref="io.spring.guides.gs_producing_web_service.Usuario"/>
+    </bindings>
+    <bindings scd="tns:addUsuarioRequest">
+      <class ref="io.spring.guides.gs_producing_web_service.AddUsuarioRequest"/>
+    </bindings>
+    <bindings scd="tns:addUsuarioResponse">
+      <class ref="io.spring.guides.gs_producing_web_service.AddUsuarioResponse"/>
+    </bindings>
+  </bindings>
+</bindings>
+

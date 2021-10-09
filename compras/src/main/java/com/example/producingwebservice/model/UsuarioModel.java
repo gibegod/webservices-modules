@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,6 +19,9 @@ public class UsuarioModel {
 	private String dni;
 	private String usuario;
 	private String contrasenia;
+	@ManyToOne
+	@JoinColumn(name = "FK_TIPOUSUARIO", nullable = false, updatable = false)
+	private TipoUsuarioModel tipo;
 	
 	public UsuarioModel() {
 		super();
@@ -80,6 +85,15 @@ public class UsuarioModel {
 	public void setContrasenia(String contrasenia) {
 		this.contrasenia = contrasenia;
 	}
+
+	public TipoUsuarioModel getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(TipoUsuarioModel tipo) {
+		this.tipo = tipo;
+	}
+	
 	
 	
 	

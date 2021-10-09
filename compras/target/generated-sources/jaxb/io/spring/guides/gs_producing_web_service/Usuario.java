@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.2 
 // Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2021.10.06 a las 02:48:58 PM ART 
+// Generado el: 2021.10.08 a las 08:55:40 PM ART 
 //
 
 
@@ -29,6 +29,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="dni" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="usuario" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="contrasenia" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="tipoUsuario" type="{http://spring.io/guides/gs-producing-web-service}tipoUsuario"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -43,7 +44,8 @@ import javax.xml.bind.annotation.XmlType;
     "apellido",
     "dni",
     "usuario",
-    "contrasenia"
+    "contrasenia",
+    "tipoUsuario"
 })
 public class Usuario {
 
@@ -57,6 +59,8 @@ public class Usuario {
     protected String usuario;
     @XmlElement(required = true)
     protected String contrasenia;
+    @XmlElement(required = true)
+    protected TipoUsuario tipoUsuario;
 
     /**
      * Obtiene el valor de la propiedad nombre.
@@ -176,6 +180,30 @@ public class Usuario {
      */
     public void setContrasenia(String value) {
         this.contrasenia = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad tipoUsuario.
+     * 
+     * @return
+     *     possible object is
+     *     {@link TipoUsuario }
+     *     
+     */
+    public TipoUsuario getTipoUsuario() {
+        return tipoUsuario;
+    }
+
+    /**
+     * Define el valor de la propiedad tipoUsuario.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link TipoUsuario }
+     *     
+     */
+    public void setTipoUsuario(TipoUsuario value) {
+        this.tipoUsuario = value;
     }
 
 }

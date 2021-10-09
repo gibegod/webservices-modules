@@ -40,6 +40,13 @@
             <xs:element name="dni" type="xs:string"/>
             <xs:element name="usuario" type="xs:string"/>
             <xs:element name="contrasenia" type="xs:string"/>
+            <xs:element name="tipoUsuario" type="tns:tipoUsuario"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="tipoUsuario">
+        <xs:sequence>
+            <xs:element name="tipo" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
 </xs:schema>

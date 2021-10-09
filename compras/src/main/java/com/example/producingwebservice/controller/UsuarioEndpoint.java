@@ -38,7 +38,7 @@ public class UsuarioEndpoint {
 	
 	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "addUsuarioRequest")
 	@ResponsePayload
-	public AddUsuarioResponse addCountry(@RequestPayload AddUsuarioRequest request) {
+	public AddUsuarioResponse addUsuario(@RequestPayload AddUsuarioRequest request) {
 		AddUsuarioResponse response = new AddUsuarioResponse();
 		response.setUsuario(usuarioService.guardarUsuario(request.getUsuario()));
 		

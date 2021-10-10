@@ -12,17 +12,17 @@ import com.example.producingwebservice.model.UsuarioModel;
 import com.example.producingwebservice.repositories.TipoUsuarioRepository;
 import com.example.producingwebservice.repositories.UsuarioRepository;
 
-import io.spring.guides.gs_producing_web_service.TipoUsuario;
 import io.spring.guides.gs_producing_web_service.Usuario;
+import mapper.UsuarioMapper;
 
 @Service
 @Component
 public class UsuarioService {
-	// private static final Map<String, Usuario> users = new HashMap<>();
 	@Autowired
 	UsuarioRepository usuarioRepository;
 	@Autowired
 	TipoUsuarioRepository tipoRepository;
+	UsuarioMapper usuarioMap = new UsuarioMapper();
 
 	public Usuario findUsuario(String name) {
 		Assert.notNull(name, "El nombre del usuario no tiene que ser nulo");
@@ -30,62 +30,53 @@ public class UsuarioService {
 		UsuarioModel u = new UsuarioModel();
 		u = usuarioRepository.findByNombre(name);
 		// mapeo en el XML usuario
-		Usuario usuarioXML = new Usuario();
-		TipoUsuario tipoXML = new TipoUsuario();
-		tipoXML.setTipo(u.getTipo().getTipo());
-		usuarioXML.setNombre(u.getNombre());
-		usuarioXML.setApellido(u.getApellido());
-		usuarioXML.setDni(u.getDni());
-		usuarioXML.setUsuario(u.getUsuario());
-		usuarioXML.setContrasenia(u.getContrasenia());
-		usuarioXML.setTipoUsuario(tipoXML);
-		// users.put(usuarioXML.getNombre(), usuarioXML);
-
-		return usuarioXML;
+		return usuarioMap.toUsuarioXML(u);
 	}
 
-	public Usuario guardarUsuario(Usuario usuario) {
-		// Mapeo el XML usuario en el modelo
-		UsuarioModel u = new UsuarioModel();
+	public String guardarUsuario(Usuario usuario) {
 		Optional<TipoUsuarioModel> t = Optional.empty();
+		Optional<UsuarioModel> foundDni = Optional.empty();
+		Optional<UsuarioModel> foundUsuario = Optional.empty();
 		TipoUsuarioModel tModel = new TipoUsuarioModel();
 		TipoUsuarioModel tSave = new TipoUsuarioModel();
-		TipoUsuario tipoUsuarioXML = new TipoUsuario();
+		String estado = "";
 		try {
 			t = tipoRepository.findByTipo(usuario.getTipoUsuario().getTipo());
-
+			foundDni = usuarioRepository.findByDni(usuario.getDni());
+			foundUsuario = usuarioRepository.findByUsuario(usuario.getUsuario());
 		} catch (Exception e) {
 			e.getMessage();
 		}
 		if (t.isPresent()) {
-			tipoUsuarioXML.setTipo(t.get().getTipo());
 			tSave = t.get();
 		} else {
 			tModel.setTipo(usuario.getTipoUsuario().getTipo());
 			tSave = tipoRepository.save(tModel);
-			tipoUsuarioXML.setTipo(tSave.getTipo());
 		}
-		
-		u.setNombre(usuario.getNombre());
-		u.setApellido(usuario.getApellido());
-		u.setDni(usuario.getDni());
-		u.setUsuario(usuario.getUsuario());
-		u.setContrasenia(usuario.getContrasenia());
-		u.setTipo(tSave);
-		// Guardo el usuario en la database
-		UsuarioModel usuarioModel = new UsuarioModel();
-		usuarioModel = usuarioRepository.save(u);
-		
-		// mapeo en el XML usuario
-		Usuario usuariomap = new Usuario();
-		usuariomap.setNombre(usuarioModel.getNombre());
-		usuariomap.setApellido(usuarioModel.getApellido());
-		usuariomap.setDni(usuarioModel.getDni());
-		usuariomap.setUsuario(usuarioModel.getUsuario());
-		usuariomap.setContrasenia(usuarioModel.getContrasenia());
-		usuariomap.setTipoUsuario(tipoUsuarioXML);
 
-		return usuariomap;
+		if (foundDni.isPresent() || foundUsuario.isPresent()) {
+			estado = "ERROR";
+		} else {
+			// Guardo el usuario en la database
+			UsuarioModel usuarioModel = new UsuarioModel();
+			usuarioModel = usuarioRepository.save(usuarioMap.toUsuarioModel(usuario, tSave));
+			estado = "OK";
+		}
+		return estado;
+	}
 
+	public String validarUsuario(String usuario, String contrasenia) {
+		Optional<UsuarioModel> foundusuario = Optional.empty();
+		Optional<UsuarioModel> foundcontrasenia = Optional.empty();
+		String estado="";
+		try {
+			foundcontrasenia = usuarioRepository.findByContrasenia(contrasenia);
+			foundusuario = usuarioRepository.findByUsuario(usuario);
+		} catch (Exception e) {
+			e.getMessage();
+		}
+		estado = (foundcontrasenia.isPresent() && foundusuario.isPresent() )? "OK" : "ERROR";
+			
+		return estado;
 	}
 }

@@ -28,7 +28,24 @@
     <xs:element name="addUsuarioResponse">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="usuario" type="tns:usuario"/>
+                <xs:element name="estado" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="loginValRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="usuario" type="xs:string"/>
+                <xs:element name="contrasenia" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="loginValResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="estado" type="xs:string"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>

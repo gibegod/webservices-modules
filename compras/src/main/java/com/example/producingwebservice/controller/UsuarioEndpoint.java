@@ -14,6 +14,8 @@ import io.spring.guides.gs_producing_web_service.AddUsuarioRequest;
 import io.spring.guides.gs_producing_web_service.AddUsuarioResponse;
 import io.spring.guides.gs_producing_web_service.GetUsuarioRequest;
 import io.spring.guides.gs_producing_web_service.GetUsuarioResponse;
+import io.spring.guides.gs_producing_web_service.LoginValRequest;
+import io.spring.guides.gs_producing_web_service.LoginValResponse;
 
 @CrossOrigin(origins="http://127.0.0.1:5500" ,methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT})
 @Endpoint
@@ -40,7 +42,16 @@ public class UsuarioEndpoint {
 	@ResponsePayload
 	public AddUsuarioResponse addUsuario(@RequestPayload AddUsuarioRequest request) {
 		AddUsuarioResponse response = new AddUsuarioResponse();
-		response.setUsuario(usuarioService.guardarUsuario(request.getUsuario()));
+		response.setEstado(usuarioService.guardarUsuario(request.getUsuario()));
+		
+		return response;
+	}
+	
+	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "loginValRequest")
+	@ResponsePayload
+	public LoginValResponse loginVal(@RequestPayload LoginValRequest request) {
+		LoginValResponse response = new LoginValResponse();
+		response.setEstado(usuarioService.validarUsuario(request.getUsuario(), request.getContrasenia()));
 		
 		return response;
 	}

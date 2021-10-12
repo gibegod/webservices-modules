@@ -24,13 +24,14 @@ public class UsuarioService {
 	TipoUsuarioRepository tipoRepository;
 	UsuarioMapper usuarioMap = new UsuarioMapper();
 
-	public Usuario findUsuario(String name) {
-		Assert.notNull(name, "El nombre del usuario no tiene que ser nulo");
-		// Busco el usuario en la database
-		UsuarioModel u = new UsuarioModel();
-		u = usuarioRepository.findByNombre(name);
-		// mapeo en el XML usuario
-		return usuarioMap.toUsuarioXML(u);
+	public Optional<UsuarioModel> buscarUsuario(String name) {
+		Optional<UsuarioModel> foundUsuario = Optional.empty();
+		try {
+			foundUsuario = usuarioRepository.findByNombre(name);
+		} catch (Exception e) {
+			
+		}
+		return foundUsuario;
 	}
 
 	public String guardarUsuario(Usuario usuario) {
@@ -68,15 +69,15 @@ public class UsuarioService {
 	public String validarUsuario(String usuario, String contrasenia) {
 		Optional<UsuarioModel> foundusuario = Optional.empty();
 		Optional<UsuarioModel> foundcontrasenia = Optional.empty();
-		String estado="";
+		String estado = "";
 		try {
 			foundcontrasenia = usuarioRepository.findByContrasenia(contrasenia);
 			foundusuario = usuarioRepository.findByUsuario(usuario);
 		} catch (Exception e) {
 			e.getMessage();
 		}
-		estado = (foundcontrasenia.isPresent() && foundusuario.isPresent() )? "OK" : "ERROR";
-			
+		estado = (foundcontrasenia.isPresent() && foundusuario.isPresent()) ? "OK" : "ERROR";
+
 		return estado;
 	}
 }

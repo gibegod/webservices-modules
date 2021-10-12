@@ -34,9 +34,13 @@ public class UsuarioMapper {
 //		return uM;
 //	}
 	
-	public Usuario toUsuarioXML(UsuarioModel usuarioModel) {
+	public Usuario toUsuarioXML(UsuarioModel usuarioModel,Boolean setId) {
 		Usuario uXml = new Usuario();
 		TipoUsuario tXml = new TipoUsuario();
+		if (setId) {
+			tXml.setId(usuarioModel.getTipo().getId());
+			uXml.setId(usuarioModel.getId());
+		}
 		tXml.setTipo(usuarioModel.getTipo().getTipo());
 		uXml.setNombre(usuarioModel.getNombre());
 		uXml.setApellido(usuarioModel.getApellido());

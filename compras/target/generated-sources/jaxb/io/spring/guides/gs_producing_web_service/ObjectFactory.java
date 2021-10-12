@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.2 
 // Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2021.10.09 a las 09:37:49 PM ART 
+// Generado el: 2021.10.12 a las 01:03:30 AM ART 
 //
 
 
@@ -98,6 +98,62 @@ public class ObjectFactory {
      */
     public TipoUsuario createTipoUsuario() {
         return new TipoUsuario();
+    }
+
+    /**
+     * Create an instance of {@link BilleteraVirtual }
+     * 
+     */
+    public BilleteraVirtual createBilleteraVirtual() {
+        return new BilleteraVirtual();
+    }
+
+    /**
+     * Create an instance of {@link CategoriaProducto }
+     * 
+     */
+    public CategoriaProducto createCategoriaProducto() {
+        return new CategoriaProducto();
+    }
+
+    /**
+     * Create an instance of {@link Producto }
+     * 
+     */
+    public Producto createProducto() {
+        return new Producto();
+    }
+
+    /**
+     * Create an instance of {@link CategoriaDenuncia }
+     * 
+     */
+    public CategoriaDenuncia createCategoriaDenuncia() {
+        return new CategoriaDenuncia();
+    }
+
+    /**
+     * Create an instance of {@link Denuncia }
+     * 
+     */
+    public Denuncia createDenuncia() {
+        return new Denuncia();
+    }
+
+    /**
+     * Create an instance of {@link Domicilio }
+     * 
+     */
+    public Domicilio createDomicilio() {
+        return new Domicilio();
+    }
+
+    /**
+     * Create an instance of {@link Reclamo }
+     * 
+     */
+    public Reclamo createReclamo() {
+        return new Reclamo();
     }
 
 }

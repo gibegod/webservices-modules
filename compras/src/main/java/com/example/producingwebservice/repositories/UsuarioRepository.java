@@ -9,7 +9,7 @@ import com.example.producingwebservice.model.UsuarioModel;
 
 @Repository
 public interface UsuarioRepository extends CrudRepository<UsuarioModel, Long>{
-	public abstract UsuarioModel findByNombre(String name);
+	public abstract Optional<UsuarioModel> findByNombre(String name);
 	
 	public abstract Optional<UsuarioModel> findByDni(String dni);
 	public abstract Optional<UsuarioModel> findByUsuario(String usuario);

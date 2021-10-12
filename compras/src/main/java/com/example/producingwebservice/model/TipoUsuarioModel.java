@@ -11,8 +11,7 @@ import javax.persistence.Table;
 public class TipoUsuarioModel {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id ;
-	
+	private Long id ;	
 	private String tipo;
 	public TipoUsuarioModel() {
 		super();
@@ -36,6 +35,4 @@ public class TipoUsuarioModel {
 		this.tipo = tipo;
 	}
 	
-	
-
 }

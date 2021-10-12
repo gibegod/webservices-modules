@@ -8,6 +8,7 @@
 
 package io.spring.guides.gs_producing_web_service;
 
+import java.math.BigDecimal;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -15,17 +16,18 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para tipoUsuario complex type.
+ * <p>Clase Java para billeteraVirtual complex type.
  * 
  * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
- * &lt;complexType name="tipoUsuario"&gt;
+ * &lt;complexType name="billeteraVirtual"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/&gt;
- *         &lt;element name="tipo" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="saldo" type="{http://www.w3.org/2001/XMLSchema}decimal"/&gt;
+ *         &lt;element name="vendedor" type="{http://spring.io/guides/gs-producing-web-service}usuario"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -35,15 +37,18 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "tipoUsuario", propOrder = {
+@XmlType(name = "billeteraVirtual", propOrder = {
     "id",
-    "tipo"
+    "saldo",
+    "vendedor"
 })
-public class TipoUsuario {
+public class BilleteraVirtual {
 
     protected Long id;
     @XmlElement(required = true)
-    protected String tipo;
+    protected BigDecimal saldo;
+    @XmlElement(required = true)
+    protected Usuario vendedor;
 
     /**
      * Obtiene el valor de la propiedad id.
@@ -70,27 +75,51 @@ public class TipoUsuario {
     }
 
     /**
-     * Obtiene el valor de la propiedad tipo.
+     * Obtiene el valor de la propiedad saldo.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link BigDecimal }
      *     
      */
-    public String getTipo() {
-        return tipo;
+    public BigDecimal getSaldo() {
+        return saldo;
     }
 
     /**
-     * Define el valor de la propiedad tipo.
+     * Define el valor de la propiedad saldo.
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link BigDecimal }
      *     
      */
-    public void setTipo(String value) {
-        this.tipo = value;
+    public void setSaldo(BigDecimal value) {
+        this.saldo = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad vendedor.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Usuario }
+     *     
+     */
+    public Usuario getVendedor() {
+        return vendedor;
+    }
+
+    /**
+     * Define el valor de la propiedad vendedor.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Usuario }
+     *     
+     */
+    public void setVendedor(Usuario value) {
+        this.vendedor = value;
     }
 
 }

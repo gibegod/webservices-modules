@@ -5,7 +5,7 @@
 Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.2 
 Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-Generado el: 2021.10.09 a las 09:37:49 PM ART 
+Generado el: 2021.10.12 a las 01:03:30 AM ART 
 
   -->
   <bindings scd="x-schema::tns" xmlns:tns="http://spring.io/guides/gs-producing-web-service">
@@ -35,6 +35,27 @@ Generado el: 2021.10.09 a las 09:37:49 PM ART
     </bindings>
     <bindings scd="~tns:tipoUsuario">
       <class ref="io.spring.guides.gs_producing_web_service.TipoUsuario"/>
+    </bindings>
+    <bindings scd="~tns:billeteraVirtual">
+      <class ref="io.spring.guides.gs_producing_web_service.BilleteraVirtual"/>
+    </bindings>
+    <bindings scd="~tns:categoriaProducto">
+      <class ref="io.spring.guides.gs_producing_web_service.CategoriaProducto"/>
+    </bindings>
+    <bindings scd="~tns:producto">
+      <class ref="io.spring.guides.gs_producing_web_service.Producto"/>
+    </bindings>
+    <bindings scd="~tns:categoriaDenuncia">
+      <class ref="io.spring.guides.gs_producing_web_service.CategoriaDenuncia"/>
+    </bindings>
+    <bindings scd="~tns:denuncia">
+      <class ref="io.spring.guides.gs_producing_web_service.Denuncia"/>
+    </bindings>
+    <bindings scd="~tns:domicilio">
+      <class ref="io.spring.guides.gs_producing_web_service.Domicilio"/>
+    </bindings>
+    <bindings scd="~tns:reclamo">
+      <class ref="io.spring.guides.gs_producing_web_service.Reclamo"/>
     </bindings>
   </bindings>
 </bindings>

@@ -26,6 +26,8 @@ routes.get("/login", (req, res)=>{
     })
 })
 
+////////////////// Reclamos //////////////////
+
 routes.get("/reclamos", (req, res)=>{
     req.getConnection((err, conn)=>{
         if(err) return res.send(err)
@@ -55,6 +57,43 @@ routes.put("/reclamos/atender", (req, res)=>{
         if(err) return res.send(err)
 
         conn.query("UPDATE reclamo SET estado = '"+req.query.estado+"' WHERE idReclamo = "+req.query.idReclamo, (err, rows)=>{
+            if(err) return res.send(err)
+
+            res.send(rows)
+        })
+    })
+})
+
+////////////////// Denuncias //////////////////
+routes.get("/denuncias", (req, res)=>{
+    req.getConnection((err, conn)=>{
+        if(err) return res.send(err)
+
+        conn.query("SELECT * FROM denuncia", (err, rows)=>{
+            if(err) return res.send(err)
+
+            res.send(rows)
+        })
+    })
+})
+
+routes.get("/denuncias/filtrar", (req, res)=>{
+    req.getConnection((err, conn)=>{
+        if(err) return res.send(err)
+
+        conn.query("SELECT * FROM denuncia WHERE estado = '"+req.query.estado+"'", (err, rows)=>{
+            if(err) return res.send(err)
+
+            res.send(rows)
+        })
+    })
+})
+
+routes.put("/denuncias/atender", (req, res)=>{
+    req.getConnection((err, conn)=>{
+        if(err) return res.send(err)
+
+        conn.query("UPDATE denuncia SET estado = '"+req.query.estado+"' WHERE idDenuncia = "+req.query.idDenuncia, (err, rows)=>{
             if(err) return res.send(err)
 
             res.send(rows)

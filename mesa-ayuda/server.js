@@ -11,7 +11,7 @@ const dbOptions = {
     port : 3306,
     user : "root",
     password : "",
-    database : "mesa_ayuda"
+    database : "bd-webservice"
 }
 
 app.use(myconn(mysql, dbOptions, "single"))

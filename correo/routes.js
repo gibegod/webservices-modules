@@ -58,7 +58,26 @@ routes.get("/envios", (req, res)=>{
     req.getConnection((err, conn)=>{
         if(err) return res.send(err)
 
-        conn.query("SELECT * FROM envio", (err, rows)=>{
+        var query = "SELECT * FROM envio "
+        if(req.query.cod_seguimiento != undefined){
+            query += "WHERE cod_seguimiento = '"+req.query.cod_seguimiento+"' AND "
+        }
+        else{
+            query += "WHERE true AND "
+        }
+        if(req.query.dni_destinatario != undefined){
+            query += "dni_destinatario = '"+req.query.dni_destinatario+"' AND "
+        }
+        else{
+            query += "true AND "
+        }
+        if(req.query.estado != undefined){
+            query += "estado = '"+req.query.estado+"'"
+        }
+        else{
+            query += "true"
+        }
+        conn.query(query, (err, rows)=>{
             if(err) return res.send(err)
 
             res.json(rows)

@@ -1,6 +1,8 @@
 const express = require("express")
 const routes = express.Router()
 
+const uuid = require('uuid');
+
 routes.post("/user", (req, res)=>{
     req.getConnection((err, conn)=>{
         if(err) return res.send(err)
@@ -22,6 +24,20 @@ routes.get("/login", (req, res)=>{
 
             if(rows.length == 0) res.send(false)
             else res.send(true)
+        })
+    })
+})
+
+routes.post("/envio", (req, res)=>{
+    req.getConnection((err, conn)=>{
+        if(err) return res.send(err)
+
+        const uuidV1 = uuid.v1()
+        
+        conn.query("INSERT INTO envio (id_venta, dni_destinatario, cod_seguimiento, estado) VALUES ("+req.query.id_venta+", '"+req.query.dni_destinatario+"', '"+uuidV1+"', "+"'INICIADO'"+")", (err, rows)=>{
+            if(err) return res.send(err)
+
+            res.send(uuidV1)
         })
     })
 })

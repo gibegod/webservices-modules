@@ -1,5 +1,7 @@
 package com.example.producingwebservice.model;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,22 +17,22 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "usuario")
+@Table(name = "tarjeta")
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
-public class UsuarioModel {
+public class TarjetaModel {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Getter @Setter private long id;
+	@Getter @Setter private Long id;
+	@Getter @Setter private float limiteMensual;
+	@Getter @Setter private float saldo;
+	@Getter @Setter private String numero;
+	@Getter @Setter private String cvc;
+	@Getter @Setter private String tipo;
 	@Getter @Setter private String nombre;
-	@Getter @Setter private String apellido;
-	@Getter @Setter private String dni;
-	@Getter @Setter private String usuario;
-	@Getter @Setter private String contrasenia;
-	@Getter @Setter private String telefono;
+	@Getter @Setter private Date vencimiento;
 	@ManyToOne
-	@JoinColumn(name = "FK_TIPOUSUARIO", nullable = false, updatable = false)
-	@Getter @Setter private TipoUsuarioModel tipo;
-	
+	@JoinColumn(name = "FK_USUARIO", nullable = false, updatable = false)
+	@Getter @Setter private UsuarioModel comprador;
 }

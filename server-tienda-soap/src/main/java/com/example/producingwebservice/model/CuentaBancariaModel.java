@@ -15,22 +15,20 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "usuario")
+@Table(name = "cuentaBancaria")
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
-public class UsuarioModel {
+public class CuentaBancariaModel {
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Getter @Setter private long id;
-	@Getter @Setter private String nombre;
-	@Getter @Setter private String apellido;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Getter @Setter private Long id;
+	@Getter @Setter private String banco;
+	@Getter @Setter private String alias;
+	@Getter @Setter private String cvu;
 	@Getter @Setter private String dni;
-	@Getter @Setter private String usuario;
-	@Getter @Setter private String contrasenia;
-	@Getter @Setter private String telefono;
+	@Getter @Setter private String movimientos;
 	@ManyToOne
-	@JoinColumn(name = "FK_TIPOUSUARIO", nullable = false, updatable = false)
-	@Getter @Setter private TipoUsuarioModel tipo;
-	
+	@JoinColumn(name = "FK_USUARIO", nullable = false, updatable = false)
+	@Getter @Setter private UsuarioModel vendedor;
 }

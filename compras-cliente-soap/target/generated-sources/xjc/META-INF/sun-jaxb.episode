@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<bindings xmlns="http://java.sun.com/xml/ns/jaxb" if-exists="true" version="2.1">
+      
+    <!--
+
+Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.0 
+Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
+Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
+Generado el: 2021.10.16 a las 12:18:01 AM ART 
+
+  -->
+      
+    <bindings xmlns:tns="http://spring.io/guides/gs-producing-web-service" if-exists="true" scd="x-schema::tns">
+            
+        <schemaBindings map="false">
+                  
+            <package name="com.example.consumingwebservice.wsdl"/>
+                
+        </schemaBindings>
+            
+        <bindings if-exists="true" scd="tns:getUsuarioRequest">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.GetUsuarioRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:getUsuarioResponse">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.GetUsuarioResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="~tns:usuario">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.Usuario"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:addUsuarioRequest">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.AddUsuarioRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:addUsuarioResponse">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.AddUsuarioResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:loginValRequest">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.LoginValRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:loginValResponse">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.LoginValResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="~tns:tipoUsuario">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.TipoUsuario"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="~tns:billeteraVirtual">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.BilleteraVirtual"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="~tns:categoriaProducto">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.CategoriaProducto"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="~tns:producto">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.Producto"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="~tns:categoriaDenuncia">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.CategoriaDenuncia"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="~tns:denuncia">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.Denuncia"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="~tns:domicilio">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.Domicilio"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="~tns:reclamo">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.Reclamo"/>
+                
+        </bindings>
+          
+    </bindings>
+    
+</bindings>

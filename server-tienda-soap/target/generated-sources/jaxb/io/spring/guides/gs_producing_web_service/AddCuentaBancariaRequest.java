@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="estado" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="cuentaBancaria" type="{http://spring.io/guides/gs-producing-web-service}cuentaBancaria"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -36,36 +36,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "estado"
+    "cuentaBancaria"
 })
-@XmlRootElement(name = "addTarjetaResponse")
-public class AddTarjetaResponse {
+@XmlRootElement(name = "addCuentaBancariaRequest")
+public class AddCuentaBancariaRequest {
 
     @XmlElement(required = true)
-    protected String estado;
+    protected CuentaBancaria cuentaBancaria;
 
     /**
-     * Obtiene el valor de la propiedad estado.
+     * Obtiene el valor de la propiedad cuentaBancaria.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link CuentaBancaria }
      *     
      */
-    public String getEstado() {
-        return estado;
+    public CuentaBancaria getCuentaBancaria() {
+        return cuentaBancaria;
     }
 
     /**
-     * Define el valor de la propiedad estado.
+     * Define el valor de la propiedad cuentaBancaria.
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link CuentaBancaria }
      *     
      */
-    public void setEstado(String value) {
-        this.estado = value;
+    public void setCuentaBancaria(CuentaBancaria value) {
+        this.cuentaBancaria = value;
     }
 
 }

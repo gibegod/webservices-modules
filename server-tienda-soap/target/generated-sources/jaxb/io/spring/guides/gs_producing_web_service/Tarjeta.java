@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.2 
 // Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2021.10.17 a las 01:30:00 PM ART 
+// Generado el: 2021.10.17 a las 03:09:01 PM ART 
 //
 
 
@@ -34,7 +34,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="cvc" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="tipo" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="nombre" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="vencimiento" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/&gt;
+ *         &lt;element name="vencimiento" type="{http://www.w3.org/2001/XMLSchema}dateTime"/&gt;
  *         &lt;element name="comprador" type="{http://spring.io/guides/gs-producing-web-service}usuario"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
@@ -71,6 +71,7 @@ public class Tarjeta {
     protected String tipo;
     @XmlElement(required = true)
     protected String nombre;
+    @XmlElement(required = true)
     @XmlSchemaType(name = "dateTime")
     protected XMLGregorianCalendar vencimiento;
     @XmlElement(required = true)

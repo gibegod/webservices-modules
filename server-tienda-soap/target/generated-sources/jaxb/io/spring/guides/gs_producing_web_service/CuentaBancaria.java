@@ -11,28 +11,26 @@ package io.spring.guides.gs_producing_web_service;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
- * <p>Clase Java para reclamo complex type.
+ * <p>Clase Java para cuentaBancaria complex type.
  * 
  * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
- * &lt;complexType name="reclamo"&gt;
+ * &lt;complexType name="cuentaBancaria"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/&gt;
- *         &lt;element name="estado" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="comentarioComprador" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="comentarioResolucion" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="fecha" type="{http://www.w3.org/2001/XMLSchema}date"/&gt;
- *         &lt;element name="comprador" type="{http://spring.io/guides/gs-producing-web-service}usuario"/&gt;
- *         &lt;element name="mesaAyuda" type="{http://spring.io/guides/gs-producing-web-service}usuario"/&gt;
+ *         &lt;element name="banco" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="alias" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="cvu" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="dni" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="movimientos" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="vendedor" type="{http://spring.io/guides/gs-producing-web-service}usuario"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -42,31 +40,30 @@ import javax.xml.datatype.XMLGregorianCalendar;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "reclamo", propOrder = {
+@XmlType(name = "cuentaBancaria", propOrder = {
     "id",
-    "estado",
-    "comentarioComprador",
-    "comentarioResolucion",
-    "fecha",
-    "comprador",
-    "mesaAyuda"
+    "banco",
+    "alias",
+    "cvu",
+    "dni",
+    "movimientos",
+    "vendedor"
 })
-public class Reclamo {
+public class CuentaBancaria {
 
     protected Long id;
     @XmlElement(required = true)
-    protected String estado;
+    protected String banco;
     @XmlElement(required = true)
-    protected String comentarioComprador;
+    protected String alias;
     @XmlElement(required = true)
-    protected String comentarioResolucion;
+    protected String cvu;
     @XmlElement(required = true)
-    @XmlSchemaType(name = "date")
-    protected XMLGregorianCalendar fecha;
+    protected String dni;
     @XmlElement(required = true)
-    protected Usuario comprador;
+    protected String movimientos;
     @XmlElement(required = true)
-    protected Usuario mesaAyuda;
+    protected Usuario vendedor;
 
     /**
      * Obtiene el valor de la propiedad id.
@@ -93,147 +90,147 @@ public class Reclamo {
     }
 
     /**
-     * Obtiene el valor de la propiedad estado.
+     * Obtiene el valor de la propiedad banco.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getEstado() {
-        return estado;
+    public String getBanco() {
+        return banco;
     }
 
     /**
-     * Define el valor de la propiedad estado.
+     * Define el valor de la propiedad banco.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setEstado(String value) {
-        this.estado = value;
+    public void setBanco(String value) {
+        this.banco = value;
     }
 
     /**
-     * Obtiene el valor de la propiedad comentarioComprador.
+     * Obtiene el valor de la propiedad alias.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getComentarioComprador() {
-        return comentarioComprador;
+    public String getAlias() {
+        return alias;
     }
 
     /**
-     * Define el valor de la propiedad comentarioComprador.
+     * Define el valor de la propiedad alias.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setComentarioComprador(String value) {
-        this.comentarioComprador = value;
+    public void setAlias(String value) {
+        this.alias = value;
     }
 
     /**
-     * Obtiene el valor de la propiedad comentarioResolucion.
+     * Obtiene el valor de la propiedad cvu.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getComentarioResolucion() {
-        return comentarioResolucion;
+    public String getCvu() {
+        return cvu;
     }
 
     /**
-     * Define el valor de la propiedad comentarioResolucion.
+     * Define el valor de la propiedad cvu.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setComentarioResolucion(String value) {
-        this.comentarioResolucion = value;
+    public void setCvu(String value) {
+        this.cvu = value;
     }
 
     /**
-     * Obtiene el valor de la propiedad fecha.
+     * Obtiene el valor de la propiedad dni.
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public XMLGregorianCalendar getFecha() {
-        return fecha;
+    public String getDni() {
+        return dni;
     }
 
     /**
-     * Define el valor de la propiedad fecha.
+     * Define el valor de la propiedad dni.
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public void setFecha(XMLGregorianCalendar value) {
-        this.fecha = value;
+    public void setDni(String value) {
+        this.dni = value;
     }
 
     /**
-     * Obtiene el valor de la propiedad comprador.
+     * Obtiene el valor de la propiedad movimientos.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getMovimientos() {
+        return movimientos;
+    }
+
+    /**
+     * Define el valor de la propiedad movimientos.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setMovimientos(String value) {
+        this.movimientos = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad vendedor.
      * 
      * @return
      *     possible object is
      *     {@link Usuario }
      *     
      */
-    public Usuario getComprador() {
-        return comprador;
+    public Usuario getVendedor() {
+        return vendedor;
     }
 
     /**
-     * Define el valor de la propiedad comprador.
+     * Define el valor de la propiedad vendedor.
      * 
      * @param value
      *     allowed object is
      *     {@link Usuario }
      *     
      */
-    public void setComprador(Usuario value) {
-        this.comprador = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad mesaAyuda.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Usuario }
-     *     
-     */
-    public Usuario getMesaAyuda() {
-        return mesaAyuda;
-    }
-
-    /**
-     * Define el valor de la propiedad mesaAyuda.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Usuario }
-     *     
-     */
-    public void setMesaAyuda(Usuario value) {
-        this.mesaAyuda = value;
+    public void setVendedor(Usuario value) {
+        this.vendedor = value;
     }
 
 }

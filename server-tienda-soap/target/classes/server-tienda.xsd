@@ -98,6 +98,22 @@
         </xs:complexType>
     </xs:element>
     
+    <xs:element name="addCuentaBancariaRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="cuentaBancaria" type="tns:cuentaBancaria"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="addCuentaBancariaResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="estado" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
     <xs:complexType name="usuario">
         <xs:sequence>
         	<xs:element name="id" type="xs:long" minOccurs="0"/>
@@ -203,8 +219,20 @@
             <xs:element name="cvc" type="xs:string"/>
             <xs:element name="tipo" type="xs:string"/>
             <xs:element name="nombre" type="xs:string"/>
-            <xs:element name="vencimiento" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="vencimiento" type="xs:dateTime"/>
             <xs:element name="comprador" type="tns:usuario"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="cuentaBancaria">
+        <xs:sequence>
+        	<xs:element name="id" type="xs:long" minOccurs="0"/>
+            <xs:element name="banco" type="xs:string"/>
+            <xs:element name="alias" type="xs:string"/>
+            <xs:element name="cvu" type="xs:string"/>
+            <xs:element name="dni" type="xs:string"/>
+            <xs:element name="movimientos" type="xs:string"/>
+            <xs:element name="vendedor" type="tns:usuario"/>
         </xs:sequence>
     </xs:complexType>
 </xs:schema>

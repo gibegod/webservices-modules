@@ -5,7 +5,7 @@
 Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.2 
 Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-Generado el: 2021.10.12 a las 01:03:30 AM ART 
+Generado el: 2021.10.16 a las 08:47:59 PM ART 
 
   -->
   <bindings scd="x-schema::tns" xmlns:tns="http://spring.io/guides/gs-producing-web-service">
@@ -26,6 +26,12 @@ Generado el: 2021.10.12 a las 01:03:30 AM ART
     </bindings>
     <bindings scd="tns:addUsuarioResponse">
       <class ref="io.spring.guides.gs_producing_web_service.AddUsuarioResponse"/>
+    </bindings>
+    <bindings scd="tns:updateUsuarioRequest">
+      <class ref="io.spring.guides.gs_producing_web_service.UpdateUsuarioRequest"/>
+    </bindings>
+    <bindings scd="tns:updateUsuarioResponse">
+      <class ref="io.spring.guides.gs_producing_web_service.UpdateUsuarioResponse"/>
     </bindings>
     <bindings scd="tns:loginValRequest">
       <class ref="io.spring.guides.gs_producing_web_service.LoginValRequest"/>

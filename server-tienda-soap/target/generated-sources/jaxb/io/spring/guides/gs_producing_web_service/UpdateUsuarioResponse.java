@@ -25,8 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="usuario" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="contrasenia" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="estado" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -37,63 +36,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "usuario",
-    "contrasenia"
+    "estado"
 })
-@XmlRootElement(name = "loginValRequest")
-public class LoginValRequest {
+@XmlRootElement(name = "updateUsuarioResponse")
+public class UpdateUsuarioResponse {
 
     @XmlElement(required = true)
-    protected String usuario;
-    @XmlElement(required = true)
-    protected String contrasenia;
+    protected String estado;
 
     /**
-     * Obtiene el valor de la propiedad usuario.
+     * Obtiene el valor de la propiedad estado.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getUsuario() {
-        return usuario;
+    public String getEstado() {
+        return estado;
     }
 
     /**
-     * Define el valor de la propiedad usuario.
+     * Define el valor de la propiedad estado.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setUsuario(String value) {
-        this.usuario = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad contrasenia.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getContrasenia() {
-        return contrasenia;
-    }
-
-    /**
-     * Define el valor de la propiedad contrasenia.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setContrasenia(String value) {
-        this.contrasenia = value;
+    public void setEstado(String value) {
+        this.estado = value;
     }
 
 }

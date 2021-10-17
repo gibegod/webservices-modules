@@ -1,12 +1,12 @@
 //
-// Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.2 
+// Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.0 
 // Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2021.10.16 a las 08:47:59 PM ART 
+// Generado el: 2021.10.16 a las 10:57:16 PM ART 
 //
 
 
-package io.spring.guides.gs_producing_web_service;
+package com.example.consumingwebservice.wsdl;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -25,8 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="usuario" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="contrasenia" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="usuario" type="{http://spring.io/guides/gs-producing-web-service}usuario"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -37,26 +36,23 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "usuario",
-    "contrasenia"
+    "usuario"
 })
-@XmlRootElement(name = "loginValRequest")
-public class LoginValRequest {
+@XmlRootElement(name = "updateUsuarioRequest")
+public class UpdateUsuarioRequest {
 
     @XmlElement(required = true)
-    protected String usuario;
-    @XmlElement(required = true)
-    protected String contrasenia;
+    protected Usuario usuario;
 
     /**
      * Obtiene el valor de la propiedad usuario.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link Usuario }
      *     
      */
-    public String getUsuario() {
+    public Usuario getUsuario() {
         return usuario;
     }
 
@@ -65,35 +61,11 @@ public class LoginValRequest {
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link Usuario }
      *     
      */
-    public void setUsuario(String value) {
+    public void setUsuario(Usuario value) {
         this.usuario = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad contrasenia.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getContrasenia() {
-        return contrasenia;
-    }
-
-    /**
-     * Define el valor de la propiedad contrasenia.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setContrasenia(String value) {
-        this.contrasenia = value;
     }
 
 }

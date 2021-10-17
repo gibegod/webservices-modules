@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.0 
 // Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2021.10.16 a las 08:00:03 PM ART 
+// Generado el: 2021.10.16 a las 11:12:20 PM ART 
 //
 
 
@@ -74,6 +74,22 @@ public class ObjectFactory {
      */
     public AddUsuarioResponse createAddUsuarioResponse() {
         return new AddUsuarioResponse();
+    }
+
+    /**
+     * Create an instance of {@link UpdateUsuarioRequest }
+     * 
+     */
+    public UpdateUsuarioRequest createUpdateUsuarioRequest() {
+        return new UpdateUsuarioRequest();
+    }
+
+    /**
+     * Create an instance of {@link UpdateUsuarioResponse }
+     * 
+     */
+    public UpdateUsuarioResponse createUpdateUsuarioResponse() {
+        return new UpdateUsuarioResponse();
     }
 
     /**

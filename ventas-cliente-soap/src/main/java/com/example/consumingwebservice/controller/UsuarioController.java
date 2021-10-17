@@ -12,6 +12,7 @@ import com.example.consumingwebservice.VentasClient;
 import com.example.consumingwebservice.dto.UsuarioLoginDTO;
 import com.example.consumingwebservice.wsdl.GetUsuarioResponse;
 import com.example.consumingwebservice.wsdl.LoginValResponse;
+import com.example.consumingwebservice.wsdl.UpdateUsuarioResponse;
 import com.example.consumingwebservice.wsdl.Usuario;
 
 @RestController
@@ -29,6 +30,12 @@ public class UsuarioController {
 	@PostMapping(path = "/login")
 	public String validarUser(@RequestBody UsuarioLoginDTO usuario) {
 		LoginValResponse response = ventasClient.validator(usuario.getUser(), usuario.getPass());
+		return response.getEstado();
+	}
+	
+	@PostMapping(path = "/update")
+	public String modificarUser(@RequestBody Usuario usuario) {
+		UpdateUsuarioResponse response = ventasClient.updateUser(usuario);
 		return response.getEstado();
 	}
 }

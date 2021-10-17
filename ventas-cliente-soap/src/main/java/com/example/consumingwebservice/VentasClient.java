@@ -10,6 +10,9 @@ import com.example.consumingwebservice.wsdl.GetUsuarioRequest;
 import com.example.consumingwebservice.wsdl.GetUsuarioResponse;
 import com.example.consumingwebservice.wsdl.LoginValRequest;
 import com.example.consumingwebservice.wsdl.LoginValResponse;
+import com.example.consumingwebservice.wsdl.UpdateUsuarioRequest;
+import com.example.consumingwebservice.wsdl.UpdateUsuarioResponse;
+import com.example.consumingwebservice.wsdl.Usuario;
 
 public class VentasClient extends WebServiceGatewaySupport {
 
@@ -33,6 +36,16 @@ public class VentasClient extends WebServiceGatewaySupport {
 		request.setContrasenia(pass);
 		request.setUsuario(user);
 		LoginValResponse response = (LoginValResponse) getWebServiceTemplate()
+				.marshalSendAndReceive("http://localhost:8080/ws/compras", request,
+						new SoapActionCallback(
+								"http://spring.io/guides/gs-producing-web-service/GetCountryRequest"));
+		return response;
+	}
+	
+	public UpdateUsuarioResponse updateUser(Usuario user) {
+		UpdateUsuarioRequest request = new UpdateUsuarioRequest();
+		request.setUsuario(user);
+		UpdateUsuarioResponse response = (UpdateUsuarioResponse) getWebServiceTemplate()
 				.marshalSendAndReceive("http://localhost:8080/ws/compras", request,
 						new SoapActionCallback(
 								"http://spring.io/guides/gs-producing-web-service/GetCountryRequest"));

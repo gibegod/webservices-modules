@@ -6,10 +6,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.ws.client.core.support.WebServiceGatewaySupport;
 import org.springframework.ws.soap.client.core.SoapActionCallback;
 
+import com.example.consumingwebservice.wsdl.AddCuentaBancariaRequest;
+import com.example.consumingwebservice.wsdl.AddCuentaBancariaResponse;
 import com.example.consumingwebservice.wsdl.AddDomicilioRequest;
 import com.example.consumingwebservice.wsdl.AddDomicilioResponse;
 import com.example.consumingwebservice.wsdl.AddUsuarioRequest;
 import com.example.consumingwebservice.wsdl.AddUsuarioResponse;
+import com.example.consumingwebservice.wsdl.CuentaBancaria;
 import com.example.consumingwebservice.wsdl.Domicilio;
 import com.example.consumingwebservice.wsdl.GetUsuarioRequest;
 import com.example.consumingwebservice.wsdl.GetUsuarioResponse;
@@ -71,6 +74,16 @@ public class VentasClient extends WebServiceGatewaySupport {
 		AddDomicilioRequest request = new AddDomicilioRequest();
 		request.setDomicilio(domicilio);
 		AddDomicilioResponse response = (AddDomicilioResponse) getWebServiceTemplate()
+				.marshalSendAndReceive("http://localhost:8080/ws/server", request,
+						new SoapActionCallback(
+								"http://spring.io/guides/gs-producing-web-service"));
+		return response;
+	}
+	
+	public AddCuentaBancariaResponse addCuentaBancaria(CuentaBancaria cuentaBancaria) {
+		AddCuentaBancariaRequest request = new AddCuentaBancariaRequest();
+		request.setCuentaBancaria(cuentaBancaria);
+		AddCuentaBancariaResponse response = (AddCuentaBancariaResponse) getWebServiceTemplate()
 				.marshalSendAndReceive("http://localhost:8080/ws/server", request,
 						new SoapActionCallback(
 								"http://spring.io/guides/gs-producing-web-service"));

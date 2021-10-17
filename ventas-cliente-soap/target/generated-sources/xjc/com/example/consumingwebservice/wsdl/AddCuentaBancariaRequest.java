@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="usuario" type="{http://spring.io/guides/gs-producing-web-service}usuario"/&gt;
+ *         &lt;element name="cuentaBancaria" type="{http://spring.io/guides/gs-producing-web-service}cuentaBancaria"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -36,36 +36,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "usuario"
+    "cuentaBancaria"
 })
-@XmlRootElement(name = "updateUsuarioRequest")
-public class UpdateUsuarioRequest {
+@XmlRootElement(name = "addCuentaBancariaRequest")
+public class AddCuentaBancariaRequest {
 
     @XmlElement(required = true)
-    protected Usuario usuario;
+    protected CuentaBancaria cuentaBancaria;
 
     /**
-     * Obtiene el valor de la propiedad usuario.
+     * Obtiene el valor de la propiedad cuentaBancaria.
      * 
      * @return
      *     possible object is
-     *     {@link Usuario }
+     *     {@link CuentaBancaria }
      *     
      */
-    public Usuario getUsuario() {
-        return usuario;
+    public CuentaBancaria getCuentaBancaria() {
+        return cuentaBancaria;
     }
 
     /**
-     * Define el valor de la propiedad usuario.
+     * Define el valor de la propiedad cuentaBancaria.
      * 
      * @param value
      *     allowed object is
-     *     {@link Usuario }
+     *     {@link CuentaBancaria }
      *     
      */
-    public void setUsuario(Usuario value) {
-        this.usuario = value;
+    public void setCuentaBancaria(CuentaBancaria value) {
+        this.cuentaBancaria = value;
     }
 
 }

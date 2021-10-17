@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.0 
 // Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2021.10.17 a las 02:09:00 AM ART 
+// Generado el: 2021.10.17 a las 04:09:45 PM ART 
 //
 
 
@@ -130,6 +130,54 @@ public class ObjectFactory {
      */
     public AddDomicilioResponse createAddDomicilioResponse() {
         return new AddDomicilioResponse();
+    }
+
+    /**
+     * Create an instance of {@link AddTarjetaRequest }
+     * 
+     */
+    public AddTarjetaRequest createAddTarjetaRequest() {
+        return new AddTarjetaRequest();
+    }
+
+    /**
+     * Create an instance of {@link Tarjeta }
+     * 
+     */
+    public Tarjeta createTarjeta() {
+        return new Tarjeta();
+    }
+
+    /**
+     * Create an instance of {@link AddTarjetaResponse }
+     * 
+     */
+    public AddTarjetaResponse createAddTarjetaResponse() {
+        return new AddTarjetaResponse();
+    }
+
+    /**
+     * Create an instance of {@link AddCuentaBancariaRequest }
+     * 
+     */
+    public AddCuentaBancariaRequest createAddCuentaBancariaRequest() {
+        return new AddCuentaBancariaRequest();
+    }
+
+    /**
+     * Create an instance of {@link CuentaBancaria }
+     * 
+     */
+    public CuentaBancaria createCuentaBancaria() {
+        return new CuentaBancaria();
+    }
+
+    /**
+     * Create an instance of {@link AddCuentaBancariaResponse }
+     * 
+     */
+    public AddCuentaBancariaResponse createAddCuentaBancariaResponse() {
+        return new AddCuentaBancariaResponse();
     }
 
     /**

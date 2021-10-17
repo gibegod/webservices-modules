@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="usuario" type="{http://spring.io/guides/gs-producing-web-service}usuario"/&gt;
+ *         &lt;element name="estado" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -36,36 +36,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "usuario"
+    "estado"
 })
-@XmlRootElement(name = "updateUsuarioRequest")
-public class UpdateUsuarioRequest {
+@XmlRootElement(name = "addCuentaBancariaResponse")
+public class AddCuentaBancariaResponse {
 
     @XmlElement(required = true)
-    protected Usuario usuario;
+    protected String estado;
 
     /**
-     * Obtiene el valor de la propiedad usuario.
+     * Obtiene el valor de la propiedad estado.
      * 
      * @return
      *     possible object is
-     *     {@link Usuario }
+     *     {@link String }
      *     
      */
-    public Usuario getUsuario() {
-        return usuario;
+    public String getEstado() {
+        return estado;
     }
 
     /**
-     * Define el valor de la propiedad usuario.
+     * Define el valor de la propiedad estado.
      * 
      * @param value
      *     allowed object is
-     *     {@link Usuario }
+     *     {@link String }
      *     
      */
-    public void setUsuario(Usuario value) {
-        this.usuario = value;
+    public void setEstado(String value) {
+        this.estado = value;
     }
 
 }

@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.consumingwebservice.VentasClient;
 import com.example.consumingwebservice.dto.UsuarioLoginDTO;
+import com.example.consumingwebservice.wsdl.AddCuentaBancariaResponse;
 import com.example.consumingwebservice.wsdl.AddDomicilioResponse;
 import com.example.consumingwebservice.wsdl.AddUsuarioResponse;
+import com.example.consumingwebservice.wsdl.CuentaBancaria;
 import com.example.consumingwebservice.wsdl.Domicilio;
 import com.example.consumingwebservice.wsdl.GetUsuarioResponse;
 import com.example.consumingwebservice.wsdl.LoginValResponse;
@@ -51,6 +53,12 @@ public class UsuarioController {
 	@PostMapping(path = "/domicilio")
 	public String agregarDomicilio(@RequestBody Domicilio domicilio) {
 		AddDomicilioResponse response = ventasClient.addDomicilio(domicilio);
+		return response.getEstado();
+	}
+	
+	@PostMapping(path = "/cuentaBancaria")
+	public String agregarCuentaBancaria(@RequestBody CuentaBancaria cuentaBancaria) {
+		AddCuentaBancariaResponse response = ventasClient.addCuentaBancaria(cuentaBancaria);
 		return response.getEstado();
 	}
 }

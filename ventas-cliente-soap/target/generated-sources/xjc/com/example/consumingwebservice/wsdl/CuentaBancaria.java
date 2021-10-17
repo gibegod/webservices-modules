@@ -15,23 +15,22 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para usuario complex type.
+ * <p>Clase Java para cuentaBancaria complex type.
  * 
  * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
- * &lt;complexType name="usuario"&gt;
+ * &lt;complexType name="cuentaBancaria"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/&gt;
- *         &lt;element name="telefono" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="nombre" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="apellido" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="banco" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="alias" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="cvu" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="dni" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="usuario" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="contrasenia" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="tipoUsuario" type="{http://spring.io/guides/gs-producing-web-service}tipoUsuario"/&gt;
+ *         &lt;element name="movimientos" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="vendedor" type="{http://spring.io/guides/gs-producing-web-service}usuario"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -41,32 +40,30 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "usuario", propOrder = {
+@XmlType(name = "cuentaBancaria", propOrder = {
     "id",
-    "telefono",
-    "nombre",
-    "apellido",
+    "banco",
+    "alias",
+    "cvu",
     "dni",
-    "usuario",
-    "contrasenia",
-    "tipoUsuario"
+    "movimientos",
+    "vendedor"
 })
-public class Usuario {
+public class CuentaBancaria {
 
     protected Long id;
-    protected String telefono;
     @XmlElement(required = true)
-    protected String nombre;
+    protected String banco;
     @XmlElement(required = true)
-    protected String apellido;
+    protected String alias;
+    @XmlElement(required = true)
+    protected String cvu;
     @XmlElement(required = true)
     protected String dni;
     @XmlElement(required = true)
-    protected String usuario;
+    protected String movimientos;
     @XmlElement(required = true)
-    protected String contrasenia;
-    @XmlElement(required = true)
-    protected TipoUsuario tipoUsuario;
+    protected Usuario vendedor;
 
     /**
      * Obtiene el valor de la propiedad id.
@@ -93,75 +90,75 @@ public class Usuario {
     }
 
     /**
-     * Obtiene el valor de la propiedad telefono.
+     * Obtiene el valor de la propiedad banco.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getTelefono() {
-        return telefono;
+    public String getBanco() {
+        return banco;
     }
 
     /**
-     * Define el valor de la propiedad telefono.
+     * Define el valor de la propiedad banco.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setTelefono(String value) {
-        this.telefono = value;
+    public void setBanco(String value) {
+        this.banco = value;
     }
 
     /**
-     * Obtiene el valor de la propiedad nombre.
+     * Obtiene el valor de la propiedad alias.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getNombre() {
-        return nombre;
+    public String getAlias() {
+        return alias;
     }
 
     /**
-     * Define el valor de la propiedad nombre.
+     * Define el valor de la propiedad alias.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setNombre(String value) {
-        this.nombre = value;
+    public void setAlias(String value) {
+        this.alias = value;
     }
 
     /**
-     * Obtiene el valor de la propiedad apellido.
+     * Obtiene el valor de la propiedad cvu.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getApellido() {
-        return apellido;
+    public String getCvu() {
+        return cvu;
     }
 
     /**
-     * Define el valor de la propiedad apellido.
+     * Define el valor de la propiedad cvu.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setApellido(String value) {
-        this.apellido = value;
+    public void setCvu(String value) {
+        this.cvu = value;
     }
 
     /**
@@ -189,75 +186,51 @@ public class Usuario {
     }
 
     /**
-     * Obtiene el valor de la propiedad usuario.
+     * Obtiene el valor de la propiedad movimientos.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getUsuario() {
-        return usuario;
+    public String getMovimientos() {
+        return movimientos;
     }
 
     /**
-     * Define el valor de la propiedad usuario.
+     * Define el valor de la propiedad movimientos.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setUsuario(String value) {
-        this.usuario = value;
+    public void setMovimientos(String value) {
+        this.movimientos = value;
     }
 
     /**
-     * Obtiene el valor de la propiedad contrasenia.
+     * Obtiene el valor de la propiedad vendedor.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link Usuario }
      *     
      */
-    public String getContrasenia() {
-        return contrasenia;
+    public Usuario getVendedor() {
+        return vendedor;
     }
 
     /**
-     * Define el valor de la propiedad contrasenia.
+     * Define el valor de la propiedad vendedor.
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link Usuario }
      *     
      */
-    public void setContrasenia(String value) {
-        this.contrasenia = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad tipoUsuario.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TipoUsuario }
-     *     
-     */
-    public TipoUsuario getTipoUsuario() {
-        return tipoUsuario;
-    }
-
-    /**
-     * Define el valor de la propiedad tipoUsuario.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TipoUsuario }
-     *     
-     */
-    public void setTipoUsuario(TipoUsuario value) {
-        this.tipoUsuario = value;
+    public void setVendedor(Usuario value) {
+        this.vendedor = value;
     }
 
 }

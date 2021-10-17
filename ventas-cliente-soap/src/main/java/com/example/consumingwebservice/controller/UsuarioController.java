@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.consumingwebservice.VentasClient;
 import com.example.consumingwebservice.dto.UsuarioLoginDTO;
+import com.example.consumingwebservice.wsdl.AddUsuarioResponse;
 import com.example.consumingwebservice.wsdl.GetUsuarioResponse;
 import com.example.consumingwebservice.wsdl.LoginValResponse;
 import com.example.consumingwebservice.wsdl.UpdateUsuarioResponse;
@@ -36,6 +37,12 @@ public class UsuarioController {
 	@PostMapping(path = "/update")
 	public String modificarUser(@RequestBody Usuario usuario) {
 		UpdateUsuarioResponse response = ventasClient.updateUser(usuario);
+		return response.getEstado();
+	}
+	
+	@PostMapping(path = "/register")
+	public String registrarUser(@RequestBody Usuario usuario) {
+		AddUsuarioResponse response = ventasClient.signInUser(usuario);
 		return response.getEstado();
 	}
 }

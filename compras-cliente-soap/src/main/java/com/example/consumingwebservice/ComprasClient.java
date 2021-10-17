@@ -6,6 +6,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.ws.client.core.support.WebServiceGatewaySupport;
 import org.springframework.ws.soap.client.core.SoapActionCallback;
 
+import com.example.consumingwebservice.wsdl.AddUsuarioRequest;
+import com.example.consumingwebservice.wsdl.AddUsuarioResponse;
 import com.example.consumingwebservice.wsdl.GetUsuarioRequest;
 import com.example.consumingwebservice.wsdl.GetUsuarioResponse;
 import com.example.consumingwebservice.wsdl.LoginValRequest;
@@ -46,6 +48,16 @@ public class ComprasClient extends WebServiceGatewaySupport {
 		UpdateUsuarioRequest request = new UpdateUsuarioRequest();
 		request.setUsuario(user);
 		UpdateUsuarioResponse response = (UpdateUsuarioResponse) getWebServiceTemplate()
+				.marshalSendAndReceive("http://localhost:8080/ws/compras", request,
+						new SoapActionCallback(
+								"http://spring.io/guides/gs-producing-web-service/GetCountryRequest"));
+		return response;
+	}
+	
+	public AddUsuarioResponse signInUser(Usuario user) {
+		AddUsuarioRequest request = new AddUsuarioRequest();
+		request.setUsuario(user);
+		AddUsuarioResponse response = (AddUsuarioResponse) getWebServiceTemplate()
 				.marshalSendAndReceive("http://localhost:8080/ws/compras", request,
 						new SoapActionCallback(
 								"http://spring.io/guides/gs-producing-web-service/GetCountryRequest"));

@@ -45,7 +45,7 @@ routes.patch("/envio", (req, res)=>{
     req.getConnection((err, conn)=>{
         if(err) return res.send(err)
 
-        conn.query("UPDATE envio SET estado = '"+req.query.estado+"' WHERE cod_seguimiento = '"+req.query.cod_seguimiento+"'", (err, rows)=>{
+        conn.query("UPDATE envio SET estado = '"+req.body.params.estado+"' WHERE cod_seguimiento = '"+req.body.params.cod_seguimiento+"'", (err, rows)=>{
             if(err) return res.send(err)
 
             res.send(rows)

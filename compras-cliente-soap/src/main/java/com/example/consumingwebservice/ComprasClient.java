@@ -6,8 +6,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.ws.client.core.support.WebServiceGatewaySupport;
 import org.springframework.ws.soap.client.core.SoapActionCallback;
 
+import com.example.consumingwebservice.wsdl.AddDomicilioRequest;
+import com.example.consumingwebservice.wsdl.AddDomicilioResponse;
 import com.example.consumingwebservice.wsdl.AddUsuarioRequest;
 import com.example.consumingwebservice.wsdl.AddUsuarioResponse;
+import com.example.consumingwebservice.wsdl.Domicilio;
 import com.example.consumingwebservice.wsdl.GetUsuarioRequest;
 import com.example.consumingwebservice.wsdl.GetUsuarioResponse;
 import com.example.consumingwebservice.wsdl.LoginValRequest;
@@ -58,6 +61,16 @@ public class ComprasClient extends WebServiceGatewaySupport {
 		AddUsuarioRequest request = new AddUsuarioRequest();
 		request.setUsuario(user);
 		AddUsuarioResponse response = (AddUsuarioResponse) getWebServiceTemplate()
+				.marshalSendAndReceive("http://localhost:8080/ws/compras", request,
+						new SoapActionCallback(
+								"http://spring.io/guides/gs-producing-web-service/GetCountryRequest"));
+		return response;
+	}
+	
+	public AddDomicilioResponse addDomicilio(Domicilio domicilio) {
+		AddDomicilioRequest request = new AddDomicilioRequest();
+		request.setDomicilio(domicilio);
+		AddDomicilioResponse response = (AddDomicilioResponse) getWebServiceTemplate()
 				.marshalSendAndReceive("http://localhost:8080/ws/compras", request,
 						new SoapActionCallback(
 								"http://spring.io/guides/gs-producing-web-service/GetCountryRequest"));

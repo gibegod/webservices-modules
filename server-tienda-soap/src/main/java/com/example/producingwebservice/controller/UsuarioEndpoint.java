@@ -11,8 +11,11 @@ import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
 import com.example.producingwebservice.model.UsuarioModel;
+import com.example.producingwebservice.services.DomicilioService;
 import com.example.producingwebservice.services.UsuarioService;
 
+import io.spring.guides.gs_producing_web_service.AddDomicilioRequest;
+import io.spring.guides.gs_producing_web_service.AddDomicilioResponse;
 import io.spring.guides.gs_producing_web_service.AddUsuarioRequest;
 import io.spring.guides.gs_producing_web_service.AddUsuarioResponse;
 import io.spring.guides.gs_producing_web_service.GetUsuarioRequest;
@@ -30,7 +33,9 @@ public class UsuarioEndpoint {
 
 	private UsuarioService usuarioService;
 	UsuarioMapper usuarioMap = new UsuarioMapper();
-
+	
+	@Autowired
+	DomicilioService domicilioService = new DomicilioService();
 	@Autowired
 	public UsuarioEndpoint(UsuarioService usuarioS) {
 		this.usuarioService = usuarioS;
@@ -71,6 +76,14 @@ public class UsuarioEndpoint {
 	public UpdateUsuarioResponse updateUsuario(@RequestPayload UpdateUsuarioRequest request) {
 		UpdateUsuarioResponse response = new UpdateUsuarioResponse();
 		response.setEstado(usuarioService.modificarUsuario(request.getUsuario()));
+		return response;
+	}
+	
+	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "addDomicilioRequest")
+	@ResponsePayload
+	public AddDomicilioResponse addDomicilio(@RequestPayload AddDomicilioRequest request) {
+		AddDomicilioResponse response = new AddDomicilioResponse();
+		response.setEstado(domicilioService.guardarDomicilio(request.getDomicilio()) ) ;
 		return response;
 	}
 

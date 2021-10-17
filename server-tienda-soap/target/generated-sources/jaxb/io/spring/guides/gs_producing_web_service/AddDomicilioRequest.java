@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="estado" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="domicilio" type="{http://spring.io/guides/gs-producing-web-service}domicilio"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -36,36 +36,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "estado"
+    "domicilio"
 })
-@XmlRootElement(name = "updateUsuarioResponse")
-public class UpdateUsuarioResponse {
+@XmlRootElement(name = "addDomicilioRequest")
+public class AddDomicilioRequest {
 
     @XmlElement(required = true)
-    protected String estado;
+    protected Domicilio domicilio;
 
     /**
-     * Obtiene el valor de la propiedad estado.
+     * Obtiene el valor de la propiedad domicilio.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link Domicilio }
      *     
      */
-    public String getEstado() {
-        return estado;
+    public Domicilio getDomicilio() {
+        return domicilio;
     }
 
     /**
-     * Define el valor de la propiedad estado.
+     * Define el valor de la propiedad domicilio.
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link Domicilio }
      *     
      */
-    public void setEstado(String value) {
-        this.estado = value;
+    public void setDomicilio(Domicilio value) {
+        this.domicilio = value;
     }
 
 }

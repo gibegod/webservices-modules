@@ -24,7 +24,7 @@ public class DomicilioModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Getter @Setter private Long id;
 	@Getter @Setter private String calle;
-	@Getter @Setter private Integer numero;
+	@Getter @Setter private String numero;
 	@Getter @Setter private String piso;
 	@Getter @Setter private String departamento;
 	@Getter @Setter private String localidad;

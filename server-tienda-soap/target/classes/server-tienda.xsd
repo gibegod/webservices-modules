@@ -66,6 +66,22 @@
         </xs:complexType>
     </xs:element>
     
+    <xs:element name="addDomicilioRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="domicilio" type="tns:domicilio"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="addDomicilioResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="estado" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
     <xs:complexType name="usuario">
         <xs:sequence>
         	<xs:element name="id" type="xs:long" minOccurs="0"/>

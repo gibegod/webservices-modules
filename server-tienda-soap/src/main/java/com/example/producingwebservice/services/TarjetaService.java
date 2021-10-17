@@ -14,7 +14,7 @@ import mapper.TarjetaMapper;
 
 @Service
 @Component
-public class TarjetaService {
+public class TarjetaService { //No distingue si es comprador o vendedor , falta definir el tipo ya que la tarjeta solo va al comprador
 	@Autowired
 	TarjetaRepository tarjetaRepository;
 	@Autowired

@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="tarjeta" type="{http://spring.io/guides/gs-producing-web-service}tarjeta"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -36,36 +36,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "name"
+    "tarjeta"
 })
-@XmlRootElement(name = "getUsuarioRequest")
-public class GetUsuarioRequest {
+@XmlRootElement(name = "addTarjetaRequest")
+public class AddTarjetaRequest {
 
     @XmlElement(required = true)
-    protected String name;
+    protected Tarjeta tarjeta;
 
     /**
-     * Obtiene el valor de la propiedad name.
+     * Obtiene el valor de la propiedad tarjeta.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link Tarjeta }
      *     
      */
-    public String getName() {
-        return name;
+    public Tarjeta getTarjeta() {
+        return tarjeta;
     }
 
     /**
-     * Define el valor de la propiedad name.
+     * Define el valor de la propiedad tarjeta.
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link Tarjeta }
      *     
      */
-    public void setName(String value) {
-        this.name = value;
+    public void setTarjeta(Tarjeta value) {
+        this.tarjeta = value;
     }
 
 }

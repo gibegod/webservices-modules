@@ -8,6 +8,8 @@ import org.springframework.ws.soap.client.core.SoapActionCallback;
 
 import com.example.consumingwebservice.wsdl.AddDomicilioRequest;
 import com.example.consumingwebservice.wsdl.AddDomicilioResponse;
+import com.example.consumingwebservice.wsdl.AddTarjetaRequest;
+import com.example.consumingwebservice.wsdl.AddTarjetaResponse;
 import com.example.consumingwebservice.wsdl.AddUsuarioRequest;
 import com.example.consumingwebservice.wsdl.AddUsuarioResponse;
 import com.example.consumingwebservice.wsdl.Domicilio;
@@ -15,6 +17,7 @@ import com.example.consumingwebservice.wsdl.GetUsuarioRequest;
 import com.example.consumingwebservice.wsdl.GetUsuarioResponse;
 import com.example.consumingwebservice.wsdl.LoginValRequest;
 import com.example.consumingwebservice.wsdl.LoginValResponse;
+import com.example.consumingwebservice.wsdl.Tarjeta;
 import com.example.consumingwebservice.wsdl.UpdateUsuarioRequest;
 import com.example.consumingwebservice.wsdl.UpdateUsuarioResponse;
 import com.example.consumingwebservice.wsdl.Usuario;
@@ -76,4 +79,15 @@ public class ComprasClient extends WebServiceGatewaySupport {
 								"http://spring.io/guides/gs-producing-web-service"));
 		return response;
 	}
+	
+	public AddTarjetaResponse addTarjeta(Tarjeta tarjeta) {
+		AddTarjetaRequest request = new AddTarjetaRequest();
+		request.setTarjeta(tarjeta);
+		AddTarjetaResponse response = (AddTarjetaResponse) getWebServiceTemplate()
+				.marshalSendAndReceive("http://localhost:8080/ws/server", request,
+						new SoapActionCallback(
+								"http://spring.io/guides/gs-producing-web-service"));
+		return response;
+	}
+	
 }

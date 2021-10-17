@@ -11,10 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.consumingwebservice.ComprasClient;
 import com.example.consumingwebservice.dto.UsuarioLoginDTO;
 import com.example.consumingwebservice.wsdl.AddDomicilioResponse;
+import com.example.consumingwebservice.wsdl.AddTarjetaResponse;
 import com.example.consumingwebservice.wsdl.AddUsuarioResponse;
 import com.example.consumingwebservice.wsdl.Domicilio;
 import com.example.consumingwebservice.wsdl.GetUsuarioResponse;
 import com.example.consumingwebservice.wsdl.LoginValResponse;
+import com.example.consumingwebservice.wsdl.Tarjeta;
 import com.example.consumingwebservice.wsdl.UpdateUsuarioResponse;
 import com.example.consumingwebservice.wsdl.Usuario;
 
@@ -51,6 +53,12 @@ public class UsuarioController {
 	@PostMapping(path = "/domicilio")
 	public String agregarDomicilio(@RequestBody Domicilio domicilio) {
 		AddDomicilioResponse response = comprasClient.addDomicilio(domicilio);
+		return response.getEstado();
+	}
+	
+	@PostMapping(path = "/tarjeta")
+	public String agregaTarjeta(@RequestBody Tarjeta tarjeta) {
+		AddTarjetaResponse response = comprasClient.addTarjeta(tarjeta);
 		return response.getEstado();
 	}
 }

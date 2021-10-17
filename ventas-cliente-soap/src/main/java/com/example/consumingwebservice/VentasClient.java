@@ -29,9 +29,9 @@ public class VentasClient extends WebServiceGatewaySupport {
 		request.setName(name);
 		log.info("Searching user : " + name);
 		GetUsuarioResponse response = (GetUsuarioResponse) getWebServiceTemplate()
-				.marshalSendAndReceive("http://localhost:8080/ws/compras", request,
+				.marshalSendAndReceive("http://localhost:8080/ws/server", request,
 						new SoapActionCallback(
-								"http://spring.io/guides/gs-producing-web-service/GetCountryRequest"));
+								"http://spring.io/guides/gs-producing-web-service"));
 		return response;
 	}
 	
@@ -41,9 +41,9 @@ public class VentasClient extends WebServiceGatewaySupport {
 		request.setContrasenia(pass);
 		request.setUsuario(user);
 		LoginValResponse response = (LoginValResponse) getWebServiceTemplate()
-				.marshalSendAndReceive("http://localhost:8080/ws/compras", request,
+				.marshalSendAndReceive("http://localhost:8080/ws/server", request,
 						new SoapActionCallback(
-								"http://spring.io/guides/gs-producing-web-service/GetCountryRequest"));
+								"http://spring.io/guides/gs-producing-web-service"));
 		return response;
 	}
 	
@@ -51,9 +51,9 @@ public class VentasClient extends WebServiceGatewaySupport {
 		UpdateUsuarioRequest request = new UpdateUsuarioRequest();
 		request.setUsuario(user);
 		UpdateUsuarioResponse response = (UpdateUsuarioResponse) getWebServiceTemplate()
-				.marshalSendAndReceive("http://localhost:8080/ws/compras", request,
+				.marshalSendAndReceive("http://localhost:8080/ws/server", request,
 						new SoapActionCallback(
-								"http://spring.io/guides/gs-producing-web-service/GetCountryRequest"));
+								"http://spring.io/guides/gs-producing-web-service"));
 		return response;
 	}
 	
@@ -61,9 +61,9 @@ public class VentasClient extends WebServiceGatewaySupport {
 		AddUsuarioRequest request = new AddUsuarioRequest();
 		request.setUsuario(user);
 		AddUsuarioResponse response = (AddUsuarioResponse) getWebServiceTemplate()
-				.marshalSendAndReceive("http://localhost:8080/ws/compras", request,
+				.marshalSendAndReceive("http://localhost:8080/ws/server", request,
 						new SoapActionCallback(
-								"http://spring.io/guides/gs-producing-web-service/GetCountryRequest"));
+								"http://spring.io/guides/gs-producing-web-service"));
 		return response;
 	}
 	

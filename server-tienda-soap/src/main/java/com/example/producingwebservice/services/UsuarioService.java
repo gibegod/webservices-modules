@@ -65,7 +65,7 @@ public class UsuarioService {
 		return estado;
 	}
 
-	public String modificarUsuario(Usuario usuario) { // Pre requisito: El usuario debe tener ID 
+	public String modificarUsuario(Usuario usuario) { // Pre requisito: El usuario debe tener ID
 		Optional<TipoUsuarioModel> t = Optional.empty();
 		Optional<UsuarioModel> foundDni = Optional.empty();
 		Optional<UsuarioModel> foundUsuario = Optional.empty();
@@ -101,23 +101,24 @@ public class UsuarioService {
 					usuarioRepository.save(usuarioModel);
 					estado = "OK";
 				}
-			}else estado="ERROR";
+			} else
+				estado = "ERROR";
 		}
 		return estado;
 	}
 
 	public String validarUsuario(String usuario, String contrasenia) {
-		Optional<UsuarioModel> foundusuario = Optional.empty();
-		Optional<UsuarioModel> foundcontrasenia = Optional.empty();
 		String estado = "";
-		try {
-			foundcontrasenia = usuarioRepository.findByContrasenia(contrasenia);
-			foundusuario = usuarioRepository.findByUsuario(usuario);
-		} catch (Exception e) {
-			e.getMessage();
-		}
-		estado = (foundcontrasenia.isPresent() && foundusuario.isPresent()) ? "OK" : "ERROR";
+		if ((usuario == null) && (contrasenia == null)) {
+			estado = "ERROR";
+		} else {
+			if (usuarioRepository.findByUsuario(usuario).isPresent()) {
+				UsuarioModel usuarioModel = usuarioRepository.findByUsuario(usuario).get();
+				estado = usuarioModel.getContrasenia().equals(contrasenia) ? "OK" : "ERROR";
 
+			} else
+				estado = "ERROR";
+		}
 		return estado;
 	}
 }

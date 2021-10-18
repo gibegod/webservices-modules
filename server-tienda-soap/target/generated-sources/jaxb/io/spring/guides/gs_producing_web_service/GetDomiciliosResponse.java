@@ -8,6 +8,8 @@
 
 package io.spring.guides.gs_producing_web_service;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -25,7 +27,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="estado" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="domicilio" type="{http://spring.io/guides/gs-producing-web-service}domicilio" maxOccurs="unbounded"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -36,36 +38,41 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "estado"
+    "domicilio"
 })
-@XmlRootElement(name = "addTarjetaResponse")
-public class AddTarjetaResponse {
+@XmlRootElement(name = "getDomiciliosResponse")
+public class GetDomiciliosResponse {
 
     @XmlElement(required = true)
-    protected String estado;
+    protected List<Domicilio> domicilio;
 
     /**
-     * Obtiene el valor de la propiedad estado.
+     * Gets the value of the domicilio property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getEstado() {
-        return estado;
-    }
-
-    /**
-     * Define el valor de la propiedad estado.
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the domicilio property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getDomicilio().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link Domicilio }
+     * 
+     * 
      */
-    public void setEstado(String value) {
-        this.estado = value;
+    public List<Domicilio> getDomicilio() {
+        if (domicilio == null) {
+            domicilio = new ArrayList<Domicilio>();
+        }
+        return this.domicilio;
     }
 
 }

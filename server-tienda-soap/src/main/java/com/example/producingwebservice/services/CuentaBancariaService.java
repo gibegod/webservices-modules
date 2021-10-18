@@ -5,7 +5,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.example.producingwebservice.model.CuentaBancariaModel;
-import com.example.producingwebservice.model.TarjetaModel;
 import com.example.producingwebservice.model.UsuarioModel;
 import com.example.producingwebservice.repositories.CuentaBancariaRepository;
 import com.example.producingwebservice.repositories.UsuarioRepository;
@@ -41,5 +40,5 @@ public class CuentaBancariaService { //No distingue si es comprador o vendedor ,
 		
 		return estado;
 	}
-
+	
 }

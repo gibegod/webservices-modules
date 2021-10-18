@@ -5,7 +5,7 @@
 Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.2 
 Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-Generado el: 2021.10.17 a las 03:09:01 PM ART 
+Generado el: 2021.10.18 a las 12:21:50 AM ART 
 
   -->
   <bindings scd="x-schema::tns" xmlns:tns="http://spring.io/guides/gs-producing-web-service">
@@ -20,6 +20,15 @@ Generado el: 2021.10.17 a las 03:09:01 PM ART
     </bindings>
     <bindings scd="~tns:usuario">
       <class ref="io.spring.guides.gs_producing_web_service.Usuario"/>
+    </bindings>
+    <bindings scd="tns:getDomiciliosRequest">
+      <class ref="io.spring.guides.gs_producing_web_service.GetDomiciliosRequest"/>
+    </bindings>
+    <bindings scd="tns:getDomiciliosResponse">
+      <class ref="io.spring.guides.gs_producing_web_service.GetDomiciliosResponse"/>
+    </bindings>
+    <bindings scd="~tns:domicilio">
+      <class ref="io.spring.guides.gs_producing_web_service.Domicilio"/>
     </bindings>
     <bindings scd="tns:addUsuarioRequest">
       <class ref="io.spring.guides.gs_producing_web_service.AddUsuarioRequest"/>
@@ -41,9 +50,6 @@ Generado el: 2021.10.17 a las 03:09:01 PM ART
     </bindings>
     <bindings scd="tns:addDomicilioRequest">
       <class ref="io.spring.guides.gs_producing_web_service.AddDomicilioRequest"/>
-    </bindings>
-    <bindings scd="~tns:domicilio">
-      <class ref="io.spring.guides.gs_producing_web_service.Domicilio"/>
     </bindings>
     <bindings scd="tns:addDomicilioResponse">
       <class ref="io.spring.guides.gs_producing_web_service.AddDomicilioResponse"/>

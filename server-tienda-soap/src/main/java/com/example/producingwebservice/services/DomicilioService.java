@@ -1,5 +1,8 @@
 package com.example.producingwebservice.services;
 
+import java.util.ArrayList;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
@@ -42,5 +45,16 @@ public class DomicilioService {
 		}
 		return estado;
 	}
+	
+	public ArrayList<DomicilioModel> buscarDomicilio(String userName) {
+		ArrayList<DomicilioModel> domicilioModel = new ArrayList<DomicilioModel>();
+		UsuarioModel usuarioModel = new UsuarioModel();
+		if (usuarioRepository.findByUsuario(userName).isPresent()) { 
+			usuarioModel = usuarioRepository.findByUsuario(userName).get();
+			domicilioModel = (ArrayList<DomicilioModel>) domicilioRepository.findByComprador(usuarioModel);
+		} 
+		return domicilioModel;
+	}
+
 
 }

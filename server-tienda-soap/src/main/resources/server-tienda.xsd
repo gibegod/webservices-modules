@@ -17,6 +17,22 @@
         </xs:complexType>
     </xs:element>
     
+    <xs:element name="getDomiciliosRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="usuario" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="getDomiciliosResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="domicilio" type="tns:domicilio" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
     <xs:element name="addUsuarioRequest">
         <xs:complexType>
             <xs:sequence>

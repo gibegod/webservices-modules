@@ -10,6 +10,7 @@ import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
+import com.example.producingwebservice.model.CuentaBancariaModel;
 import com.example.producingwebservice.model.DomicilioModel;
 import com.example.producingwebservice.model.UsuarioModel;
 import com.example.producingwebservice.services.CuentaBancariaService;
@@ -25,6 +26,8 @@ import io.spring.guides.gs_producing_web_service.AddTarjetaRequest;
 import io.spring.guides.gs_producing_web_service.AddTarjetaResponse;
 import io.spring.guides.gs_producing_web_service.AddUsuarioRequest;
 import io.spring.guides.gs_producing_web_service.AddUsuarioResponse;
+import io.spring.guides.gs_producing_web_service.GetCuentasBancariasRequest;
+import io.spring.guides.gs_producing_web_service.GetCuentasBancariasResponse;
 import io.spring.guides.gs_producing_web_service.GetDomiciliosRequest;
 import io.spring.guides.gs_producing_web_service.GetDomiciliosResponse;
 import io.spring.guides.gs_producing_web_service.GetUsuarioRequest;
@@ -33,6 +36,7 @@ import io.spring.guides.gs_producing_web_service.LoginValRequest;
 import io.spring.guides.gs_producing_web_service.LoginValResponse;
 import io.spring.guides.gs_producing_web_service.UpdateUsuarioRequest;
 import io.spring.guides.gs_producing_web_service.UpdateUsuarioResponse;
+import mapper.CuentaBancariaMapper;
 import mapper.DomicilioMapper;
 import mapper.UsuarioMapper;
 
@@ -44,6 +48,7 @@ public class UsuarioEndpoint {
 	private UsuarioService usuarioService;
 	UsuarioMapper usuarioMap = new UsuarioMapper();
 	DomicilioMapper domicilioMap = new DomicilioMapper();
+	CuentaBancariaMapper cuentaBancariaMap = new CuentaBancariaMapper();
 
 	@Autowired
 	DomicilioService domicilioService = new DomicilioService();
@@ -77,6 +82,20 @@ public class UsuarioEndpoint {
 			if (domicilioService.buscarDomicilio(request.getUsuario()) != null) {
 				for (DomicilioModel item : domicilioService.buscarDomicilio(request.getUsuario())) {
 					response.getDomicilio().add(domicilioMap.toDomicilioXML(item));
+				}
+			}
+		}
+		return response;
+	}
+	
+	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "getCuentasBancariasRequest")
+	@ResponsePayload
+	public GetCuentasBancariasResponse getCuentasBancarias(@RequestPayload GetCuentasBancariasRequest request) {
+		GetCuentasBancariasResponse response = new GetCuentasBancariasResponse();
+		if (request.getUsuario() != null) {
+			if (cuentaBancariaService.buscarCuentaBancaria(request.getUsuario())!= null) {
+				for (CuentaBancariaModel item : cuentaBancariaService.buscarCuentaBancaria(request.getUsuario())) {
+					response.getCuentaBancaria().add( cuentaBancariaMap.toCuentaBancariaXML(item));
 				}
 			}
 		}

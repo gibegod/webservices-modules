@@ -33,6 +33,22 @@
         </xs:complexType>
     </xs:element>
     
+    <xs:element name="getCuentasBancariasRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="usuario" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="getCuentasBancariasResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="cuentaBancaria" type="tns:cuentaBancaria" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
     <xs:element name="addUsuarioRequest">
         <xs:complexType>
             <xs:sequence>

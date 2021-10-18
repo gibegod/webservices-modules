@@ -11,21 +11,21 @@ package io.spring.guides.gs_producing_web_service;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para categoriaProducto complex type.
+ * <p>Clase Java para anonymous complex type.
  * 
  * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
- * &lt;complexType name="categoriaProducto"&gt;
+ * &lt;complexType&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/&gt;
- *         &lt;element name="nombre" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="usuario" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -35,62 +35,37 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "categoriaProducto", propOrder = {
-    "id",
-    "nombre"
+@XmlType(name = "", propOrder = {
+    "usuario"
 })
-public class CategoriaProducto {
+@XmlRootElement(name = "getTarjetasRequest")
+public class GetTarjetasRequest {
 
-    protected Long id;
     @XmlElement(required = true)
-    protected String nombre;
+    protected String usuario;
 
     /**
-     * Obtiene el valor de la propiedad id.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
-     */
-    public Long getId() {
-        return id;
-    }
-
-    /**
-     * Define el valor de la propiedad id.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
-     */
-    public void setId(Long value) {
-        this.id = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad nombre.
+     * Obtiene el valor de la propiedad usuario.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getNombre() {
-        return nombre;
+    public String getUsuario() {
+        return usuario;
     }
 
     /**
-     * Define el valor de la propiedad nombre.
+     * Define el valor de la propiedad usuario.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setNombre(String value) {
-        this.nombre = value;
+    public void setUsuario(String value) {
+        this.usuario = value;
     }
 
 }

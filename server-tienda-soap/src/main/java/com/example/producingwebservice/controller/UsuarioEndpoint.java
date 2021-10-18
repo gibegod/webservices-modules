@@ -12,6 +12,7 @@ import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
 import com.example.producingwebservice.model.CuentaBancariaModel;
 import com.example.producingwebservice.model.DomicilioModel;
+import com.example.producingwebservice.model.TarjetaModel;
 import com.example.producingwebservice.model.UsuarioModel;
 import com.example.producingwebservice.services.CuentaBancariaService;
 import com.example.producingwebservice.services.DomicilioService;
@@ -30,6 +31,8 @@ import io.spring.guides.gs_producing_web_service.GetCuentasBancariasRequest;
 import io.spring.guides.gs_producing_web_service.GetCuentasBancariasResponse;
 import io.spring.guides.gs_producing_web_service.GetDomiciliosRequest;
 import io.spring.guides.gs_producing_web_service.GetDomiciliosResponse;
+import io.spring.guides.gs_producing_web_service.GetTarjetasRequest;
+import io.spring.guides.gs_producing_web_service.GetTarjetasResponse;
 import io.spring.guides.gs_producing_web_service.GetUsuarioRequest;
 import io.spring.guides.gs_producing_web_service.GetUsuarioResponse;
 import io.spring.guides.gs_producing_web_service.LoginValRequest;
@@ -38,6 +41,7 @@ import io.spring.guides.gs_producing_web_service.UpdateUsuarioRequest;
 import io.spring.guides.gs_producing_web_service.UpdateUsuarioResponse;
 import mapper.CuentaBancariaMapper;
 import mapper.DomicilioMapper;
+import mapper.TarjetaMapper;
 import mapper.UsuarioMapper;
 
 @CrossOrigin(origins = "http://127.0.0.1:5500", methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT })
@@ -49,6 +53,7 @@ public class UsuarioEndpoint {
 	UsuarioMapper usuarioMap = new UsuarioMapper();
 	DomicilioMapper domicilioMap = new DomicilioMapper();
 	CuentaBancariaMapper cuentaBancariaMap = new CuentaBancariaMapper();
+	TarjetaMapper tarjetaMap = new TarjetaMapper();
 
 	@Autowired
 	DomicilioService domicilioService = new DomicilioService();
@@ -96,6 +101,20 @@ public class UsuarioEndpoint {
 			if (cuentaBancariaService.buscarCuentaBancaria(request.getUsuario())!= null) {
 				for (CuentaBancariaModel item : cuentaBancariaService.buscarCuentaBancaria(request.getUsuario())) {
 					response.getCuentaBancaria().add( cuentaBancariaMap.toCuentaBancariaXML(item));
+				}
+			}
+		}
+		return response;
+	}
+	
+	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "getTarjetasRequest")
+	@ResponsePayload
+	public GetTarjetasResponse getTarjetas(@RequestPayload GetTarjetasRequest request) {
+		GetTarjetasResponse response = new GetTarjetasResponse();
+		if (request.getUsuario() != null) {
+			if (tarjetaService.buscarTarjeta(request.getUsuario())!= null) {
+				for (TarjetaModel item : tarjetaService.buscarTarjeta(request.getUsuario())) {
+					response.getTarjeta().add( tarjetaMap.toTarjetaXML(item));
 				}
 			}
 		}

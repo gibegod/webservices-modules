@@ -1,5 +1,7 @@
 package com.example.producingwebservice.services;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
@@ -41,6 +43,16 @@ public class TarjetaService { //No distingue si es comprador o vendedor , falta 
 		}
 		
 		return estado;
+	}
+	
+	public ArrayList<TarjetaModel> buscarTarjeta(String userName){
+		ArrayList<TarjetaModel> tarjetaModels = new ArrayList<TarjetaModel>();
+		UsuarioModel usuarioModel = new UsuarioModel();
+		if (usuarioRepository.findByUsuario(userName).isPresent()) { 
+			usuarioModel = usuarioRepository.findByUsuario(userName).get();
+			tarjetaModels = (ArrayList<TarjetaModel>) tarjetaRepository.findByComprador(usuarioModel);
+		} 
+		return tarjetaModels;
 	}
 
 }

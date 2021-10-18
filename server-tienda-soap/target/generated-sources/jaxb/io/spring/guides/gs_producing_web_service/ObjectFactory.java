@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.2 
 // Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2021.10.18 a las 12:55:41 AM ART 
+// Generado el: 2021.10.18 a las 01:24:00 AM ART 
 //
 
 
@@ -109,6 +109,30 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GetTarjetasRequest }
+     * 
+     */
+    public GetTarjetasRequest createGetTarjetasRequest() {
+        return new GetTarjetasRequest();
+    }
+
+    /**
+     * Create an instance of {@link GetTarjetasResponse }
+     * 
+     */
+    public GetTarjetasResponse createGetTarjetasResponse() {
+        return new GetTarjetasResponse();
+    }
+
+    /**
+     * Create an instance of {@link Tarjeta }
+     * 
+     */
+    public Tarjeta createTarjeta() {
+        return new Tarjeta();
+    }
+
+    /**
      * Create an instance of {@link AddUsuarioRequest }
      * 
      */
@@ -178,14 +202,6 @@ public class ObjectFactory {
      */
     public AddTarjetaRequest createAddTarjetaRequest() {
         return new AddTarjetaRequest();
-    }
-
-    /**
-     * Create an instance of {@link Tarjeta }
-     * 
-     */
-    public Tarjeta createTarjeta() {
-        return new Tarjeta();
     }
 
     /**

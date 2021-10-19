@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="usuario" type="{http://spring.io/guides/gs-producing-web-service}usuario"/&gt;
+ *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -36,36 +36,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "usuario"
+    "name"
 })
-@XmlRootElement(name = "getUsuarioResponse")
-public class GetUsuarioResponse {
+@XmlRootElement(name = "getProductoRequest")
+public class GetProductoRequest {
 
     @XmlElement(required = true)
-    protected Usuario usuario;
+    protected String name;
 
     /**
-     * Obtiene el valor de la propiedad usuario.
+     * Obtiene el valor de la propiedad name.
      * 
      * @return
      *     possible object is
-     *     {@link Usuario }
+     *     {@link String }
      *     
      */
-    public Usuario getUsuario() {
-        return usuario;
+    public String getName() {
+        return name;
     }
 
     /**
-     * Define el valor de la propiedad usuario.
+     * Define el valor de la propiedad name.
      * 
      * @param value
      *     allowed object is
-     *     {@link Usuario }
+     *     {@link String }
      *     
      */
-    public void setUsuario(Usuario value) {
-        this.usuario = value;
+    public void setName(String value) {
+        this.name = value;
     }
 
 }

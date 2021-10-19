@@ -11,21 +11,21 @@ package io.spring.guides.gs_producing_web_service;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para anonymous complex type.
+ * <p>Clase Java para medioPago complex type.
  * 
  * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
- * &lt;complexType&gt;
+ * &lt;complexType name="medioPago"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="usuario" type="{http://spring.io/guides/gs-producing-web-service}usuario"/&gt;
+ *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/&gt;
+ *         &lt;element name="nombre" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -35,37 +35,62 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "usuario"
+@XmlType(name = "medioPago", propOrder = {
+    "id",
+    "nombre"
 })
-@XmlRootElement(name = "getUsuarioResponse")
-public class GetUsuarioResponse {
+public class MedioPago {
 
+    protected Long id;
     @XmlElement(required = true)
-    protected Usuario usuario;
+    protected String nombre;
 
     /**
-     * Obtiene el valor de la propiedad usuario.
+     * Obtiene el valor de la propiedad id.
      * 
      * @return
      *     possible object is
-     *     {@link Usuario }
+     *     {@link Long }
      *     
      */
-    public Usuario getUsuario() {
-        return usuario;
+    public Long getId() {
+        return id;
     }
 
     /**
-     * Define el valor de la propiedad usuario.
+     * Define el valor de la propiedad id.
      * 
      * @param value
      *     allowed object is
-     *     {@link Usuario }
+     *     {@link Long }
      *     
      */
-    public void setUsuario(Usuario value) {
-        this.usuario = value;
+    public void setId(Long value) {
+        this.id = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad nombre.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getNombre() {
+        return nombre;
+    }
+
+    /**
+     * Define el valor de la propiedad nombre.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setNombre(String value) {
+        this.nombre = value;
     }
 
 }

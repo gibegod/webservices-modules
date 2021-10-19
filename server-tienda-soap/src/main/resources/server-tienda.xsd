@@ -33,6 +33,54 @@
         </xs:complexType>
     </xs:element>
     
+    <xs:element name="getProductoRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="getProductoResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="producto" type="tns:producto"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="addProductoRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="producto" type="tns:producto"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="addProductoResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="estado" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="updateProductoRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="producto" type="tns:producto"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="updateProductoResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="estado" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
     <xs:element name="loginValRequest">
         <xs:complexType>
             <xs:sequence>
@@ -85,6 +133,13 @@
         </xs:sequence>
     </xs:complexType>
     
+    <xs:complexType name="medioPago">
+        <xs:sequence>
+        	<xs:element name="id" type="xs:long" minOccurs="0"/>
+            <xs:element name="nombre" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    
     <xs:complexType name="producto">
         <xs:sequence>
         	<xs:element name="id" type="xs:long" minOccurs="0"/>
@@ -97,6 +152,14 @@
             <xs:element name="activo" type="xs:boolean"/>
             <xs:element name="categoria" type="tns:categoriaProducto"/>
             <xs:element name="vendedor" type="tns:usuario"/>
+            <xs:element name="medioPago" type="tns:medioPago"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="productoMedioPago">
+        <xs:sequence>
+        	<xs:element name="producto" type="tns:producto"/>
+        	<xs:element name="medioPago" type="tns:medioPago"/>
         </xs:sequence>
     </xs:complexType>
     

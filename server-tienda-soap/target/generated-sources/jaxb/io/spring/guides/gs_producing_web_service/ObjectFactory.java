@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.2 
 // Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2021.10.12 a las 01:03:30 AM ART 
+// Generado el: 2021.10.18 a las 09:55:11 AM ART 
 //
 
 
@@ -77,6 +77,62 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GetProductoRequest }
+     * 
+     */
+    public GetProductoRequest createGetProductoRequest() {
+        return new GetProductoRequest();
+    }
+
+    /**
+     * Create an instance of {@link GetProductoResponse }
+     * 
+     */
+    public GetProductoResponse createGetProductoResponse() {
+        return new GetProductoResponse();
+    }
+
+    /**
+     * Create an instance of {@link Producto }
+     * 
+     */
+    public Producto createProducto() {
+        return new Producto();
+    }
+
+    /**
+     * Create an instance of {@link AddProductoRequest }
+     * 
+     */
+    public AddProductoRequest createAddProductoRequest() {
+        return new AddProductoRequest();
+    }
+
+    /**
+     * Create an instance of {@link AddProductoResponse }
+     * 
+     */
+    public AddProductoResponse createAddProductoResponse() {
+        return new AddProductoResponse();
+    }
+
+    /**
+     * Create an instance of {@link UpdateProductoRequest }
+     * 
+     */
+    public UpdateProductoRequest createUpdateProductoRequest() {
+        return new UpdateProductoRequest();
+    }
+
+    /**
+     * Create an instance of {@link UpdateProductoResponse }
+     * 
+     */
+    public UpdateProductoResponse createUpdateProductoResponse() {
+        return new UpdateProductoResponse();
+    }
+
+    /**
      * Create an instance of {@link LoginValRequest }
      * 
      */
@@ -117,11 +173,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Producto }
+     * Create an instance of {@link MedioPago }
      * 
      */
-    public Producto createProducto() {
-        return new Producto();
+    public MedioPago createMedioPago() {
+        return new MedioPago();
+    }
+
+    /**
+     * Create an instance of {@link ProductoMedioPago }
+     * 
+     */
+    public ProductoMedioPago createProductoMedioPago() {
+        return new ProductoMedioPago();
     }
 
     /**

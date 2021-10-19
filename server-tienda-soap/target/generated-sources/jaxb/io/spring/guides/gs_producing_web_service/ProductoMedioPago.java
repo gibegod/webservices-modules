@@ -15,17 +15,17 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para tipoUsuario complex type.
+ * <p>Clase Java para productoMedioPago complex type.
  * 
  * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
- * &lt;complexType name="tipoUsuario"&gt;
+ * &lt;complexType name="productoMedioPago"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/&gt;
- *         &lt;element name="tipo" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="producto" type="{http://spring.io/guides/gs-producing-web-service}producto"/&gt;
+ *         &lt;element name="medioPago" type="{http://spring.io/guides/gs-producing-web-service}medioPago"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -35,62 +35,63 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "tipoUsuario", propOrder = {
-    "id",
-    "tipo"
+@XmlType(name = "productoMedioPago", propOrder = {
+    "producto",
+    "medioPago"
 })
-public class TipoUsuario {
+public class ProductoMedioPago {
 
-    protected Long id;
     @XmlElement(required = true)
-    protected String tipo;
+    protected Producto producto;
+    @XmlElement(required = true)
+    protected MedioPago medioPago;
 
     /**
-     * Obtiene el valor de la propiedad id.
+     * Obtiene el valor de la propiedad producto.
      * 
      * @return
      *     possible object is
-     *     {@link Long }
+     *     {@link Producto }
      *     
      */
-    public Long getId() {
-        return id;
+    public Producto getProducto() {
+        return producto;
     }
 
     /**
-     * Define el valor de la propiedad id.
+     * Define el valor de la propiedad producto.
      * 
      * @param value
      *     allowed object is
-     *     {@link Long }
+     *     {@link Producto }
      *     
      */
-    public void setId(Long value) {
-        this.id = value;
+    public void setProducto(Producto value) {
+        this.producto = value;
     }
 
     /**
-     * Obtiene el valor de la propiedad tipo.
+     * Obtiene el valor de la propiedad medioPago.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link MedioPago }
      *     
      */
-    public String getTipo() {
-        return tipo;
+    public MedioPago getMedioPago() {
+        return medioPago;
     }
 
     /**
-     * Define el valor de la propiedad tipo.
+     * Define el valor de la propiedad medioPago.
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link MedioPago }
      *     
      */
-    public void setTipo(String value) {
-        this.tipo = value;
+    public void setMedioPago(MedioPago value) {
+        this.medioPago = value;
     }
 
 }

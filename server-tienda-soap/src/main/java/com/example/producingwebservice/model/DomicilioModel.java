@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -30,7 +30,7 @@ public class DomicilioModel {
 	@Getter @Setter private String localidad;
 	@Getter @Setter private String provincia;
 	@Getter @Setter private String pais;
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "FK_USUARIO", nullable = false, updatable = false)
 	@Getter @Setter private UsuarioModel comprador;
 

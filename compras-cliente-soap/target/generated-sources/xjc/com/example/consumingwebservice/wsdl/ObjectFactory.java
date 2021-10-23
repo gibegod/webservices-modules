@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.0 
 // Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2021.10.17 a las 02:49:09 PM ART 
+// Generado el: 2021.10.18 a las 11:19:49 PM ART 
 //
 
 
@@ -58,6 +58,78 @@ public class ObjectFactory {
      */
     public Usuario createUsuario() {
         return new Usuario();
+    }
+
+    /**
+     * Create an instance of {@link GetDomiciliosRequest }
+     * 
+     */
+    public GetDomiciliosRequest createGetDomiciliosRequest() {
+        return new GetDomiciliosRequest();
+    }
+
+    /**
+     * Create an instance of {@link GetDomiciliosResponse }
+     * 
+     */
+    public GetDomiciliosResponse createGetDomiciliosResponse() {
+        return new GetDomiciliosResponse();
+    }
+
+    /**
+     * Create an instance of {@link Domicilio }
+     * 
+     */
+    public Domicilio createDomicilio() {
+        return new Domicilio();
+    }
+
+    /**
+     * Create an instance of {@link GetCuentasBancariasRequest }
+     * 
+     */
+    public GetCuentasBancariasRequest createGetCuentasBancariasRequest() {
+        return new GetCuentasBancariasRequest();
+    }
+
+    /**
+     * Create an instance of {@link GetCuentasBancariasResponse }
+     * 
+     */
+    public GetCuentasBancariasResponse createGetCuentasBancariasResponse() {
+        return new GetCuentasBancariasResponse();
+    }
+
+    /**
+     * Create an instance of {@link CuentaBancaria }
+     * 
+     */
+    public CuentaBancaria createCuentaBancaria() {
+        return new CuentaBancaria();
+    }
+
+    /**
+     * Create an instance of {@link GetTarjetasRequest }
+     * 
+     */
+    public GetTarjetasRequest createGetTarjetasRequest() {
+        return new GetTarjetasRequest();
+    }
+
+    /**
+     * Create an instance of {@link GetTarjetasResponse }
+     * 
+     */
+    public GetTarjetasResponse createGetTarjetasResponse() {
+        return new GetTarjetasResponse();
+    }
+
+    /**
+     * Create an instance of {@link Tarjeta }
+     * 
+     */
+    public Tarjeta createTarjeta() {
+        return new Tarjeta();
     }
 
     /**
@@ -117,14 +189,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Domicilio }
-     * 
-     */
-    public Domicilio createDomicilio() {
-        return new Domicilio();
-    }
-
-    /**
      * Create an instance of {@link AddDomicilioResponse }
      * 
      */
@@ -141,19 +205,27 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Tarjeta }
-     * 
-     */
-    public Tarjeta createTarjeta() {
-        return new Tarjeta();
-    }
-
-    /**
      * Create an instance of {@link AddTarjetaResponse }
      * 
      */
     public AddTarjetaResponse createAddTarjetaResponse() {
         return new AddTarjetaResponse();
+    }
+
+    /**
+     * Create an instance of {@link AddCuentaBancariaRequest }
+     * 
+     */
+    public AddCuentaBancariaRequest createAddCuentaBancariaRequest() {
+        return new AddCuentaBancariaRequest();
+    }
+
+    /**
+     * Create an instance of {@link AddCuentaBancariaResponse }
+     * 
+     */
+    public AddCuentaBancariaResponse createAddCuentaBancariaResponse() {
+        return new AddCuentaBancariaResponse();
     }
 
     /**

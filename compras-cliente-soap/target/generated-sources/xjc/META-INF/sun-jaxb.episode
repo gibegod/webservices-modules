@@ -6,7 +6,7 @@
 Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.0 
 Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-Generado el: 2021.10.17 a las 02:49:09 PM ART 
+Generado el: 2021.10.18 a las 11:19:49 PM ART 
 
   -->
       
@@ -33,6 +33,60 @@ Generado el: 2021.10.17 a las 02:49:09 PM ART
         <bindings if-exists="true" scd="~tns:usuario">
                   
             <class ref="com.example.consumingwebservice.wsdl.Usuario"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:getDomiciliosRequest">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.GetDomiciliosRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:getDomiciliosResponse">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.GetDomiciliosResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="~tns:domicilio">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.Domicilio"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:getCuentasBancariasRequest">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.GetCuentasBancariasRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:getCuentasBancariasResponse">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.GetCuentasBancariasResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="~tns:cuentaBancaria">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.CuentaBancaria"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:getTarjetasRequest">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.GetTarjetasRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:getTarjetasResponse">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.GetTarjetasResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="~tns:tarjeta">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.Tarjeta"/>
                 
         </bindings>
             
@@ -78,12 +132,6 @@ Generado el: 2021.10.17 a las 02:49:09 PM ART
                 
         </bindings>
             
-        <bindings if-exists="true" scd="~tns:domicilio">
-                  
-            <class ref="com.example.consumingwebservice.wsdl.Domicilio"/>
-                
-        </bindings>
-            
         <bindings if-exists="true" scd="tns:addDomicilioResponse">
                   
             <class ref="com.example.consumingwebservice.wsdl.AddDomicilioResponse"/>
@@ -96,15 +144,21 @@ Generado el: 2021.10.17 a las 02:49:09 PM ART
                 
         </bindings>
             
-        <bindings if-exists="true" scd="~tns:tarjeta">
-                  
-            <class ref="com.example.consumingwebservice.wsdl.Tarjeta"/>
-                
-        </bindings>
-            
         <bindings if-exists="true" scd="tns:addTarjetaResponse">
                   
             <class ref="com.example.consumingwebservice.wsdl.AddTarjetaResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:addCuentaBancariaRequest">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.AddCuentaBancariaRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:addCuentaBancariaResponse">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.AddCuentaBancariaResponse"/>
                 
         </bindings>
             

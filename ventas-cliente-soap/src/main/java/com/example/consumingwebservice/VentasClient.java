@@ -14,6 +14,10 @@ import com.example.consumingwebservice.wsdl.AddUsuarioRequest;
 import com.example.consumingwebservice.wsdl.AddUsuarioResponse;
 import com.example.consumingwebservice.wsdl.CuentaBancaria;
 import com.example.consumingwebservice.wsdl.Domicilio;
+import com.example.consumingwebservice.wsdl.GetCuentasBancariasRequest;
+import com.example.consumingwebservice.wsdl.GetCuentasBancariasResponse;
+import com.example.consumingwebservice.wsdl.GetDomiciliosRequest;
+import com.example.consumingwebservice.wsdl.GetDomiciliosResponse;
 import com.example.consumingwebservice.wsdl.GetUsuarioRequest;
 import com.example.consumingwebservice.wsdl.GetUsuarioResponse;
 import com.example.consumingwebservice.wsdl.LoginValRequest;
@@ -27,66 +31,82 @@ public class VentasClient extends WebServiceGatewaySupport {
 	private static final Logger log = LoggerFactory.getLogger(VentasClient.class);
 
 	public GetUsuarioResponse getUser(String name) {
-		
+
 		GetUsuarioRequest request = new GetUsuarioRequest();
 		request.setName(name);
 		log.info("Searching user : " + name);
-		GetUsuarioResponse response = (GetUsuarioResponse) getWebServiceTemplate()
-				.marshalSendAndReceive("http://localhost:8080/ws/server", request,
-						new SoapActionCallback(
-								"http://spring.io/guides/gs-producing-web-service"));
+		GetUsuarioResponse response = (GetUsuarioResponse) getWebServiceTemplate().marshalSendAndReceive(
+				"http://localhost:8080/ws/server", request,
+				new SoapActionCallback("http://spring.io/guides/gs-producing-web-service"));
+		return response;
+	}
+
+	public GetDomiciliosResponse getAddresses(String usuario) {
+
+		GetDomiciliosRequest request = new GetDomiciliosRequest();
+		request.setUsuario(usuario);
+		log.info("Searching address : user: " + usuario);
+		GetDomiciliosResponse response = (GetDomiciliosResponse) getWebServiceTemplate().marshalSendAndReceive(
+				"http://localhost:8080/ws/server", request,
+				new SoapActionCallback("http://spring.io/guides/gs-producing-web-service"));
 		return response;
 	}
 	
-	public LoginValResponse validator(String user,String pass) {
+	public GetCuentasBancariasResponse getBankAccounts(String usuario) {
 		
+		GetCuentasBancariasRequest request = new GetCuentasBancariasRequest();
+		request.setUsuario(usuario);
+		log.info("Searching bank accounts: user: "+usuario);
+		GetCuentasBancariasResponse response = (GetCuentasBancariasResponse) getWebServiceTemplate().marshalSendAndReceive(
+				"http://localhost:8080/ws/server", request,
+				new SoapActionCallback("http://spring.io/guides/gs-producing-web-service"));
+		return response;
+	}
+
+	public LoginValResponse validator(String user, String pass) {
+
 		LoginValRequest request = new LoginValRequest();
 		request.setContrasenia(pass);
 		request.setUsuario(user);
-		LoginValResponse response = (LoginValResponse) getWebServiceTemplate()
-				.marshalSendAndReceive("http://localhost:8080/ws/server", request,
-						new SoapActionCallback(
-								"http://spring.io/guides/gs-producing-web-service"));
+		LoginValResponse response = (LoginValResponse) getWebServiceTemplate().marshalSendAndReceive(
+				"http://localhost:8080/ws/server", request,
+				new SoapActionCallback("http://spring.io/guides/gs-producing-web-service"));
 		return response;
 	}
-	
+
 	public UpdateUsuarioResponse updateUser(Usuario user) {
 		UpdateUsuarioRequest request = new UpdateUsuarioRequest();
 		request.setUsuario(user);
-		UpdateUsuarioResponse response = (UpdateUsuarioResponse) getWebServiceTemplate()
-				.marshalSendAndReceive("http://localhost:8080/ws/server", request,
-						new SoapActionCallback(
-								"http://spring.io/guides/gs-producing-web-service"));
+		UpdateUsuarioResponse response = (UpdateUsuarioResponse) getWebServiceTemplate().marshalSendAndReceive(
+				"http://localhost:8080/ws/server", request,
+				new SoapActionCallback("http://spring.io/guides/gs-producing-web-service"));
 		return response;
 	}
-	
+
 	public AddUsuarioResponse signInUser(Usuario user) {
 		AddUsuarioRequest request = new AddUsuarioRequest();
 		request.setUsuario(user);
-		AddUsuarioResponse response = (AddUsuarioResponse) getWebServiceTemplate()
-				.marshalSendAndReceive("http://localhost:8080/ws/server", request,
-						new SoapActionCallback(
-								"http://spring.io/guides/gs-producing-web-service"));
+		AddUsuarioResponse response = (AddUsuarioResponse) getWebServiceTemplate().marshalSendAndReceive(
+				"http://localhost:8080/ws/server", request,
+				new SoapActionCallback("http://spring.io/guides/gs-producing-web-service"));
 		return response;
 	}
-	
+
 	public AddDomicilioResponse addDomicilio(Domicilio domicilio) {
 		AddDomicilioRequest request = new AddDomicilioRequest();
 		request.setDomicilio(domicilio);
-		AddDomicilioResponse response = (AddDomicilioResponse) getWebServiceTemplate()
-				.marshalSendAndReceive("http://localhost:8080/ws/server", request,
-						new SoapActionCallback(
-								"http://spring.io/guides/gs-producing-web-service"));
+		AddDomicilioResponse response = (AddDomicilioResponse) getWebServiceTemplate().marshalSendAndReceive(
+				"http://localhost:8080/ws/server", request,
+				new SoapActionCallback("http://spring.io/guides/gs-producing-web-service"));
 		return response;
 	}
-	
+
 	public AddCuentaBancariaResponse addCuentaBancaria(CuentaBancaria cuentaBancaria) {
 		AddCuentaBancariaRequest request = new AddCuentaBancariaRequest();
 		request.setCuentaBancaria(cuentaBancaria);
-		AddCuentaBancariaResponse response = (AddCuentaBancariaResponse) getWebServiceTemplate()
-				.marshalSendAndReceive("http://localhost:8080/ws/server", request,
-						new SoapActionCallback(
-								"http://spring.io/guides/gs-producing-web-service"));
+		AddCuentaBancariaResponse response = (AddCuentaBancariaResponse) getWebServiceTemplate().marshalSendAndReceive(
+				"http://localhost:8080/ws/server", request,
+				new SoapActionCallback("http://spring.io/guides/gs-producing-web-service"));
 		return response;
 	}
 }

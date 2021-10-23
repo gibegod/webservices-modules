@@ -9,12 +9,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.consumingwebservice.VentasClient;
+import com.example.consumingwebservice.dto.UsuarioDomicilioCuentasBancariasDTO;
 import com.example.consumingwebservice.dto.UsuarioLoginDTO;
+import com.example.consumingwebservice.mapper.UsuarioMapper;
 import com.example.consumingwebservice.wsdl.AddCuentaBancariaResponse;
 import com.example.consumingwebservice.wsdl.AddDomicilioResponse;
 import com.example.consumingwebservice.wsdl.AddUsuarioResponse;
 import com.example.consumingwebservice.wsdl.CuentaBancaria;
 import com.example.consumingwebservice.wsdl.Domicilio;
+import com.example.consumingwebservice.wsdl.GetCuentasBancariasResponse;
+import com.example.consumingwebservice.wsdl.GetDomiciliosResponse;
 import com.example.consumingwebservice.wsdl.GetUsuarioResponse;
 import com.example.consumingwebservice.wsdl.LoginValResponse;
 import com.example.consumingwebservice.wsdl.UpdateUsuarioResponse;
@@ -25,11 +29,18 @@ import com.example.consumingwebservice.wsdl.Usuario;
 public class UsuarioController {
 	@Autowired
 	VentasClient ventasClient;
+	UsuarioMapper usuariomap = new UsuarioMapper();
 
-	@GetMapping(path = "/{name}")
-	public Usuario getUsuario(@PathVariable("name") String name) {
-		GetUsuarioResponse response = ventasClient.getUser(name);
-		return response.getUsuario();
+	@GetMapping(path = "/{user}")
+	public UsuarioDomicilioCuentasBancariasDTO getUsuario(@PathVariable("user") String usuario) {
+		GetUsuarioResponse user = ventasClient.getUser(usuario);
+		UsuarioDomicilioCuentasBancariasDTO dto = new UsuarioDomicilioCuentasBancariasDTO();
+		if (user.getUsuario()!=null) {
+			GetDomiciliosResponse addresses = ventasClient.getAddresses(usuario);
+			GetCuentasBancariasResponse bankAccounts = ventasClient.getBankAccounts(usuario);	
+			dto = usuariomap.toUsuarioDTO(user.getUsuario(), addresses.getDomicilio(), bankAccounts.getCuentaBancaria());
+		}
+		return dto;
 	}
 	
 	@PostMapping(path = "/login")

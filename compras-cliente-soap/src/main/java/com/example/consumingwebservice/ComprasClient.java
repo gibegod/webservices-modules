@@ -13,6 +13,10 @@ import com.example.consumingwebservice.wsdl.AddTarjetaResponse;
 import com.example.consumingwebservice.wsdl.AddUsuarioRequest;
 import com.example.consumingwebservice.wsdl.AddUsuarioResponse;
 import com.example.consumingwebservice.wsdl.Domicilio;
+import com.example.consumingwebservice.wsdl.GetDomiciliosRequest;
+import com.example.consumingwebservice.wsdl.GetDomiciliosResponse;
+import com.example.consumingwebservice.wsdl.GetTarjetasRequest;
+import com.example.consumingwebservice.wsdl.GetTarjetasResponse;
 import com.example.consumingwebservice.wsdl.GetUsuarioRequest;
 import com.example.consumingwebservice.wsdl.GetUsuarioResponse;
 import com.example.consumingwebservice.wsdl.LoginValRequest;
@@ -37,6 +41,30 @@ public class ComprasClient extends WebServiceGatewaySupport {
 								"http://spring.io/guides/gs-producing-web-service"));
 		return response;
 	}
+	
+public GetDomiciliosResponse getAddresses(String usuario) {
+		
+		GetDomiciliosRequest request = new GetDomiciliosRequest();
+		request.setUsuario(usuario);
+		log.info("Searching address : user: " + usuario);
+		GetDomiciliosResponse response = (GetDomiciliosResponse) getWebServiceTemplate()
+				.marshalSendAndReceive("http://localhost:8080/ws/server", request,
+						new SoapActionCallback(
+								"http://spring.io/guides/gs-producing-web-service"));
+		return response;
+	}
+
+public GetTarjetasResponse getCards(String usuario) {
+	
+	GetTarjetasRequest request = new GetTarjetasRequest();
+	request.setUsuario(usuario);
+	log.info("Searching user : " + usuario);
+	GetTarjetasResponse response = (GetTarjetasResponse) getWebServiceTemplate()
+			.marshalSendAndReceive("http://localhost:8080/ws/server", request,
+					new SoapActionCallback(
+							"http://spring.io/guides/gs-producing-web-service"));
+	return response;
+}
 	
 	public LoginValResponse validator(String user,String pass) {
 		

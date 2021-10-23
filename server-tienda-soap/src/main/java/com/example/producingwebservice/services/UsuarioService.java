@@ -24,14 +24,8 @@ public class UsuarioService {
 	TipoUsuarioRepository tipoRepository;
 	UsuarioMapper usuarioMap = new UsuarioMapper();
 
-	public Optional<UsuarioModel> buscarUsuario(String name) {
-		Optional<UsuarioModel> foundUsuario = Optional.empty();
-		try {
-			foundUsuario = usuarioRepository.findByNombre(name);
-		} catch (Exception e) {
-
-		}
-		return foundUsuario;
+	public Optional<UsuarioModel> buscarUsuario(String usuario) {		
+		return usuarioRepository.findByUsuario(usuario);
 	}
 
 	public String guardarUsuario(Usuario usuario) {

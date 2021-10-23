@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.2 
 // Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2021.10.18 a las 09:55:11 AM ART 
+// Generado el: 2021.10.23 a las 06:19:06 PM ART 
 //
 
 
@@ -11,21 +11,21 @@ package io.spring.guides.gs_producing_web_service;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para medioPago complex type.
+ * <p>Clase Java para anonymous complex type.
  * 
  * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
- * &lt;complexType name="medioPago"&gt;
+ * &lt;complexType&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/&gt;
- *         &lt;element name="nombre" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="tarjeta" type="{http://spring.io/guides/gs-producing-web-service}tarjeta"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -35,62 +35,37 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "medioPago", propOrder = {
-    "id",
-    "nombre"
+@XmlType(name = "", propOrder = {
+    "tarjeta"
 })
-public class MedioPago {
+@XmlRootElement(name = "addTarjetaRequest")
+public class AddTarjetaRequest {
 
-    protected Long id;
     @XmlElement(required = true)
-    protected String nombre;
+    protected Tarjeta tarjeta;
 
     /**
-     * Obtiene el valor de la propiedad id.
+     * Obtiene el valor de la propiedad tarjeta.
      * 
      * @return
      *     possible object is
-     *     {@link Long }
+     *     {@link Tarjeta }
      *     
      */
-    public Long getId() {
-        return id;
+    public Tarjeta getTarjeta() {
+        return tarjeta;
     }
 
     /**
-     * Define el valor de la propiedad id.
+     * Define el valor de la propiedad tarjeta.
      * 
      * @param value
      *     allowed object is
-     *     {@link Long }
+     *     {@link Tarjeta }
      *     
      */
-    public void setId(Long value) {
-        this.id = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad nombre.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getNombre() {
-        return nombre;
-    }
-
-    /**
-     * Define el valor de la propiedad nombre.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setNombre(String value) {
-        this.nombre = value;
+    public void setTarjeta(Tarjeta value) {
+        this.tarjeta = value;
     }
 
 }

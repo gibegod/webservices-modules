@@ -2,6 +2,7 @@ package mapper;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.List;
 
 import com.example.producingwebservice.model.CategoriaProductoModel;
 import com.example.producingwebservice.model.ProductoModel;
@@ -14,7 +15,8 @@ import io.spring.guides.gs_producing_web_service.Usuario;
 
 public class ProductoMapper {
 	
-	public ProductoModel toProductoModel (Producto productoXML, CategoriaProductoModel categoriaProdModel, UsuarioModel vendedorModel) {
+	public ProductoModel toProductoModel (Producto productoXML, CategoriaProductoModel categoriaProdModel,
+			UsuarioModel vendedorModel ) {
 		ProductoModel pM = new ProductoModel();
 		
 		pM.setCategoria(categoriaProdModel);
@@ -26,6 +28,8 @@ public class ProductoMapper {
 		pM.setStockInicial(productoXML.getStockInicial().intValue());
 		pM.setStockActual(productoXML.getStockActual().intValue());
 		pM.setActivo(productoXML.isActivo());
+		pM.setDebito(productoXML.isDebito());
+		pM.setCredito(productoXML.isCredito());
 		
 		return pM;
 	}
@@ -58,11 +62,10 @@ public class ProductoMapper {
 		pXML.setStockInicial(BigInteger.valueOf(productoModel.getStockInicial()));
 		pXML.setStockActual(BigInteger.valueOf(productoModel.getStockActual()));
 		pXML.setActivo(productoModel.getActivo());
+		pXML.setDebito(productoModel.getDebito());
+		pXML.setCredito(productoModel.getCredito());
 		pXML.setCategoria(cXML);
 		pXML.setVendedor(uXML);
-		/*MedioPago mp = new MedioPago();
-		mp.setNombre(name);
-		pXML.setMedioPago(mp);*/
 		
 		return pXML;
 	}

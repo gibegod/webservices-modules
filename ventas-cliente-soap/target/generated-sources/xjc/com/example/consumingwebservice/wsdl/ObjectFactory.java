@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.0 
 // Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2021.10.16 a las 12:18:01 AM ART 
+// Generado el: 2021.10.23 a las 08:11:05 PM ART 
 //
 
 
@@ -61,6 +61,134 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GetDomiciliosRequest }
+     * 
+     */
+    public GetDomiciliosRequest createGetDomiciliosRequest() {
+        return new GetDomiciliosRequest();
+    }
+
+    /**
+     * Create an instance of {@link GetDomiciliosResponse }
+     * 
+     */
+    public GetDomiciliosResponse createGetDomiciliosResponse() {
+        return new GetDomiciliosResponse();
+    }
+
+    /**
+     * Create an instance of {@link Domicilio }
+     * 
+     */
+    public Domicilio createDomicilio() {
+        return new Domicilio();
+    }
+
+    /**
+     * Create an instance of {@link GetCuentasBancariasRequest }
+     * 
+     */
+    public GetCuentasBancariasRequest createGetCuentasBancariasRequest() {
+        return new GetCuentasBancariasRequest();
+    }
+
+    /**
+     * Create an instance of {@link GetCuentasBancariasResponse }
+     * 
+     */
+    public GetCuentasBancariasResponse createGetCuentasBancariasResponse() {
+        return new GetCuentasBancariasResponse();
+    }
+
+    /**
+     * Create an instance of {@link CuentaBancaria }
+     * 
+     */
+    public CuentaBancaria createCuentaBancaria() {
+        return new CuentaBancaria();
+    }
+
+    /**
+     * Create an instance of {@link GetTarjetasRequest }
+     * 
+     */
+    public GetTarjetasRequest createGetTarjetasRequest() {
+        return new GetTarjetasRequest();
+    }
+
+    /**
+     * Create an instance of {@link GetTarjetasResponse }
+     * 
+     */
+    public GetTarjetasResponse createGetTarjetasResponse() {
+        return new GetTarjetasResponse();
+    }
+
+    /**
+     * Create an instance of {@link Tarjeta }
+     * 
+     */
+    public Tarjeta createTarjeta() {
+        return new Tarjeta();
+    }
+
+    /**
+     * Create an instance of {@link GetProductoRequest }
+     * 
+     */
+    public GetProductoRequest createGetProductoRequest() {
+        return new GetProductoRequest();
+    }
+
+    /**
+     * Create an instance of {@link GetProductoResponse }
+     * 
+     */
+    public GetProductoResponse createGetProductoResponse() {
+        return new GetProductoResponse();
+    }
+
+    /**
+     * Create an instance of {@link Producto }
+     * 
+     */
+    public Producto createProducto() {
+        return new Producto();
+    }
+
+    /**
+     * Create an instance of {@link GetProductoPorIdRequest }
+     * 
+     */
+    public GetProductoPorIdRequest createGetProductoPorIdRequest() {
+        return new GetProductoPorIdRequest();
+    }
+
+    /**
+     * Create an instance of {@link GetProductoPorIdResponse }
+     * 
+     */
+    public GetProductoPorIdResponse createGetProductoPorIdResponse() {
+        return new GetProductoPorIdResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetProductosRequest }
+     * 
+     */
+    public GetProductosRequest createGetProductosRequest() {
+        return new GetProductosRequest();
+    }
+
+    /**
+     * Create an instance of {@link GetProductosResponse }
+     * 
+     */
+    public GetProductosResponse createGetProductosResponse() {
+        return new GetProductosResponse();
+    }
+
+    /**
      * Create an instance of {@link AddUsuarioRequest }
      * 
      */
@@ -77,6 +205,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link UpdateUsuarioRequest }
+     * 
+     */
+    public UpdateUsuarioRequest createUpdateUsuarioRequest() {
+        return new UpdateUsuarioRequest();
+    }
+
+    /**
+     * Create an instance of {@link UpdateUsuarioResponse }
+     * 
+     */
+    public UpdateUsuarioResponse createUpdateUsuarioResponse() {
+        return new UpdateUsuarioResponse();
+    }
+
+    /**
      * Create an instance of {@link LoginValRequest }
      * 
      */
@@ -90,6 +234,86 @@ public class ObjectFactory {
      */
     public LoginValResponse createLoginValResponse() {
         return new LoginValResponse();
+    }
+
+    /**
+     * Create an instance of {@link AddDomicilioRequest }
+     * 
+     */
+    public AddDomicilioRequest createAddDomicilioRequest() {
+        return new AddDomicilioRequest();
+    }
+
+    /**
+     * Create an instance of {@link AddDomicilioResponse }
+     * 
+     */
+    public AddDomicilioResponse createAddDomicilioResponse() {
+        return new AddDomicilioResponse();
+    }
+
+    /**
+     * Create an instance of {@link AddTarjetaRequest }
+     * 
+     */
+    public AddTarjetaRequest createAddTarjetaRequest() {
+        return new AddTarjetaRequest();
+    }
+
+    /**
+     * Create an instance of {@link AddTarjetaResponse }
+     * 
+     */
+    public AddTarjetaResponse createAddTarjetaResponse() {
+        return new AddTarjetaResponse();
+    }
+
+    /**
+     * Create an instance of {@link AddCuentaBancariaRequest }
+     * 
+     */
+    public AddCuentaBancariaRequest createAddCuentaBancariaRequest() {
+        return new AddCuentaBancariaRequest();
+    }
+
+    /**
+     * Create an instance of {@link AddCuentaBancariaResponse }
+     * 
+     */
+    public AddCuentaBancariaResponse createAddCuentaBancariaResponse() {
+        return new AddCuentaBancariaResponse();
+    }
+
+    /**
+     * Create an instance of {@link AddProductoRequest }
+     * 
+     */
+    public AddProductoRequest createAddProductoRequest() {
+        return new AddProductoRequest();
+    }
+
+    /**
+     * Create an instance of {@link AddProductoResponse }
+     * 
+     */
+    public AddProductoResponse createAddProductoResponse() {
+        return new AddProductoResponse();
+    }
+
+    /**
+     * Create an instance of {@link UpdateProductoRequest }
+     * 
+     */
+    public UpdateProductoRequest createUpdateProductoRequest() {
+        return new UpdateProductoRequest();
+    }
+
+    /**
+     * Create an instance of {@link UpdateProductoResponse }
+     * 
+     */
+    public UpdateProductoResponse createUpdateProductoResponse() {
+        return new UpdateProductoResponse();
     }
 
     /**
@@ -117,14 +341,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Producto }
-     * 
-     */
-    public Producto createProducto() {
-        return new Producto();
-    }
-
-    /**
      * Create an instance of {@link CategoriaDenuncia }
      * 
      */
@@ -138,14 +354,6 @@ public class ObjectFactory {
      */
     public Denuncia createDenuncia() {
         return new Denuncia();
-    }
-
-    /**
-     * Create an instance of {@link Domicilio }
-     * 
-     */
-    public Domicilio createDomicilio() {
-        return new Domicilio();
     }
 
     /**

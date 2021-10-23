@@ -17,6 +17,102 @@
         </xs:complexType>
     </xs:element>
     
+    <xs:element name="getDomiciliosRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="usuario" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="getDomiciliosResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="domicilio" type="tns:domicilio" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="getCuentasBancariasRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="usuario" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="getCuentasBancariasResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="cuentaBancaria" type="tns:cuentaBancaria" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="getTarjetasRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="usuario" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="getTarjetasResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="tarjeta" type="tns:tarjeta" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>    
+    
+    <xs:element name="getProductoRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="getProductoResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="producto" type="tns:producto"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="getProductoPorIdRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="getProductoPorIdResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="producto" type="tns:producto" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="getProductosRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="getProductosResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="producto" type="tns:producto" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
     <xs:element name="addUsuarioRequest">
         <xs:complexType>
             <xs:sequence>
@@ -33,18 +129,83 @@
         </xs:complexType>
     </xs:element>
     
-    <xs:element name="getProductoRequest">
+    <xs:element name="updateUsuarioRequest">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="name" type="xs:string"/>
+                <xs:element name="usuario" type="tns:usuario"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
     
-    <xs:element name="getProductoResponse">
+    <xs:element name="updateUsuarioResponse">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="producto" type="tns:producto"/>
+                <xs:element name="estado" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="loginValRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="usuario" type="xs:string"/>
+                <xs:element name="contrasenia" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="loginValResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="estado" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="addDomicilioRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="domicilio" type="tns:domicilio"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="addDomicilioResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="estado" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="addTarjetaRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="tarjeta" type="tns:tarjeta"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="addTarjetaResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="estado" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+     <xs:element name="addCuentaBancariaRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="cuentaBancaria" type="tns:cuentaBancaria"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="addCuentaBancariaResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="estado" type="xs:string"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -81,23 +242,6 @@
         </xs:complexType>
     </xs:element>
     
-    <xs:element name="loginValRequest">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="usuario" type="xs:string"/>
-                <xs:element name="contrasenia" type="xs:string"/>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
-    
-    <xs:element name="loginValResponse">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="estado" type="xs:string"/>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
-    
     <xs:complexType name="usuario">
         <xs:sequence>
         	<xs:element name="id" type="xs:long" minOccurs="0"/>
@@ -108,6 +252,7 @@
             <xs:element name="usuario" type="xs:string"/>
             <xs:element name="contrasenia" type="xs:string"/>
             <xs:element name="tipoUsuario" type="tns:tipoUsuario"/>
+            
         </xs:sequence>
     </xs:complexType>
     
@@ -133,13 +278,6 @@
         </xs:sequence>
     </xs:complexType>
     
-    <xs:complexType name="medioPago">
-        <xs:sequence>
-        	<xs:element name="id" type="xs:long" minOccurs="0"/>
-            <xs:element name="nombre" type="xs:string"/>
-        </xs:sequence>
-    </xs:complexType>
-    
     <xs:complexType name="producto">
         <xs:sequence>
         	<xs:element name="id" type="xs:long" minOccurs="0"/>
@@ -152,14 +290,8 @@
             <xs:element name="activo" type="xs:boolean"/>
             <xs:element name="categoria" type="tns:categoriaProducto"/>
             <xs:element name="vendedor" type="tns:usuario"/>
-            <xs:element name="medioPago" type="tns:medioPago"/>
-        </xs:sequence>
-    </xs:complexType>
-    
-    <xs:complexType name="productoMedioPago">
-        <xs:sequence>
-        	<xs:element name="producto" type="tns:producto"/>
-        	<xs:element name="medioPago" type="tns:medioPago"/>
+            <xs:element name="debito" type="xs:boolean"/>
+            <xs:element name="credito" type="xs:boolean"/>
         </xs:sequence>
     </xs:complexType>
     
@@ -206,6 +338,32 @@
             <xs:element name="fecha" type="xs:date"/>
             <xs:element name="comprador" type="tns:usuario"/>
             <xs:element name="mesaAyuda" type="tns:usuario"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="tarjeta">
+        <xs:sequence>
+        	<xs:element name="id" type="xs:long" minOccurs="0"/>
+            <xs:element name="limiteMensual" type="xs:decimal"/>
+            <xs:element name="saldo" type="xs:decimal"/>
+            <xs:element name="numero" type="xs:string"/>
+            <xs:element name="cvc" type="xs:string"/>
+            <xs:element name="tipo" type="xs:string"/>
+            <xs:element name="nombre" type="xs:string"/>
+            <xs:element name="vencimiento" type="xs:dateTime"/>
+            <xs:element name="comprador" type="tns:usuario"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="cuentaBancaria">
+        <xs:sequence>
+        	<xs:element name="id" type="xs:long" minOccurs="0"/>
+            <xs:element name="banco" type="xs:string"/>
+            <xs:element name="alias" type="xs:string"/>
+            <xs:element name="cvu" type="xs:string"/>
+            <xs:element name="dni" type="xs:string"/>
+            <xs:element name="movimientos" type="xs:string"/>
+            <xs:element name="vendedor" type="tns:usuario"/>
         </xs:sequence>
     </xs:complexType>
 </xs:schema>

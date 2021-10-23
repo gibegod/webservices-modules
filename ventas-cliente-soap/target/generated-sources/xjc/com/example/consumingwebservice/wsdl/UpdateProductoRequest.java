@@ -1,31 +1,31 @@
 //
-// Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.2 
+// Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.0 
 // Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2021.10.18 a las 09:55:11 AM ART 
+// Generado el: 2021.10.23 a las 08:11:05 PM ART 
 //
 
 
-package io.spring.guides.gs_producing_web_service;
+package com.example.consumingwebservice.wsdl;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para productoMedioPago complex type.
+ * <p>Clase Java para anonymous complex type.
  * 
  * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
- * &lt;complexType name="productoMedioPago"&gt;
+ * &lt;complexType&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="producto" type="{http://spring.io/guides/gs-producing-web-service}producto"/&gt;
- *         &lt;element name="medioPago" type="{http://spring.io/guides/gs-producing-web-service}medioPago"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -35,16 +35,14 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "productoMedioPago", propOrder = {
-    "producto",
-    "medioPago"
+@XmlType(name = "", propOrder = {
+    "producto"
 })
-public class ProductoMedioPago {
+@XmlRootElement(name = "updateProductoRequest")
+public class UpdateProductoRequest {
 
     @XmlElement(required = true)
     protected Producto producto;
-    @XmlElement(required = true)
-    protected MedioPago medioPago;
 
     /**
      * Obtiene el valor de la propiedad producto.
@@ -68,30 +66,6 @@ public class ProductoMedioPago {
      */
     public void setProducto(Producto value) {
         this.producto = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad medioPago.
-     * 
-     * @return
-     *     possible object is
-     *     {@link MedioPago }
-     *     
-     */
-    public MedioPago getMedioPago() {
-        return medioPago;
-    }
-
-    /**
-     * Define el valor de la propiedad medioPago.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link MedioPago }
-     *     
-     */
-    public void setMedioPago(MedioPago value) {
-        this.medioPago = value;
     }
 
 }

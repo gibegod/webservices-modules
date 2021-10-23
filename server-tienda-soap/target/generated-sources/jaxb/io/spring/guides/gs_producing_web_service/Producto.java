@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.2 
 // Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2021.10.18 a las 09:55:11 AM ART 
+// Generado el: 2021.10.23 a las 06:19:06 PM ART 
 //
 
 
@@ -36,7 +36,8 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="activo" type="{http://www.w3.org/2001/XMLSchema}boolean"/&gt;
  *         &lt;element name="categoria" type="{http://spring.io/guides/gs-producing-web-service}categoriaProducto"/&gt;
  *         &lt;element name="vendedor" type="{http://spring.io/guides/gs-producing-web-service}usuario"/&gt;
- *         &lt;element name="medioPago" type="{http://spring.io/guides/gs-producing-web-service}medioPago"/&gt;
+ *         &lt;element name="debito" type="{http://www.w3.org/2001/XMLSchema}boolean"/&gt;
+ *         &lt;element name="credito" type="{http://www.w3.org/2001/XMLSchema}boolean"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -57,7 +58,8 @@ import javax.xml.bind.annotation.XmlType;
     "activo",
     "categoria",
     "vendedor",
-    "medioPago"
+    "debito",
+    "credito"
 })
 public class Producto {
 
@@ -79,8 +81,8 @@ public class Producto {
     protected CategoriaProducto categoria;
     @XmlElement(required = true)
     protected Usuario vendedor;
-    @XmlElement(required = true)
-    protected MedioPago medioPago;
+    protected boolean debito;
+    protected boolean credito;
 
     /**
      * Obtiene el valor de la propiedad id.
@@ -315,27 +317,35 @@ public class Producto {
     }
 
     /**
-     * Obtiene el valor de la propiedad medioPago.
+     * Obtiene el valor de la propiedad debito.
      * 
-     * @return
-     *     possible object is
-     *     {@link MedioPago }
-     *     
      */
-    public MedioPago getMedioPago() {
-        return medioPago;
+    public boolean isDebito() {
+        return debito;
     }
 
     /**
-     * Define el valor de la propiedad medioPago.
+     * Define el valor de la propiedad debito.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link MedioPago }
-     *     
      */
-    public void setMedioPago(MedioPago value) {
-        this.medioPago = value;
+    public void setDebito(boolean value) {
+        this.debito = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad credito.
+     * 
+     */
+    public boolean isCredito() {
+        return credito;
+    }
+
+    /**
+     * Define el valor de la propiedad credito.
+     * 
+     */
+    public void setCredito(boolean value) {
+        this.credito = value;
     }
 
 }

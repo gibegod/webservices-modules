@@ -1,0 +1,71 @@
+//
+// Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.2 
+// Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
+// Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
+// Generado el: 2021.10.23 a las 06:19:06 PM ART 
+//
+
+
+package io.spring.guides.gs_producing_web_service;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
+
+/**
+ * <p>Clase Java para anonymous complex type.
+ * 
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+ * 
+ * <pre>
+ * &lt;complexType&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="cuentaBancaria" type="{http://spring.io/guides/gs-producing-web-service}cuentaBancaria"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
+ * </pre>
+ * 
+ * 
+ */
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "", propOrder = {
+    "cuentaBancaria"
+})
+@XmlRootElement(name = "addCuentaBancariaRequest")
+public class AddCuentaBancariaRequest {
+
+    @XmlElement(required = true)
+    protected CuentaBancaria cuentaBancaria;
+
+    /**
+     * Obtiene el valor de la propiedad cuentaBancaria.
+     * 
+     * @return
+     *     possible object is
+     *     {@link CuentaBancaria }
+     *     
+     */
+    public CuentaBancaria getCuentaBancaria() {
+        return cuentaBancaria;
+    }
+
+    /**
+     * Define el valor de la propiedad cuentaBancaria.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link CuentaBancaria }
+     *     
+     */
+    public void setCuentaBancaria(CuentaBancaria value) {
+        this.cuentaBancaria = value;
+    }
+
+}

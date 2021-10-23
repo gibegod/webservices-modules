@@ -41,7 +41,7 @@ public class UsuarioService {
 		TipoUsuarioModel tModel = new TipoUsuarioModel();
 		TipoUsuarioModel tSave = new TipoUsuarioModel();
 		String estado = "";
-		try {
+		try {//busco que este toda la info que me viene en el usuarioXML
 			t = tipoRepository.findByTipo(usuario.getTipoUsuario().getTipo());
 			foundDni = usuarioRepository.findByDni(usuario.getDni());
 			foundUsuario = usuarioRepository.findByUsuario(usuario.getUsuario());
@@ -62,6 +62,53 @@ public class UsuarioService {
 			UsuarioModel usuarioModel = new UsuarioModel();
 			usuarioModel = usuarioRepository.save(usuarioMap.toUsuarioModel(usuario, tSave));
 			estado = "OK";
+		}
+		return estado;
+	}
+	
+	public String modificarUsuario(Usuario usuario) { // Pre requisito: El usuario debe tener ID
+		Optional<TipoUsuarioModel> t = Optional.empty();
+		Optional<UsuarioModel> foundDni = Optional.empty();
+		Optional<UsuarioModel> foundUsuario = Optional.empty();
+		TipoUsuarioModel tModel = new TipoUsuarioModel();
+		TipoUsuarioModel tSave = new TipoUsuarioModel();
+		String estado = "";
+		if (usuario.getId() == null) {
+			estado = "ERROR";
+		} else {
+			if (usuarioRepository.findById(usuario.getId()).isPresent()) {
+				try {
+					t = tipoRepository.findByTipo(usuario.getTipoUsuario().getTipo());
+					foundDni = usuarioRepository.findByDni(usuario.getDni());
+					foundUsuario = usuarioRepository.findByUsuario(usuario.getUsuario());
+				} catch (Exception e) {
+					e.getMessage();
+				}
+				if (t.isPresent()) {
+					tSave = t.get();
+				} else {
+					tModel.setTipo(usuario.getTipoUsuario().getTipo());
+					tSave = tipoRepository.save(tModel);
+				}
+
+				if (foundDni.isPresent() || foundUsuario.isPresent()) { //no estoy segura de esta condicion
+					estado = "ERROR";
+				} else {
+					// Guardo el usuario en la database
+					UsuarioModel usuarioModel = new UsuarioModel();
+					usuarioModel = usuarioMap.toUsuarioModel(usuario, tSave);
+					usuarioModel.setId(usuario.getId());
+					usuarioModel.setTelefono(usuario.getTelefono());
+					
+					//si el usuario es comprador tambien puede modificar sus tarjetas
+					
+					//si el ususario es vendedor tambien puede agregar cuentas bancarias
+					
+					estado = "OK";
+					usuarioRepository.save(usuarioModel);
+				}
+			} else
+				estado = "ERROR";
 		}
 		return estado;
 	}

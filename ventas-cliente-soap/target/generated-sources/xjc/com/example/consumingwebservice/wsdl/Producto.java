@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.0 
 // Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2021.10.23 a las 04:36:12 PM ART 
+// Generado el: 2021.10.23 a las 11:20:33 PM ART 
 //
 
 
@@ -36,6 +36,8 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="activo" type="{http://www.w3.org/2001/XMLSchema}boolean"/&gt;
  *         &lt;element name="categoria" type="{http://spring.io/guides/gs-producing-web-service}categoriaProducto"/&gt;
  *         &lt;element name="vendedor" type="{http://spring.io/guides/gs-producing-web-service}usuario"/&gt;
+ *         &lt;element name="debito" type="{http://www.w3.org/2001/XMLSchema}boolean"/&gt;
+ *         &lt;element name="credito" type="{http://www.w3.org/2001/XMLSchema}boolean"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -55,7 +57,9 @@ import javax.xml.bind.annotation.XmlType;
     "stockActual",
     "activo",
     "categoria",
-    "vendedor"
+    "vendedor",
+    "debito",
+    "credito"
 })
 public class Producto {
 
@@ -77,6 +81,8 @@ public class Producto {
     protected CategoriaProducto categoria;
     @XmlElement(required = true)
     protected Usuario vendedor;
+    protected boolean debito;
+    protected boolean credito;
 
     /**
      * Obtiene el valor de la propiedad id.
@@ -308,6 +314,38 @@ public class Producto {
      */
     public void setVendedor(Usuario value) {
         this.vendedor = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad debito.
+     * 
+     */
+    public boolean isDebito() {
+        return debito;
+    }
+
+    /**
+     * Define el valor de la propiedad debito.
+     * 
+     */
+    public void setDebito(boolean value) {
+        this.debito = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad credito.
+     * 
+     */
+    public boolean isCredito() {
+        return credito;
+    }
+
+    /**
+     * Define el valor de la propiedad credito.
+     * 
+     */
+    public void setCredito(boolean value) {
+        this.credito = value;
     }
 
 }

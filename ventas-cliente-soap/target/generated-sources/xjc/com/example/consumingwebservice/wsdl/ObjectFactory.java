@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.0 
 // Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2021.10.23 a las 04:36:12 PM ART 
+// Generado el: 2021.10.23 a las 11:20:33 PM ART 
 //
 
 
@@ -82,6 +82,94 @@ public class ObjectFactory {
      */
     public Domicilio createDomicilio() {
         return new Domicilio();
+    }
+
+    /**
+     * Create an instance of {@link GetProductoRequest }
+     * 
+     */
+    public GetProductoRequest createGetProductoRequest() {
+        return new GetProductoRequest();
+    }
+
+    /**
+     * Create an instance of {@link GetProductoPorIdRequest }
+     * 
+     */
+    public GetProductoPorIdRequest createGetProductoPorIdRequest() {
+        return new GetProductoPorIdRequest();
+    }
+
+    /**
+     * Create an instance of {@link GetProductoPorIdResponse }
+     * 
+     */
+    public GetProductoPorIdResponse createGetProductoPorIdResponse() {
+        return new GetProductoPorIdResponse();
+    }
+
+    /**
+     * Create an instance of {@link Producto }
+     * 
+     */
+    public Producto createProducto() {
+        return new Producto();
+    }
+
+    /**
+     * Create an instance of {@link GetProductosRequest }
+     * 
+     */
+    public GetProductosRequest createGetProductosRequest() {
+        return new GetProductosRequest();
+    }
+
+    /**
+     * Create an instance of {@link GetProductosResponse }
+     * 
+     */
+    public GetProductosResponse createGetProductosResponse() {
+        return new GetProductosResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetProductoResponse }
+     * 
+     */
+    public GetProductoResponse createGetProductoResponse() {
+        return new GetProductoResponse();
+    }
+
+    /**
+     * Create an instance of {@link AddProductoRequest }
+     * 
+     */
+    public AddProductoRequest createAddProductoRequest() {
+        return new AddProductoRequest();
+    }
+
+    /**
+     * Create an instance of {@link AddProductoResponse }
+     * 
+     */
+    public AddProductoResponse createAddProductoResponse() {
+        return new AddProductoResponse();
+    }
+
+    /**
+     * Create an instance of {@link UpdateProductoRequest }
+     * 
+     */
+    public UpdateProductoRequest createUpdateProductoRequest() {
+        return new UpdateProductoRequest();
+    }
+
+    /**
+     * Create an instance of {@link UpdateProductoResponse }
+     * 
+     */
+    public UpdateProductoResponse createUpdateProductoResponse() {
+        return new UpdateProductoResponse();
     }
 
     /**
@@ -250,14 +338,6 @@ public class ObjectFactory {
      */
     public CategoriaProducto createCategoriaProducto() {
         return new CategoriaProducto();
-    }
-
-    /**
-     * Create an instance of {@link Producto }
-     * 
-     */
-    public Producto createProducto() {
-        return new Producto();
     }
 
     /**

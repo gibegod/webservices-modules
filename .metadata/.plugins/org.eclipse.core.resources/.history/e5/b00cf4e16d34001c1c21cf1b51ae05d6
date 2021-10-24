@@ -48,7 +48,7 @@ public class ProductoMapper {
 		return pM;
 	}
 	
-	public ProductoModel updateSomeFields (ProductoModel pM, Producto productoXML) {		
+	public ProductoModel updateSomeFields (ProductoModel pM, Producto productoXML, CategoriaProductoModel categoriaProdModel, UsuarioModel vendedorModel) {		
 		pM.setStockActual(productoXML.getStockActual().intValue());
 		pM.setDebito(productoXML.isDebito());
 		pM.setCredito(productoXML.isCredito());

@@ -100,6 +100,7 @@ public class ProductoService {
 		Optional<ProductoModel> foundProductoPorNombre = Optional.empty();
 		CategoriaProductoModel categoriaSave = new CategoriaProductoModel();
 		CategoriaProductoModel categoriaModel = new CategoriaProductoModel();
+		UsuarioModel usuarioSave = new UsuarioModel();
 		
 		try {
 			foundProductoPorNombre = productoRepository.findByNombre(producto.getNombre());
@@ -107,11 +108,6 @@ public class ProductoService {
 			u = usuarioRepository.findById(producto.getVendedor().getId());			
 		}catch(Exception e) {
 			e.getMessage();
-		}
-		
-		if (!foundProductoPorNombre.isPresent()) {
-			estado = "ERROR, producto a actualizar no encontrado";
-			return estado;
 		}
 		
 		//puedo hacer update de todo, solo si el stockActual == stockInicial
@@ -122,19 +118,24 @@ public class ProductoService {
 			categoriaSave = categoriaProductoRepository.save(categoriaModel);
 		}
 		
-		//preguntar si el stockActual == stockInicial
-		if (foundProductoPorNombre.get().getStockActual() == foundProductoPorNombre.get().getStockInicial()) {
-			//se puede actualizar todo
-			ProductoModel pM = productoRepository.findById(producto.getId()).orElseThrow(()->new RuntimeException("Producto no encontrado!"));
-			pM = productoMapper.updateAll(pM, producto, categoriaSave, u.get());				
-			productoRepository.save(pM);
-			estado = "OK";
+		usuarioSave = u.get();
+		
+		if (u.isPresent() && !foundProductoPorNombre.isPresent()) {
+			estado = "ERROR";
 		}else {
-			//solo se puede actualizar el stock y el medio de pago
-			ProductoModel pM = productoRepository.findById(producto.getId()).orElseThrow(()->new RuntimeException("Producto no encontrado!"));
-			pM = productoMapper.updateSomeFields(pM, producto);				
-			productoRepository.save(pM);
-			estado = "OK, sólo se actualizaron medios de pago y stock actual";				
+			//preguntar si el stockActual == stockInicial
+			if (foundProductoPorNombre.get().getStockInicial() == producto.getStockInicial().intValue()) {
+				//se puede actualizar todo
+				ProductoModel pM = productoRepository.findById(producto.getId()).orElseThrow(()->new RuntimeException("Producto no encontrado!"));
+				pM = productoMapper.updateAll(pM, producto, categoriaSave, usuarioSave);				
+				productoRepository.save(pM);
+				estado = "OK";
+			}else {
+				//solo se puede actualizar el stock y el medio de pago
+				ProductoModel pM = productoRepository.findById(producto.getId()).orElseThrow(()->new RuntimeException("Producto no encontrado!"));
+				pM = productoMapper.updateSomeFields(pM, producto, categoriaSave, usuarioSave);				
+				productoRepository.save(pM);		
+			}
 		}
 		
 		return estado;

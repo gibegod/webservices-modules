@@ -100,6 +100,7 @@ public class ProductoService {
 		Optional<ProductoModel> foundProductoPorNombre = Optional.empty();
 		CategoriaProductoModel categoriaSave = new CategoriaProductoModel();
 		CategoriaProductoModel categoriaModel = new CategoriaProductoModel();
+		UsuarioModel usuarioSave = new UsuarioModel();
 		
 		try {
 			foundProductoPorNombre = productoRepository.findByNombre(producto.getNombre());
@@ -122,11 +123,13 @@ public class ProductoService {
 			categoriaSave = categoriaProductoRepository.save(categoriaModel);
 		}
 		
+		usuarioSave = u.get();
+		
 		//preguntar si el stockActual == stockInicial
-		if (foundProductoPorNombre.get().getStockActual() == foundProductoPorNombre.get().getStockInicial()) {
+		if (foundProductoPorNombre.get().getStockInicial() == producto.getStockInicial().intValue()) {
 			//se puede actualizar todo
 			ProductoModel pM = productoRepository.findById(producto.getId()).orElseThrow(()->new RuntimeException("Producto no encontrado!"));
-			pM = productoMapper.updateAll(pM, producto, categoriaSave, u.get());				
+			pM = productoMapper.updateAll(pM, producto, categoriaSave, usuarioSave);				
 			productoRepository.save(pM);
 			estado = "OK";
 		}else {

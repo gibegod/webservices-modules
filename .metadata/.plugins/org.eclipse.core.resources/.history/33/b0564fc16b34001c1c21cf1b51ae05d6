@@ -32,30 +32,6 @@ public class ProductoMapper {
 		return pM;
 	}
 	
-	public ProductoModel updateAll (ProductoModel pM, Producto productoXML, CategoriaProductoModel categoriaProdModel, UsuarioModel vendedorModel) {		
-		pM.setCategoria(categoriaProdModel);
-		pM.setVendedor(vendedorModel);
-		pM.setNombre(productoXML.getNombre());
-		pM.setDescripcion(productoXML.getDescripcion());
-		pM.setImagen(productoXML.getImagen());
-		pM.setPrecio(productoXML.getPrecio().floatValue());
-		pM.setStockInicial(productoXML.getStockInicial().intValue());
-		pM.setStockActual(productoXML.getStockActual().intValue());
-		pM.setActivo(productoXML.isActivo());
-		pM.setDebito(productoXML.isDebito());
-		pM.setCredito(productoXML.isCredito());
-		
-		return pM;
-	}
-	
-	public ProductoModel updateSomeFields (ProductoModel pM, Producto productoXML) {		
-		pM.setStockActual(productoXML.getStockActual().intValue());
-		pM.setDebito(productoXML.isDebito());
-		pM.setCredito(productoXML.isCredito());
-		
-		return pM;
-	}
-	
 	public Producto toProductoXML (ProductoModel productoModel, Boolean setId ) {
 		Producto pXML = new Producto();
 		CategoriaProducto cXML = new CategoriaProducto();

@@ -123,7 +123,7 @@ public class ProductoService {
 		}
 		
 		//preguntar si el stockActual == stockInicial
-		if (foundProductoPorNombre.get().getStockActual() == foundProductoPorNombre.get().getStockInicial()) {
+		if (foundProductoPorNombre.get().getStockInicial() == producto.getStockActual().intValue()) {
 			//se puede actualizar todo
 			ProductoModel pM = productoRepository.findById(producto.getId()).orElseThrow(()->new RuntimeException("Producto no encontrado!"));
 			pM = productoMapper.updateAll(pM, producto, categoriaSave, u.get());				

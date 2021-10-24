@@ -10,6 +10,8 @@ import com.example.consumingwebservice.wsdl.AddCuentaBancariaRequest;
 import com.example.consumingwebservice.wsdl.AddCuentaBancariaResponse;
 import com.example.consumingwebservice.wsdl.AddDomicilioRequest;
 import com.example.consumingwebservice.wsdl.AddDomicilioResponse;
+import com.example.consumingwebservice.wsdl.AddProductoRequest;
+import com.example.consumingwebservice.wsdl.AddProductoResponse;
 import com.example.consumingwebservice.wsdl.AddUsuarioRequest;
 import com.example.consumingwebservice.wsdl.AddUsuarioResponse;
 import com.example.consumingwebservice.wsdl.CuentaBancaria;
@@ -18,10 +20,19 @@ import com.example.consumingwebservice.wsdl.GetCuentasBancariasRequest;
 import com.example.consumingwebservice.wsdl.GetCuentasBancariasResponse;
 import com.example.consumingwebservice.wsdl.GetDomiciliosRequest;
 import com.example.consumingwebservice.wsdl.GetDomiciliosResponse;
+import com.example.consumingwebservice.wsdl.GetProductoRequest;
+import com.example.consumingwebservice.wsdl.GetProductoResponse;
+import com.example.consumingwebservice.wsdl.GetProductosPorIdVendedorRequest;
+import com.example.consumingwebservice.wsdl.GetProductosPorIdVendedorResponse;
+import com.example.consumingwebservice.wsdl.GetProductosRequest;
+import com.example.consumingwebservice.wsdl.GetProductosResponse;
 import com.example.consumingwebservice.wsdl.GetUsuarioRequest;
 import com.example.consumingwebservice.wsdl.GetUsuarioResponse;
 import com.example.consumingwebservice.wsdl.LoginValRequest;
 import com.example.consumingwebservice.wsdl.LoginValResponse;
+import com.example.consumingwebservice.wsdl.Producto;
+import com.example.consumingwebservice.wsdl.UpdateProductoRequest;
+import com.example.consumingwebservice.wsdl.UpdateProductoResponse;
 import com.example.consumingwebservice.wsdl.UpdateUsuarioRequest;
 import com.example.consumingwebservice.wsdl.UpdateUsuarioResponse;
 import com.example.consumingwebservice.wsdl.Usuario;
@@ -105,6 +116,50 @@ public class VentasClient extends WebServiceGatewaySupport {
 		AddCuentaBancariaRequest request = new AddCuentaBancariaRequest();
 		request.setCuentaBancaria(cuentaBancaria);
 		AddCuentaBancariaResponse response = (AddCuentaBancariaResponse) getWebServiceTemplate().marshalSendAndReceive(
+				"http://localhost:8080/ws/server", request,
+				new SoapActionCallback("http://spring.io/guides/gs-producing-web-service"));
+		return response;
+	}
+	
+	public AddProductoResponse addProducto(Producto producto) {
+		AddProductoRequest request = new AddProductoRequest();
+		request.setProducto(producto);
+		AddProductoResponse response = (AddProductoResponse) getWebServiceTemplate().marshalSendAndReceive(
+				"http://localhost:8080/ws/server", request,
+				new SoapActionCallback("http://spring.io/guides/gs-producing-web-service"));
+		return response;
+	}
+	
+	public GetProductoResponse getProductoPorNombre(String name) {
+		GetProductoRequest request = new GetProductoRequest();
+		request.setName(name);
+		GetProductoResponse response = (GetProductoResponse) getWebServiceTemplate().marshalSendAndReceive(
+				"http://localhost:8080/ws/server", request,
+				new SoapActionCallback("http://spring.io/guides/gs-producing-web-service"));
+		return response;
+	}
+	
+	public GetProductosResponse getProductos() {
+		GetProductosRequest request = new GetProductosRequest();
+		GetProductosResponse response = (GetProductosResponse) getWebServiceTemplate().marshalSendAndReceive(
+				"http://localhost:8080/ws/server", request,
+				new SoapActionCallback("http://spring.io/guides/gs-producing-web-service"));
+		return response;
+	}
+	
+	public GetProductosPorIdVendedorResponse getProductosPorIdVendedor(Long idVendedor) {
+		GetProductosPorIdVendedorRequest request = new GetProductosPorIdVendedorRequest();
+		request.setId(idVendedor);
+		GetProductosPorIdVendedorResponse response = (GetProductosPorIdVendedorResponse) getWebServiceTemplate().marshalSendAndReceive(
+				"http://localhost:8080/ws/server", request,
+				new SoapActionCallback("http://spring.io/guides/gs-producing-web-service"));
+		return response;
+	}
+	
+	public UpdateProductoResponse updateProducto(Producto producto) {
+		UpdateProductoRequest request = new UpdateProductoRequest();
+		request.setProducto(producto);
+		UpdateProductoResponse response = (UpdateProductoResponse) getWebServiceTemplate().marshalSendAndReceive(
 				"http://localhost:8080/ws/server", request,
 				new SoapActionCallback("http://spring.io/guides/gs-producing-web-service"));
 		return response;

@@ -27,7 +27,6 @@ public class VentaModel {
 	@Getter @Setter private Long id;
 	@Getter @Setter private String estado;
 	@Getter @Setter private Date fecha;
-	@Getter @Setter private float valor;
 	@ManyToOne
 	@JoinColumn(name = "FK_PEDIDO", nullable = false, updatable = false)
 	@Getter @Setter private PedidoModel pedido;

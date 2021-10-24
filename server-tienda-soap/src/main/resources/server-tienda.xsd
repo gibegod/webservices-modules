@@ -112,6 +112,39 @@
         </xs:complexType>
     </xs:element>
     
+    <xs:element name="addVentaRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="idVendedor" type="xs:long"/>
+                <xs:element name="idPedido" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="addVentaResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="estado" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="finalizeVentaRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="idVenta" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="finalizeVentaResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="estado" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
     <xs:element name="updateProductoRequest">
         <xs:complexType>
             <xs:sequence>

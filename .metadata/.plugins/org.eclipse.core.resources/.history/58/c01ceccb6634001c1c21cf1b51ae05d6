@@ -64,7 +64,7 @@ public class ProductoEndpoint {
 	
 	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "getProductosRequest")
 	@ResponsePayload
-	public GetProductosResponse getProductos(@RequestPayload GetProductosRequest request) {
+	public GetProductosResponse getProductos(@RequestPayload GetProductoPorIdRequest request) {
 		GetProductosResponse response = new GetProductosResponse();
 		Iterable<ProductoModel> lstProductos = productoService.traerProductos();
 		for (ProductoModel p : lstProductos) {

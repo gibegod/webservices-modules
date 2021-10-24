@@ -824,3 +824,83 @@ Caused by: java.net.ConnectException: Connection refused: connect
 2021-10-23 21:47:12,054 [Worker-53: Launching server-tienda-soap - ProducingWebServiceApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2021-10-23 21:47:12,054 [Worker-53: Launching server-tienda-soap - ProducingWebServiceApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
 2021-10-23 21:47:12,054 [Worker-53: Launching server-tienda-soap - ProducingWebServiceApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\test\resources
+2021-10-23 22:02:02,488 [Worker-63: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Ignored given or default xjbSources [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\main\xjb], since it is not an existent file or directory.
+2021-10-23 22:02:02,511 [Worker-63: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Created EpisodePath [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\target\generated-sources\jaxb\META-INF\JAXB]: true
+2021-10-23 22:02:02,512 [Worker-63: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Ignored given or default xjbSources [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\main\xjb], since it is not an existent file or directory.
+2021-10-23 22:02:02,579 [Worker-63: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Created EpisodePath [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\target\generated-sources\jaxb\META-INF\JAXB]: true
+2021-10-23 22:02:03,209 [Worker-63: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 22:02:03,209 [Worker-63: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 22:02:03,210 [Worker-63: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-10-23 22:02:03,210 [Worker-63: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 22:02:03,213 [Worker-63: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-10-23 22:02:03,213 [Worker-63: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-10-23 22:02:03,214 [Worker-63: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 22:02:03,214 [Worker-63: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 22:02:03,214 [Worker-63: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\test\resources
+2021-10-23 22:02:04,300 [Worker-63: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Ignored given or default xjbSources [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\main\xjb], since it is not an existent file or directory.
+2021-10-23 22:02:04,301 [Worker-63: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - No changes detected in schema or binding files - skipping JAXB generation.
+2021-10-23 22:02:04,303 [Worker-63: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 22:02:04,304 [Worker-63: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 22:02:04,304 [Worker-63: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 22:02:04,329 [Worker-63: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 22:02:04,333 [Worker-63: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 22:02:04,333 [Worker-63: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 22:02:04,333 [Worker-63: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\test\resources
+2021-10-23 22:05:52,578 [Worker-58: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Ignored given or default xjbSources [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\main\xjb], since it is not an existent file or directory.
+2021-10-23 22:05:52,578 [Worker-58: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - No changes detected in schema or binding files - skipping JAXB generation.
+2021-10-23 22:05:52,580 [Worker-58: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 22:05:52,580 [Worker-58: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 22:05:52,581 [Worker-58: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-10-23 22:05:52,581 [Worker-58: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-10-23 22:05:52,582 [Worker-58: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 22:05:52,582 [Worker-58: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 22:05:52,582 [Worker-58: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\test\resources
+2021-10-23 22:06:54,887 [Worker-60: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Ignored given or default xjbSources [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\main\xjb], since it is not an existent file or directory.
+2021-10-23 22:06:54,901 [Worker-60: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Created EpisodePath [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\target\generated-sources\jaxb\META-INF\JAXB]: true
+2021-10-23 22:06:54,903 [Worker-60: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Ignored given or default xjbSources [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\main\xjb], since it is not an existent file or directory.
+2021-10-23 22:06:54,960 [Worker-60: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Created EpisodePath [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\target\generated-sources\jaxb\META-INF\JAXB]: true
+2021-10-23 22:06:55,081 [Worker-60: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 22:06:55,081 [Worker-60: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 22:06:55,081 [Worker-60: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-10-23 22:06:55,082 [Worker-60: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 22:06:55,085 [Worker-60: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-10-23 22:06:55,085 [Worker-60: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-10-23 22:06:55,087 [Worker-60: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 22:06:55,087 [Worker-60: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 22:06:55,087 [Worker-60: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\test\resources
+2021-10-23 22:06:56,525 [Worker-58: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Ignored given or default xjbSources [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\main\xjb], since it is not an existent file or directory.
+2021-10-23 22:06:56,526 [Worker-58: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - No changes detected in schema or binding files - skipping JAXB generation.
+2021-10-23 22:06:56,528 [Worker-58: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 22:06:56,528 [Worker-58: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 22:06:56,528 [Worker-58: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 22:06:56,535 [Worker-58: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 22:06:56,537 [Worker-58: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 22:06:56,537 [Worker-58: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 22:06:56,537 [Worker-58: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\test\resources
+2021-10-23 22:07:45,746 [Worker-63: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Ignored given or default xjbSources [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\main\xjb], since it is not an existent file or directory.
+2021-10-23 22:07:45,746 [Worker-63: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - No changes detected in schema or binding files - skipping JAXB generation.
+2021-10-23 22:07:45,748 [Worker-63: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 22:07:45,749 [Worker-63: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 22:07:45,749 [Worker-63: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 22:07:45,758 [Worker-63: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 22:07:45,761 [Worker-63: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 22:07:45,761 [Worker-63: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 22:07:45,761 [Worker-63: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\test\resources
+2021-10-23 22:13:05,808 [Worker-67: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Ignored given or default xjbSources [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\main\xjb], since it is not an existent file or directory.
+2021-10-23 22:13:05,809 [Worker-67: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - No changes detected in schema or binding files - skipping JAXB generation.
+2021-10-23 22:13:05,811 [Worker-67: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 22:13:05,811 [Worker-67: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 22:13:05,812 [Worker-67: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 22:13:05,822 [Worker-67: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 22:13:05,824 [Worker-67: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 22:13:05,824 [Worker-67: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 22:13:05,824 [Worker-67: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\test\resources
+2021-10-23 22:14:28,682 [Worker-67: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Ignored given or default xjbSources [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\main\xjb], since it is not an existent file or directory.
+2021-10-23 22:14:28,683 [Worker-67: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - No changes detected in schema or binding files - skipping JAXB generation.
+2021-10-23 22:14:28,685 [Worker-67: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 22:14:28,686 [Worker-67: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 22:14:28,686 [Worker-67: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 22:14:28,695 [Worker-67: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 22:14:28,697 [Worker-67: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 22:14:28,697 [Worker-67: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 22:14:28,697 [Worker-67: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\test\resources

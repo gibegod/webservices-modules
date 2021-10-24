@@ -62,7 +62,7 @@ public class ProductoEndpoint {
 		return response;
 	}
 	
-	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "getProductosRequest")
+	@PayloadRoot(localPart = "getProductosRequest")
 	@ResponsePayload
 	public GetProductosResponse getProductos(@RequestPayload GetProductosRequest request) {
 		GetProductosResponse response = new GetProductosResponse();

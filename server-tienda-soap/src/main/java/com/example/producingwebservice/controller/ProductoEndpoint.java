@@ -21,6 +21,8 @@ import io.spring.guides.gs_producing_web_service.GetProductoPorIdRequest;
 import io.spring.guides.gs_producing_web_service.GetProductoPorIdResponse;
 import io.spring.guides.gs_producing_web_service.GetProductoRequest;
 import io.spring.guides.gs_producing_web_service.GetProductoResponse;
+import io.spring.guides.gs_producing_web_service.GetProductosPorIdVendedorRequest;
+import io.spring.guides.gs_producing_web_service.GetProductosPorIdVendedorResponse;
 import io.spring.guides.gs_producing_web_service.GetProductosRequest;
 import io.spring.guides.gs_producing_web_service.GetProductosResponse;
 import io.spring.guides.gs_producing_web_service.UpdateProductoRequest;
@@ -67,6 +69,17 @@ public class ProductoEndpoint {
 	public GetProductosResponse getProductos(@RequestPayload GetProductosRequest request) {
 		GetProductosResponse response = new GetProductosResponse();
 		Iterable<ProductoModel> lstProductos = productoService.traerProductos();
+		for (ProductoModel p : lstProductos) {
+			response.getProducto().add(productoMapper.toProductoXML(p, true));
+		}		
+		return response;
+	}
+	
+	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "getProductosPorIdVendedorRequest")
+	@ResponsePayload
+	public GetProductosPorIdVendedorResponse getProductos(@RequestPayload GetProductosPorIdVendedorRequest request) {
+		GetProductosPorIdVendedorResponse response = new GetProductosPorIdVendedorResponse();
+		Iterable<ProductoModel> lstProductos = productoService.traerProductosPorVendedor(request.getId());
 		for (ProductoModel p : lstProductos) {
 			response.getProducto().add(productoMapper.toProductoXML(p, true));
 		}		

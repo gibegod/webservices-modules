@@ -53,7 +53,17 @@ public class ProductoService {
 	public Iterable<ProductoModel> traerProductos(){
 		Iterable<ProductoModel> lstProductos = new ArrayList<>();
 		try {
-			lstProductos = productoRepository.findAll();
+			lstProductos = productoRepository.findAllWithStock();
+		}catch(Exception e) {
+			
+		}
+		return lstProductos;
+	}
+	
+	public Iterable<ProductoModel> traerProductosPorVendedor(long id){
+		Iterable<ProductoModel> lstProductos = new ArrayList<>();
+		try {
+			lstProductos = productoRepository.findAllByIdVendedor(id);
 		}catch(Exception e) {
 			
 		}

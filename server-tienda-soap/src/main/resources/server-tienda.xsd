@@ -33,6 +33,86 @@
         </xs:complexType>
     </xs:element>
     
+    <xs:element name="getProductoRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="getProductoPorIdRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="getProductoPorIdResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="producto" type="tns:producto" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="getProductosRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="getProductosResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="producto" type="tns:producto" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="getProductoResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="producto" type="tns:producto"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="addProductoRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="producto" type="tns:producto"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="addProductoResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="estado" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="updateProductoRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="producto" type="tns:producto"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="updateProductoResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="estado" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
     <xs:element name="getCuentasBancariasRequest">
         <xs:complexType>
             <xs:sequence>
@@ -209,6 +289,8 @@
             <xs:element name="activo" type="xs:boolean"/>
             <xs:element name="categoria" type="tns:categoriaProducto"/>
             <xs:element name="vendedor" type="tns:usuario"/>
+            <xs:element name="debito" type="xs:boolean"/>
+            <xs:element name="credito" type="xs:boolean"/>
         </xs:sequence>
     </xs:complexType>
     

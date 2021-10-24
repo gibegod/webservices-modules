@@ -5,7 +5,7 @@
 Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.2 
 Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-Generado el: 2021.10.18 a las 01:24:00 AM ART 
+Generado el: 2021.10.23 a las 09:25:29 PM ART 
 
   -->
   <bindings scd="x-schema::tns" xmlns:tns="http://spring.io/guides/gs-producing-web-service">
@@ -29,6 +29,39 @@ Generado el: 2021.10.18 a las 01:24:00 AM ART
     </bindings>
     <bindings scd="~tns:domicilio">
       <class ref="io.spring.guides.gs_producing_web_service.Domicilio"/>
+    </bindings>
+    <bindings scd="tns:getProductoRequest">
+      <class ref="io.spring.guides.gs_producing_web_service.GetProductoRequest"/>
+    </bindings>
+    <bindings scd="tns:getProductoPorIdRequest">
+      <class ref="io.spring.guides.gs_producing_web_service.GetProductoPorIdRequest"/>
+    </bindings>
+    <bindings scd="tns:getProductoPorIdResponse">
+      <class ref="io.spring.guides.gs_producing_web_service.GetProductoPorIdResponse"/>
+    </bindings>
+    <bindings scd="~tns:producto">
+      <class ref="io.spring.guides.gs_producing_web_service.Producto"/>
+    </bindings>
+    <bindings scd="tns:getProductosRequest">
+      <class ref="io.spring.guides.gs_producing_web_service.GetProductosRequest"/>
+    </bindings>
+    <bindings scd="tns:getProductosResponse">
+      <class ref="io.spring.guides.gs_producing_web_service.GetProductosResponse"/>
+    </bindings>
+    <bindings scd="tns:getProductoResponse">
+      <class ref="io.spring.guides.gs_producing_web_service.GetProductoResponse"/>
+    </bindings>
+    <bindings scd="tns:addProductoRequest">
+      <class ref="io.spring.guides.gs_producing_web_service.AddProductoRequest"/>
+    </bindings>
+    <bindings scd="tns:addProductoResponse">
+      <class ref="io.spring.guides.gs_producing_web_service.AddProductoResponse"/>
+    </bindings>
+    <bindings scd="tns:updateProductoRequest">
+      <class ref="io.spring.guides.gs_producing_web_service.UpdateProductoRequest"/>
+    </bindings>
+    <bindings scd="tns:updateProductoResponse">
+      <class ref="io.spring.guides.gs_producing_web_service.UpdateProductoResponse"/>
     </bindings>
     <bindings scd="tns:getCuentasBancariasRequest">
       <class ref="io.spring.guides.gs_producing_web_service.GetCuentasBancariasRequest"/>
@@ -92,9 +125,6 @@ Generado el: 2021.10.18 a las 01:24:00 AM ART
     </bindings>
     <bindings scd="~tns:categoriaProducto">
       <class ref="io.spring.guides.gs_producing_web_service.CategoriaProducto"/>
-    </bindings>
-    <bindings scd="~tns:producto">
-      <class ref="io.spring.guides.gs_producing_web_service.Producto"/>
     </bindings>
     <bindings scd="~tns:categoriaDenuncia">
       <class ref="io.spring.guides.gs_producing_web_service.CategoriaDenuncia"/>

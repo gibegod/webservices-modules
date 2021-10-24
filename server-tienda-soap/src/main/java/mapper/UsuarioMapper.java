@@ -17,6 +17,7 @@ public class UsuarioMapper {
 		uM.setDni(usuarioXML.getDni());
 		uM.setUsuario(usuarioXML.getUsuario());
 		uM.setContrasenia(usuarioXML.getContrasenia());
+		//uM.setTelefono(usuarioXML.getTelefono());
 		
 		return uM;
 	}
@@ -33,6 +34,7 @@ public class UsuarioMapper {
 		uM.setDni(usuarioXML.getDni());
 		uM.setUsuario(usuarioXML.getUsuario());
 		uM.setContrasenia(usuarioXML.getContrasenia());
+		//uXml.setTelefono(usuarioModel.getTelefono());
 		
 		return uM;
 	}

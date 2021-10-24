@@ -1,0 +1,826 @@
+2021-10-23 20:38:24,968 [Worker-3: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2021-10-23 20:39:10,470 [Worker-1: Importing Maven projects] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.example:producing-web-service-complete:0.0.1-SNAPSHOT @ C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\pom.xml.
+2021-10-23 20:39:11,355 [Worker-1: Importing Maven projects] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.example:consuming-web-service-complete:0.0.1-SNAPSHOT @ C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\ventas-cliente-soap\pom.xml.
+2021-10-23 20:39:12,112 [Worker-1: Importing Maven projects] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.example:compras-cliente-soap:0.0.1-SNAPSHOT @ C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\compras-cliente-soap\pom.xml.
+2021-10-23 20:39:14,923 [Worker-1: Importing Maven projects] WARN  o.e.m.c.i.embedder.EclipseLogger - The URI [http://localhost:8080/ws/serverTienda.wsdl] seems to represent an absolute HTTP or HTTPS URL. Getting the last modification timestamp is only possible if the URL is accessible and if the server returns the [Last-Modified] header correctly. This method is not reliable and is likely to fail. In this case the last modification timestamp will be assumed to be unknown.
+2021-10-23 20:39:16,960 [Worker-1: Importing Maven projects] ERROR o.e.m.c.i.embedder.EclipseLogger - Could not retrieve the last modification timestamp for the URI [http://localhost:8080/ws/serverTienda.wsdl] from the HTTP URL connection. The [Last-Modified] header was probably not set correctly.
+2021-10-23 20:39:16,961 [Worker-1: Importing Maven projects] WARN  o.e.m.c.i.embedder.EclipseLogger - Last modification of the URI [http://localhost:8080/ws/serverTienda.wsdl] is not known.
+2021-10-23 20:39:16,963 [Worker-1: Importing Maven projects] INFO  o.e.m.c.i.embedder.EclipseLogger - Sources are not up-to-date, XJC will be executed.
+2021-10-23 20:39:19,372 [Worker-1: Importing Maven projects] ERROR o.e.m.c.i.embedder.EclipseLogger - Error while parsing schema(s).Location []. Se ha devuelto una excepción de E/S al procesar "http://localhost:8080/ws/serverTienda.wsdl". Excepción: java.net.ConnectException: Connection refused: connect.
+com.sun.istack.SAXParseException2: Se ha devuelto una excepción de E/S al procesar "http://localhost:8080/ws/serverTienda.wsdl". Excepción: java.net.ConnectException: Connection refused: connect.
+	at com.sun.tools.xjc.ErrorReceiver.error(ErrorReceiver.java:94)
+	at com.sun.tools.xjc.reader.internalizer.DOMForest.parse(DOMForest.java:403)
+	at com.sun.tools.xjc.reader.internalizer.DOMForest.parse(DOMForest.java:275)
+	at com.sun.tools.xjc.ModelLoader.buildDOMForest(ModelLoader.java:306)
+	at com.sun.tools.xjc.ModelLoader.loadWSDL(ModelLoader.java:373)
+	at com.sun.tools.xjc.ModelLoader.load(ModelLoader.java:158)
+	at com.sun.tools.xjc.ModelLoader.load(ModelLoader.java:117)
+	at org.jvnet.mjiip.v_2_3.XJC23Mojo.loadModel(XJC23Mojo.java:50)
+	at org.jvnet.mjiip.v_2_3.XJC23Mojo.doExecute(XJC23Mojo.java:40)
+	at org.jvnet.mjiip.v_2_3.XJC23Mojo.doExecute(XJC23Mojo.java:28)
+	at org.jvnet.jaxb2.maven2.RawXJC2Mojo.doExecute(RawXJC2Mojo.java:478)
+	at org.jvnet.jaxb2.maven2.RawXJC2Mojo.execute(RawXJC2Mojo.java:320)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:137)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.execute(MavenImpl.java:332)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.lambda$8(MavenImpl.java:1380)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:179)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:114)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.execute(MavenImpl.java:1379)
+	at org.eclipse.m2e.core.project.configurator.MojoExecutionBuildParticipant.build(MojoExecutionBuildParticipant.java:54)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilderImpl.build(MavenBuilderImpl.java:135)
+	at org.eclipse.m2e.core.project.configurator.AbstractLifecycleMapping.configure(AbstractLifecycleMapping.java:113)
+	at org.eclipse.m2e.core.internal.project.ProjectConfigurationManager.lambda$2(ProjectConfigurationManager.java:511)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:179)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:153)
+	at org.eclipse.m2e.core.internal.project.ProjectConfigurationManager.updateProjectConfiguration(ProjectConfigurationManager.java:505)
+	at org.eclipse.m2e.core.internal.project.ProjectConfigurationManager.configureNewMavenProjects(ProjectConfigurationManager.java:296)
+	at org.eclipse.m2e.core.internal.project.ProjectConfigurationManager.lambda$0(ProjectConfigurationManager.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:179)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:153)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:101)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.execute(MavenImpl.java:1374)
+	at org.eclipse.m2e.core.internal.project.ProjectConfigurationManager.importProjects(ProjectConfigurationManager.java:146)
+	at org.eclipse.m2e.core.ui.internal.wizards.ImportMavenProjectsJob$1.doCreateMavenProjects(ImportMavenProjectsJob.java:70)
+	at org.eclipse.m2e.core.ui.internal.wizards.AbstractCreateMavenProjectsOperation.run(AbstractCreateMavenProjectsOperation.java:75)
+	at org.eclipse.m2e.core.ui.internal.wizards.ImportMavenProjectsJob.runInWorkspace(ImportMavenProjectsJob.java:79)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:42)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.base/sun.nio.ch.Net.connect0(Native Method)
+	at java.base/sun.nio.ch.Net.connect(Net.java:574)
+	at java.base/sun.nio.ch.Net.connect(Net.java:563)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:588)
+	at java.base/java.net.Socket.connect(Socket.java:648)
+	at java.base/java.net.Socket.connect(Socket.java:597)
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:182)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:474)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:569)
+	at java.base/sun.net.www.http.HttpClient.<init>(HttpClient.java:242)
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:341)
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:362)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1261)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1194)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1082)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:1016)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1600)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1528)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLEntityManager.setupCurrentEntity(XMLEntityManager.java:676)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLVersionDetector.determineDocVersion(XMLVersionDetector.java:150)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:860)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:824)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1224)
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:635)
+	at com.sun.tools.xjc.reader.internalizer.DOMForest.parse(DOMForest.java:395)
+	... 35 common frames omitted
+2021-10-23 20:39:19,714 [Worker-1: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /compras-cliente-soap/src/main/java
+2021-10-23 20:39:19,715 [Worker-1: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /compras-cliente-soap/target/generated-sources/xjc
+2021-10-23 20:39:19,716 [Worker-1: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /compras-cliente-soap/src/main/resources
+2021-10-23 20:39:19,717 [Worker-1: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /compras-cliente-soap/src/main/resources
+2021-10-23 20:39:19,718 [Worker-1: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /compras-cliente-soap/target/generated-sources/xjc overlaps with sources folder /compras-cliente-soap/target/generated-sources/xjc
+2021-10-23 20:39:19,719 [Worker-1: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /compras-cliente-soap/src/test/java
+2021-10-23 20:39:20,371 [Worker-1: Importing Maven projects] INFO  o.e.m.c.i.embedder.EclipseLogger - Ignored given or default xjbSources [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\main\xjb], since it is not an existent file or directory.
+2021-10-23 20:39:20,405 [Worker-1: Importing Maven projects] INFO  o.e.m.c.i.embedder.EclipseLogger - Created EpisodePath [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\target\generated-sources\jaxb\META-INF\JAXB]: true
+2021-10-23 20:39:20,407 [Worker-1: Importing Maven projects] INFO  o.e.m.c.i.embedder.EclipseLogger - Ignored given or default xjbSources [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\main\xjb], since it is not an existent file or directory.
+2021-10-23 20:39:20,468 [Worker-1: Importing Maven projects] INFO  o.e.m.c.i.embedder.EclipseLogger - Created EpisodePath [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\target\generated-sources\jaxb\META-INF\JAXB]: true
+2021-10-23 20:39:21,051 [Worker-1: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /server-tienda-soap/src/main/java
+2021-10-23 20:39:21,053 [Worker-1: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /server-tienda-soap/target/generated-sources/jaxb
+2021-10-23 20:39:21,053 [Worker-1: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /server-tienda-soap/src/main/resources
+2021-10-23 20:39:21,053 [Worker-1: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /server-tienda-soap/src/main/resources
+2021-10-23 20:39:21,054 [Worker-1: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /server-tienda-soap/target/generated-sources/jaxb overlaps with sources folder /server-tienda-soap/target/generated-sources/jaxb
+2021-10-23 20:39:21,055 [Worker-1: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /server-tienda-soap/target/generated-sources/jaxb overlaps with sources folder /server-tienda-soap/target/generated-sources/jaxb
+2021-10-23 20:39:21,057 [Worker-1: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /server-tienda-soap/src/test/java
+2021-10-23 20:39:21,445 [Worker-1: Importing Maven projects] WARN  o.e.m.c.i.embedder.EclipseLogger - The URI [http://localhost:8080/ws/serverTienda.wsdl] seems to represent an absolute HTTP or HTTPS URL. Getting the last modification timestamp is only possible if the URL is accessible and if the server returns the [Last-Modified] header correctly. This method is not reliable and is likely to fail. In this case the last modification timestamp will be assumed to be unknown.
+2021-10-23 20:39:23,476 [Worker-1: Importing Maven projects] ERROR o.e.m.c.i.embedder.EclipseLogger - Could not retrieve the last modification timestamp for the URI [http://localhost:8080/ws/serverTienda.wsdl] from the HTTP URL connection. The [Last-Modified] header was probably not set correctly.
+2021-10-23 20:39:23,478 [Worker-1: Importing Maven projects] WARN  o.e.m.c.i.embedder.EclipseLogger - Last modification of the URI [http://localhost:8080/ws/serverTienda.wsdl] is not known.
+2021-10-23 20:39:23,480 [Worker-1: Importing Maven projects] INFO  o.e.m.c.i.embedder.EclipseLogger - Sources are not up-to-date, XJC will be executed.
+2021-10-23 20:39:25,515 [Worker-1: Importing Maven projects] ERROR o.e.m.c.i.embedder.EclipseLogger - Error while parsing schema(s).Location []. Se ha devuelto una excepción de E/S al procesar "http://localhost:8080/ws/serverTienda.wsdl". Excepción: java.net.ConnectException: Connection refused: connect.
+com.sun.istack.SAXParseException2: Se ha devuelto una excepción de E/S al procesar "http://localhost:8080/ws/serverTienda.wsdl". Excepción: java.net.ConnectException: Connection refused: connect.
+	at com.sun.tools.xjc.ErrorReceiver.error(ErrorReceiver.java:94)
+	at com.sun.tools.xjc.reader.internalizer.DOMForest.parse(DOMForest.java:403)
+	at com.sun.tools.xjc.reader.internalizer.DOMForest.parse(DOMForest.java:275)
+	at com.sun.tools.xjc.ModelLoader.buildDOMForest(ModelLoader.java:306)
+	at com.sun.tools.xjc.ModelLoader.loadWSDL(ModelLoader.java:373)
+	at com.sun.tools.xjc.ModelLoader.load(ModelLoader.java:158)
+	at com.sun.tools.xjc.ModelLoader.load(ModelLoader.java:117)
+	at org.jvnet.mjiip.v_2_3.XJC23Mojo.loadModel(XJC23Mojo.java:50)
+	at org.jvnet.mjiip.v_2_3.XJC23Mojo.doExecute(XJC23Mojo.java:40)
+	at org.jvnet.mjiip.v_2_3.XJC23Mojo.doExecute(XJC23Mojo.java:28)
+	at org.jvnet.jaxb2.maven2.RawXJC2Mojo.doExecute(RawXJC2Mojo.java:478)
+	at org.jvnet.jaxb2.maven2.RawXJC2Mojo.execute(RawXJC2Mojo.java:320)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:137)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.execute(MavenImpl.java:332)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.lambda$8(MavenImpl.java:1380)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:179)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:114)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.execute(MavenImpl.java:1379)
+	at org.eclipse.m2e.core.project.configurator.MojoExecutionBuildParticipant.build(MojoExecutionBuildParticipant.java:54)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilderImpl.build(MavenBuilderImpl.java:135)
+	at org.eclipse.m2e.core.project.configurator.AbstractLifecycleMapping.configure(AbstractLifecycleMapping.java:113)
+	at org.eclipse.m2e.core.internal.project.ProjectConfigurationManager.lambda$2(ProjectConfigurationManager.java:511)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:179)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:153)
+	at org.eclipse.m2e.core.internal.project.ProjectConfigurationManager.updateProjectConfiguration(ProjectConfigurationManager.java:505)
+	at org.eclipse.m2e.core.internal.project.ProjectConfigurationManager.configureNewMavenProjects(ProjectConfigurationManager.java:296)
+	at org.eclipse.m2e.core.internal.project.ProjectConfigurationManager.lambda$0(ProjectConfigurationManager.java:176)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:179)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:153)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:101)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.execute(MavenImpl.java:1374)
+	at org.eclipse.m2e.core.internal.project.ProjectConfigurationManager.importProjects(ProjectConfigurationManager.java:146)
+	at org.eclipse.m2e.core.ui.internal.wizards.ImportMavenProjectsJob$1.doCreateMavenProjects(ImportMavenProjectsJob.java:70)
+	at org.eclipse.m2e.core.ui.internal.wizards.AbstractCreateMavenProjectsOperation.run(AbstractCreateMavenProjectsOperation.java:75)
+	at org.eclipse.m2e.core.ui.internal.wizards.ImportMavenProjectsJob.runInWorkspace(ImportMavenProjectsJob.java:79)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:42)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.base/sun.nio.ch.Net.connect0(Native Method)
+	at java.base/sun.nio.ch.Net.connect(Net.java:574)
+	at java.base/sun.nio.ch.Net.connect(Net.java:563)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:588)
+	at java.base/java.net.Socket.connect(Socket.java:648)
+	at java.base/java.net.Socket.connect(Socket.java:597)
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:182)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:474)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:569)
+	at java.base/sun.net.www.http.HttpClient.<init>(HttpClient.java:242)
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:341)
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:362)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1261)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1194)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1082)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:1016)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1600)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1528)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLEntityManager.setupCurrentEntity(XMLEntityManager.java:676)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLVersionDetector.determineDocVersion(XMLVersionDetector.java:150)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:860)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:824)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1224)
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:635)
+	at com.sun.tools.xjc.reader.internalizer.DOMForest.parse(DOMForest.java:395)
+	... 35 common frames omitted
+2021-10-23 20:39:25,548 [Worker-1: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /ventas-cliente-soap/src/main/java
+2021-10-23 20:39:25,549 [Worker-1: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /ventas-cliente-soap/target/generated-sources/xjc
+2021-10-23 20:39:25,550 [Worker-1: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /ventas-cliente-soap/src/main/resources
+2021-10-23 20:39:25,551 [Worker-1: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /ventas-cliente-soap/src/main/resources
+2021-10-23 20:39:25,551 [Worker-1: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /ventas-cliente-soap/target/generated-sources/xjc overlaps with sources folder /ventas-cliente-soap/target/generated-sources/xjc
+2021-10-23 20:39:25,552 [Worker-1: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /ventas-cliente-soap/src/test/java
+2021-10-23 20:39:25,752 [Worker-1: Importing Maven projects] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Imported and configured 3 project(s) in 20 sec
+2021-10-23 20:39:59,843 [Worker-7: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - The URI [http://localhost:8080/ws/serverTienda.wsdl] seems to represent an absolute HTTP or HTTPS URL. Getting the last modification timestamp is only possible if the URL is accessible and if the server returns the [Last-Modified] header correctly. This method is not reliable and is likely to fail. In this case the last modification timestamp will be assumed to be unknown.
+2021-10-23 20:40:01,883 [Worker-7: Building] ERROR o.e.m.c.i.embedder.EclipseLogger - Could not retrieve the last modification timestamp for the URI [http://localhost:8080/ws/serverTienda.wsdl] from the HTTP URL connection. The [Last-Modified] header was probably not set correctly.
+2021-10-23 20:40:01,884 [Worker-7: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Last modification of the URI [http://localhost:8080/ws/serverTienda.wsdl] is not known.
+2021-10-23 20:40:01,892 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Sources are not up-to-date, XJC will be executed.
+2021-10-23 20:40:04,196 [Worker-7: Building] ERROR o.e.m.c.i.embedder.EclipseLogger - Error while parsing schema(s).Location []. Se ha devuelto una excepción de E/S al procesar "http://localhost:8080/ws/serverTienda.wsdl". Excepción: java.net.ConnectException: Connection refused: connect.
+com.sun.istack.SAXParseException2: Se ha devuelto una excepción de E/S al procesar "http://localhost:8080/ws/serverTienda.wsdl". Excepción: java.net.ConnectException: Connection refused: connect.
+	at com.sun.tools.xjc.ErrorReceiver.error(ErrorReceiver.java:94)
+	at com.sun.tools.xjc.reader.internalizer.DOMForest.parse(DOMForest.java:403)
+	at com.sun.tools.xjc.reader.internalizer.DOMForest.parse(DOMForest.java:275)
+	at com.sun.tools.xjc.ModelLoader.buildDOMForest(ModelLoader.java:306)
+	at com.sun.tools.xjc.ModelLoader.loadWSDL(ModelLoader.java:373)
+	at com.sun.tools.xjc.ModelLoader.load(ModelLoader.java:158)
+	at com.sun.tools.xjc.ModelLoader.load(ModelLoader.java:117)
+	at org.jvnet.mjiip.v_2_3.XJC23Mojo.loadModel(XJC23Mojo.java:50)
+	at org.jvnet.mjiip.v_2_3.XJC23Mojo.doExecute(XJC23Mojo.java:40)
+	at org.jvnet.mjiip.v_2_3.XJC23Mojo.doExecute(XJC23Mojo.java:28)
+	at org.jvnet.jaxb2.maven2.RawXJC2Mojo.doExecute(RawXJC2Mojo.java:478)
+	at org.jvnet.jaxb2.maven2.RawXJC2Mojo.execute(RawXJC2Mojo.java:320)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:137)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.execute(MavenImpl.java:332)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.lambda$8(MavenImpl.java:1380)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:179)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:114)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.execute(MavenImpl.java:1379)
+	at org.eclipse.m2e.core.project.configurator.MojoExecutionBuildParticipant.build(MojoExecutionBuildParticipant.java:54)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilderImpl.build(MavenBuilderImpl.java:135)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$1.method(MavenBuilder.java:169)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$1.method(MavenBuilder.java:1)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.lambda$1(MavenBuilder.java:114)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:179)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:114)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.lambda$0(MavenBuilder.java:105)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:179)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:153)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:101)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.execute(MavenBuilder.java:88)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder.build(MavenBuilder.java:197)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:846)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:229)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:277)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:330)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:333)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:385)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:406)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:154)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:244)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.base/sun.nio.ch.Net.connect0(Native Method)
+	at java.base/sun.nio.ch.Net.connect(Net.java:574)
+	at java.base/sun.nio.ch.Net.connect(Net.java:563)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:588)
+	at java.base/java.net.Socket.connect(Socket.java:648)
+	at java.base/java.net.Socket.connect(Socket.java:597)
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:182)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:474)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:569)
+	at java.base/sun.net.www.http.HttpClient.<init>(HttpClient.java:242)
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:341)
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:362)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1261)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1194)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1082)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:1016)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1600)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1528)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLEntityManager.setupCurrentEntity(XMLEntityManager.java:676)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLVersionDetector.determineDocVersion(XMLVersionDetector.java:150)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:860)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:824)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1224)
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:635)
+	at com.sun.tools.xjc.reader.internalizer.DOMForest.parse(DOMForest.java:395)
+	... 41 common frames omitted
+2021-10-23 20:40:04,226 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 20:40:04,227 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 20:40:04,228 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 20:40:04,283 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-10-23 20:40:04,284 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 20:40:04,293 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 20:40:04,294 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 20:40:04,294 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\compras-cliente-soap\src\test\resources
+2021-10-23 20:40:06,386 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Ignored given or default xjbSources [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\main\xjb], since it is not an existent file or directory.
+2021-10-23 20:40:06,387 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - No changes detected in schema or binding files - skipping JAXB generation.
+2021-10-23 20:40:06,390 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 20:40:06,391 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 20:40:06,391 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 20:40:06,399 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 20:40:06,404 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 20:40:06,404 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 20:40:06,404 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\test\resources
+2021-10-23 20:40:07,148 [Worker-7: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - The URI [http://localhost:8080/ws/serverTienda.wsdl] seems to represent an absolute HTTP or HTTPS URL. Getting the last modification timestamp is only possible if the URL is accessible and if the server returns the [Last-Modified] header correctly. This method is not reliable and is likely to fail. In this case the last modification timestamp will be assumed to be unknown.
+2021-10-23 20:40:09,162 [Worker-7: Building] ERROR o.e.m.c.i.embedder.EclipseLogger - Could not retrieve the last modification timestamp for the URI [http://localhost:8080/ws/serverTienda.wsdl] from the HTTP URL connection. The [Last-Modified] header was probably not set correctly.
+2021-10-23 20:40:09,163 [Worker-7: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Last modification of the URI [http://localhost:8080/ws/serverTienda.wsdl] is not known.
+2021-10-23 20:40:09,171 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Sources are not up-to-date, XJC will be executed.
+2021-10-23 20:40:11,197 [Worker-7: Building] ERROR o.e.m.c.i.embedder.EclipseLogger - Error while parsing schema(s).Location []. Se ha devuelto una excepción de E/S al procesar "http://localhost:8080/ws/serverTienda.wsdl". Excepción: java.net.ConnectException: Connection refused: connect.
+com.sun.istack.SAXParseException2: Se ha devuelto una excepción de E/S al procesar "http://localhost:8080/ws/serverTienda.wsdl". Excepción: java.net.ConnectException: Connection refused: connect.
+	at com.sun.tools.xjc.ErrorReceiver.error(ErrorReceiver.java:94)
+	at com.sun.tools.xjc.reader.internalizer.DOMForest.parse(DOMForest.java:403)
+	at com.sun.tools.xjc.reader.internalizer.DOMForest.parse(DOMForest.java:275)
+	at com.sun.tools.xjc.ModelLoader.buildDOMForest(ModelLoader.java:306)
+	at com.sun.tools.xjc.ModelLoader.loadWSDL(ModelLoader.java:373)
+	at com.sun.tools.xjc.ModelLoader.load(ModelLoader.java:158)
+	at com.sun.tools.xjc.ModelLoader.load(ModelLoader.java:117)
+	at org.jvnet.mjiip.v_2_3.XJC23Mojo.loadModel(XJC23Mojo.java:50)
+	at org.jvnet.mjiip.v_2_3.XJC23Mojo.doExecute(XJC23Mojo.java:40)
+	at org.jvnet.mjiip.v_2_3.XJC23Mojo.doExecute(XJC23Mojo.java:28)
+	at org.jvnet.jaxb2.maven2.RawXJC2Mojo.doExecute(RawXJC2Mojo.java:478)
+	at org.jvnet.jaxb2.maven2.RawXJC2Mojo.execute(RawXJC2Mojo.java:320)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:137)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.execute(MavenImpl.java:332)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.lambda$8(MavenImpl.java:1380)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:179)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:114)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.execute(MavenImpl.java:1379)
+	at org.eclipse.m2e.core.project.configurator.MojoExecutionBuildParticipant.build(MojoExecutionBuildParticipant.java:54)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilderImpl.build(MavenBuilderImpl.java:135)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$1.method(MavenBuilder.java:169)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$1.method(MavenBuilder.java:1)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.lambda$1(MavenBuilder.java:114)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:179)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:114)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.lambda$0(MavenBuilder.java:105)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:179)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:153)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:101)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.execute(MavenBuilder.java:88)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder.build(MavenBuilder.java:197)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:846)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:229)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:277)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:330)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:333)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:385)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:406)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:154)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:244)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.base/sun.nio.ch.Net.connect0(Native Method)
+	at java.base/sun.nio.ch.Net.connect(Net.java:574)
+	at java.base/sun.nio.ch.Net.connect(Net.java:563)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:588)
+	at java.base/java.net.Socket.connect(Socket.java:648)
+	at java.base/java.net.Socket.connect(Socket.java:597)
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:182)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:474)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:569)
+	at java.base/sun.net.www.http.HttpClient.<init>(HttpClient.java:242)
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:341)
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:362)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1261)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1194)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1082)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:1016)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1600)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1528)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLEntityManager.setupCurrentEntity(XMLEntityManager.java:676)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLVersionDetector.determineDocVersion(XMLVersionDetector.java:150)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:860)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:824)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1224)
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:635)
+	at com.sun.tools.xjc.reader.internalizer.DOMForest.parse(DOMForest.java:395)
+	... 41 common frames omitted
+2021-10-23 20:40:11,206 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 20:40:11,206 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 20:40:11,207 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 20:40:11,224 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-10-23 20:40:11,225 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 20:40:11,233 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 20:40:11,233 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 20:40:11,233 [Worker-7: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\ventas-cliente-soap\src\test\resources
+2021-10-23 20:59:51,350 [Worker-12: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - The URI [http://localhost:8080/ws/serverTienda.wsdl] seems to represent an absolute HTTP or HTTPS URL. Getting the last modification timestamp is only possible if the URL is accessible and if the server returns the [Last-Modified] header correctly. This method is not reliable and is likely to fail. In this case the last modification timestamp will be assumed to be unknown.
+2021-10-23 20:59:53,457 [Worker-12: Building] ERROR o.e.m.c.i.embedder.EclipseLogger - Could not retrieve the last modification timestamp for the URI [http://localhost:8080/ws/serverTienda.wsdl] from the HTTP URL connection. The [Last-Modified] header was probably not set correctly.
+2021-10-23 20:59:53,458 [Worker-12: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Last modification of the URI [http://localhost:8080/ws/serverTienda.wsdl] is not known.
+2021-10-23 20:59:53,464 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Sources are not up-to-date, XJC will be executed.
+2021-10-23 20:59:55,512 [Worker-12: Building] ERROR o.e.m.c.i.embedder.EclipseLogger - Error while parsing schema(s).Location []. Se ha devuelto una excepción de E/S al procesar "http://localhost:8080/ws/serverTienda.wsdl". Excepción: java.net.ConnectException: Connection refused: connect.
+com.sun.istack.SAXParseException2: Se ha devuelto una excepción de E/S al procesar "http://localhost:8080/ws/serverTienda.wsdl". Excepción: java.net.ConnectException: Connection refused: connect.
+	at com.sun.tools.xjc.ErrorReceiver.error(ErrorReceiver.java:94)
+	at com.sun.tools.xjc.reader.internalizer.DOMForest.parse(DOMForest.java:403)
+	at com.sun.tools.xjc.reader.internalizer.DOMForest.parse(DOMForest.java:275)
+	at com.sun.tools.xjc.ModelLoader.buildDOMForest(ModelLoader.java:306)
+	at com.sun.tools.xjc.ModelLoader.loadWSDL(ModelLoader.java:373)
+	at com.sun.tools.xjc.ModelLoader.load(ModelLoader.java:158)
+	at com.sun.tools.xjc.ModelLoader.load(ModelLoader.java:117)
+	at org.jvnet.mjiip.v_2_3.XJC23Mojo.loadModel(XJC23Mojo.java:50)
+	at org.jvnet.mjiip.v_2_3.XJC23Mojo.doExecute(XJC23Mojo.java:40)
+	at org.jvnet.mjiip.v_2_3.XJC23Mojo.doExecute(XJC23Mojo.java:28)
+	at org.jvnet.jaxb2.maven2.RawXJC2Mojo.doExecute(RawXJC2Mojo.java:478)
+	at org.jvnet.jaxb2.maven2.RawXJC2Mojo.execute(RawXJC2Mojo.java:320)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:137)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.execute(MavenImpl.java:332)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.lambda$8(MavenImpl.java:1380)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:179)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:114)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.execute(MavenImpl.java:1379)
+	at org.eclipse.m2e.core.project.configurator.MojoExecutionBuildParticipant.build(MojoExecutionBuildParticipant.java:54)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilderImpl.build(MavenBuilderImpl.java:135)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$1.method(MavenBuilder.java:169)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$1.method(MavenBuilder.java:1)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.lambda$1(MavenBuilder.java:114)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:179)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:114)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.lambda$0(MavenBuilder.java:105)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:179)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:153)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:101)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.execute(MavenBuilder.java:88)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder.build(MavenBuilder.java:197)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:846)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:229)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:277)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:330)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:333)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:385)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:406)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:154)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:244)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.base/sun.nio.ch.Net.connect0(Native Method)
+	at java.base/sun.nio.ch.Net.connect(Net.java:574)
+	at java.base/sun.nio.ch.Net.connect(Net.java:563)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:588)
+	at java.base/java.net.Socket.connect(Socket.java:648)
+	at java.base/java.net.Socket.connect(Socket.java:597)
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:182)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:474)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:569)
+	at java.base/sun.net.www.http.HttpClient.<init>(HttpClient.java:242)
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:341)
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:362)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1261)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1194)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1082)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:1016)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1600)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1528)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLEntityManager.setupCurrentEntity(XMLEntityManager.java:676)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLVersionDetector.determineDocVersion(XMLVersionDetector.java:150)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:860)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:824)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1224)
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:635)
+	at com.sun.tools.xjc.reader.internalizer.DOMForest.parse(DOMForest.java:395)
+	... 41 common frames omitted
+2021-10-23 20:59:55,520 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 20:59:55,520 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 20:59:55,521 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-10-23 20:59:55,522 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-10-23 20:59:55,522 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-10-23 20:59:55,524 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 20:59:55,525 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 20:59:55,525 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\compras-cliente-soap\src\test\resources
+2021-10-23 20:59:55,546 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Ignored given or default xjbSources [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\main\xjb], since it is not an existent file or directory.
+2021-10-23 20:59:55,547 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - No changes detected in schema or binding files - skipping JAXB generation.
+2021-10-23 20:59:55,550 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 20:59:55,550 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 20:59:55,550 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-10-23 20:59:55,551 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-10-23 20:59:55,553 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 20:59:55,553 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 20:59:55,553 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\test\resources
+2021-10-23 20:59:55,594 [Worker-12: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - The URI [http://localhost:8080/ws/serverTienda.wsdl] seems to represent an absolute HTTP or HTTPS URL. Getting the last modification timestamp is only possible if the URL is accessible and if the server returns the [Last-Modified] header correctly. This method is not reliable and is likely to fail. In this case the last modification timestamp will be assumed to be unknown.
+2021-10-23 20:59:57,635 [Worker-12: Building] ERROR o.e.m.c.i.embedder.EclipseLogger - Could not retrieve the last modification timestamp for the URI [http://localhost:8080/ws/serverTienda.wsdl] from the HTTP URL connection. The [Last-Modified] header was probably not set correctly.
+2021-10-23 20:59:57,636 [Worker-12: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Last modification of the URI [http://localhost:8080/ws/serverTienda.wsdl] is not known.
+2021-10-23 20:59:57,644 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Sources are not up-to-date, XJC will be executed.
+2021-10-23 20:59:59,688 [Worker-12: Building] ERROR o.e.m.c.i.embedder.EclipseLogger - Error while parsing schema(s).Location []. Se ha devuelto una excepción de E/S al procesar "http://localhost:8080/ws/serverTienda.wsdl". Excepción: java.net.ConnectException: Connection refused: connect.
+com.sun.istack.SAXParseException2: Se ha devuelto una excepción de E/S al procesar "http://localhost:8080/ws/serverTienda.wsdl". Excepción: java.net.ConnectException: Connection refused: connect.
+	at com.sun.tools.xjc.ErrorReceiver.error(ErrorReceiver.java:94)
+	at com.sun.tools.xjc.reader.internalizer.DOMForest.parse(DOMForest.java:403)
+	at com.sun.tools.xjc.reader.internalizer.DOMForest.parse(DOMForest.java:275)
+	at com.sun.tools.xjc.ModelLoader.buildDOMForest(ModelLoader.java:306)
+	at com.sun.tools.xjc.ModelLoader.loadWSDL(ModelLoader.java:373)
+	at com.sun.tools.xjc.ModelLoader.load(ModelLoader.java:158)
+	at com.sun.tools.xjc.ModelLoader.load(ModelLoader.java:117)
+	at org.jvnet.mjiip.v_2_3.XJC23Mojo.loadModel(XJC23Mojo.java:50)
+	at org.jvnet.mjiip.v_2_3.XJC23Mojo.doExecute(XJC23Mojo.java:40)
+	at org.jvnet.mjiip.v_2_3.XJC23Mojo.doExecute(XJC23Mojo.java:28)
+	at org.jvnet.jaxb2.maven2.RawXJC2Mojo.doExecute(RawXJC2Mojo.java:478)
+	at org.jvnet.jaxb2.maven2.RawXJC2Mojo.execute(RawXJC2Mojo.java:320)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:137)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.execute(MavenImpl.java:332)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.lambda$8(MavenImpl.java:1380)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:179)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:114)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.execute(MavenImpl.java:1379)
+	at org.eclipse.m2e.core.project.configurator.MojoExecutionBuildParticipant.build(MojoExecutionBuildParticipant.java:54)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilderImpl.build(MavenBuilderImpl.java:135)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$1.method(MavenBuilder.java:169)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$1.method(MavenBuilder.java:1)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.lambda$1(MavenBuilder.java:114)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:179)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:114)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.lambda$0(MavenBuilder.java:105)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:179)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:153)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:101)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.execute(MavenBuilder.java:88)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder.build(MavenBuilder.java:197)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:846)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:229)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:277)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:330)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:333)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:385)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:406)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:154)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:244)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.base/sun.nio.ch.Net.connect0(Native Method)
+	at java.base/sun.nio.ch.Net.connect(Net.java:574)
+	at java.base/sun.nio.ch.Net.connect(Net.java:563)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:588)
+	at java.base/java.net.Socket.connect(Socket.java:648)
+	at java.base/java.net.Socket.connect(Socket.java:597)
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:182)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:474)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:569)
+	at java.base/sun.net.www.http.HttpClient.<init>(HttpClient.java:242)
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:341)
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:362)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1261)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1194)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1082)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:1016)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1600)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1528)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLEntityManager.setupCurrentEntity(XMLEntityManager.java:676)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLVersionDetector.determineDocVersion(XMLVersionDetector.java:150)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:860)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:824)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1224)
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:635)
+	at com.sun.tools.xjc.reader.internalizer.DOMForest.parse(DOMForest.java:395)
+	... 41 common frames omitted
+2021-10-23 20:59:59,696 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 20:59:59,696 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 20:59:59,696 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-10-23 20:59:59,696 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-10-23 20:59:59,697 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-10-23 20:59:59,698 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 20:59:59,699 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 20:59:59,699 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\ventas-cliente-soap\src\test\resources
+2021-10-23 21:00:43,176 [main] INFO  o.e.m2e.actions.ExecutePomAction - Creating new launch configuration
+2021-10-23 21:00:51,663 [Worker-11: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2021-10-23 21:00:52,786 [Worker-11: Updating Maven Project] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.example:producing-web-service-complete:0.0.1-SNAPSHOT @ C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\pom.xml.
+2021-10-23 21:00:53,430 [Worker-11: Updating Maven Project] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.example:consuming-web-service-complete:0.0.1-SNAPSHOT @ C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\ventas-cliente-soap\pom.xml.
+2021-10-23 21:00:53,770 [Worker-11: Updating Maven Project] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.example:compras-cliente-soap:0.0.1-SNAPSHOT @ C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\compras-cliente-soap\pom.xml.
+2021-10-23 21:00:54,613 [Worker-11: Updating Maven Project] INFO  o.e.m.c.i.embedder.EclipseLogger - Ignored given or default xjbSources [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\main\xjb], since it is not an existent file or directory.
+2021-10-23 21:00:54,614 [Worker-11: Updating Maven Project] INFO  o.e.m.c.i.embedder.EclipseLogger - No changes detected in schema or binding files - skipping JAXB generation.
+2021-10-23 21:00:54,767 [Worker-11: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /server-tienda-soap/src/main/java
+2021-10-23 21:00:54,769 [Worker-11: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /server-tienda-soap/target/generated-sources/jaxb
+2021-10-23 21:00:54,769 [Worker-11: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /server-tienda-soap/src/main/resources
+2021-10-23 21:00:54,769 [Worker-11: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /server-tienda-soap/src/main/resources
+2021-10-23 21:00:54,770 [Worker-11: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /server-tienda-soap/src/test/java
+2021-10-23 21:00:55,666 [Worker-11: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed: 4 sec
+2021-10-23 21:00:59,633 [Worker-11: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Ignored given or default xjbSources [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\main\xjb], since it is not an existent file or directory.
+2021-10-23 21:00:59,633 [Worker-11: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - No changes detected in schema or binding files - skipping JAXB generation.
+2021-10-23 21:00:59,646 [Worker-11: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:00:59,647 [Worker-11: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:00:59,647 [Worker-11: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:00:59,662 [Worker-11: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:00:59,668 [Worker-11: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:00:59,671 [Worker-11: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:00:59,671 [Worker-11: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\test\resources
+2021-10-23 21:11:24,713 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Ignored given or default xjbSources [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\main\xjb], since it is not an existent file or directory.
+2021-10-23 21:11:24,738 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Created EpisodePath [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\target\generated-sources\jaxb\META-INF\JAXB]: true
+2021-10-23 21:11:24,739 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Ignored given or default xjbSources [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\main\xjb], since it is not an existent file or directory.
+2021-10-23 21:11:24,788 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Created EpisodePath [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\target\generated-sources\jaxb\META-INF\JAXB]: true
+2021-10-23 21:11:25,268 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:11:25,268 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:11:25,270 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-10-23 21:11:25,270 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:11:25,273 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-10-23 21:11:25,273 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-10-23 21:11:25,276 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:11:25,276 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:11:25,276 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\test\resources
+2021-10-23 21:11:54,202 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Ignored given or default xjbSources [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\main\xjb], since it is not an existent file or directory.
+2021-10-23 21:11:54,203 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - No changes detected in schema or binding files - skipping JAXB generation.
+2021-10-23 21:11:54,205 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:11:54,205 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:11:54,206 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:11:54,242 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:11:54,246 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:11:54,246 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:11:54,246 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\test\resources
+2021-10-23 21:12:01,390 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Ignored given or default xjbSources [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\main\xjb], since it is not an existent file or directory.
+2021-10-23 21:12:01,390 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - No changes detected in schema or binding files - skipping JAXB generation.
+2021-10-23 21:12:01,393 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:12:01,393 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:12:01,394 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:12:01,404 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:12:01,406 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:12:01,406 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:12:01,407 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\test\resources
+2021-10-23 21:12:20,311 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Ignored given or default xjbSources [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\main\xjb], since it is not an existent file or directory.
+2021-10-23 21:12:20,312 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - No changes detected in schema or binding files - skipping JAXB generation.
+2021-10-23 21:12:20,315 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:12:20,315 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:12:20,318 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:12:20,328 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:12:20,330 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:12:20,330 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:12:20,330 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\test\resources
+2021-10-23 21:12:34,374 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Ignored given or default xjbSources [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\main\xjb], since it is not an existent file or directory.
+2021-10-23 21:12:34,375 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - No changes detected in schema or binding files - skipping JAXB generation.
+2021-10-23 21:12:34,378 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:12:34,378 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:12:34,378 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:12:34,409 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:12:34,411 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:12:34,411 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:12:34,412 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\test\resources
+2021-10-23 21:13:40,159 [Worker-24: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Ignored given or default xjbSources [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\main\xjb], since it is not an existent file or directory.
+2021-10-23 21:13:40,160 [Worker-24: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - No changes detected in schema or binding files - skipping JAXB generation.
+2021-10-23 21:13:40,163 [Worker-24: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:13:40,163 [Worker-24: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:13:40,164 [Worker-24: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:13:40,179 [Worker-24: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:13:40,181 [Worker-24: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:13:40,181 [Worker-24: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:13:40,181 [Worker-24: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\test\resources
+2021-10-23 21:13:48,887 [Worker-23: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Ignored given or default xjbSources [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\main\xjb], since it is not an existent file or directory.
+2021-10-23 21:13:48,888 [Worker-23: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - No changes detected in schema or binding files - skipping JAXB generation.
+2021-10-23 21:13:48,890 [Worker-23: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:13:48,890 [Worker-23: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:13:48,892 [Worker-23: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:13:48,923 [Worker-23: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:13:48,930 [Worker-23: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:13:48,930 [Worker-23: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:13:48,931 [Worker-23: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\test\resources
+2021-10-23 21:13:53,631 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Ignored given or default xjbSources [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\main\xjb], since it is not an existent file or directory.
+2021-10-23 21:13:53,632 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - No changes detected in schema or binding files - skipping JAXB generation.
+2021-10-23 21:13:53,634 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:13:53,634 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:13:53,634 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:13:53,644 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:13:53,646 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:13:53,646 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:13:53,647 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\test\resources
+2021-10-23 21:14:25,148 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Ignored given or default xjbSources [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\main\xjb], since it is not an existent file or directory.
+2021-10-23 21:14:25,149 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - No changes detected in schema or binding files - skipping JAXB generation.
+2021-10-23 21:14:25,152 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:14:25,152 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:14:25,152 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:14:25,201 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:14:25,204 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:14:25,205 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:14:25,205 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\test\resources
+2021-10-23 21:14:27,915 [Worker-22: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Ignored given or default xjbSources [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\main\xjb], since it is not an existent file or directory.
+2021-10-23 21:14:27,915 [Worker-22: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - No changes detected in schema or binding files - skipping JAXB generation.
+2021-10-23 21:14:27,919 [Worker-22: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:14:27,919 [Worker-22: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:14:27,920 [Worker-22: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:14:27,929 [Worker-22: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:14:27,931 [Worker-22: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:14:27,931 [Worker-22: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:14:27,931 [Worker-22: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\test\resources
+2021-10-23 21:19:10,345 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Ignored given or default xjbSources [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\main\xjb], since it is not an existent file or directory.
+2021-10-23 21:19:10,366 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Created EpisodePath [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\target\generated-sources\jaxb\META-INF\JAXB]: true
+2021-10-23 21:19:10,368 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Ignored given or default xjbSources [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\main\xjb], since it is not an existent file or directory.
+2021-10-23 21:19:10,421 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Created EpisodePath [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\target\generated-sources\jaxb\META-INF\JAXB]: true
+2021-10-23 21:19:10,533 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:19:10,533 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:19:10,533 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-10-23 21:19:10,533 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:19:10,537 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-10-23 21:19:10,537 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-10-23 21:19:10,539 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:19:10,539 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:19:10,539 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\test\resources
+2021-10-23 21:21:28,363 [Worker-28: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Ignored given or default xjbSources [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\main\xjb], since it is not an existent file or directory.
+2021-10-23 21:21:28,363 [Worker-28: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - No changes detected in schema or binding files - skipping JAXB generation.
+2021-10-23 21:21:28,368 [Worker-28: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:21:28,368 [Worker-28: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:21:28,368 [Worker-28: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:21:28,378 [Worker-28: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:21:28,380 [Worker-28: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:21:28,381 [Worker-28: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:21:28,381 [Worker-28: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\test\resources
+2021-10-23 21:23:40,284 [Worker-27: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Ignored given or default xjbSources [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\main\xjb], since it is not an existent file or directory.
+2021-10-23 21:23:40,285 [Worker-27: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - No changes detected in schema or binding files - skipping JAXB generation.
+2021-10-23 21:23:40,288 [Worker-27: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:23:40,288 [Worker-27: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:23:40,288 [Worker-27: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:23:40,299 [Worker-27: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:23:40,301 [Worker-27: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:23:40,301 [Worker-27: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:23:40,301 [Worker-27: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\test\resources
+2021-10-23 21:25:29,065 [Worker-27: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Ignored given or default xjbSources [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\main\xjb], since it is not an existent file or directory.
+2021-10-23 21:25:29,080 [Worker-27: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Created EpisodePath [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\target\generated-sources\jaxb\META-INF\JAXB]: true
+2021-10-23 21:25:29,082 [Worker-27: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Ignored given or default xjbSources [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\main\xjb], since it is not an existent file or directory.
+2021-10-23 21:25:29,148 [Worker-27: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Created EpisodePath [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\target\generated-sources\jaxb\META-INF\JAXB]: true
+2021-10-23 21:25:29,274 [Worker-27: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:25:29,274 [Worker-27: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:25:29,275 [Worker-27: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-10-23 21:25:29,275 [Worker-27: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:25:29,278 [Worker-27: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-10-23 21:25:29,278 [Worker-27: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-10-23 21:25:29,279 [Worker-27: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:25:29,279 [Worker-27: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:25:29,280 [Worker-27: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\test\resources
+2021-10-23 21:26:20,500 [Worker-28: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Ignored given or default xjbSources [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\main\xjb], since it is not an existent file or directory.
+2021-10-23 21:26:20,501 [Worker-28: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - No changes detected in schema or binding files - skipping JAXB generation.
+2021-10-23 21:26:20,504 [Worker-28: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:26:20,504 [Worker-28: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:26:20,505 [Worker-28: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:26:20,531 [Worker-28: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:26:20,534 [Worker-28: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:26:20,534 [Worker-28: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:26:20,534 [Worker-28: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\test\resources
+2021-10-23 21:26:26,061 [Worker-29: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Ignored given or default xjbSources [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\main\xjb], since it is not an existent file or directory.
+2021-10-23 21:26:26,062 [Worker-29: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - No changes detected in schema or binding files - skipping JAXB generation.
+2021-10-23 21:26:26,064 [Worker-29: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:26:26,064 [Worker-29: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:26:26,065 [Worker-29: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:26:26,087 [Worker-29: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:26:26,090 [Worker-29: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:26:26,090 [Worker-29: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:26:26,090 [Worker-29: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\test\resources
+2021-10-23 21:28:43,270 [Worker-27: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Ignored given or default xjbSources [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\main\xjb], since it is not an existent file or directory.
+2021-10-23 21:28:43,271 [Worker-27: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - No changes detected in schema or binding files - skipping JAXB generation.
+2021-10-23 21:28:43,273 [Worker-27: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:28:43,273 [Worker-27: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:28:43,273 [Worker-27: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:28:43,291 [Worker-27: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:28:43,294 [Worker-27: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:28:43,294 [Worker-27: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:28:43,294 [Worker-27: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\test\resources
+2021-10-23 21:30:04,559 [Worker-29: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Ignored given or default xjbSources [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\main\xjb], since it is not an existent file or directory.
+2021-10-23 21:30:04,560 [Worker-29: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - No changes detected in schema or binding files - skipping JAXB generation.
+2021-10-23 21:30:04,562 [Worker-29: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:30:04,562 [Worker-29: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:30:04,562 [Worker-29: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:30:04,570 [Worker-29: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:30:04,572 [Worker-29: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:30:04,572 [Worker-29: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:30:04,572 [Worker-29: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\test\resources
+2021-10-23 21:33:47,311 [Worker-34: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Ignored given or default xjbSources [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\main\xjb], since it is not an existent file or directory.
+2021-10-23 21:33:47,312 [Worker-34: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - No changes detected in schema or binding files - skipping JAXB generation.
+2021-10-23 21:33:47,314 [Worker-34: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:33:47,315 [Worker-34: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:33:47,316 [Worker-34: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:33:47,328 [Worker-34: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:33:47,330 [Worker-34: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:33:47,330 [Worker-34: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:33:47,330 [Worker-34: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\test\resources
+2021-10-23 21:35:17,314 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Ignored given or default xjbSources [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\main\xjb], since it is not an existent file or directory.
+2021-10-23 21:35:17,315 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - No changes detected in schema or binding files - skipping JAXB generation.
+2021-10-23 21:35:17,317 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:35:17,318 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:35:17,318 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:35:17,327 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:35:17,329 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:35:17,330 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:35:17,330 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\test\resources
+2021-10-23 21:35:55,934 [Worker-35: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Ignored given or default xjbSources [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\main\xjb], since it is not an existent file or directory.
+2021-10-23 21:35:55,934 [Worker-35: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - No changes detected in schema or binding files - skipping JAXB generation.
+2021-10-23 21:35:55,937 [Worker-35: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:35:55,937 [Worker-35: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:35:55,938 [Worker-35: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:35:55,946 [Worker-35: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:35:55,948 [Worker-35: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:35:55,948 [Worker-35: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:35:55,948 [Worker-35: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\test\resources
+2021-10-23 21:37:52,043 [Worker-29: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Ignored given or default xjbSources [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\main\xjb], since it is not an existent file or directory.
+2021-10-23 21:37:52,044 [Worker-29: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - No changes detected in schema or binding files - skipping JAXB generation.
+2021-10-23 21:37:52,046 [Worker-29: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:37:52,046 [Worker-29: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:37:52,047 [Worker-29: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:37:52,054 [Worker-29: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:37:52,057 [Worker-29: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:37:52,057 [Worker-29: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:37:52,057 [Worker-29: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\test\resources
+2021-10-23 21:37:59,170 [Worker-35: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Ignored given or default xjbSources [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\main\xjb], since it is not an existent file or directory.
+2021-10-23 21:37:59,171 [Worker-35: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - No changes detected in schema or binding files - skipping JAXB generation.
+2021-10-23 21:37:59,173 [Worker-35: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:37:59,173 [Worker-35: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:37:59,174 [Worker-35: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:37:59,181 [Worker-35: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:37:59,183 [Worker-35: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:37:59,183 [Worker-35: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:37:59,184 [Worker-35: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\test\resources
+2021-10-23 21:44:59,502 [Worker-35: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Ignored given or default xjbSources [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\main\xjb], since it is not an existent file or directory.
+2021-10-23 21:44:59,503 [Worker-35: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - No changes detected in schema or binding files - skipping JAXB generation.
+2021-10-23 21:44:59,506 [Worker-35: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:44:59,506 [Worker-35: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:44:59,506 [Worker-35: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:44:59,517 [Worker-35: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:44:59,518 [Worker-35: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:44:59,518 [Worker-35: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:44:59,518 [Worker-35: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\test\resources
+2021-10-23 21:45:01,382 [Worker-35: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Ignored given or default xjbSources [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\main\xjb], since it is not an existent file or directory.
+2021-10-23 21:45:01,383 [Worker-35: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - No changes detected in schema or binding files - skipping JAXB generation.
+2021-10-23 21:45:01,388 [Worker-35: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:45:01,388 [Worker-35: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:45:01,389 [Worker-35: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:45:01,398 [Worker-35: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:45:01,402 [Worker-35: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:45:01,402 [Worker-35: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:45:01,402 [Worker-35: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\test\resources
+2021-10-23 21:46:11,091 [Worker-36: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Ignored given or default xjbSources [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\main\xjb], since it is not an existent file or directory.
+2021-10-23 21:46:11,092 [Worker-36: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - No changes detected in schema or binding files - skipping JAXB generation.
+2021-10-23 21:46:11,094 [Worker-36: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:46:11,094 [Worker-36: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:46:11,095 [Worker-36: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:46:11,103 [Worker-36: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:46:11,106 [Worker-36: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:46:11,106 [Worker-36: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:46:11,106 [Worker-36: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\test\resources
+2021-10-23 21:46:21,847 [Worker-37: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2021-10-23 21:46:22,874 [Worker-37: Updating Maven Project] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.example:producing-web-service-complete:0.0.1-SNAPSHOT @ C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\pom.xml.
+2021-10-23 21:46:23,407 [Worker-37: Updating Maven Project] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.example:consuming-web-service-complete:0.0.1-SNAPSHOT @ C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\ventas-cliente-soap\pom.xml.
+2021-10-23 21:46:23,685 [Worker-37: Updating Maven Project] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.example:compras-cliente-soap:0.0.1-SNAPSHOT @ C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\compras-cliente-soap\pom.xml.
+2021-10-23 21:46:24,675 [Worker-37: Updating Maven Project] INFO  o.e.m.c.i.embedder.EclipseLogger - Ignored given or default xjbSources [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\main\xjb], since it is not an existent file or directory.
+2021-10-23 21:46:24,677 [Worker-37: Updating Maven Project] INFO  o.e.m.c.i.embedder.EclipseLogger - No changes detected in schema or binding files - skipping JAXB generation.
+2021-10-23 21:46:24,849 [Worker-37: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /server-tienda-soap/src/main/java
+2021-10-23 21:46:24,850 [Worker-37: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /server-tienda-soap/target/generated-sources/jaxb
+2021-10-23 21:46:24,850 [Worker-37: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /server-tienda-soap/src/main/resources
+2021-10-23 21:46:24,851 [Worker-37: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /server-tienda-soap/src/main/resources
+2021-10-23 21:46:24,851 [Worker-37: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /server-tienda-soap/src/test/java
+2021-10-23 21:46:26,137 [Worker-37: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed: 4 sec
+2021-10-23 21:46:27,805 [Worker-52: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Ignored given or default xjbSources [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\main\xjb], since it is not an existent file or directory.
+2021-10-23 21:46:27,805 [Worker-52: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - No changes detected in schema or binding files - skipping JAXB generation.
+2021-10-23 21:46:27,820 [Worker-52: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:46:27,821 [Worker-52: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:46:27,821 [Worker-52: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:46:27,835 [Worker-52: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:46:27,839 [Worker-52: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:46:27,840 [Worker-52: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:46:27,840 [Worker-52: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\test\resources
+2021-10-23 21:47:12,008 [Worker-53: Launching server-tienda-soap - ProducingWebServiceApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Ignored given or default xjbSources [C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\main\xjb], since it is not an existent file or directory.
+2021-10-23 21:47:12,009 [Worker-53: Launching server-tienda-soap - ProducingWebServiceApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - No changes detected in schema or binding files - skipping JAXB generation.
+2021-10-23 21:47:12,013 [Worker-53: Launching server-tienda-soap - ProducingWebServiceApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:47:12,013 [Worker-53: Launching server-tienda-soap - ProducingWebServiceApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:47:12,014 [Worker-53: Launching server-tienda-soap - ProducingWebServiceApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-23 21:47:12,052 [Worker-53: Launching server-tienda-soap - ProducingWebServiceApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-10-23 21:47:12,054 [Worker-53: Launching server-tienda-soap - ProducingWebServiceApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-23 21:47:12,054 [Worker-53: Launching server-tienda-soap - ProducingWebServiceApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-23 21:47:12,054 [Worker-53: Launching server-tienda-soap - ProducingWebServiceApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Joel\Documents\Java Projects\Tienda WS\webservices-modules\server-tienda-soap\src\test\resources

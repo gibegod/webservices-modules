@@ -30,6 +30,8 @@ public class ProductoModel {
 	@Getter @Setter private Integer stockInicial;
 	@Getter @Setter private Integer stockActual;
 	@Getter @Setter private Boolean activo;
+	@Getter @Setter private Boolean debito;
+	@Getter @Setter private Boolean credito;
 	
 	@ManyToOne
 	@JoinColumn(name = "FK_CATEGORIAPRODUCTO", nullable = false, updatable = false)

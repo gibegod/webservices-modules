@@ -35,7 +35,7 @@ public class UsuarioService {
 		TipoUsuarioModel tModel = new TipoUsuarioModel();
 		TipoUsuarioModel tSave = new TipoUsuarioModel();
 		String estado = "";
-		try {
+		try {//busco que este toda la info que me viene en el usuarioXML
 			t = tipoRepository.findByTipo(usuario.getTipoUsuario().getTipo());
 			foundDni = usuarioRepository.findByDni(usuario.getDni());
 			foundUsuario = usuarioRepository.findByUsuario(usuario.getUsuario());

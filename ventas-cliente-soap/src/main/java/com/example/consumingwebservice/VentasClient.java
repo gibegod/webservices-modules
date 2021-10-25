@@ -6,6 +6,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.ws.client.core.support.WebServiceGatewaySupport;
 import org.springframework.ws.soap.client.core.SoapActionCallback;
 
+import com.example.consumingwebservice.wsdl.AddCategoriaProductoRequest;
+import com.example.consumingwebservice.wsdl.AddCategoriaProductoResponse;
 import com.example.consumingwebservice.wsdl.AddCuentaBancariaRequest;
 import com.example.consumingwebservice.wsdl.AddCuentaBancariaResponse;
 import com.example.consumingwebservice.wsdl.AddDomicilioRequest;
@@ -16,6 +18,8 @@ import com.example.consumingwebservice.wsdl.AddUsuarioRequest;
 import com.example.consumingwebservice.wsdl.AddUsuarioResponse;
 import com.example.consumingwebservice.wsdl.CuentaBancaria;
 import com.example.consumingwebservice.wsdl.Domicilio;
+import com.example.consumingwebservice.wsdl.GetCategoriasProductoRequest;
+import com.example.consumingwebservice.wsdl.GetCategoriasProductoResponse;
 import com.example.consumingwebservice.wsdl.GetCuentasBancariasRequest;
 import com.example.consumingwebservice.wsdl.GetCuentasBancariasResponse;
 import com.example.consumingwebservice.wsdl.GetDomiciliosRequest;
@@ -160,6 +164,23 @@ public class VentasClient extends WebServiceGatewaySupport {
 		UpdateProductoRequest request = new UpdateProductoRequest();
 		request.setProducto(producto);
 		UpdateProductoResponse response = (UpdateProductoResponse) getWebServiceTemplate().marshalSendAndReceive(
+				"http://localhost:8080/ws/server", request,
+				new SoapActionCallback("http://spring.io/guides/gs-producing-web-service"));
+		return response;
+	}
+	
+	public AddCategoriaProductoResponse addCategoriaProducto(String categoriaProducto) {
+		AddCategoriaProductoRequest request = new AddCategoriaProductoRequest();
+		request.setCategoriaProducto(categoriaProducto);
+		AddCategoriaProductoResponse response = (AddCategoriaProductoResponse) getWebServiceTemplate().marshalSendAndReceive(
+				"http://localhost:8080/ws/server", request,
+				new SoapActionCallback("http://spring.io/guides/gs-producing-web-service"));
+		return response;
+	}
+	
+	public GetCategoriasProductoResponse getCategoriasProducto() {
+		GetCategoriasProductoRequest request = new GetCategoriasProductoRequest();
+		GetCategoriasProductoResponse response = (GetCategoriasProductoResponse) getWebServiceTemplate().marshalSendAndReceive(
 				"http://localhost:8080/ws/server", request,
 				new SoapActionCallback("http://spring.io/guides/gs-producing-web-service"));
 		return response;

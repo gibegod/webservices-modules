@@ -12,7 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.consumingwebservice.VentasClient;
+import com.example.consumingwebservice.wsdl.AddCategoriaProductoResponse;
 import com.example.consumingwebservice.wsdl.AddProductoResponse;
+import com.example.consumingwebservice.wsdl.CategoriaProducto;
+import com.example.consumingwebservice.wsdl.GetCategoriasProductoResponse;
 import com.example.consumingwebservice.wsdl.GetProductoResponse;
 import com.example.consumingwebservice.wsdl.GetProductosPorIdVendedorResponse;
 import com.example.consumingwebservice.wsdl.GetProductosResponse;
@@ -55,6 +58,18 @@ public class ProductoController {
 	public String updateProducto(@RequestBody Producto producto) {
 		UpdateProductoResponse response = ventasClient.updateProducto(producto);
 		return response.getEstado();
+	}
+	
+	@PostMapping(path="/addCategoria")
+	public String addCategoriaProducto(@RequestBody String categoria) {
+		AddCategoriaProductoResponse response = ventasClient.addCategoriaProducto(categoria);
+		return response.getEstado();
+	}
+	
+	@GetMapping(path="/categorias")
+	public List<CategoriaProducto> getCategoriasProducto(){
+		GetCategoriasProductoResponse response = ventasClient.getCategoriasProducto();
+		return response.getCategoriaProducto();
 	}
 
 }

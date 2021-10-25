@@ -96,6 +96,21 @@
         </xs:complexType>
     </xs:element>
     
+    <xs:element name="getCategoriasProductoRequest">
+        <xs:complexType>
+            <xs:sequence>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="getCategoriasProductoResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="categoriaProducto" type="tns:categoriaProducto" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
     <xs:element name="addProductoRequest">
         <xs:complexType>
             <xs:sequence>
@@ -251,6 +266,22 @@
     </xs:element>
     
     <xs:element name="addDomicilioResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="estado" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="addCategoriaProductoRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="categoriaProducto" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="addCategoriaProductoResponse">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="estado" type="xs:string"/>

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.example.producingwebservice.model.CategoriaProductoModel;
@@ -18,7 +17,6 @@ import io.spring.guides.gs_producing_web_service.Producto;
 import mapper.ProductoMapper;
 
 @Service
-@Component
 public class ProductoService {
 	
 	@Autowired

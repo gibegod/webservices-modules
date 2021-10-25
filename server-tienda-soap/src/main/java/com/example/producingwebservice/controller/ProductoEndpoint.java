@@ -12,11 +12,17 @@ import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
+import com.example.producingwebservice.model.CategoriaProductoModel;
 import com.example.producingwebservice.model.ProductoModel;
+import com.example.producingwebservice.services.CategoriaProductoService;
 import com.example.producingwebservice.services.ProductoService;
 
+import io.spring.guides.gs_producing_web_service.AddCategoriaProductoRequest;
+import io.spring.guides.gs_producing_web_service.AddCategoriaProductoResponse;
 import io.spring.guides.gs_producing_web_service.AddProductoRequest;
 import io.spring.guides.gs_producing_web_service.AddProductoResponse;
+import io.spring.guides.gs_producing_web_service.GetCategoriasProductoRequest;
+import io.spring.guides.gs_producing_web_service.GetCategoriasProductoResponse;
 import io.spring.guides.gs_producing_web_service.GetProductoPorIdRequest;
 import io.spring.guides.gs_producing_web_service.GetProductoPorIdResponse;
 import io.spring.guides.gs_producing_web_service.GetProductoRequest;
@@ -27,6 +33,7 @@ import io.spring.guides.gs_producing_web_service.GetProductosRequest;
 import io.spring.guides.gs_producing_web_service.GetProductosResponse;
 import io.spring.guides.gs_producing_web_service.UpdateProductoRequest;
 import io.spring.guides.gs_producing_web_service.UpdateProductoResponse;
+import mapper.CategoriaProductoMapper;
 import mapper.ProductoMapper;
 
 @CrossOrigin(origins="http://127.0.0.1:5500" ,methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT})
@@ -34,13 +41,14 @@ import mapper.ProductoMapper;
 public class ProductoEndpoint {
 	private static final String NAMESPACE_URI = "http://spring.io/guides/gs-producing-web-service";
 	
-	private ProductoService productoService;
 	ProductoMapper productoMapper = new ProductoMapper();
+	CategoriaProductoMapper categoriaMapper = new CategoriaProductoMapper();
 	
 	@Autowired
-	public ProductoEndpoint (ProductoService productoService) {
-		this.productoService = productoService;
-	}
+	ProductoService productoService;
+	@Autowired
+	CategoriaProductoService categoriaProductoService;
+	
 	
 	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "getProductoRequest")
 	@ResponsePayload
@@ -99,6 +107,25 @@ public class ProductoEndpoint {
 	public UpdateProductoResponse updateProducto(@RequestPayload UpdateProductoRequest request) {
 		UpdateProductoResponse response = new UpdateProductoResponse();
 		response.setEstado(productoService.modificarProducto(request.getProducto()));
+		return response;
+	}
+	
+	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "addCategoriaProductoRequest")
+	@ResponsePayload
+	public AddCategoriaProductoResponse addCategoriaProducto(@RequestPayload AddCategoriaProductoRequest request) {
+		AddCategoriaProductoResponse response = new AddCategoriaProductoResponse();
+		response.setEstado(categoriaProductoService.guardarCategoriaProducto(request.getCategoriaProducto()));
+		return response;
+	}
+	
+	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "getCategoriasProductoRequest")
+	@ResponsePayload
+	public GetCategoriasProductoResponse getCategoriasProducto(@RequestPayload GetCategoriasProductoRequest request) {
+		GetCategoriasProductoResponse response = new GetCategoriasProductoResponse();
+		Iterable<CategoriaProductoModel> lstCategoriasProducto = categoriaProductoService.traerCategoriasProducto();
+		for (CategoriaProductoModel cpM : lstCategoriasProducto) {
+			response.getCategoriaProducto().add(categoriaMapper.toCategoriaProductoXML(cpM));
+		}
 		return response;
 	}
 

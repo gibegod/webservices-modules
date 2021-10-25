@@ -1,7 +1,6 @@
 package com.example.producingwebservice.services;
 
 
-import java.math.BigDecimal;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,17 +42,25 @@ public class VentaService {
 	
 	public String finalizarVenta(long idVenta) {
 		String estado = "OK";
-		float total = 0;
-		VentaModel vM = ventaRepository.findById(idVenta).get();
+		
+		VentaModel vM = ventaRepository.findById(idVenta).orElseThrow(()->new RuntimeException("Venta no encontrada!"));
 		vM.setEstado("Finalizado");
 		ventaRepository.save(vM);
-		total = vM.getPedido().getTotal();
-		BilleteraVirtualModel bvM = new BilleteraVirtualModel();
-		bvM.setSaldo(total);
-		bvM.setVendedor(vM.getVendedor());
-		//antes de guardar verificar que el usuario no tenga registro anterior ya creado
-		//si lo tiene, se suma el total al saldo
-		billeteraRepository.save(bvM);
+		
+		billeteraRepository.findByVendedor(vM.getVendedor())
+			.ifPresentOrElse(
+					(billeteraVirtual) -> {
+						billeteraVirtual.setSaldo(billeteraVirtual.getSaldo() + vM.getPedido().getTotal());
+						billeteraRepository.save(billeteraVirtual);
+					},
+					() -> {
+						BilleteraVirtualModel bvM = new BilleteraVirtualModel();
+						bvM.setSaldo(vM.getPedido().getTotal());
+						bvM.setVendedor(vM.getVendedor());
+						billeteraRepository.save(bvM);
+					}
+			);
+		
 		return estado;
 	}
 

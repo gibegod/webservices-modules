@@ -46,6 +46,7 @@ public class VentaService {
 		
 		log.info("Se va a consultar servicio externo para validar tarjeta con id {} para comprador con id {}", request.getIdTarjeta(), request.getIdComprador());
 		tarjetaService.validarTarjeta(request.getIdTarjeta(), request.getIdComprador());
+		log.info("Validación de propietario correcta.");
 		
 		VentaModel venta = VentaModel.builder()
 				.precioTotal(request.getPrecioTotal().floatValue())

@@ -18,19 +18,19 @@ import lombok.Setter;
 @Setter
 public class VentaDTO {
 	
-	@JsonProperty("precio_total")
+	@JsonProperty("total")
 	private float precioTotal;
 	
-	@JsonProperty("id_domicilio")
+	@JsonProperty("domicilio")
 	private Long idDomicilio;
 	
-	@JsonProperty("id_comprador")
+	@JsonProperty("comprador")
 	private Long idComprador;
 	
-	@JsonProperty("id_vendedor")
+	@JsonProperty("idvendedor")
 	private Long idVendedor;
 	
-	@JsonProperty("id_tarjeta")
+	@JsonProperty("mediopago")
 	private Long idTarjeta;
 	
 	public AddVentaRequest toSOAPRequest() {

@@ -1,11 +1,12 @@
 const express = require("express")
 const mysql = require("mysql")
 const myconn = require("express-myconnection")
-
 const routes = require("./routes")
+const swaggerJsDoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
 
 const app = express()
-app.set("port", 9001)
+app.set("port", 9002)
 const dbOptions = {
     host : "localhost",
     port : 3306,
@@ -13,6 +14,20 @@ const dbOptions = {
     password : "root",
     database : "bancadb"
 }
+
+const swaggerOptions = {
+    swaggerDefinition: {
+        info: {
+            title: 'Banca',
+            description: 'Documentacion del modulo banca',
+            servers: ["http://localhost:9002"]
+        }
+    },
+    apis: ["./routes.js"]
+};
+
+const swaggerDocs = swaggerJsDoc(swaggerOptions);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 // Configurar cabeceras y CORS
 app.use((req, res, next) => {

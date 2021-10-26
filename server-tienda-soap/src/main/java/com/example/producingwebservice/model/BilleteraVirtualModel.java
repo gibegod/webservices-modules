@@ -9,6 +9,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,13 +20,19 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
+@Builder
+@Getter
+@Setter
 public class BilleteraVirtualModel {
+	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Getter @Setter private Long id;
-	@Getter @Setter private Float saldo;
+	private Long id;
+	
+	private Float saldo;
+	
 	@OneToOne
-	@JoinColumn(name = "FK_USUARIO", nullable = false, updatable = false)
-	@Getter @Setter private UsuarioModel vendedor;
+	@JoinColumn(name = "id_usuario")
+	private UsuarioModel vendedor;
 	
 }

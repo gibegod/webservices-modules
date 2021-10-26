@@ -28,7 +28,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.buildship.core.gradleclasspathcontainer"/>
-	<classpathentry kind="src" output="target/classes" path="target/generated-sources/jaxb">
+	<classpathentry including="**/*.java" kind="src" output="target/classes" path="target/generated-sources/jaxb">
 		<attributes>
 			<attribute name="optional" value="true"/>
 			<attribute name="maven.pomderived" value="true"/>

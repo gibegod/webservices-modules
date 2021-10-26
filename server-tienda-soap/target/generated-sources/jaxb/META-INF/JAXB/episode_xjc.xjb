@@ -5,7 +5,7 @@
 Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.2 
 Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-Generado el: 2021.10.23 a las 11:03:22 PM ART 
+Generado el: 2021.10.25 a las 08:45:55 PM ART 
 
   -->
   <bindings scd="x-schema::tns" xmlns:tns="http://spring.io/guides/gs-producing-web-service">
@@ -48,14 +48,41 @@ Generado el: 2021.10.23 a las 11:03:22 PM ART
     <bindings scd="tns:getProductosResponse">
       <class ref="io.spring.guides.gs_producing_web_service.GetProductosResponse"/>
     </bindings>
+    <bindings scd="tns:getProductosPorIdVendedorRequest">
+      <class ref="io.spring.guides.gs_producing_web_service.GetProductosPorIdVendedorRequest"/>
+    </bindings>
+    <bindings scd="tns:getProductosPorIdVendedorResponse">
+      <class ref="io.spring.guides.gs_producing_web_service.GetProductosPorIdVendedorResponse"/>
+    </bindings>
     <bindings scd="tns:getProductoResponse">
       <class ref="io.spring.guides.gs_producing_web_service.GetProductoResponse"/>
+    </bindings>
+    <bindings scd="tns:getCategoriasProductoRequest">
+      <class ref="io.spring.guides.gs_producing_web_service.GetCategoriasProductoRequest"/>
+    </bindings>
+    <bindings scd="tns:getCategoriasProductoResponse">
+      <class ref="io.spring.guides.gs_producing_web_service.GetCategoriasProductoResponse"/>
+    </bindings>
+    <bindings scd="~tns:categoriaProducto">
+      <class ref="io.spring.guides.gs_producing_web_service.CategoriaProducto"/>
     </bindings>
     <bindings scd="tns:addProductoRequest">
       <class ref="io.spring.guides.gs_producing_web_service.AddProductoRequest"/>
     </bindings>
     <bindings scd="tns:addProductoResponse">
       <class ref="io.spring.guides.gs_producing_web_service.AddProductoResponse"/>
+    </bindings>
+    <bindings scd="tns:addVentaRequest">
+      <class ref="io.spring.guides.gs_producing_web_service.AddVentaRequest"/>
+    </bindings>
+    <bindings scd="tns:addVentaResponse">
+      <class ref="io.spring.guides.gs_producing_web_service.AddVentaResponse"/>
+    </bindings>
+    <bindings scd="tns:finalizeVentaRequest">
+      <class ref="io.spring.guides.gs_producing_web_service.FinalizeVentaRequest"/>
+    </bindings>
+    <bindings scd="tns:finalizeVentaResponse">
+      <class ref="io.spring.guides.gs_producing_web_service.FinalizeVentaResponse"/>
     </bindings>
     <bindings scd="tns:updateProductoRequest">
       <class ref="io.spring.guides.gs_producing_web_service.UpdateProductoRequest"/>
@@ -105,6 +132,12 @@ Generado el: 2021.10.23 a las 11:03:22 PM ART
     <bindings scd="tns:addDomicilioResponse">
       <class ref="io.spring.guides.gs_producing_web_service.AddDomicilioResponse"/>
     </bindings>
+    <bindings scd="tns:addCategoriaProductoRequest">
+      <class ref="io.spring.guides.gs_producing_web_service.AddCategoriaProductoRequest"/>
+    </bindings>
+    <bindings scd="tns:addCategoriaProductoResponse">
+      <class ref="io.spring.guides.gs_producing_web_service.AddCategoriaProductoResponse"/>
+    </bindings>
     <bindings scd="tns:addTarjetaRequest">
       <class ref="io.spring.guides.gs_producing_web_service.AddTarjetaRequest"/>
     </bindings>
@@ -122,9 +155,6 @@ Generado el: 2021.10.23 a las 11:03:22 PM ART
     </bindings>
     <bindings scd="~tns:billeteraVirtual">
       <class ref="io.spring.guides.gs_producing_web_service.BilleteraVirtual"/>
-    </bindings>
-    <bindings scd="~tns:categoriaProducto">
-      <class ref="io.spring.guides.gs_producing_web_service.CategoriaProducto"/>
     </bindings>
     <bindings scd="~tns:categoriaDenuncia">
       <class ref="io.spring.guides.gs_producing_web_service.CategoriaDenuncia"/>

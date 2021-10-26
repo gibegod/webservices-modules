@@ -21,13 +21,13 @@ public class VentaEndpoint {
 	private static final String NAMESPACE_URI = "http://spring.io/guides/gs-producing-web-service";
 	
 	@Autowired
-	VentaService ventaService;
+	private VentaService ventaService;
 	
 	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "addVentaRequest")
 	@ResponsePayload
 	public AddVentaResponse addVenta(@RequestPayload AddVentaRequest request) {
 		AddVentaResponse response = new AddVentaResponse();
-		response.setEstado(ventaService.guardarVenta(request.getIdPedido(), request.getIdVendedor()));
+		response.setEstado(ventaService.guardarVenta(request));
 		return response;
 	}
 	

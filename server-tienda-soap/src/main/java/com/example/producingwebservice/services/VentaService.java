@@ -7,61 +7,72 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.producingwebservice.model.BilleteraVirtualModel;
-import com.example.producingwebservice.model.PedidoModel;
+import com.example.producingwebservice.model.DomicilioModel;
 import com.example.producingwebservice.model.UsuarioModel;
 import com.example.producingwebservice.model.VentaModel;
 import com.example.producingwebservice.repositories.BilleteraVirtualRepository;
-import com.example.producingwebservice.repositories.PedidoRepository;
+import com.example.producingwebservice.repositories.DomicilioRepository;
 import com.example.producingwebservice.repositories.UsuarioRepository;
 import com.example.producingwebservice.repositories.VentaRepository;
+import com.example.producingwebservice.utils.Estado;
+
+import io.spring.guides.gs_producing_web_service.AddVentaRequest;
 
 @Service
 public class VentaService {
 	
 	@Autowired
-	PedidoRepository pedidoRepository;	
-	@Autowired
-	UsuarioRepository usuarioRepository;	
-	@Autowired
-	VentaRepository ventaRepository;
-	@Autowired
-	BilleteraVirtualRepository billeteraRepository;
+	private DomicilioRepository domicilioRepository;
 	
-	public String guardarVenta(long idPedido, long idVendedor) {
-		String estado = "OK";
-		PedidoModel pM = pedidoRepository.findById(idPedido).get();
-		UsuarioModel uM = usuarioRepository.findById(idVendedor).get();
-		VentaModel vM = new VentaModel();
-		vM.setEstado("Iniciado");
-		vM.setFecha(new Date());
-		vM.setPedido(pM);
-		vM.setVendedor(uM);
-		ventaRepository.save(vM);
-		return estado;
+	@Autowired
+	private UsuarioRepository usuarioRepository;
+	
+	@Autowired
+	private VentaRepository ventaRepository;	
+	
+	@Autowired
+	private BilleteraVirtualRepository billeteraRepository;	
+	
+	public String guardarVenta(AddVentaRequest request) {		
+		DomicilioModel domicilio = domicilioRepository.findById(request.getIdDomicilio()).orElseThrow(()->new RuntimeException("Domicilio no encontrado!")); 
+		UsuarioModel comprador = usuarioRepository.findById(request.getIdComprador()).orElseThrow(()->new RuntimeException("Comprador no encontrado!"));
+		UsuarioModel vendedor = usuarioRepository.findById(request.getIdVendedor()).orElseThrow(()->new RuntimeException("Vendedor no encontrado!"));
+		
+		
+		VentaModel venta = VentaModel.builder()
+				.precioTotal(request.getPrecioTotal().floatValue())
+				.estado(Estado.INICIADO.name())
+				.fecha(new Date())
+				.domicilio(domicilio)
+				.comprador(comprador)
+				.vendedor(vendedor)
+				.build();		
+		ventaRepository.save(venta);
+		
+		return Estado.OK.name();
 	}
 	
-	public String finalizarVenta(long idVenta) {
-		String estado = "OK";
+	public String finalizarVenta(long idVenta) {		
+		VentaModel venta = ventaRepository.findById(idVenta).orElseThrow(()->new RuntimeException("Venta no encontrada!"));
+		venta.setEstado(Estado.FINALIZADO.name());
+		ventaRepository.save(venta);
 		
-		VentaModel vM = ventaRepository.findById(idVenta).orElseThrow(()->new RuntimeException("Venta no encontrada!"));
-		vM.setEstado("Finalizado");
-		ventaRepository.save(vM);
-		
-		billeteraRepository.findByVendedor(vM.getVendedor())
+		billeteraRepository.findByVendedor(venta.getVendedor())
 			.ifPresentOrElse(
 					(billeteraVirtual) -> {
-						billeteraVirtual.setSaldo(billeteraVirtual.getSaldo() + vM.getPedido().getTotal());
+						billeteraVirtual.setSaldo(billeteraVirtual.getSaldo() + venta.getPrecioTotal());
 						billeteraRepository.save(billeteraVirtual);
 					},
 					() -> {
-						BilleteraVirtualModel bvM = new BilleteraVirtualModel();
-						bvM.setSaldo(vM.getPedido().getTotal());
-						bvM.setVendedor(vM.getVendedor());
-						billeteraRepository.save(bvM);
+						BilleteraVirtualModel billeteraVirtual = BilleteraVirtualModel.builder()
+								.saldo(venta.getPrecioTotal())
+								.vendedor(venta.getVendedor())
+								.build();
+						billeteraRepository.save(billeteraVirtual);
 					}
 			);
 		
-		return estado;
+		return Estado.OK.name();
 	}
 
 }

@@ -11,6 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,17 +22,29 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
+@Getter
+@Setter
+@Builder
 public class VentaModel {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Getter @Setter private Long id;
-	@Getter @Setter private String estado;
-	@Getter @Setter private Date fecha;
+	private Long id;
+	
+	private float precioTotal;
+	private String estado;
+	private Date fecha;	
+	
 	@ManyToOne
-	@JoinColumn(name = "FK_PEDIDO", nullable = false, updatable = false)
-	@Getter @Setter private PedidoModel pedido;
+	@JoinColumn(name = "id_domicilio")
+	private DomicilioModel domicilio;
+	
 	@ManyToOne
-	@JoinColumn(name = "FK_USUARIO", nullable = false, updatable = false)
-	@Getter @Setter private UsuarioModel vendedor;
+	@JoinColumn(name = "id_comprador")
+	private UsuarioModel comprador;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_vendedor")
+	private UsuarioModel vendedor;
 
 }

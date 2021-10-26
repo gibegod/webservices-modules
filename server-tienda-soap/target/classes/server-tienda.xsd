@@ -72,10 +72,41 @@
         </xs:complexType>
     </xs:element>
     
+    <xs:element name="getProductosPorIdVendedorRequest">
+        <xs:complexType>
+            <xs:sequence>
+            	<xs:element name="id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="getProductosPorIdVendedorResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="producto" type="tns:producto" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
     <xs:element name="getProductoResponse">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="producto" type="tns:producto"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="getCategoriasProductoRequest">
+        <xs:complexType>
+            <xs:sequence>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="getCategoriasProductoResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="categoriaProducto" type="tns:categoriaProducto" maxOccurs="unbounded"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -89,6 +120,41 @@
     </xs:element>
     
     <xs:element name="addProductoResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="estado" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="addVentaRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="precioTotal" type="xs:decimal"/>
+                <xs:element name="idDomicilio" type="xs:long"/>
+                <xs:element name="idComprador" type="xs:long"/>
+                <xs:element name="idVendedor" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="addVentaResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="estado" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="finalizeVentaRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="idVenta" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="finalizeVentaResponse">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="estado" type="xs:string"/>
@@ -202,6 +268,22 @@
     </xs:element>
     
     <xs:element name="addDomicilioResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="estado" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="addCategoriaProductoRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="categoriaProducto" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="addCategoriaProductoResponse">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="estado" type="xs:string"/>

@@ -1,0 +1,79 @@
+package com.example.producingwebservice.services;
+
+
+import java.util.Date;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.producingwebservice.model.BilleteraVirtualModel;
+import com.example.producingwebservice.model.DomicilioModel;
+import com.example.producingwebservice.model.UsuarioModel;
+import com.example.producingwebservice.model.VentaModel;
+import com.example.producingwebservice.repositories.BilleteraVirtualRepository;
+import com.example.producingwebservice.repositories.DomicilioRepository;
+import com.example.producingwebservice.repositories.UsuarioRepository;
+import com.example.producingwebservice.repositories.VentaRepository;
+import com.example.producingwebservice.utils.Estado;
+
+import io.spring.guides.gs_producing_web_service.AddVentaRequest;
+
+@Service
+public class VentaService {
+	
+	@Autowired
+	private DomicilioRepository domicilioRepository;
+	
+	@Autowired
+	private UsuarioRepository usuarioRepository;
+	
+	@Autowired
+	private VentaRepository ventaRepository;	
+	
+	@Autowired
+	private BilleteraVirtualRepository billeteraRepository;	
+	
+	public String guardarVenta(AddVentaRequest request) {
+		String estado = "OK";
+		
+		DomicilioModel domicilio = domicilioRepository.findById(request.getIdDomicilio()).orElseThrow(()->new RuntimeException("Domicilio no encontrado!")); 
+		UsuarioModel comprador = usuarioRepository.findById(request.getIdComprador()).orElseThrow(()->new RuntimeException("Comprador no encontrado!"));
+		UsuarioModel vendedor = usuarioRepository.findById(request.getIdVendedor()).orElseThrow(()->new RuntimeException("Vendedor no encontrado!"));
+		
+		VentaModel venta = new VentaModel();
+		venta.setPrecioTotal(request.getPrecioTotal().floatValue());
+		venta.setEstado(Estado.INICIADO.name());
+		venta.setFecha(new Date());
+		venta.setDomicilio(domicilio);
+		venta.setComprador(comprador);
+		venta.setVendedor(vendedor);		
+		ventaRepository.save(venta);
+		
+		return estado;
+	}
+	
+	public String finalizarVenta(long idVenta) {
+		String estado = "OK";
+		
+		VentaModel vM = ventaRepository.findById(idVenta).orElseThrow(()->new RuntimeException("Venta no encontrada!"));
+		vM.setEstado("Finalizado");
+		ventaRepository.save(vM);
+		
+		billeteraRepository.findByVendedor(vM.getVendedor())
+			.ifPresentOrElse(
+					(billeteraVirtual) -> {
+						billeteraVirtual.setSaldo(billeteraVirtual.getSaldo() + vM.getPedido().getTotal());
+						billeteraRepository.save(billeteraVirtual);
+					},
+					() -> {
+						BilleteraVirtualModel bvM = new BilleteraVirtualModel();
+						bvM.setSaldo(vM.getPedido().getTotal());
+						bvM.setVendedor(vM.getVendedor());
+						billeteraRepository.save(bvM);
+					}
+			);
+		
+		return estado;
+	}
+
+}

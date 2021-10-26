@@ -1,0 +1,256 @@
+{
+	"info": {
+		"_postman_id": "2ac35187-c6aa-4e7b-9297-7b69a8f0ad6c",
+		"name": "Mesa ayuda",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:9000/api/v1.0/login?usuario=asd&contrasenia=asd",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9000/api/v1.0/login?usuario=asd&contrasenia=asd",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"api",
+						"v1.0",
+						"login"
+					],
+					"query": [
+						{
+							"key": "usuario",
+							"value": "asd"
+						},
+						{
+							"key": "contrasenia",
+							"value": "asd"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9000/api/v1.0/user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"usuario\" : \"asd\",\r\n    \"contrasenia\" : \"asd\",\r\n    \"nombre\" : \"asd\",\r\n    \"apellido\" : \"123\",\r\n    \"dni\" : 123\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9000/api/v1.0/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"api",
+						"v1.0",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9000/api/v1.0/reclamos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9000/api/v1.0/reclamos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"api",
+						"v1.0",
+						"reclamos"
+					],
+					"query": [
+						{
+							"key": "usuario",
+							"value": "asd",
+							"disabled": true
+						},
+						{
+							"key": "contrasenia",
+							"value": "asd",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9000/api/v1.0/reclamos/atender?comentarioResolucion=DEVOLUCION&idReclamo=1",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9000/api/v1.0/reclamos/atender?comentarioResolucion=DEVOLUCION&idReclamo=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"api",
+						"v1.0",
+						"reclamos",
+						"atender"
+					],
+					"query": [
+						{
+							"key": "comentarioResolucion",
+							"value": "DEVOLUCION"
+						},
+						{
+							"key": "idReclamo",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9000/api/v1.0/reclamos/filtrar?estado=RESUELTO",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9000/api/v1.0/reclamos/filtrar?estado=RESUELTO",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"api",
+						"v1.0",
+						"reclamos",
+						"filtrar"
+					],
+					"query": [
+						{
+							"key": "estado",
+							"value": "RESUELTO"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9000/api/v1.0/denuncias",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9000/api/v1.0/denuncias",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"api",
+						"v1.0",
+						"denuncias"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9000/api/v1.0/denuncias/atender?comentarioResolucion=RECHAZAR&idDenuncia=1",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9000/api/v1.0/denuncias/atender?comentarioResolucion=RECHAZAR&idDenuncia=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"api",
+						"v1.0",
+						"denuncias",
+						"atender"
+					],
+					"query": [
+						{
+							"key": "comentarioResolucion",
+							"value": "RECHAZAR"
+						},
+						{
+							"key": "idDenuncia",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9000/api/v1.0/denuncias/filtrar?estado=RESUELTO",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9000/api/v1.0/denuncias/filtrar?estado=RESUELTO",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"api",
+						"v1.0",
+						"denuncias",
+						"filtrar"
+					],
+					"query": [
+						{
+							"key": "estado",
+							"value": "RESUELTO"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

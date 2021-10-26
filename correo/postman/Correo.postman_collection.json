@@ -1,0 +1,178 @@
+{
+	"info": {
+		"_postman_id": "4f9f62f6-ffaa-456a-9e67-f8c301c1bf03",
+		"name": "Correo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:9001/api/v1.0/user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"usuario\" : \"joel\",\r\n    \"contrasenia\" : \"joel\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9001/api/v1.0/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"api",
+						"v1.0",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9001/api/v1.0/login?usuario=joel&contrasenia=joel",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9001/api/v1.0/login?usuario=joel&contrasenia=joel",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"api",
+						"v1.0",
+						"login"
+					],
+					"query": [
+						{
+							"key": "usuario",
+							"value": "joel"
+						},
+						{
+							"key": "contrasenia",
+							"value": "joel"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9001/api/v1.0/envio?id_venta=1&dni_destinatario=123",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9001/api/v1.0/envio?id_venta=1&dni_destinatario=123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"api",
+						"v1.0",
+						"envio"
+					],
+					"query": [
+						{
+							"key": "id_venta",
+							"value": "1"
+						},
+						{
+							"key": "dni_destinatario",
+							"value": "123"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9001/api/v1.0/envio?estado=Despachado&cod_seguimiento=cb449070-2e37-11ec-a2aa-5d5ea5812522",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9001/api/v1.0/envio?estado=En Camino&cod_seguimiento=cb449070-2e37-11ec-a2aa-5d5ea5812522",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"api",
+						"v1.0",
+						"envio"
+					],
+					"query": [
+						{
+							"key": "estado",
+							"value": "En Camino"
+						},
+						{
+							"key": "cod_seguimiento",
+							"value": "cb449070-2e37-11ec-a2aa-5d5ea5812522"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9001/api/v1.0/envios?dni_destinatario=123&estado=INICIADO",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9001/api/v1.0/envios?estado=En Camino",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"api",
+						"v1.0",
+						"envios"
+					],
+					"query": [
+						{
+							"key": "cod_seguimiento",
+							"value": "99ccd660-2e37-11ec-81a0-1b776571fce1",
+							"disabled": true
+						},
+						{
+							"key": "dni_destinatario",
+							"value": "123",
+							"disabled": true
+						},
+						{
+							"key": "estado",
+							"value": "En Camino"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

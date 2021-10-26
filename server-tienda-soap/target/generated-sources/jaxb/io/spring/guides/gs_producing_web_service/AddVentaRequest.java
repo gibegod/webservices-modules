@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.2 
 // Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2021.10.25 a las 08:45:55 PM ART 
+// Generado el: 2021.10.25 a las 09:34:04 PM ART 
 //
 
 
@@ -30,6 +30,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="idDomicilio" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
  *         &lt;element name="idComprador" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
  *         &lt;element name="idVendedor" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
+ *         &lt;element name="idTarjeta" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -43,7 +44,8 @@ import javax.xml.bind.annotation.XmlType;
     "precioTotal",
     "idDomicilio",
     "idComprador",
-    "idVendedor"
+    "idVendedor",
+    "idTarjeta"
 })
 @XmlRootElement(name = "addVentaRequest")
 public class AddVentaRequest {
@@ -53,6 +55,7 @@ public class AddVentaRequest {
     protected long idDomicilio;
     protected long idComprador;
     protected long idVendedor;
+    protected long idTarjeta;
 
     /**
      * Obtiene el valor de la propiedad precioTotal.
@@ -124,6 +127,22 @@ public class AddVentaRequest {
      */
     public void setIdVendedor(long value) {
         this.idVendedor = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad idTarjeta.
+     * 
+     */
+    public long getIdTarjeta() {
+        return idTarjeta;
+    }
+
+    /**
+     * Define el valor de la propiedad idTarjeta.
+     * 
+     */
+    public void setIdTarjeta(long value) {
+        this.idTarjeta = value;
     }
 
 }

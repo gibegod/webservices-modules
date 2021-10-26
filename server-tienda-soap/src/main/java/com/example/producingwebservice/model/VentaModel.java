@@ -46,5 +46,9 @@ public class VentaModel {
 	@ManyToOne
 	@JoinColumn(name = "id_vendedor")
 	private UsuarioModel vendedor;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_tarjeta")
+	private TarjetaModel tarjeta;
 
 }

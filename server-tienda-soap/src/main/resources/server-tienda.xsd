@@ -134,6 +134,7 @@
                 <xs:element name="idDomicilio" type="xs:long"/>
                 <xs:element name="idComprador" type="xs:long"/>
                 <xs:element name="idVendedor" type="xs:long"/>
+                <xs:element name="idTarjeta" type="xs:long"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>

@@ -11,17 +11,17 @@ const swaggerUi = require('swagger-ui-express');
  *      description: Valida que el usuario sea realmente propietario de la tarjeta que esta queriendo agregar.
  *      parameters:
  *        - in: body
- *          description: Se requiere el id del usuario y el numero de la tarjeta
+ *          description: Se requiere el id del usuario y id de la tarjeta
  *          schema:
  *            type: object
  *            required:
  *              - idComprador
- *              - numero
+ *              - id
  *            properties:
  *              idComprador:
  *                type: integer
- *              numero:
- *                type: string
+ *              id:
+ *                type: integer
  *      responses:
  *          '200':
  *             description: Successfull response
@@ -30,7 +30,7 @@ routes.get("/validarPropietario", (req, res)=>{
     req.getConnection((err, conn)=>{
         if(err) return res.send(err)
 
-        conn.query("SELECT * FROM tarjeta WHERE idComprador = '"+req.query.idComprador+"' AND numero = '"+req.query.numero+"'", (err, rows)=>{
+        conn.query("SELECT * FROM tarjeta WHERE idComprador = '"+req.query.idComprador+"' AND id = '"+req.query.idTarjeta+"'", (err, rows)=>{
             if(err) return res.send(err)
 
             if(rows.length == 0) res.send(false)

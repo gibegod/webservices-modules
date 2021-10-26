@@ -1,11 +1,11 @@
 
 package com.example.consumingwebservice;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.ws.client.core.support.WebServiceGatewaySupport;
 import org.springframework.ws.soap.client.core.SoapActionCallback;
 
+import com.example.consumingwebservice.dto.VentaDTO;
 import com.example.consumingwebservice.wsdl.AddCategoriaProductoRequest;
 import com.example.consumingwebservice.wsdl.AddCategoriaProductoResponse;
 import com.example.consumingwebservice.wsdl.AddCuentaBancariaRequest;
@@ -16,6 +16,7 @@ import com.example.consumingwebservice.wsdl.AddProductoRequest;
 import com.example.consumingwebservice.wsdl.AddProductoResponse;
 import com.example.consumingwebservice.wsdl.AddUsuarioRequest;
 import com.example.consumingwebservice.wsdl.AddUsuarioResponse;
+import com.example.consumingwebservice.wsdl.AddVentaResponse;
 import com.example.consumingwebservice.wsdl.CuentaBancaria;
 import com.example.consumingwebservice.wsdl.Domicilio;
 import com.example.consumingwebservice.wsdl.GetCategoriasProductoRequest;
@@ -41,9 +42,16 @@ import com.example.consumingwebservice.wsdl.UpdateUsuarioRequest;
 import com.example.consumingwebservice.wsdl.UpdateUsuarioResponse;
 import com.example.consumingwebservice.wsdl.Usuario;
 
-public class VentasClient extends WebServiceGatewaySupport {
+import lombok.extern.slf4j.Slf4j;
 
-	private static final Logger log = LoggerFactory.getLogger(VentasClient.class);
+@Slf4j
+public class VentasClient extends WebServiceGatewaySupport {
+	
+	@Value("${ws.server.dir}")
+	private String wsServerDir;
+	
+	@Value("${soap.action.callback}")
+	private String soapActionCallback;
 
 	public GetUsuarioResponse getUser(String name) {
 
@@ -51,8 +59,8 @@ public class VentasClient extends WebServiceGatewaySupport {
 		request.setName(name);
 		log.info("Searching user : " + name);
 		GetUsuarioResponse response = (GetUsuarioResponse) getWebServiceTemplate().marshalSendAndReceive(
-				"http://localhost:8080/ws/server", request,
-				new SoapActionCallback("http://spring.io/guides/gs-producing-web-service"));
+				wsServerDir, request,
+				new SoapActionCallback(soapActionCallback));
 		return response;
 	}
 
@@ -62,8 +70,8 @@ public class VentasClient extends WebServiceGatewaySupport {
 		request.setUsuario(usuario);
 		log.info("Searching address : user: " + usuario);
 		GetDomiciliosResponse response = (GetDomiciliosResponse) getWebServiceTemplate().marshalSendAndReceive(
-				"http://localhost:8080/ws/server", request,
-				new SoapActionCallback("http://spring.io/guides/gs-producing-web-service"));
+				wsServerDir, request,
+				new SoapActionCallback(soapActionCallback));
 		return response;
 	}
 	
@@ -73,8 +81,8 @@ public class VentasClient extends WebServiceGatewaySupport {
 		request.setUsuario(usuario);
 		log.info("Searching bank accounts: user: "+usuario);
 		GetCuentasBancariasResponse response = (GetCuentasBancariasResponse) getWebServiceTemplate().marshalSendAndReceive(
-				"http://localhost:8080/ws/server", request,
-				new SoapActionCallback("http://spring.io/guides/gs-producing-web-service"));
+				wsServerDir, request,
+				new SoapActionCallback(soapActionCallback));
 		return response;
 	}
 
@@ -84,8 +92,8 @@ public class VentasClient extends WebServiceGatewaySupport {
 		request.setContrasenia(pass);
 		request.setUsuario(user);
 		LoginValResponse response = (LoginValResponse) getWebServiceTemplate().marshalSendAndReceive(
-				"http://localhost:8080/ws/server", request,
-				new SoapActionCallback("http://spring.io/guides/gs-producing-web-service"));
+				wsServerDir, request,
+				new SoapActionCallback(soapActionCallback));
 		return response;
 	}
 
@@ -93,8 +101,8 @@ public class VentasClient extends WebServiceGatewaySupport {
 		UpdateUsuarioRequest request = new UpdateUsuarioRequest();
 		request.setUsuario(user);
 		UpdateUsuarioResponse response = (UpdateUsuarioResponse) getWebServiceTemplate().marshalSendAndReceive(
-				"http://localhost:8080/ws/server", request,
-				new SoapActionCallback("http://spring.io/guides/gs-producing-web-service"));
+				wsServerDir, request,
+				new SoapActionCallback(soapActionCallback));
 		return response;
 	}
 
@@ -102,8 +110,8 @@ public class VentasClient extends WebServiceGatewaySupport {
 		AddUsuarioRequest request = new AddUsuarioRequest();
 		request.setUsuario(user);
 		AddUsuarioResponse response = (AddUsuarioResponse) getWebServiceTemplate().marshalSendAndReceive(
-				"http://localhost:8080/ws/server", request,
-				new SoapActionCallback("http://spring.io/guides/gs-producing-web-service"));
+				wsServerDir, request,
+				new SoapActionCallback(soapActionCallback));
 		return response;
 	}
 
@@ -111,8 +119,8 @@ public class VentasClient extends WebServiceGatewaySupport {
 		AddDomicilioRequest request = new AddDomicilioRequest();
 		request.setDomicilio(domicilio);
 		AddDomicilioResponse response = (AddDomicilioResponse) getWebServiceTemplate().marshalSendAndReceive(
-				"http://localhost:8080/ws/server", request,
-				new SoapActionCallback("http://spring.io/guides/gs-producing-web-service"));
+				wsServerDir, request,
+				new SoapActionCallback(soapActionCallback));
 		return response;
 	}
 
@@ -120,8 +128,8 @@ public class VentasClient extends WebServiceGatewaySupport {
 		AddCuentaBancariaRequest request = new AddCuentaBancariaRequest();
 		request.setCuentaBancaria(cuentaBancaria);
 		AddCuentaBancariaResponse response = (AddCuentaBancariaResponse) getWebServiceTemplate().marshalSendAndReceive(
-				"http://localhost:8080/ws/server", request,
-				new SoapActionCallback("http://spring.io/guides/gs-producing-web-service"));
+				wsServerDir, request,
+				new SoapActionCallback(soapActionCallback));
 		return response;
 	}
 	
@@ -129,8 +137,8 @@ public class VentasClient extends WebServiceGatewaySupport {
 		AddProductoRequest request = new AddProductoRequest();
 		request.setProducto(producto);
 		AddProductoResponse response = (AddProductoResponse) getWebServiceTemplate().marshalSendAndReceive(
-				"http://localhost:8080/ws/server", request,
-				new SoapActionCallback("http://spring.io/guides/gs-producing-web-service"));
+				wsServerDir, request,
+				new SoapActionCallback(soapActionCallback));
 		return response;
 	}
 	
@@ -138,16 +146,16 @@ public class VentasClient extends WebServiceGatewaySupport {
 		GetProductoRequest request = new GetProductoRequest();
 		request.setName(name);
 		GetProductoResponse response = (GetProductoResponse) getWebServiceTemplate().marshalSendAndReceive(
-				"http://localhost:8080/ws/server", request,
-				new SoapActionCallback("http://spring.io/guides/gs-producing-web-service"));
+				wsServerDir, request,
+				new SoapActionCallback(soapActionCallback));
 		return response;
 	}
 	
 	public GetProductosResponse getProductos() {
 		GetProductosRequest request = new GetProductosRequest();
 		GetProductosResponse response = (GetProductosResponse) getWebServiceTemplate().marshalSendAndReceive(
-				"http://localhost:8080/ws/server", request,
-				new SoapActionCallback("http://spring.io/guides/gs-producing-web-service"));
+				wsServerDir, request,
+				new SoapActionCallback(soapActionCallback));
 		return response;
 	}
 	
@@ -155,8 +163,8 @@ public class VentasClient extends WebServiceGatewaySupport {
 		GetProductosPorIdVendedorRequest request = new GetProductosPorIdVendedorRequest();
 		request.setId(idVendedor);
 		GetProductosPorIdVendedorResponse response = (GetProductosPorIdVendedorResponse) getWebServiceTemplate().marshalSendAndReceive(
-				"http://localhost:8080/ws/server", request,
-				new SoapActionCallback("http://spring.io/guides/gs-producing-web-service"));
+				wsServerDir, request,
+				new SoapActionCallback(soapActionCallback));
 		return response;
 	}
 	
@@ -164,8 +172,8 @@ public class VentasClient extends WebServiceGatewaySupport {
 		UpdateProductoRequest request = new UpdateProductoRequest();
 		request.setProducto(producto);
 		UpdateProductoResponse response = (UpdateProductoResponse) getWebServiceTemplate().marshalSendAndReceive(
-				"http://localhost:8080/ws/server", request,
-				new SoapActionCallback("http://spring.io/guides/gs-producing-web-service"));
+				wsServerDir, request,
+				new SoapActionCallback(soapActionCallback));
 		return response;
 	}
 	
@@ -173,16 +181,25 @@ public class VentasClient extends WebServiceGatewaySupport {
 		AddCategoriaProductoRequest request = new AddCategoriaProductoRequest();
 		request.setCategoriaProducto(categoriaProducto);
 		AddCategoriaProductoResponse response = (AddCategoriaProductoResponse) getWebServiceTemplate().marshalSendAndReceive(
-				"http://localhost:8080/ws/server", request,
-				new SoapActionCallback("http://spring.io/guides/gs-producing-web-service"));
+				wsServerDir, request,
+				new SoapActionCallback(soapActionCallback));
 		return response;
 	}
 	
 	public GetCategoriasProductoResponse getCategoriasProducto() {
 		GetCategoriasProductoRequest request = new GetCategoriasProductoRequest();
 		GetCategoriasProductoResponse response = (GetCategoriasProductoResponse) getWebServiceTemplate().marshalSendAndReceive(
-				"http://localhost:8080/ws/server", request,
-				new SoapActionCallback("http://spring.io/guides/gs-producing-web-service"));
+				wsServerDir, request,
+				new SoapActionCallback(soapActionCallback));
+		return response;
+	}
+	
+	public AddVentaResponse addVenta(VentaDTO venta) {		
+		AddVentaResponse response = (AddVentaResponse) getWebServiceTemplate().marshalSendAndReceive(
+				wsServerDir,
+				venta.toSOAPRequest(),
+				new SoapActionCallback(soapActionCallback));
+		
 		return response;
 	}
 }

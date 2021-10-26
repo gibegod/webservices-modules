@@ -6,7 +6,7 @@
 Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.0 
 Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-Generado el: 2021.10.23 a las 11:20:33 PM ART 
+Generado el: 2021.10.25 a las 10:36:24 PM ART 
 
   -->
       
@@ -90,9 +90,39 @@ Generado el: 2021.10.23 a las 11:20:33 PM ART
                 
         </bindings>
             
+        <bindings if-exists="true" scd="tns:getProductosPorIdVendedorRequest">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.GetProductosPorIdVendedorRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:getProductosPorIdVendedorResponse">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.GetProductosPorIdVendedorResponse"/>
+                
+        </bindings>
+            
         <bindings if-exists="true" scd="tns:getProductoResponse">
                   
             <class ref="com.example.consumingwebservice.wsdl.GetProductoResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:getCategoriasProductoRequest">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.GetCategoriasProductoRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:getCategoriasProductoResponse">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.GetCategoriasProductoResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="~tns:categoriaProducto">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.CategoriaProducto"/>
                 
         </bindings>
             
@@ -105,6 +135,30 @@ Generado el: 2021.10.23 a las 11:20:33 PM ART
         <bindings if-exists="true" scd="tns:addProductoResponse">
                   
             <class ref="com.example.consumingwebservice.wsdl.AddProductoResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:addVentaRequest">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.AddVentaRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:addVentaResponse">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.AddVentaResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:finalizeVentaRequest">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.FinalizeVentaRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:finalizeVentaResponse">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.FinalizeVentaResponse"/>
                 
         </bindings>
             
@@ -204,6 +258,18 @@ Generado el: 2021.10.23 a las 11:20:33 PM ART
                 
         </bindings>
             
+        <bindings if-exists="true" scd="tns:addCategoriaProductoRequest">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.AddCategoriaProductoRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:addCategoriaProductoResponse">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.AddCategoriaProductoResponse"/>
+                
+        </bindings>
+            
         <bindings if-exists="true" scd="tns:addTarjetaRequest">
                   
             <class ref="com.example.consumingwebservice.wsdl.AddTarjetaRequest"/>
@@ -237,12 +303,6 @@ Generado el: 2021.10.23 a las 11:20:33 PM ART
         <bindings if-exists="true" scd="~tns:billeteraVirtual">
                   
             <class ref="com.example.consumingwebservice.wsdl.BilleteraVirtual"/>
-                
-        </bindings>
-            
-        <bindings if-exists="true" scd="~tns:categoriaProducto">
-                  
-            <class ref="com.example.consumingwebservice.wsdl.CategoriaProducto"/>
                 
         </bindings>
             

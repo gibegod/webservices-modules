@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.0 
 // Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2021.10.23 a las 11:20:33 PM ART 
+// Generado el: 2021.10.25 a las 10:36:24 PM ART 
 //
 
 
@@ -133,11 +133,51 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GetProductosPorIdVendedorRequest }
+     * 
+     */
+    public GetProductosPorIdVendedorRequest createGetProductosPorIdVendedorRequest() {
+        return new GetProductosPorIdVendedorRequest();
+    }
+
+    /**
+     * Create an instance of {@link GetProductosPorIdVendedorResponse }
+     * 
+     */
+    public GetProductosPorIdVendedorResponse createGetProductosPorIdVendedorResponse() {
+        return new GetProductosPorIdVendedorResponse();
+    }
+
+    /**
      * Create an instance of {@link GetProductoResponse }
      * 
      */
     public GetProductoResponse createGetProductoResponse() {
         return new GetProductoResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetCategoriasProductoRequest }
+     * 
+     */
+    public GetCategoriasProductoRequest createGetCategoriasProductoRequest() {
+        return new GetCategoriasProductoRequest();
+    }
+
+    /**
+     * Create an instance of {@link GetCategoriasProductoResponse }
+     * 
+     */
+    public GetCategoriasProductoResponse createGetCategoriasProductoResponse() {
+        return new GetCategoriasProductoResponse();
+    }
+
+    /**
+     * Create an instance of {@link CategoriaProducto }
+     * 
+     */
+    public CategoriaProducto createCategoriaProducto() {
+        return new CategoriaProducto();
     }
 
     /**
@@ -154,6 +194,38 @@ public class ObjectFactory {
      */
     public AddProductoResponse createAddProductoResponse() {
         return new AddProductoResponse();
+    }
+
+    /**
+     * Create an instance of {@link AddVentaRequest }
+     * 
+     */
+    public AddVentaRequest createAddVentaRequest() {
+        return new AddVentaRequest();
+    }
+
+    /**
+     * Create an instance of {@link AddVentaResponse }
+     * 
+     */
+    public AddVentaResponse createAddVentaResponse() {
+        return new AddVentaResponse();
+    }
+
+    /**
+     * Create an instance of {@link FinalizeVentaRequest }
+     * 
+     */
+    public FinalizeVentaRequest createFinalizeVentaRequest() {
+        return new FinalizeVentaRequest();
+    }
+
+    /**
+     * Create an instance of {@link FinalizeVentaResponse }
+     * 
+     */
+    public FinalizeVentaResponse createFinalizeVentaResponse() {
+        return new FinalizeVentaResponse();
     }
 
     /**
@@ -285,6 +357,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link AddCategoriaProductoRequest }
+     * 
+     */
+    public AddCategoriaProductoRequest createAddCategoriaProductoRequest() {
+        return new AddCategoriaProductoRequest();
+    }
+
+    /**
+     * Create an instance of {@link AddCategoriaProductoResponse }
+     * 
+     */
+    public AddCategoriaProductoResponse createAddCategoriaProductoResponse() {
+        return new AddCategoriaProductoResponse();
+    }
+
+    /**
      * Create an instance of {@link AddTarjetaRequest }
      * 
      */
@@ -330,14 +418,6 @@ public class ObjectFactory {
      */
     public BilleteraVirtual createBilleteraVirtual() {
         return new BilleteraVirtual();
-    }
-
-    /**
-     * Create an instance of {@link CategoriaProducto }
-     * 
-     */
-    public CategoriaProducto createCategoriaProducto() {
-        return new CategoriaProducto();
     }
 
     /**

@@ -1,0 +1,5 @@
+package com.example.producingwebservice.config;
+
+public class RestTemplateConfig {
+
+}

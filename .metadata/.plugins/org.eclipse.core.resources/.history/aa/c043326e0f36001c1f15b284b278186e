@@ -1,0 +1,23 @@
+package com.example.producingwebservice.external.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import com.example.producingwebservice.external.model.Tarjeta;
+
+@Service
+public class TarjetaService {
+	
+	@Autowired
+	private RestTemplate restTemplate;
+
+	@Value("${rest.template.root.url}")
+	private String rootUrl;
+	
+	public void validarTarjeta(Long idTarjeta, Long idUsuario) {
+		return restTemplate.getForObject(rootUrl + "/users", Tarjeta.class);
+	}
+
+}

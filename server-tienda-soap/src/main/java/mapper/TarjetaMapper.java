@@ -2,14 +2,12 @@ package mapper;
 
 import java.math.BigDecimal;
 
-import com.example.producingwebservice.model.TarjetaModel;
-
 import io.spring.guides.gs_producing_web_service.Tarjeta;
 import io.spring.guides.gs_producing_web_service.Usuario;
 
 public class TarjetaMapper { //SIN setear DateTime
 	UsuarioMapper usuarioMap = new UsuarioMapper();
-	public TarjetaModel toTarjetaModel(Tarjeta tarjetaXML, Boolean setID) {
+	/*public TarjetaModel toTarjetaModel(Tarjeta tarjetaXML, Boolean setID) {
 		TarjetaModel tm = new TarjetaModel();
 		//Date date = new Date(); Mapear gregorian calendar a LocalDateTime
 		//tm.setVencimiento();
@@ -22,9 +20,9 @@ public class TarjetaMapper { //SIN setear DateTime
 		tm.setTipo(tarjetaXML.getTipo());
 		
 		return tm;
-	}
+	}*/
 	
-	public Tarjeta toTarjetaXML(TarjetaModel tarjetaModel) {
+	/*public Tarjeta toTarjetaXML(TarjetaModel tarjetaModel) {
 		Tarjeta t = new Tarjeta();
 		Usuario uXML = new Usuario();
 		uXML = usuarioMap.toUsuarioXML(tarjetaModel.getComprador(), true);
@@ -38,6 +36,6 @@ public class TarjetaMapper { //SIN setear DateTime
 		t.setTipo(tarjetaModel.getTipo());
 		//t.setVencimiento(null);
 		return t;
-	}
+	}*/
 
 }

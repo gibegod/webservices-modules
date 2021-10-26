@@ -6,21 +6,22 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.producingwebservice.external.services.TarjetaService;
 import com.example.producingwebservice.model.BilleteraVirtualModel;
 import com.example.producingwebservice.model.DomicilioModel;
-import com.example.producingwebservice.model.TarjetaModel;
 import com.example.producingwebservice.model.UsuarioModel;
 import com.example.producingwebservice.model.VentaModel;
 import com.example.producingwebservice.repositories.BilleteraVirtualRepository;
 import com.example.producingwebservice.repositories.DomicilioRepository;
-import com.example.producingwebservice.repositories.TarjetaRepository;
 import com.example.producingwebservice.repositories.UsuarioRepository;
 import com.example.producingwebservice.repositories.VentaRepository;
 import com.example.producingwebservice.utils.Estado;
 
 import io.spring.guides.gs_producing_web_service.AddVentaRequest;
+import lombok.extern.slf4j.Slf4j;
 
 @Service
+@Slf4j
 public class VentaService {
 	
 	@Autowired
@@ -30,20 +31,21 @@ public class VentaService {
 	private UsuarioRepository usuarioRepository;
 	
 	@Autowired
-	private TarjetaRepository tarjetaRepository;
-	
-	@Autowired
 	private VentaRepository ventaRepository;	
 	
 	@Autowired
 	private BilleteraVirtualRepository billeteraRepository;	
 	
+	@Autowired
+	private TarjetaService tarjetaService;
+	
 	public String guardarVenta(AddVentaRequest request) {		
 		DomicilioModel domicilio = domicilioRepository.findById(request.getIdDomicilio()).orElseThrow(()->new RuntimeException("Domicilio no encontrado!")); 
 		UsuarioModel comprador = usuarioRepository.findById(request.getIdComprador()).orElseThrow(()->new RuntimeException("Comprador no encontrado!"));
 		UsuarioModel vendedor = usuarioRepository.findById(request.getIdVendedor()).orElseThrow(()->new RuntimeException("Vendedor no encontrado!"));
-		TarjetaModel tarjeta = tarjetaRepository.findById(request.getIdTarjeta()).orElseThrow(()->new RuntimeException("Tarjeta no encontrada"));
 		
+		log.info("Se va a consultar servicio externo para validar tarjeta con id {} para comprador con id {}", request.getIdTarjeta(), request.getIdComprador());
+		tarjetaService.validarTarjeta(request.getIdTarjeta(), request.getIdComprador());
 		
 		VentaModel venta = VentaModel.builder()
 				.precioTotal(request.getPrecioTotal().floatValue())
@@ -52,7 +54,6 @@ public class VentaService {
 				.domicilio(domicilio)
 				.comprador(comprador)
 				.vendedor(vendedor)
-				.tarjeta(tarjeta)
 				.build();		
 		ventaRepository.save(venta);
 		

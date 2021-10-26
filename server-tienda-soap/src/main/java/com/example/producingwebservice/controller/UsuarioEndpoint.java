@@ -12,11 +12,9 @@ import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
 import com.example.producingwebservice.model.CuentaBancariaModel;
 import com.example.producingwebservice.model.DomicilioModel;
-import com.example.producingwebservice.model.TarjetaModel;
 import com.example.producingwebservice.model.UsuarioModel;
 import com.example.producingwebservice.services.CuentaBancariaService;
 import com.example.producingwebservice.services.DomicilioService;
-import com.example.producingwebservice.services.TarjetaService;
 import com.example.producingwebservice.services.UsuarioService;
 
 import io.spring.guides.gs_producing_web_service.AddCuentaBancariaRequest;
@@ -57,8 +55,6 @@ public class UsuarioEndpoint {
 
 	@Autowired
 	DomicilioService domicilioService = new DomicilioService();
-	@Autowired
-	TarjetaService tarjetaService = new TarjetaService();
 	@Autowired
 	CuentaBancariaService cuentaBancariaService = new CuentaBancariaService();
 
@@ -107,7 +103,7 @@ public class UsuarioEndpoint {
 		return response;
 	}
 	
-	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "getTarjetasRequest")
+	/*@PayloadRoot(namespace = NAMESPACE_URI, localPart = "getTarjetasRequest")
 	@ResponsePayload
 	public GetTarjetasResponse getTarjetas(@RequestPayload GetTarjetasRequest request) {
 		GetTarjetasResponse response = new GetTarjetasResponse();
@@ -119,7 +115,7 @@ public class UsuarioEndpoint {
 			}
 		}
 		return response;
-	}
+	}*/
 
 	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "addUsuarioRequest")
 	@ResponsePayload
@@ -155,13 +151,13 @@ public class UsuarioEndpoint {
 		return response;
 	}
 
-	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "addTarjetaRequest")
+	/*@PayloadRoot(namespace = NAMESPACE_URI, localPart = "addTarjetaRequest")
 	@ResponsePayload
 	public AddTarjetaResponse addTarjeta(@RequestPayload AddTarjetaRequest request) {
 		AddTarjetaResponse response = new AddTarjetaResponse();
 		response.setEstado(tarjetaService.guardarTarjeta(request.getTarjeta()));
 		return response;
-	}
+	}*/
 
 	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "addCuentaBancariaRequest")
 	@ResponsePayload

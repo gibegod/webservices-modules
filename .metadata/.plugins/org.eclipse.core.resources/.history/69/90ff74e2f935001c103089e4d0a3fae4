@@ -1,8 +1,0 @@
-server:
-  port : 8084
-logging:
-  level:
-    com.example.consumingwebservice: INFO
-    org:
-      springframework:
-        ws: DEBUG

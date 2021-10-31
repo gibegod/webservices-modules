@@ -1,3 +1,0 @@
-server.port : 8084
-
-ws.server.dir=http://localhost:8080/ws/server

@@ -1,5 +1,0 @@
-package com.example.consumingwebservice.dto;
-
-public class VentaDTO {
-
-}

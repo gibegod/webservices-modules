@@ -6,10 +6,9 @@ import io.spring.guides.gs_producing_web_service.Domicilio;
 
 public class DomicilioMapper {
 	
-	UsuarioMapper usuarioMap = new UsuarioMapper();
-	
-	public DomicilioModel toDomicilioModel(Domicilio domicilioXML){ // toModel con un boolean ID
+	public DomicilioModel toDomicilioModel(Domicilio domicilioXML){
 		DomicilioModel dm = new DomicilioModel();
+		
 		dm.setCalle(domicilioXML.getCalle());
 		dm.setDepartamento(domicilioXML.getDepartamento());
 		dm.setLocalidad(domicilioXML.getLocalidad());

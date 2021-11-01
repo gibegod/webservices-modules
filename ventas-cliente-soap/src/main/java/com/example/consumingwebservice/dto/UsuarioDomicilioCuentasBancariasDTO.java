@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.example.consumingwebservice.wsdl.CuentaBancaria;
 import com.example.consumingwebservice.wsdl.Domicilio;
-import com.example.consumingwebservice.wsdl.Tarjeta;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;

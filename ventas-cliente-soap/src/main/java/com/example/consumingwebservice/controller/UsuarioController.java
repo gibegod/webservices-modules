@@ -10,27 +10,31 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.consumingwebservice.VentasClient;
+import com.example.consumingwebservice.dto.DomicilioDTO;
 import com.example.consumingwebservice.dto.UsuarioDomicilioCuentasBancariasDTO;
 import com.example.consumingwebservice.dto.UsuarioLoginDTO;
+import com.example.consumingwebservice.mapper.DomicilioMapper;
 import com.example.consumingwebservice.mapper.UsuarioMapper;
 import com.example.consumingwebservice.wsdl.AddCuentaBancariaResponse;
 import com.example.consumingwebservice.wsdl.AddDomicilioResponse;
 import com.example.consumingwebservice.wsdl.AddUsuarioResponse;
 import com.example.consumingwebservice.wsdl.CuentaBancaria;
-import com.example.consumingwebservice.wsdl.Domicilio;
 import com.example.consumingwebservice.wsdl.GetCuentasBancariasResponse;
 import com.example.consumingwebservice.wsdl.GetDomiciliosResponse;
 import com.example.consumingwebservice.wsdl.GetUsuarioResponse;
 import com.example.consumingwebservice.wsdl.LoginValResponse;
 import com.example.consumingwebservice.wsdl.UpdateUsuarioResponse;
 import com.example.consumingwebservice.wsdl.Usuario;
+
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping("/usuario")
 public class UsuarioController {
+	
 	@Autowired
-	VentasClient ventasClient;
-	UsuarioMapper usuariomap = new UsuarioMapper();
+	private VentasClient ventasClient;
+	
+	private UsuarioMapper usuariomap = new UsuarioMapper();
 
 	@GetMapping(path = "/{user}")
 	public UsuarioDomicilioCuentasBancariasDTO getUsuario(@PathVariable("user") String usuario) {
@@ -63,8 +67,8 @@ public class UsuarioController {
 	}
 	
 	@PostMapping(path = "/domicilio")
-	public String agregarDomicilio(@RequestBody Domicilio domicilio) {
-		AddDomicilioResponse response = ventasClient.addDomicilio(domicilio);
+	public String agregarDomicilio(@RequestBody DomicilioDTO domicilio) {
+		AddDomicilioResponse response = ventasClient.addDomicilio(DomicilioMapper.dtoToXML(domicilio));
 		return response.getEstado();
 	}
 	

@@ -10,10 +10,10 @@ import com.example.producingwebservice.model.DomicilioModel;
 import com.example.producingwebservice.model.UsuarioModel;
 import com.example.producingwebservice.repositories.DomicilioRepository;
 import com.example.producingwebservice.repositories.UsuarioRepository;
+import com.example.producingwebservice.utils.Estado;
 
 import io.spring.guides.gs_producing_web_service.Domicilio;
 import mapper.DomicilioMapper;
-import mapper.UsuarioMapper;
 
 @Service
 public class DomicilioService {
@@ -24,27 +24,20 @@ public class DomicilioService {
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 	
-	DomicilioMapper domicilioMap = new DomicilioMapper();
-	UsuarioMapper usuarioMap = new UsuarioMapper();
+	private DomicilioMapper domicilioMap = new DomicilioMapper();
 
 	public String guardarDomicilio(Domicilio domicilio) {
-		String estado = "";
-		Long idUser = domicilio.getUsuario().getId();
-
-		if (idUser == null) {
-			estado = "ERROR";
-		} else {
-			if (usuarioRepository.findById(idUser).isPresent()) {
-				UsuarioModel userModel = usuarioRepository.findById(idUser).get();
-				DomicilioModel domicilioModel = new DomicilioModel();
-				domicilioModel = domicilioMap.toDomicilioModel(domicilio);
-				domicilioModel.setComprador(userModel);
-				domicilioRepository.save(domicilioModel);
-				estado="OK";
-			} else
-				estado = "ERROR";
+		
+		Optional<UsuarioModel> usuario = usuarioRepository.findById(domicilio.getUsuario().getId());
+		if(!usuario.isPresent()) {
+			return "Error, usuario no encontrado!";			
 		}
-		return estado;
+		
+		DomicilioModel domicilioModel = domicilioMap.toDomicilioModel(domicilio);
+		domicilioModel.setComprador(usuario.get());
+		domicilioRepository.save(domicilioModel);
+		
+		return Estado.OK.name();
 	}
 	
 	public ArrayList<DomicilioModel> buscarDomicilio(String userName) {

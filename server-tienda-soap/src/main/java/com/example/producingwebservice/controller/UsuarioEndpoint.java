@@ -10,6 +10,7 @@ import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
+import com.example.producingwebservice.external.services.TarjetaService;
 import com.example.producingwebservice.model.CuentaBancariaModel;
 import com.example.producingwebservice.model.DomicilioModel;
 import com.example.producingwebservice.model.UsuarioModel;
@@ -21,8 +22,6 @@ import io.spring.guides.gs_producing_web_service.AddCuentaBancariaRequest;
 import io.spring.guides.gs_producing_web_service.AddCuentaBancariaResponse;
 import io.spring.guides.gs_producing_web_service.AddDomicilioRequest;
 import io.spring.guides.gs_producing_web_service.AddDomicilioResponse;
-import io.spring.guides.gs_producing_web_service.AddTarjetaRequest;
-import io.spring.guides.gs_producing_web_service.AddTarjetaResponse;
 import io.spring.guides.gs_producing_web_service.AddUsuarioRequest;
 import io.spring.guides.gs_producing_web_service.AddUsuarioResponse;
 import io.spring.guides.gs_producing_web_service.GetCuentasBancariasRequest;
@@ -47,31 +46,33 @@ import mapper.UsuarioMapper;
 public class UsuarioEndpoint {
 	private static final String NAMESPACE_URI = "http://spring.io/guides/gs-producing-web-service";
 
-	private UsuarioService usuarioService;
 	UsuarioMapper usuarioMap = new UsuarioMapper();
 	DomicilioMapper domicilioMap = new DomicilioMapper();
 	CuentaBancariaMapper cuentaBancariaMap = new CuentaBancariaMapper();
 	TarjetaMapper tarjetaMap = new TarjetaMapper();
 
 	@Autowired
-	DomicilioService domicilioService = new DomicilioService();
+	private DomicilioService domicilioService;
+	
 	@Autowired
-	CuentaBancariaService cuentaBancariaService = new CuentaBancariaService();
-
+	private CuentaBancariaService cuentaBancariaService;
+	
 	@Autowired
-	public UsuarioEndpoint(UsuarioService usuarioS) {
-		this.usuarioService = usuarioS;
-	}
+	private UsuarioService usuarioService;
+	
+	@Autowired
+	private TarjetaService tarjetaService;
 
 	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "getUsuarioRequest")
 	@ResponsePayload
 	public GetUsuarioResponse getUsuario(@RequestPayload GetUsuarioRequest request) {
 		GetUsuarioResponse response = new GetUsuarioResponse();
-		Optional<UsuarioModel> u = Optional.empty();
-		u = usuarioService.buscarUsuario(request.getName());
-		if (u.isPresent()) {
-			response.setUsuario(usuarioMap.toUsuarioXML(u.get(), true));
+		
+		Optional<UsuarioModel> usuario = usuarioService.buscarUsuario(request.getName());
+		if (usuario.isPresent()) {
+			response.setUsuario(usuarioMap.toUsuarioXML(usuario.get(), true));
 		}
+		
 		return response;
 	}
 
@@ -79,13 +80,26 @@ public class UsuarioEndpoint {
 	@ResponsePayload
 	public GetDomiciliosResponse getDomicilio(@RequestPayload GetDomiciliosRequest request) {
 		GetDomiciliosResponse response = new GetDomiciliosResponse();
-		if (request.getUsuario() != null) {
-			if (domicilioService.buscarDomicilio(request.getUsuario()) != null) {
-				for (DomicilioModel item : domicilioService.buscarDomicilio(request.getUsuario())) {
-					response.getDomicilio().add(domicilioMap.toDomicilioXML(item));
-				}
-			}
+		
+		for (DomicilioModel item : domicilioService.buscarDomicilio(request.getUsuario())) {
+			response.getDomicilio().add(domicilioMap.toDomicilioXML(item));
 		}
+		
+		return response;
+	}
+	
+	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "getTarjetasRequest")
+	@ResponsePayload
+	public GetTarjetasResponse getTarjetas(@RequestPayload GetTarjetasRequest request) {
+		GetTarjetasResponse response = new GetTarjetasResponse();
+		
+		Optional<UsuarioModel> usuario = usuarioService.buscarUsuario(request.getUsuario());	
+		if (usuario.isPresent()) {
+			tarjetaService.getTarjeta(usuario.get().getId()).forEach((tarjeta) -> {
+				response.getTarjeta().add(tarjetaMap.toTarjetaXML(tarjeta));
+			});
+		}		
+		
 		return response;
 	}
 	
@@ -101,21 +115,7 @@ public class UsuarioEndpoint {
 			}
 		}
 		return response;
-	}
-	
-	/*@PayloadRoot(namespace = NAMESPACE_URI, localPart = "getTarjetasRequest")
-	@ResponsePayload
-	public GetTarjetasResponse getTarjetas(@RequestPayload GetTarjetasRequest request) {
-		GetTarjetasResponse response = new GetTarjetasResponse();
-		if (request.getUsuario() != null) {
-			if (tarjetaService.buscarTarjeta(request.getUsuario())!= null) {
-				for (TarjetaModel item : tarjetaService.buscarTarjeta(request.getUsuario())) {
-					response.getTarjeta().add( tarjetaMap.toTarjetaXML(item));
-				}
-			}
-		}
-		return response;
-	}*/
+	}	
 
 	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "addUsuarioRequest")
 	@ResponsePayload

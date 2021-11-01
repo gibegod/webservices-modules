@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.2 
 // Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2021.10.25 a las 09:34:04 PM ART 
+// Generado el: 2021.11.01 a las 03:16:45 PM ART 
 //
 
 
@@ -32,7 +32,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="localidad" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="provincia" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="pais" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="comprador" type="{http://spring.io/guides/gs-producing-web-service}usuario"/&gt;
+ *         &lt;element name="usuario" type="{http://spring.io/guides/gs-producing-web-service}usuario"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -51,7 +51,7 @@ import javax.xml.bind.annotation.XmlType;
     "localidad",
     "provincia",
     "pais",
-    "comprador"
+    "usuario"
 })
 public class Domicilio {
 
@@ -71,7 +71,7 @@ public class Domicilio {
     @XmlElement(required = true)
     protected String pais;
     @XmlElement(required = true)
-    protected Usuario comprador;
+    protected Usuario usuario;
 
     /**
      * Obtiene el valor de la propiedad id.
@@ -266,27 +266,27 @@ public class Domicilio {
     }
 
     /**
-     * Obtiene el valor de la propiedad comprador.
+     * Obtiene el valor de la propiedad usuario.
      * 
      * @return
      *     possible object is
      *     {@link Usuario }
      *     
      */
-    public Usuario getComprador() {
-        return comprador;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
     /**
-     * Define el valor de la propiedad comprador.
+     * Define el valor de la propiedad usuario.
      * 
      * @param value
      *     allowed object is
      *     {@link Usuario }
      *     
      */
-    public void setComprador(Usuario value) {
-        this.comprador = value;
+    public void setUsuario(Usuario value) {
+        this.usuario = value;
     }
 
 }

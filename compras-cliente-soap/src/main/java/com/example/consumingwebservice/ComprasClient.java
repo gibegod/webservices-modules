@@ -1,8 +1,7 @@
 
 package com.example.consumingwebservice;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.ws.client.core.support.WebServiceGatewaySupport;
 import org.springframework.ws.soap.client.core.SoapActionCallback;
 
@@ -26,96 +25,91 @@ import com.example.consumingwebservice.wsdl.UpdateUsuarioRequest;
 import com.example.consumingwebservice.wsdl.UpdateUsuarioResponse;
 import com.example.consumingwebservice.wsdl.Usuario;
 
-public class ComprasClient extends WebServiceGatewaySupport {
+import lombok.extern.slf4j.Slf4j;
 
-	private static final Logger log = LoggerFactory.getLogger(ComprasClient.class);
+@Slf4j
+public class ComprasClient extends WebServiceGatewaySupport {
+	
+	@Value("${ws.server.dir}")
+	private String wsServerDir;
+	
+	@Value("${soap.action.callback}")
+	private String soapActionCallback;
 
 	public GetUsuarioResponse getUser(String name) {
-		
 		GetUsuarioRequest request = new GetUsuarioRequest();
 		request.setName(name);
 		log.info("Searching user : " + name);
-		GetUsuarioResponse response = (GetUsuarioResponse) getWebServiceTemplate()
-				.marshalSendAndReceive("http://localhost:8080/ws/server", request,
-						new SoapActionCallback(
-								"http://spring.io/guides/gs-producing-web-service"));
-		return response;
-	}
-	
-public GetDomiciliosResponse getAddresses(String usuario) {
-		
-		GetDomiciliosRequest request = new GetDomiciliosRequest();
-		request.setUsuario(usuario);
-		log.info("Searching address : user: " + usuario);
-		GetDomiciliosResponse response = (GetDomiciliosResponse) getWebServiceTemplate()
-				.marshalSendAndReceive("http://localhost:8080/ws/server", request,
-						new SoapActionCallback(
-								"http://spring.io/guides/gs-producing-web-service"));
+		GetUsuarioResponse response = (GetUsuarioResponse) getWebServiceTemplate().marshalSendAndReceive(
+				wsServerDir, request,
+				new SoapActionCallback(soapActionCallback));
 		return response;
 	}
 
-public GetTarjetasResponse getCards(String usuario) {
-	
-	GetTarjetasRequest request = new GetTarjetasRequest();
-	request.setUsuario(usuario);
-	log.info("Searching user : " + usuario);
-	GetTarjetasResponse response = (GetTarjetasResponse) getWebServiceTemplate()
-			.marshalSendAndReceive("http://localhost:8080/ws/server", request,
-					new SoapActionCallback(
-							"http://spring.io/guides/gs-producing-web-service"));
-	return response;
-}
-	
-	public LoginValResponse validator(String user,String pass) {
-		
+	public GetDomiciliosResponse getAddresses(String usuario) {
+		GetDomiciliosRequest request = new GetDomiciliosRequest();
+		request.setUsuario(usuario);
+		log.info("Searching address : user: " + usuario);
+		GetDomiciliosResponse response = (GetDomiciliosResponse) getWebServiceTemplate().marshalSendAndReceive(
+				wsServerDir, request,
+				new SoapActionCallback(soapActionCallback));
+		return response;
+	}
+
+	public GetTarjetasResponse getCards(String usuario) {
+		GetTarjetasRequest request = new GetTarjetasRequest();
+		request.setUsuario(usuario);
+		log.info("Searching cards : user : " + usuario);
+		GetTarjetasResponse response = (GetTarjetasResponse) getWebServiceTemplate().marshalSendAndReceive(
+				wsServerDir, request,
+				new SoapActionCallback(soapActionCallback));
+		return response;
+	}
+
+	public LoginValResponse validator(String user, String pass) {
 		LoginValRequest request = new LoginValRequest();
 		request.setContrasenia(pass);
 		request.setUsuario(user);
-		LoginValResponse response = (LoginValResponse) getWebServiceTemplate()
-				.marshalSendAndReceive("http://localhost:8080/ws/server", request,
-						new SoapActionCallback(
-								"http://spring.io/guides/gs-producing-web-service"));
+		LoginValResponse response = (LoginValResponse) getWebServiceTemplate().marshalSendAndReceive(
+				wsServerDir, request,
+				new SoapActionCallback(soapActionCallback));
 		return response;
 	}
-	
+
 	public UpdateUsuarioResponse updateUser(Usuario user) {
 		UpdateUsuarioRequest request = new UpdateUsuarioRequest();
 		request.setUsuario(user);
-		UpdateUsuarioResponse response = (UpdateUsuarioResponse) getWebServiceTemplate()
-				.marshalSendAndReceive("http://localhost:8080/ws/server", request,
-						new SoapActionCallback(
-								"http://spring.io/guides/gs-producing-web-service"));
+		UpdateUsuarioResponse response = (UpdateUsuarioResponse) getWebServiceTemplate().marshalSendAndReceive(
+				wsServerDir, request,
+				new SoapActionCallback(soapActionCallback));
 		return response;
 	}
-	
+
 	public AddUsuarioResponse signInUser(Usuario user) {
 		AddUsuarioRequest request = new AddUsuarioRequest();
 		request.setUsuario(user);
-		AddUsuarioResponse response = (AddUsuarioResponse) getWebServiceTemplate()
-				.marshalSendAndReceive("http://localhost:8080/ws/server", request,
-						new SoapActionCallback(
-								"http://spring.io/guides/gs-producing-web-service"));
+		AddUsuarioResponse response = (AddUsuarioResponse) getWebServiceTemplate().marshalSendAndReceive(
+				wsServerDir, request,
+				new SoapActionCallback(soapActionCallback));
 		return response;
 	}
-	
+
 	public AddDomicilioResponse addDomicilio(Domicilio domicilio) {
 		AddDomicilioRequest request = new AddDomicilioRequest();
 		request.setDomicilio(domicilio);
-		AddDomicilioResponse response = (AddDomicilioResponse) getWebServiceTemplate()
-				.marshalSendAndReceive("http://localhost:8080/ws/server", request,
-						new SoapActionCallback(
-								"http://spring.io/guides/gs-producing-web-service"));
+		AddDomicilioResponse response = (AddDomicilioResponse) getWebServiceTemplate().marshalSendAndReceive(
+				wsServerDir, request,
+				new SoapActionCallback(soapActionCallback));
 		return response;
 	}
-	
+
 	public AddTarjetaResponse addTarjeta(Tarjeta tarjeta) {
 		AddTarjetaRequest request = new AddTarjetaRequest();
 		request.setTarjeta(tarjeta);
-		AddTarjetaResponse response = (AddTarjetaResponse) getWebServiceTemplate()
-				.marshalSendAndReceive("http://localhost:8080/ws/server", request,
-						new SoapActionCallback(
-								"http://spring.io/guides/gs-producing-web-service"));
+		AddTarjetaResponse response = (AddTarjetaResponse) getWebServiceTemplate().marshalSendAndReceive(
+				wsServerDir, request,
+				new SoapActionCallback(soapActionCallback));
 		return response;
 	}
-	
+
 }

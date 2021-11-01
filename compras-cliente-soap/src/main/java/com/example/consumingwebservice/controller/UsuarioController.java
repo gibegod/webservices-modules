@@ -1,5 +1,7 @@
 package com.example.consumingwebservice.controller;
 
+import java.util.Objects;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,23 +26,29 @@ import com.example.consumingwebservice.wsdl.LoginValResponse;
 import com.example.consumingwebservice.wsdl.Tarjeta;
 import com.example.consumingwebservice.wsdl.UpdateUsuarioResponse;
 import com.example.consumingwebservice.wsdl.Usuario;
+
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping("/usuario")
 public class UsuarioController {
+	
 	@Autowired
-	ComprasClient comprasClient;
-	UsuarioMapper usermap = new UsuarioMapper();
+	private ComprasClient comprasClient;
+	
+	private UsuarioMapper usermap = new UsuarioMapper();
 
 	@GetMapping(path = "/{name}")
 	public UsuarioDomicilioTarjetaDTO getUsuario(@PathVariable("name") String usuario) {
 		GetUsuarioResponse user = comprasClient.getUser(usuario);
+		
 		UsuarioDomicilioTarjetaDTO dto = new UsuarioDomicilioTarjetaDTO();
-		if (user.getUsuario() != null) { 
+		if (!Objects.isNull(user.getUsuario())) { 
 			GetDomiciliosResponse addresses = comprasClient.getAddresses(user.getUsuario().getUsuario());
 			GetTarjetasResponse cards = comprasClient.getCards(user.getUsuario().getUsuario());
+			
 			dto = usermap.toUsuarioDTO(user.getUsuario(), addresses.getDomicilio(), cards.getTarjeta());
 		}
+		
 		return dto;
 	}
 

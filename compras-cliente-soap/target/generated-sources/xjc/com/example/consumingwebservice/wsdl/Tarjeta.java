@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.0 
 // Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2021.10.25 a las 11:16:49 PM ART 
+// Generado el: 2021.11.01 a las 03:29:57 PM ART 
 //
 
 
@@ -12,9 +12,7 @@ import java.math.BigDecimal;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
@@ -34,8 +32,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="cvc" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="tipo" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="nombre" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="vencimiento" type="{http://www.w3.org/2001/XMLSchema}dateTime"/&gt;
- *         &lt;element name="comprador" type="{http://spring.io/guides/gs-producing-web-service}usuario"/&gt;
+ *         &lt;element name="vencimiento" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="usuario" type="{http://spring.io/guides/gs-producing-web-service}usuario"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -54,7 +52,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "tipo",
     "nombre",
     "vencimiento",
-    "comprador"
+    "usuario"
 })
 public class Tarjeta {
 
@@ -72,10 +70,9 @@ public class Tarjeta {
     @XmlElement(required = true)
     protected String nombre;
     @XmlElement(required = true)
-    @XmlSchemaType(name = "dateTime")
-    protected XMLGregorianCalendar vencimiento;
+    protected String vencimiento;
     @XmlElement(required = true)
-    protected Usuario comprador;
+    protected Usuario usuario;
 
     /**
      * Obtiene el valor de la propiedad id.
@@ -250,10 +247,10 @@ public class Tarjeta {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public XMLGregorianCalendar getVencimiento() {
+    public String getVencimiento() {
         return vencimiento;
     }
 
@@ -262,35 +259,35 @@ public class Tarjeta {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public void setVencimiento(XMLGregorianCalendar value) {
+    public void setVencimiento(String value) {
         this.vencimiento = value;
     }
 
     /**
-     * Obtiene el valor de la propiedad comprador.
+     * Obtiene el valor de la propiedad usuario.
      * 
      * @return
      *     possible object is
      *     {@link Usuario }
      *     
      */
-    public Usuario getComprador() {
-        return comprador;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
     /**
-     * Define el valor de la propiedad comprador.
+     * Define el valor de la propiedad usuario.
      * 
      * @param value
      *     allowed object is
      *     {@link Usuario }
      *     
      */
-    public void setComprador(Usuario value) {
-        this.comprador = value;
+    public void setUsuario(Usuario value) {
+        this.usuario = value;
     }
 
 }

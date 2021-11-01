@@ -88,6 +88,22 @@
         </xs:complexType>
     </xs:element>
     
+    <xs:element name="getProductosPorNameRequest">
+        <xs:complexType>
+            <xs:sequence>
+            	<xs:element name="name" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="getProductosPorNameResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="producto" type="tns:producto" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
     <xs:element name="getProductoResponse">
         <xs:complexType>
             <xs:sequence>
@@ -406,7 +422,7 @@
             <xs:element name="localidad" type="xs:string"/>
             <xs:element name="provincia" type="xs:string"/>
             <xs:element name="pais" type="xs:string"/>
-            <xs:element name="comprador" type="tns:usuario"/>
+            <xs:element name="usuario" type="tns:usuario"/>
         </xs:sequence>
     </xs:complexType>
     
@@ -431,8 +447,8 @@
             <xs:element name="cvc" type="xs:string"/>
             <xs:element name="tipo" type="xs:string"/>
             <xs:element name="nombre" type="xs:string"/>
-            <xs:element name="vencimiento" type="xs:dateTime"/>
-            <xs:element name="comprador" type="tns:usuario"/>
+            <xs:element name="vencimiento" type="xs:string"/>
+            <xs:element name="usuario" type="tns:usuario"/>
         </xs:sequence>
     </xs:complexType>
     

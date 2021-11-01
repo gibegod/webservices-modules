@@ -1,6 +1,6 @@
 package com.example.producingwebservice.external.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -11,14 +11,14 @@ import lombok.Setter;
 @Setter
 public class Tarjeta {
 	
-	private Long id;
+	private Long idTarjeta;
 	private String nombre;
 	private String tipo;
 	private float limiteMensual;
 	private float saldo;
 	private String numero;
 	private String cvc;		
-	private Date vencimiento;
+	private LocalDate vencimiento;
 	private Long dniUsuario;
 	
 }

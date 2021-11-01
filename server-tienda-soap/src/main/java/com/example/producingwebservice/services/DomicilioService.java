@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.example.producingwebservice.model.DomicilioModel;
@@ -17,18 +16,20 @@ import mapper.DomicilioMapper;
 import mapper.UsuarioMapper;
 
 @Service
-@Component
 public class DomicilioService {
+	
 	@Autowired
-	DomicilioRepository domicilioRepository;
+	private DomicilioRepository domicilioRepository;
+	
 	@Autowired
-	UsuarioRepository usuarioRepository;
+	private UsuarioRepository usuarioRepository;
+	
 	DomicilioMapper domicilioMap = new DomicilioMapper();
 	UsuarioMapper usuarioMap = new UsuarioMapper();
 
 	public String guardarDomicilio(Domicilio domicilio) {
 		String estado = "";
-		Long idUser = domicilio.getComprador().getId();
+		Long idUser = domicilio.getUsuario().getId();
 
 		if (idUser == null) {
 			estado = "ERROR";
@@ -47,13 +48,14 @@ public class DomicilioService {
 	}
 	
 	public ArrayList<DomicilioModel> buscarDomicilio(String userName) {
-		ArrayList<DomicilioModel> domicilioModel = new ArrayList<DomicilioModel>();
-		UsuarioModel usuarioModel = new UsuarioModel();
-		if (usuarioRepository.findByUsuario(userName).isPresent()) { 
-			usuarioModel = usuarioRepository.findByUsuario(userName).get();
-			domicilioModel = (ArrayList<DomicilioModel>) domicilioRepository.findByComprador(usuarioModel);
+		ArrayList<DomicilioModel> domicilios = new ArrayList<DomicilioModel>();		
+		Optional<UsuarioModel> usuario = usuarioRepository.findByUsuario(userName);
+		
+		if (usuario.isPresent()) { 
+			domicilios = (ArrayList<DomicilioModel>) domicilioRepository.findByComprador(usuario.get());
 		} 
-		return domicilioModel;
+		
+		return domicilios;
 	}
 
 

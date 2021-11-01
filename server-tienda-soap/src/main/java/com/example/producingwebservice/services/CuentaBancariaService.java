@@ -16,7 +16,6 @@ import io.spring.guides.gs_producing_web_service.CuentaBancaria;
 import mapper.CuentaBancariaMapper;
 
 @Service
-@Component
 public class CuentaBancariaService { //No distingue si es comprador o vendedor , falta definir el tipo ya que el banco solo va el vendedor
 	@Autowired
 	CuentaBancariaRepository cuentaBancariaRepository ;

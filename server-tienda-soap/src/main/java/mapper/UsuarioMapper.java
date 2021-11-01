@@ -39,21 +39,22 @@ public class UsuarioMapper {
 		return uM;
 	}
 	
-	public Usuario toUsuarioXML(UsuarioModel usuarioModel,Boolean setId) {
-		Usuario uXml = new Usuario();
-		TipoUsuario tXml = new TipoUsuario();
-		if (setId) {
-			tXml.setId(usuarioModel.getTipo().getId());
-			uXml.setId(usuarioModel.getId());
-		}
-		tXml.setTipo(usuarioModel.getTipo().getTipo());
-		uXml.setNombre(usuarioModel.getNombre());
-		uXml.setApellido(usuarioModel.getApellido());
-		uXml.setDni(usuarioModel.getDni());
-		uXml.setUsuario(usuarioModel.getUsuario());
-		uXml.setContrasenia(usuarioModel.getContrasenia());
-		uXml.setTipoUsuario(tXml);
+	public Usuario toUsuarioXML(UsuarioModel usuarioModel, Boolean setId) {
+		Usuario uXML = new Usuario();
 		
-		return uXml;
+		if (setId) {
+			uXML.setId(usuarioModel.getId());
+		}
+		uXML.setNombre(usuarioModel.getNombre());
+		uXML.setApellido(usuarioModel.getApellido());
+		uXML.setDni(usuarioModel.getDni());
+		uXML.setUsuario(usuarioModel.getUsuario());
+		uXML.setContrasenia(usuarioModel.getContrasenia());
+		TipoUsuario tXML = new TipoUsuario();
+		tXML.setId(usuarioModel.getTipo().getId());
+		tXML.setTipo(usuarioModel.getTipo().getTipo());
+		uXML.setTipoUsuario(tXML);
+		
+		return uXML;
 	}
 }

@@ -1,5 +1,7 @@
 package com.example.consumingwebservice.controller;
 
+import java.util.Objects;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,12 +41,15 @@ public class UsuarioController {
 	@GetMapping(path = "/{user}")
 	public UsuarioDomicilioCuentasBancariasDTO getUsuario(@PathVariable("user") String usuario) {
 		GetUsuarioResponse user = ventasClient.getUser(usuario);
+		
 		UsuarioDomicilioCuentasBancariasDTO dto = new UsuarioDomicilioCuentasBancariasDTO();
-		if (user.getUsuario()!=null) {
+		if (!Objects.isNull(user.getUsuario())) {
 			GetDomiciliosResponse addresses = ventasClient.getAddresses(usuario);
 			GetCuentasBancariasResponse bankAccounts = ventasClient.getBankAccounts(usuario);	
+			
 			dto = usuariomap.toUsuarioDTO(user.getUsuario(), addresses.getDomicilio(), bankAccounts.getCuentaBancaria());
 		}
+		
 		return dto;
 	}
 	

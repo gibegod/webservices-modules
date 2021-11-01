@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.0 
 // Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2021.11.01 a las 04:19:31 PM ART 
+// Generado el: 2021.11.01 a las 04:57:21 PM ART 
 //
 
 
@@ -27,9 +27,8 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/&gt;
  *         &lt;element name="banco" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="alias" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="cvu" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="cbu" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="dni" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="movimientos" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="vendedor" type="{http://spring.io/guides/gs-producing-web-service}usuario"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
@@ -44,9 +43,8 @@ import javax.xml.bind.annotation.XmlType;
     "id",
     "banco",
     "alias",
-    "cvu",
+    "cbu",
     "dni",
-    "movimientos",
     "vendedor"
 })
 public class CuentaBancaria {
@@ -57,11 +55,9 @@ public class CuentaBancaria {
     @XmlElement(required = true)
     protected String alias;
     @XmlElement(required = true)
-    protected String cvu;
+    protected String cbu;
     @XmlElement(required = true)
     protected String dni;
-    @XmlElement(required = true)
-    protected String movimientos;
     @XmlElement(required = true)
     protected Usuario vendedor;
 
@@ -138,27 +134,27 @@ public class CuentaBancaria {
     }
 
     /**
-     * Obtiene el valor de la propiedad cvu.
+     * Obtiene el valor de la propiedad cbu.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getCvu() {
-        return cvu;
+    public String getCbu() {
+        return cbu;
     }
 
     /**
-     * Define el valor de la propiedad cvu.
+     * Define el valor de la propiedad cbu.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setCvu(String value) {
-        this.cvu = value;
+    public void setCbu(String value) {
+        this.cbu = value;
     }
 
     /**
@@ -183,30 +179,6 @@ public class CuentaBancaria {
      */
     public void setDni(String value) {
         this.dni = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad movimientos.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getMovimientos() {
-        return movimientos;
-    }
-
-    /**
-     * Define el valor de la propiedad movimientos.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setMovimientos(String value) {
-        this.movimientos = value;
     }
 
     /**

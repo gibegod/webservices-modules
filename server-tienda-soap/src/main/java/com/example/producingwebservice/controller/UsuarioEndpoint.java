@@ -10,16 +10,13 @@ import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
+import com.example.producingwebservice.external.services.CuentaBancariaService;
 import com.example.producingwebservice.external.services.TarjetaService;
-import com.example.producingwebservice.model.CuentaBancariaModel;
 import com.example.producingwebservice.model.DomicilioModel;
 import com.example.producingwebservice.model.UsuarioModel;
-import com.example.producingwebservice.services.CuentaBancariaService;
 import com.example.producingwebservice.services.DomicilioService;
 import com.example.producingwebservice.services.UsuarioService;
 
-import io.spring.guides.gs_producing_web_service.AddCuentaBancariaRequest;
-import io.spring.guides.gs_producing_web_service.AddCuentaBancariaResponse;
 import io.spring.guides.gs_producing_web_service.AddDomicilioRequest;
 import io.spring.guides.gs_producing_web_service.AddDomicilioResponse;
 import io.spring.guides.gs_producing_web_service.AddUsuarioRequest;
@@ -48,20 +45,20 @@ public class UsuarioEndpoint {
 
 	UsuarioMapper usuarioMap = new UsuarioMapper();
 	DomicilioMapper domicilioMap = new DomicilioMapper();
-	CuentaBancariaMapper cuentaBancariaMap = new CuentaBancariaMapper();
 	TarjetaMapper tarjetaMap = new TarjetaMapper();
+	CuentaBancariaMapper cuentaBancariaMap = new CuentaBancariaMapper();
 
 	@Autowired
 	private DomicilioService domicilioService;
-	
-	@Autowired
-	private CuentaBancariaService cuentaBancariaService;
 	
 	@Autowired
 	private UsuarioService usuarioService;
 	
 	@Autowired
 	private TarjetaService tarjetaService;
+	
+	@Autowired
+	private CuentaBancariaService cuentaBancariaService;
 
 	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "getUsuarioRequest")
 	@ResponsePayload
@@ -107,13 +104,14 @@ public class UsuarioEndpoint {
 	@ResponsePayload
 	public GetCuentasBancariasResponse getCuentasBancarias(@RequestPayload GetCuentasBancariasRequest request) {
 		GetCuentasBancariasResponse response = new GetCuentasBancariasResponse();
-		if (request.getUsuario() != null) {
-			if (cuentaBancariaService.buscarCuentaBancaria(request.getUsuario())!= null) {
-				for (CuentaBancariaModel item : cuentaBancariaService.buscarCuentaBancaria(request.getUsuario())) {
-					response.getCuentaBancaria().add( cuentaBancariaMap.toCuentaBancariaXML(item));
-				}
-			}
+		
+		Optional<UsuarioModel> usuario = usuarioService.buscarUsuario(request.getUsuario());	
+		if (usuario.isPresent()) {
+			cuentaBancariaService.getCuentasBancarias(usuario.get().getId()).forEach((cuentaBancaria) -> {
+				response.getCuentaBancaria().add(cuentaBancariaMap.toCuentaBancariaXML(cuentaBancaria));
+			});
 		}
+		
 		return response;
 	}	
 
@@ -159,12 +157,12 @@ public class UsuarioEndpoint {
 		return response;
 	}*/
 
-	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "addCuentaBancariaRequest")
+	/*@PayloadRoot(namespace = NAMESPACE_URI, localPart = "addCuentaBancariaRequest")
 	@ResponsePayload
 	public AddCuentaBancariaResponse addCuentaBancaria(@RequestPayload AddCuentaBancariaRequest request) {
 		AddCuentaBancariaResponse response = new AddCuentaBancariaResponse();
 		response.setEstado(cuentaBancariaService.guardarCuentaBancaria(request.getCuentaBancaria()));
 		return response;
-	}
+	}*/
 
 }

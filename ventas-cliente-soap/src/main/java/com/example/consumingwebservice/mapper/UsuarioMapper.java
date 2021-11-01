@@ -10,6 +10,7 @@ import com.example.consumingwebservice.wsdl.Usuario;
 public class UsuarioMapper {
 	public UsuarioDomicilioCuentasBancariasDTO toUsuarioDTO(Usuario user, List<Domicilio> addresses,List<CuentaBancaria> bankAccounts) {
 		UsuarioDomicilioCuentasBancariasDTO dto = new UsuarioDomicilioCuentasBancariasDTO();
+		
 		dto.setId(user.getId());
 		dto.setApellido(user.getApellido());
 		dto.setUsuario(user.getUsuario());

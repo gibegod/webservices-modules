@@ -16,6 +16,7 @@ import com.example.consumingwebservice.wsdl.AddCategoriaProductoResponse;
 import com.example.consumingwebservice.wsdl.AddProductoResponse;
 import com.example.consumingwebservice.wsdl.CategoriaProducto;
 import com.example.consumingwebservice.wsdl.GetCategoriasProductoResponse;
+import com.example.consumingwebservice.wsdl.GetProductoPorIdResponse;
 import com.example.consumingwebservice.wsdl.GetProductoResponse;
 import com.example.consumingwebservice.wsdl.GetProductosPorIdVendedorResponse;
 import com.example.consumingwebservice.wsdl.GetProductosResponse;
@@ -34,6 +35,12 @@ public class ProductoController {
 	public String addProducto(@RequestBody Producto producto) {
 		AddProductoResponse response = ventasClient.addProducto(producto);
 		return response.getEstado();
+	}
+	
+	@GetMapping(path="/ProductoId={id}")
+	public Producto getProductoPorId(@PathVariable("id") Long id) {
+		GetProductoPorIdResponse response = ventasClient.getProductoPorId(id);
+		return response.getProducto();
 	}
 	
 	@GetMapping(path="/getProductoName={name}")

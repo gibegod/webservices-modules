@@ -25,6 +25,8 @@ import com.example.consumingwebservice.wsdl.GetCuentasBancariasRequest;
 import com.example.consumingwebservice.wsdl.GetCuentasBancariasResponse;
 import com.example.consumingwebservice.wsdl.GetDomiciliosRequest;
 import com.example.consumingwebservice.wsdl.GetDomiciliosResponse;
+import com.example.consumingwebservice.wsdl.GetProductoPorIdRequest;
+import com.example.consumingwebservice.wsdl.GetProductoPorIdResponse;
 import com.example.consumingwebservice.wsdl.GetProductoRequest;
 import com.example.consumingwebservice.wsdl.GetProductoResponse;
 import com.example.consumingwebservice.wsdl.GetProductosPorIdVendedorRequest;
@@ -154,6 +156,15 @@ public class VentasClient extends WebServiceGatewaySupport {
 	public GetProductosResponse getProductos() {
 		GetProductosRequest request = new GetProductosRequest();
 		GetProductosResponse response = (GetProductosResponse) getWebServiceTemplate().marshalSendAndReceive(
+				wsServerDir, request,
+				new SoapActionCallback(soapActionCallback));
+		return response;
+	}
+	
+	public GetProductoPorIdResponse getProductoPorId(Long id) {
+		GetProductoPorIdRequest request = new GetProductoPorIdRequest();
+		request.setId(id);
+		GetProductoPorIdResponse response = (GetProductoPorIdResponse) getWebServiceTemplate().marshalSendAndReceive(
 				wsServerDir, request,
 				new SoapActionCallback(soapActionCallback));
 		return response;

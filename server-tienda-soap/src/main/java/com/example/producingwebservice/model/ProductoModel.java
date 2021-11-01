@@ -1,5 +1,6 @@
 package com.example.producingwebservice.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,25 +20,34 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
+@Getter
+@Setter
 public class ProductoModel {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Getter @Setter private Long id;
-	@Getter @Setter private String nombre;
-	@Getter @Setter private String descripcion;
-	@Getter @Setter private String imagen;
-	@Getter @Setter private Float precio;
-	@Getter @Setter private Integer stockInicial;
-	@Getter @Setter private Integer stockActual;
-	@Getter @Setter private Boolean activo;
-	@Getter @Setter private Boolean debito;
-	@Getter @Setter private Boolean credito;
+	
+	private String nombre;
+	
+	@Column(length = 100000) 
+	private String descripcion;
+	
+	@Column(length = 100000) 
+	private String imagen;
+	
+	private Float precio;
+	private Integer stockInicial;
+	private Integer stockActual;
+	private Boolean activo;
+	private Boolean debito;
+	private Boolean credito;
 	
 	@ManyToOne
 	@JoinColumn(name = "FK_CATEGORIAPRODUCTO", nullable = false, updatable = false)
-	@Getter @Setter private CategoriaProductoModel categoria;
+	private CategoriaProductoModel categoria;
+	
 	@ManyToOne
 	@JoinColumn(name = "FK_USUARIO", nullable = false, updatable = false)
-	@Getter @Setter private UsuarioModel vendedor;
+	private UsuarioModel vendedor;
 
 }

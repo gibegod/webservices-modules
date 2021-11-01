@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.consumingwebservice.VentasClient;
+import com.example.consumingwebservice.dto.ProductoDTO;
+import com.example.consumingwebservice.mapper.ProductoMapper;
 import com.example.consumingwebservice.wsdl.AddCategoriaProductoResponse;
 import com.example.consumingwebservice.wsdl.AddProductoResponse;
 import com.example.consumingwebservice.wsdl.CategoriaProducto;
@@ -30,11 +32,11 @@ import com.example.consumingwebservice.wsdl.UpdateProductoResponse;
 public class ProductoController {
 	
 	@Autowired
-	VentasClient ventasClient;
+	private VentasClient ventasClient;
 	
 	@PostMapping(path= "/addProducto")
-	public String addProducto(@RequestBody Producto producto) {
-		AddProductoResponse response = ventasClient.addProducto(producto);
+	public String addProducto(@RequestBody ProductoDTO producto) {
+		AddProductoResponse response = ventasClient.addProducto(ProductoMapper.dtoToXML(producto));
 		return response.getEstado();
 	}
 	

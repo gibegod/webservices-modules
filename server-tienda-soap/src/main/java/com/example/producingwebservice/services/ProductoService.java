@@ -12,6 +12,7 @@ import com.example.producingwebservice.model.UsuarioModel;
 import com.example.producingwebservice.repositories.CategoriaProductoRepository;
 import com.example.producingwebservice.repositories.ProductoRepository;
 import com.example.producingwebservice.repositories.UsuarioRepository;
+import com.example.producingwebservice.utils.Estado;
 
 import io.spring.guides.gs_producing_web_service.Producto;
 import mapper.ProductoMapper;
@@ -79,36 +80,28 @@ public class ProductoService {
 	}
 	
 	public String guardarProducto (Producto producto) {
-		String estado="";
-		Optional<CategoriaProductoModel> c = Optional.empty();
-		Optional<UsuarioModel> u = Optional.empty();
-		Optional<ProductoModel> foundProductoPorNombre = Optional.empty();
-		CategoriaProductoModel categoriaSave = new CategoriaProductoModel();
-		CategoriaProductoModel categoriaModel = new CategoriaProductoModel();
-		UsuarioModel usuarioSave = new UsuarioModel();
-		try {
-			c = categoriaProductoRepository.findByNombre(producto.getCategoria().getNombre());
-			u = usuarioRepository.findById(producto.getVendedor().getId());
-			foundProductoPorNombre = productoRepository.findByNombre(producto.getNombre());
-		}catch(Exception e) {
-			e.getMessage();
+		if(productoRepository.findByNombre(producto.getNombre()).isPresent()) {
+			return "Error, el producto ya existe!";
+		}		
+		
+		Optional<UsuarioModel> vendedor = usuarioRepository.findById(producto.getVendedor().getId());
+		if(!vendedor.isPresent()) {
+			return "Error, vendedor no encontrado!";
 		}
-		if (c.isPresent()) {
-			categoriaSave = c.get();
-		}else {
+		
+		Optional<CategoriaProductoModel> categoria = categoriaProductoRepository.findByNombre(producto.getCategoria().getNombre());
+		if(!categoria.isPresent()) {
+			CategoriaProductoModel categoriaModel = new CategoriaProductoModel();
 			categoriaModel.setNombre(producto.getCategoria().getNombre());
-			categoriaSave = categoriaProductoRepository.save(categoriaModel);
-		}
+			categoriaProductoRepository.save(categoriaModel);
+			
+			categoria = Optional.of(categoriaModel);
+		}		
 		
-		usuarioSave = u.get();
 		
-		if (u.isPresent() && foundProductoPorNombre.isPresent()) {
-			estado = "ERROR";
-		}else {
-			productoRepository.save(productoMapper.toProductoModel(producto, categoriaSave, usuarioSave));
-			estado = "OK";
-		}
-		return estado;
+		productoRepository.save(productoMapper.toProductoModel(producto, categoria.get(), vendedor.get()));
+		
+		return Estado.OK.name();
 	}
 	
 	public String modificarProducto(Producto producto) {

@@ -3,60 +3,57 @@ package com.example.producingwebservice.services;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-import org.springframework.util.Assert;
 
 import com.example.producingwebservice.model.TipoUsuarioModel;
 import com.example.producingwebservice.model.UsuarioModel;
 import com.example.producingwebservice.repositories.TipoUsuarioRepository;
 import com.example.producingwebservice.repositories.UsuarioRepository;
+import com.example.producingwebservice.utils.Estado;
 
 import io.spring.guides.gs_producing_web_service.Usuario;
 import mapper.UsuarioMapper;
 
 @Service
-@Component
 public class UsuarioService {
+	
 	@Autowired
-	UsuarioRepository usuarioRepository;
+	private UsuarioRepository usuarioRepository;
+	
 	@Autowired
-	TipoUsuarioRepository tipoRepository;
-	UsuarioMapper usuarioMap = new UsuarioMapper();
+	private TipoUsuarioRepository tipoRepository;
+	
+	private UsuarioMapper usuarioMap = new UsuarioMapper();
 
 	public Optional<UsuarioModel> buscarUsuario(String usuario) {		
 		return usuarioRepository.findByUsuario(usuario);
 	}
 
 	public String guardarUsuario(Usuario usuario) {
-		Optional<TipoUsuarioModel> t = Optional.empty();
-		Optional<UsuarioModel> foundDni = Optional.empty();
-		Optional<UsuarioModel> foundUsuario = Optional.empty();
-		TipoUsuarioModel tModel = new TipoUsuarioModel();
-		TipoUsuarioModel tSave = new TipoUsuarioModel();
-		String estado = "";
-		try {//busco que este toda la info que me viene en el usuarioXML
-			t = tipoRepository.findByTipo(usuario.getTipoUsuario().getTipo());
-			foundDni = usuarioRepository.findByDni(usuario.getDni());
-			foundUsuario = usuarioRepository.findByUsuario(usuario.getUsuario());
-		} catch (Exception e) {
-			e.getMessage();
+		Optional<UsuarioModel> usr = usuarioRepository.findByUsuario(usuario.getUsuario());
+		if(usr.isPresent()) {
+			return "Error, usuario ya registrado";
 		}
-		if (t.isPresent()) {
-			tSave = t.get();
+		
+		usr = usuarioRepository.findByDni(usuario.getDni());		
+		if(usr.isPresent()) {
+			if(usr.get().getTipo().getTipo().equalsIgnoreCase(usuario.getTipoUsuario().getTipo())) {
+				return "Error, DNI ya registrado";
+			}			
+		}	
+		
+		Optional<TipoUsuarioModel> tipoUsuario = tipoRepository.findByTipo(usuario.getTipoUsuario().getTipo());		
+		TipoUsuarioModel newTipoUsuario = new TipoUsuarioModel();
+		if(!tipoUsuario.isPresent()) {
+			newTipoUsuario.setTipo(usuario.getTipoUsuario().getTipo());
+			tipoRepository.save(newTipoUsuario);
 		} else {
-			tModel.setTipo(usuario.getTipoUsuario().getTipo());
-			tSave = tipoRepository.save(tModel);
+			newTipoUsuario = tipoUsuario.get();
 		}
-
-		if (foundDni.isPresent() || foundUsuario.isPresent()) {
-			estado = "ERROR";
-		} else {
-			// Guardo el usuario en la database
-			usuarioRepository.save(usuarioMap.toUsuarioModel(usuario, tSave));
-			estado = "OK";
-		}
-		return estado;
+		
+		usuarioRepository.save(usuarioMap.toUsuarioModel(usuario, newTipoUsuario));
+		
+		return Estado.OK.name();
 	}
 
 	public String modificarUsuario(Usuario usuario) { // Pre requisito: El usuario debe tener ID

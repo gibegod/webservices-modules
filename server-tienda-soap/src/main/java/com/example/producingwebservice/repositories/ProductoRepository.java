@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.example.producingwebservice.model.CategoriaProductoModel;
@@ -21,4 +22,7 @@ public interface ProductoRepository extends CrudRepository<ProductoModel, Long>{
 	
 	@Query(nativeQuery=true,value="SELECT * from producto p where p.fk_usuario =:id")
 	public abstract Iterable<ProductoModel> findAllByIdVendedor(long id);
+	
+	@Query(nativeQuery=true,value="SELECT * from producto p where p.nombre like CONCAT('%',:name,'%')")
+	public abstract Iterable<ProductoModel> findAllByName(@Param("name") String name);
 }

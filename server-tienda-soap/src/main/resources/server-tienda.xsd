@@ -88,6 +88,22 @@
         </xs:complexType>
     </xs:element>
     
+    <xs:element name="getProductosPorNameRequest">
+        <xs:complexType>
+            <xs:sequence>
+            	<xs:element name="name" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="getProductosPorNameResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="producto" type="tns:producto" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
     <xs:element name="getProductoResponse">
         <xs:complexType>
             <xs:sequence>

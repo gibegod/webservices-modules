@@ -68,6 +68,16 @@ public class ProductoService {
 		return lstProductos;
 	}
 	
+	public Iterable<ProductoModel> traerProductosPorName(String name){
+		Iterable<ProductoModel> lstProductos = new ArrayList<>();
+		try {
+			lstProductos = productoRepository.findAllByName(name);
+		}catch(Exception e) {
+			
+		}
+		return lstProductos;
+	}
+	
 	public String guardarProducto (Producto producto) {
 		String estado="";
 		Optional<CategoriaProductoModel> c = Optional.empty();

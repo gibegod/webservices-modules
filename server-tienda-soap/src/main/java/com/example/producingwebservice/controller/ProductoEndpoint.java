@@ -29,6 +29,8 @@ import io.spring.guides.gs_producing_web_service.GetProductoRequest;
 import io.spring.guides.gs_producing_web_service.GetProductoResponse;
 import io.spring.guides.gs_producing_web_service.GetProductosPorIdVendedorRequest;
 import io.spring.guides.gs_producing_web_service.GetProductosPorIdVendedorResponse;
+import io.spring.guides.gs_producing_web_service.GetProductosPorNameRequest;
+import io.spring.guides.gs_producing_web_service.GetProductosPorNameResponse;
 import io.spring.guides.gs_producing_web_service.GetProductosRequest;
 import io.spring.guides.gs_producing_web_service.GetProductosResponse;
 import io.spring.guides.gs_producing_web_service.UpdateProductoRequest;
@@ -91,6 +93,17 @@ public class ProductoEndpoint {
 		for (ProductoModel p : lstProductos) {
 			response.getProducto().add(productoMapper.toProductoXML(p, true));
 		}		
+		return response;
+	}
+	
+	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "getProductosPorNameRequest")
+	@ResponsePayload
+	public GetProductosPorNameResponse getProductosPorName(@RequestPayload GetProductosPorNameRequest request) {
+		GetProductosPorNameResponse response = new GetProductosPorNameResponse();
+		Iterable<ProductoModel> lstProductos = productoService.traerProductosPorName(request.getName());
+		for (ProductoModel p : lstProductos) {
+			response.getProducto().add(productoMapper.toProductoXML(p, true));
+		}
 		return response;
 	}
 	

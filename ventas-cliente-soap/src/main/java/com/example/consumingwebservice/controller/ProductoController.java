@@ -19,6 +19,7 @@ import com.example.consumingwebservice.wsdl.GetCategoriasProductoResponse;
 import com.example.consumingwebservice.wsdl.GetProductoPorIdResponse;
 import com.example.consumingwebservice.wsdl.GetProductoResponse;
 import com.example.consumingwebservice.wsdl.GetProductosPorIdVendedorResponse;
+import com.example.consumingwebservice.wsdl.GetProductosPorNameResponse;
 import com.example.consumingwebservice.wsdl.GetProductosResponse;
 import com.example.consumingwebservice.wsdl.Producto;
 import com.example.consumingwebservice.wsdl.UpdateProductoResponse;
@@ -58,6 +59,12 @@ public class ProductoController {
 	@GetMapping(path = "/{id}")
 	public List<Producto> getProductosPorIdVendedor(@PathVariable("id") Long id){
 		GetProductosPorIdVendedorResponse response = ventasClient.getProductosPorIdVendedor(id);
+		return response.getProducto();
+	}
+	
+	@GetMapping(path= "/name={name}")
+	public List<Producto> getProductosPorName(@PathVariable("name") String name){
+		GetProductosPorNameResponse response = ventasClient.getProductosPorName(name);
 		return response.getProducto();
 	}
 	

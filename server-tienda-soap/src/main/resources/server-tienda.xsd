@@ -17,6 +17,22 @@
         </xs:complexType>
     </xs:element>
     
+    <xs:element name="getBilleteraVirtualRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="getBilleteraVirtualResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="billeteraVirtual" type="tns:billeteraVirtual"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
     <xs:element name="getDomiciliosRequest">
         <xs:complexType>
             <xs:sequence>

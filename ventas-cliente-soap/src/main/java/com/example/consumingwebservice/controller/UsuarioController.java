@@ -20,6 +20,7 @@ import com.example.consumingwebservice.mapper.UsuarioMapper;
 import com.example.consumingwebservice.wsdl.AddCuentaBancariaResponse;
 import com.example.consumingwebservice.wsdl.AddDomicilioResponse;
 import com.example.consumingwebservice.wsdl.AddUsuarioResponse;
+import com.example.consumingwebservice.wsdl.BilleteraVirtual;
 import com.example.consumingwebservice.wsdl.CuentaBancaria;
 import com.example.consumingwebservice.wsdl.GetCuentasBancariasResponse;
 import com.example.consumingwebservice.wsdl.GetDomiciliosResponse;
@@ -81,5 +82,10 @@ public class UsuarioController {
 	public String agregarCuentaBancaria(@RequestBody CuentaBancaria cuentaBancaria) {
 		AddCuentaBancariaResponse response = ventasClient.addCuentaBancaria(cuentaBancaria);
 		return response.getEstado();
+	}
+	
+	@GetMapping(path = "/{userId}/billeteraVirtual")
+	public BilleteraVirtual getUsuario(@PathVariable("userId") Long userId) {		
+		return ventasClient.getBilleteraVirtual(userId).getBilleteraVirtual();
 	}
 }

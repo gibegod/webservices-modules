@@ -6,13 +6,17 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.producingwebservice.model.BilleteraVirtualModel;
 import com.example.producingwebservice.model.TipoUsuarioModel;
 import com.example.producingwebservice.model.UsuarioModel;
+import com.example.producingwebservice.repositories.BilleteraVirtualRepository;
 import com.example.producingwebservice.repositories.TipoUsuarioRepository;
 import com.example.producingwebservice.repositories.UsuarioRepository;
 import com.example.producingwebservice.utils.Estado;
 
+import io.spring.guides.gs_producing_web_service.BilleteraVirtual;
 import io.spring.guides.gs_producing_web_service.Usuario;
+import mapper.BilleteraVirtualMapper;
 import mapper.UsuarioMapper;
 
 @Service
@@ -23,6 +27,9 @@ public class UsuarioService {
 	
 	@Autowired
 	private TipoUsuarioRepository tipoRepository;
+	
+	@Autowired
+	private BilleteraVirtualRepository billeteraVirtualRepository;
 	
 	private UsuarioMapper usuarioMap = new UsuarioMapper();
 
@@ -105,5 +112,13 @@ public class UsuarioService {
 				estado = "ERROR";
 		}
 		return estado;
+	}
+	
+	public BilleteraVirtual getBilleteraVirtual(Long idVendedor) {	
+		BilleteraVirtualModel billeteraVirtual = billeteraVirtualRepository.findByVendedor(
+				usuarioRepository.findById(idVendedor).orElseThrow(()->new RuntimeException("Vendedor no encontrado!")))
+				.orElse(null);
+		
+		return BilleteraVirtualMapper.toXML(billeteraVirtual);
 	}
 }

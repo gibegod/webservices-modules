@@ -227,6 +227,22 @@
         </xs:complexType>
     </xs:element>
     
+    <xs:element name="getVentasPorIdVendedorRequest">
+        <xs:complexType>
+            <xs:sequence>
+            	<xs:element name="id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="getVentasPorIdVendedorResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="venta" type="tns:venta" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
     <xs:element name="addUsuarioRequest">
         <xs:complexType>
             <xs:sequence>
@@ -459,6 +475,18 @@
             <xs:element name="alias" type="xs:string"/>
             <xs:element name="cbu" type="xs:string"/>
             <xs:element name="dni" type="xs:string"/>
+            <xs:element name="vendedor" type="tns:usuario"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="venta">
+        <xs:sequence>
+        	<xs:element name="id" type="xs:long" minOccurs="0"/>
+            <xs:element name="precioTotal" type="xs:decimal"/>
+            <xs:element name="estado" type="xs:string"/>
+            <xs:element name="fecha" type="xs:date"/>
+            <xs:element name="domicilio" type="tns:domicilio"/>
+            <xs:element name="comprador" type="tns:usuario"/>
             <xs:element name="vendedor" type="tns:usuario"/>
         </xs:sequence>
     </xs:complexType>

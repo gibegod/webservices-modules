@@ -1,6 +1,7 @@
 package com.example.producingwebservice.services;
 
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -82,6 +83,16 @@ public class VentaService {
 			);
 		
 		return Estado.OK.name();
+	}
+	
+	public Iterable<VentaModel> traerVentasPorVendedor(long id){
+		Iterable<VentaModel> lstVentas = new ArrayList<>();
+		try {
+			lstVentas = ventaRepository.findAllByIdVendedor(id);
+		}catch(Exception e) {
+			
+		}
+		return lstVentas;
 	}
 
 }

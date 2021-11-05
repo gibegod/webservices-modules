@@ -37,6 +37,8 @@ import com.example.consumingwebservice.wsdl.GetProductosRequest;
 import com.example.consumingwebservice.wsdl.GetProductosResponse;
 import com.example.consumingwebservice.wsdl.GetUsuarioRequest;
 import com.example.consumingwebservice.wsdl.GetUsuarioResponse;
+import com.example.consumingwebservice.wsdl.GetVentasPorIdVendedorRequest;
+import com.example.consumingwebservice.wsdl.GetVentasPorIdVendedorResponse;
 import com.example.consumingwebservice.wsdl.LoginValRequest;
 import com.example.consumingwebservice.wsdl.LoginValResponse;
 import com.example.consumingwebservice.wsdl.Producto;
@@ -224,4 +226,14 @@ public class VentasClient extends WebServiceGatewaySupport {
 		
 		return response;
 	}
+	
+	public GetVentasPorIdVendedorResponse getVentasPorIdVendedor(Long idVendedor) {
+		GetVentasPorIdVendedorRequest request = new GetVentasPorIdVendedorRequest();
+		request.setId(idVendedor);
+		GetVentasPorIdVendedorResponse response = (GetVentasPorIdVendedorResponse) getWebServiceTemplate().marshalSendAndReceive(
+				wsServerDir, request,
+				new SoapActionCallback(soapActionCallback));
+		return response;
+	}
+	
 }

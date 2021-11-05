@@ -11,16 +11,17 @@ public class UsuarioMapper {
 	public UsuarioModel toUsuarioModel(Usuario usuarioXML, TipoUsuarioModel tipoUsuarioModel) {
 		UsuarioModel uM = new UsuarioModel();
 		
-		uM.setTipo(tipoUsuarioModel);
-		uM.setNombre(usuarioXML.getNombre());
 		uM.setApellido(usuarioXML.getApellido());
-		uM.setDni(usuarioXML.getDni());
-		uM.setUsuario(usuarioXML.getUsuario());
 		uM.setContrasenia(usuarioXML.getContrasenia());
-		//uM.setTelefono(usuarioXML.getTelefono());
+		uM.setDni(usuarioXML.getDni());
+		uM.setNombre(usuarioXML.getNombre());
+		uM.setTelefono(usuarioXML.getTelefono());
+		uM.setUsuario(usuarioXML.getUsuario());
+		uM.setTipo(tipoUsuarioModel);
 		
 		return uM;
 	}
+	
 	//Se mapea con ID
 	public UsuarioModel toUsuarioModel(Usuario usuarioXML) {
 		UsuarioModel uM = new UsuarioModel();
@@ -37,6 +38,18 @@ public class UsuarioMapper {
 		//uXml.setTelefono(usuarioModel.getTelefono());
 		
 		return uM;
+	}
+	
+	public UsuarioModel toUsuarioModel(UsuarioModel usuario, TipoUsuarioModel tipoUsuario, Usuario usuarioXML) {		
+		usuario.setApellido(usuarioXML.getApellido());
+		usuario.setContrasenia(usuarioXML.getContrasenia());
+		usuario.setDni(usuarioXML.getDni());
+		usuario.setNombre(usuarioXML.getNombre());
+		usuario.setTelefono(usuarioXML.getTelefono());
+		usuario.setUsuario(usuarioXML.getUsuario());
+		usuario.setTipo(tipoUsuario);
+		
+		return usuario;
 	}
 	
 	public Usuario toUsuarioXML(UsuarioModel usuarioModel, Boolean setId) {

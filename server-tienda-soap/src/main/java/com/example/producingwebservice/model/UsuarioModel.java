@@ -30,7 +30,7 @@ public class UsuarioModel {
 	@Getter @Setter private String contrasenia;
 	@Getter @Setter private String telefono;
 	@ManyToOne
-	@JoinColumn(name = "FK_TIPOUSUARIO", nullable = false, updatable = false)
+	@JoinColumn(name = "FK_TIPOUSUARIO", nullable = false)
 	@Getter @Setter private TipoUsuarioModel tipo;
 	
 }

@@ -106,38 +106,36 @@ public class ProductoService {
 	
 	public String modificarProducto(Producto producto) {
 		String estado="";
-		Optional<CategoriaProductoModel> c = Optional.empty();
 		Optional<UsuarioModel> u = Optional.empty();
-		Optional<ProductoModel> foundProductoPorNombre = Optional.empty();
-		CategoriaProductoModel categoriaSave = new CategoriaProductoModel();
-		CategoriaProductoModel categoriaModel = new CategoriaProductoModel();
+		Optional<ProductoModel> foundProductoPorId = Optional.empty();
 		
 		try {
-			foundProductoPorNombre = productoRepository.findByNombre(producto.getNombre());
-			c = categoriaProductoRepository.findByNombre(producto.getCategoria().getNombre());
+			foundProductoPorId = productoRepository.findById(producto.getId());
 			u = usuarioRepository.findById(producto.getVendedor().getId());			
 		}catch(Exception e) {
 			e.getMessage();
 		}
 		
-		if (!foundProductoPorNombre.isPresent()) {
+		if (!foundProductoPorId.isPresent()) {
 			estado = "ERROR, producto a actualizar no encontrado";
 			return estado;
 		}
 		
-		//puedo hacer update de todo, solo si el stockActual == stockInicial
-		if (c.isPresent()) {
-			categoriaSave = c.get();
-		}else {
-			categoriaModel.setNombre(producto.getCategoria().getNombre());
-			categoriaSave = categoriaProductoRepository.save(categoriaModel);
-		}
+		Optional<CategoriaProductoModel> categoria = categoriaProductoRepository.findByNombre(producto.getCategoria().getNombre());
+		if(!categoria.isPresent()) {
+			CategoriaProductoModel categoriaProductoModel = new CategoriaProductoModel();
+			categoriaProductoModel.setNombre(producto.getCategoria().getNombre());
+			categoriaProductoRepository.save(categoriaProductoModel);
+			
+			categoria = Optional.of(categoriaProductoModel);
+		}	
 		
+		//puedo hacer update de todo, solo si el stockActual == stockInicial
 		//preguntar si el stockActual == stockInicial
-		if (foundProductoPorNombre.get().getStockActual() == foundProductoPorNombre.get().getStockInicial()) {
+		if (foundProductoPorId.get().getStockActual() == foundProductoPorId.get().getStockInicial()) {
 			//se puede actualizar todo
 			ProductoModel pM = productoRepository.findById(producto.getId()).orElseThrow(()->new RuntimeException("Producto no encontrado!"));
-			pM = productoMapper.updateAll(pM, producto, categoriaSave, u.get());				
+			pM = productoMapper.updateAll(pM, producto, categoria.get(), u.get());				
 			productoRepository.save(pM);
 			estado = "OK";
 		}else {

@@ -17,7 +17,7 @@ public interface ProductoRepository extends CrudRepository<ProductoModel, Long>{
 	public abstract Optional<ProductoModel> findByCategoria(CategoriaProductoModel categoria);
 	public abstract Optional<ProductoModel> findByVendedor(UsuarioModel vendedor);
 	
-	@Query(nativeQuery=true,value="SELECT * from producto p where p.stock_actual > 0")
+	@Query(nativeQuery=true,value="SELECT * from producto p where p.stock_actual > 0 and activo = 1")
 	public abstract Iterable<ProductoModel> findAllWithStock();
 	
 	@Query(nativeQuery=true,value="SELECT * from producto p where p.fk_usuario =:id")

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.consumingwebservice.VentasClient;
+import com.example.consumingwebservice.dto.CuentaBancariaDTO;
 import com.example.consumingwebservice.dto.DomicilioDTO;
 import com.example.consumingwebservice.dto.UsuarioDomicilioCuentasBancariasDTO;
 import com.example.consumingwebservice.dto.UsuarioLoginDTO;
@@ -23,7 +24,6 @@ import com.example.consumingwebservice.wsdl.AddUsuarioResponse;
 import com.example.consumingwebservice.wsdl.BilleteraVirtual;
 import com.example.consumingwebservice.wsdl.BilleteraVirtualToCuentaBancariaRequest;
 import com.example.consumingwebservice.wsdl.BilleteraVirtualToCuentaBancariaResponse;
-import com.example.consumingwebservice.wsdl.CuentaBancaria;
 import com.example.consumingwebservice.wsdl.GetCuentasBancariasResponse;
 import com.example.consumingwebservice.wsdl.GetDomiciliosResponse;
 import com.example.consumingwebservice.wsdl.GetUsuarioResponse;
@@ -81,8 +81,8 @@ public class UsuarioController {
 	}
 	
 	@PostMapping(path = "/cuentaBancaria")
-	public String agregarCuentaBancaria(@RequestBody CuentaBancaria cuentaBancaria) {
-		AddCuentaBancariaResponse response = ventasClient.addCuentaBancaria(cuentaBancaria);
+	public String agregarCuentaBancaria(@RequestBody CuentaBancariaDTO cuentaBancariaDTO) {
+		AddCuentaBancariaResponse response = ventasClient.addCuentaBancaria(cuentaBancariaDTO);
 		return response.getEstado();
 	}
 	

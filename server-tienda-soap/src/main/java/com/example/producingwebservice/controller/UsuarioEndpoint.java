@@ -17,6 +17,8 @@ import com.example.producingwebservice.model.UsuarioModel;
 import com.example.producingwebservice.services.DomicilioService;
 import com.example.producingwebservice.services.UsuarioService;
 
+import io.spring.guides.gs_producing_web_service.AddCuentaBancariaRequest;
+import io.spring.guides.gs_producing_web_service.AddCuentaBancariaResponse;
 import io.spring.guides.gs_producing_web_service.AddDomicilioRequest;
 import io.spring.guides.gs_producing_web_service.AddDomicilioResponse;
 import io.spring.guides.gs_producing_web_service.AddUsuarioRequest;
@@ -161,13 +163,15 @@ public class UsuarioEndpoint {
 		return response;
 	}*/
 
-	/*@PayloadRoot(namespace = NAMESPACE_URI, localPart = "addCuentaBancariaRequest")
+	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "addCuentaBancariaRequest")
 	@ResponsePayload
 	public AddCuentaBancariaResponse addCuentaBancaria(@RequestPayload AddCuentaBancariaRequest request) {
 		AddCuentaBancariaResponse response = new AddCuentaBancariaResponse();
-		response.setEstado(cuentaBancariaService.guardarCuentaBancaria(request.getCuentaBancaria()));
+		
+		response.setEstado(cuentaBancariaService.vincularCuentaBancaria(request));
+		
 		return response;
-	}*/
+	}
 	
 	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "getBilleteraVirtualRequest")
 	@ResponsePayload

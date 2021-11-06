@@ -11,13 +11,24 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.example.producingwebservice.external.model.CuentaBancaria;
+import com.example.producingwebservice.model.CuentaBancariaModel;
+import com.example.producingwebservice.repositories.CuentaBancariaRepository;
+import com.example.producingwebservice.repositories.UsuarioRepository;
 import com.example.producingwebservice.utils.Estado;
+
+import io.spring.guides.gs_producing_web_service.AddCuentaBancariaRequest;
 
 @Service
 public class CuentaBancariaService {
 	
 	@Autowired
 	private RestTemplate restTemplate;
+	
+	@Autowired
+	private CuentaBancariaRepository cuentaBancariaRepository;
+	
+	@Autowired
+	private UsuarioRepository usuarioRepository;
 
 	@Value("${banca.root.url}")
 	private String rootUrl;
@@ -51,5 +62,32 @@ public class CuentaBancariaService {
 		
 		return Estado.OK.name();
 	}	
+	
+	public String vincularCuentaBancaria(AddCuentaBancariaRequest request) {
+		List<CuentaBancaria> cuentasBancarias = getCuentasBancarias(request.getIdUsuario());
+		
+		if(cuentasBancarias.isEmpty()) {
+			return "Error, el usuario no posee cuentas en el servicio de banca!";
+		}
+		
+		cuentasBancarias = cuentasBancarias.stream()
+				.filter(c -> c.getCbu().equals(request.getCbu()))
+				.collect(Collectors.toList());
+		
+		if(cuentasBancarias.isEmpty()) {
+			return "Error, la cuenta con el CBU proporcionado no se encuentra en el servicio de banca!";
+		}
+		
+		if(cuentaBancariaRepository.findByIdCuentaBancaria(cuentasBancarias.get(0).getIdCuentaBancaria()).isPresent()) {
+			return "Error, la cuenta ya se encuentra vinculada!";
+		}
+		
+		cuentaBancariaRepository.save(CuentaBancariaModel.builder()
+				.idCuentaBancaria(cuentasBancarias.get(0).getIdCuentaBancaria())
+				.vendedor(usuarioRepository.findById(request.getIdUsuario()).orElseThrow(() -> new RuntimeException("Usuario no encontrado!")))
+				.build());
+		
+		return Estado.OK.name();
+	}
 
 }

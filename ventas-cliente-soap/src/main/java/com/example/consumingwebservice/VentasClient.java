@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.ws.client.core.support.WebServiceGatewaySupport;
 import org.springframework.ws.soap.client.core.SoapActionCallback;
 
+import com.example.consumingwebservice.dto.CuentaBancariaDTO;
 import com.example.consumingwebservice.dto.VentaDTO;
 import com.example.consumingwebservice.wsdl.AddCategoriaProductoRequest;
 import com.example.consumingwebservice.wsdl.AddCategoriaProductoResponse;
@@ -19,7 +20,6 @@ import com.example.consumingwebservice.wsdl.AddUsuarioResponse;
 import com.example.consumingwebservice.wsdl.AddVentaResponse;
 import com.example.consumingwebservice.wsdl.BilleteraVirtualToCuentaBancariaRequest;
 import com.example.consumingwebservice.wsdl.BilleteraVirtualToCuentaBancariaResponse;
-import com.example.consumingwebservice.wsdl.CuentaBancaria;
 import com.example.consumingwebservice.wsdl.Domicilio;
 import com.example.consumingwebservice.wsdl.GetBilleteraVirtualRequest;
 import com.example.consumingwebservice.wsdl.GetBilleteraVirtualResponse;
@@ -134,12 +134,15 @@ public class VentasClient extends WebServiceGatewaySupport {
 		return response;
 	}
 
-	public AddCuentaBancariaResponse addCuentaBancaria(CuentaBancaria cuentaBancaria) {
+	public AddCuentaBancariaResponse addCuentaBancaria(CuentaBancariaDTO cuentaBancariaDTO) {
 		AddCuentaBancariaRequest request = new AddCuentaBancariaRequest();
-		request.setCuentaBancaria(cuentaBancaria);
+		request.setCbu(cuentaBancariaDTO.getCbu());
+		request.setIdUsuario(cuentaBancariaDTO.getIdUsuario());		
+		
 		AddCuentaBancariaResponse response = (AddCuentaBancariaResponse) getWebServiceTemplate().marshalSendAndReceive(
 				wsServerDir, request,
 				new SoapActionCallback(soapActionCallback));
+		
 		return response;
 	}
 	

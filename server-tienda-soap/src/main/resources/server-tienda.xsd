@@ -377,7 +377,8 @@
     <xs:element name="addCuentaBancariaRequest">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="cuentaBancaria" type="tns:cuentaBancaria"/>
+                <xs:element name="cbu" type="xs:string"/>
+                <xs:element name="idUsuario" type="xs:long"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>

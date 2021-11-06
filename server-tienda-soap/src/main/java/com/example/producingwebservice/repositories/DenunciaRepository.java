@@ -12,6 +12,7 @@ import com.example.producingwebservice.model.UsuarioModel;
 
 @Repository
 public interface DenunciaRepository extends CrudRepository<DenunciaModel, Long>{
+	
 	public abstract Optional<DenunciaModel> findByProducto(ProductoModel producto);
 	public abstract Optional<DenunciaModel> findByCategoria(CategoriaDenunciaModel categoria);
 	public abstract Optional<DenunciaModel> findByComprador(UsuarioModel comprador);

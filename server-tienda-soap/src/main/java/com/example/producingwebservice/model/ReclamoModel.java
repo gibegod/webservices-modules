@@ -21,19 +21,26 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
+@Getter
+@Setter
 public class ReclamoModel {
+	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Getter @Setter private Long id;
-	@Getter @Setter private String comentarioComprador;
-	@Getter @Setter private String estado;
-	@Getter @Setter private String comentarioResolucion;
-	@Getter @Setter private Date fecha;
+	private Long id;
+	
+	private String comentarioComprador;	
+	private String comentarioResolucion;
+	private String estado;
+	private Boolean aceptado;
+	private Date fecha;
+	
 	@ManyToOne
-	@JoinColumn(name = "FK_USUARIO_COMPRADOR", nullable = false, updatable = false)
-	@Getter @Setter private UsuarioModel comprador;
+	@JoinColumn(name = "id_venta")
+	private VentaModel venta;
+	
 	@ManyToOne
-	@JoinColumn(name = "FK_USUARIO_MESA", nullable = false, updatable = false)
-	@Getter @Setter private UsuarioModel mesaAyuda;
+	@JoinColumn(name = "id_usuario_mesa_ayuda")
+	private UsuarioModel usuarioMesaAyuda;
 
 }

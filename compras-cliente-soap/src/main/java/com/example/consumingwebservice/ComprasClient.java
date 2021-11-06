@@ -19,6 +19,8 @@ import com.example.consumingwebservice.wsdl.GetTarjetasRequest;
 import com.example.consumingwebservice.wsdl.GetTarjetasResponse;
 import com.example.consumingwebservice.wsdl.GetUsuarioRequest;
 import com.example.consumingwebservice.wsdl.GetUsuarioResponse;
+import com.example.consumingwebservice.wsdl.GetVentasPorIdCompradorRequest;
+import com.example.consumingwebservice.wsdl.GetVentasPorIdCompradorResponse;
 import com.example.consumingwebservice.wsdl.LoginValRequest;
 import com.example.consumingwebservice.wsdl.LoginValResponse;
 import com.example.consumingwebservice.wsdl.Tarjeta;
@@ -118,6 +120,15 @@ public class ComprasClient extends WebServiceGatewaySupport {
 				wsServerDir, request,
 				new SoapActionCallback(soapActionCallback));
 		
+		return response;
+	}
+	
+	public GetVentasPorIdCompradorResponse getVentasPorIdComprador(Long idComprador) {
+		GetVentasPorIdCompradorRequest request = new GetVentasPorIdCompradorRequest();
+		request.setId(idComprador);
+		GetVentasPorIdCompradorResponse response = (GetVentasPorIdCompradorResponse) getWebServiceTemplate().marshalSendAndReceive(
+				wsServerDir, request,
+				new SoapActionCallback(soapActionCallback));
 		return response;
 	}
 

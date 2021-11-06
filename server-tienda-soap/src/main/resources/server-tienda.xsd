@@ -287,6 +287,22 @@
         </xs:complexType>
     </xs:element>
     
+    <xs:element name="getVentasPorIdCompradorRequest">
+        <xs:complexType>
+            <xs:sequence>
+            	<xs:element name="id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="getVentasPorIdCompradorResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="venta" type="tns:venta" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
     <xs:element name="addUsuarioRequest">
         <xs:complexType>
             <xs:sequence>

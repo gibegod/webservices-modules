@@ -149,6 +149,16 @@ public class VentaService {
 		return lstVentas;
 	}
 	
+	public Iterable<VentaModel> traerVentasPorComprador(long id){
+		Iterable<VentaModel> lstVentas = new ArrayList<>();
+		try {
+			lstVentas = ventaRepository.findAllByIdComprador(id);
+		}catch(Exception e) {
+			
+		}
+		return lstVentas;
+	}
+	
 	public void actualizarEstadoVenta(Long idVenta, String estado) {
 		log.info("Se va a actualizar con el estado {} la venta con id {} por solicitud de servicio correo", estado, idVenta);
 		

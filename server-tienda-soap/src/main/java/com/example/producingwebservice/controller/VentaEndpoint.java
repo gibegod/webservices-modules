@@ -16,6 +16,8 @@ import io.spring.guides.gs_producing_web_service.AddVentaRequest;
 import io.spring.guides.gs_producing_web_service.AddVentaResponse;
 import io.spring.guides.gs_producing_web_service.FinalizeVentaRequest;
 import io.spring.guides.gs_producing_web_service.FinalizeVentaResponse;
+import io.spring.guides.gs_producing_web_service.GetVentasPorIdCompradorRequest;
+import io.spring.guides.gs_producing_web_service.GetVentasPorIdCompradorResponse;
 import io.spring.guides.gs_producing_web_service.GetVentasPorIdVendedorRequest;
 import io.spring.guides.gs_producing_web_service.GetVentasPorIdVendedorResponse;
 import mapper.VentaMapper;
@@ -51,6 +53,17 @@ public class VentaEndpoint {
 	public GetVentasPorIdVendedorResponse getVentas(@RequestPayload GetVentasPorIdVendedorRequest request) {
 		GetVentasPorIdVendedorResponse response = new GetVentasPorIdVendedorResponse();
 		Iterable<VentaModel> lstVentas = ventaService.traerVentasPorVendedor(request.getId());
+		for (VentaModel v : lstVentas) {
+			response.getVenta().add(ventaMapper.toVentaXML(v,true));
+		}
+		return response;
+	}
+	
+	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "getVentasPorIdCompradorRequest")
+	@ResponsePayload
+	public GetVentasPorIdCompradorResponse getVentasPorComprador(@RequestPayload GetVentasPorIdCompradorRequest request) {
+		GetVentasPorIdCompradorResponse response = new GetVentasPorIdCompradorResponse();
+		Iterable<VentaModel> lstVentas = ventaService.traerVentasPorComprador(request.getId());
 		for (VentaModel v : lstVentas) {
 			response.getVenta().add(ventaMapper.toVentaXML(v,true));
 		}

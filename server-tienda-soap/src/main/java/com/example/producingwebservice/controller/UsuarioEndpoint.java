@@ -98,7 +98,7 @@ public class UsuarioEndpoint {
 		
 		Optional<UsuarioModel> usuario = usuarioService.buscarUsuario(request.getUsuario());	
 		if (usuario.isPresent()) {
-			tarjetaService.getTarjeta(usuario.get().getId()).forEach((tarjeta) -> {
+			tarjetaService.getTarjetasVinculadas(usuario.get().getId()).forEach((tarjeta) -> {
 				response.getTarjeta().add(tarjetaMap.toTarjetaXML(tarjeta));
 			});
 		}		

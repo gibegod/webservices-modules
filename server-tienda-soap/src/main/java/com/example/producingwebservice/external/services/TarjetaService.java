@@ -3,6 +3,7 @@ package com.example.producingwebservice.external.services;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,11 +12,21 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.example.producingwebservice.external.model.Tarjeta;
+import com.example.producingwebservice.model.TarjetaModel;
+import com.example.producingwebservice.model.UsuarioModel;
+import com.example.producingwebservice.repositories.TarjetaRepository;
+import com.example.producingwebservice.repositories.UsuarioRepository;
 import com.example.producingwebservice.utils.Estado;
 import com.example.producingwebservice.utils.TipoTarjeta;
 
 @Service
 public class TarjetaService {
+	
+	@Autowired
+	private UsuarioRepository usuarioRepository;
+	
+	@Autowired
+	private TarjetaRepository tarjetaRepository;
 	
 	@Autowired
 	private RestTemplate restTemplate;
@@ -52,6 +63,24 @@ public class TarjetaService {
 		} catch (Exception e) {
 			return new ArrayList<>();
 		}
+	}
+	
+	public List<Tarjeta> getTarjetasVinculadas(Long idUsuario) {
+		Optional<UsuarioModel> usuario = usuarioRepository.findById(idUsuario);
+		List<Tarjeta> tarjetas = new ArrayList<>();
+		
+		if(!usuario.isEmpty()) {
+			List<TarjetaModel> tarjetasVinculadas = tarjetaRepository.findByComprador(usuario.get());
+			getTarjeta(idUsuario).forEach(tarjeta -> {
+				tarjetasVinculadas.forEach(tarjetaVinculada -> {
+					if(tarjeta.getIdTarjeta() == tarjetaVinculada.getIdTarjeta()) {
+						tarjetas.add(tarjeta);
+					}
+				});
+			});
+		}
+		
+		return tarjetas;		
 	}
 	
 	public void saldarCompra(Long idComprador, Long idTarjeta, Float precioTotal) {		

@@ -15,5 +15,6 @@ public class CuentaBancaria {
 	private String alias;
 	private String cbu;
 	private String dni;
+	private Float saldo;
 
 }

@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.producingwebservice.external.services.CuentaBancariaService;
 import com.example.producingwebservice.model.BilleteraVirtualModel;
 import com.example.producingwebservice.model.TipoUsuarioModel;
 import com.example.producingwebservice.model.UsuarioModel;
@@ -15,6 +16,7 @@ import com.example.producingwebservice.repositories.UsuarioRepository;
 import com.example.producingwebservice.utils.Estado;
 
 import io.spring.guides.gs_producing_web_service.BilleteraVirtual;
+import io.spring.guides.gs_producing_web_service.BilleteraVirtualToCuentaBancariaRequest;
 import io.spring.guides.gs_producing_web_service.Usuario;
 import mapper.BilleteraVirtualMapper;
 import mapper.UsuarioMapper;
@@ -30,6 +32,9 @@ public class UsuarioService {
 	
 	@Autowired
 	private BilleteraVirtualRepository billeteraVirtualRepository;
+	
+	@Autowired
+	private CuentaBancariaService cuentaBancariaService;
 	
 	private UsuarioMapper usuarioMap = new UsuarioMapper();
 
@@ -120,5 +125,23 @@ public class UsuarioService {
 				.orElse(null);
 		
 		return BilleteraVirtualMapper.toXML(billeteraVirtual);
+	}
+	
+	public String billeteraVirtualToCuentaBancaria(BilleteraVirtualToCuentaBancariaRequest request) {	
+		UsuarioModel vendedor = usuarioRepository.findById(request.getIdVendedor()).orElseThrow(()->new RuntimeException("Vendedor no encontrado!"));
+		BilleteraVirtualModel billeteraVirtual = billeteraVirtualRepository.findByVendedor(vendedor).orElseThrow(()->new RuntimeException("Billetera no encontrada!"));
+		
+		if(billeteraVirtual.getSaldo() < request.getMonto().floatValue()) {
+			return "Error, saldo insuficiente!";
+		}
+		
+		String estadoBanca = cuentaBancariaService.transferirSaldo(request.getMonto().floatValue(), request.getIdVendedor(), request.getIdCuentaBancaria());
+		
+		if(estadoBanca.equals(Estado.OK.name())) {
+			billeteraVirtual.setSaldo(billeteraVirtual.getSaldo() - request.getMonto().floatValue());
+			billeteraVirtualRepository.save(billeteraVirtual);
+		}				
+		
+		return estadoBanca;
 	}
 }

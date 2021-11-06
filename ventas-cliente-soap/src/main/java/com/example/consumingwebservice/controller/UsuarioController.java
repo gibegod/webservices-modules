@@ -21,6 +21,8 @@ import com.example.consumingwebservice.wsdl.AddCuentaBancariaResponse;
 import com.example.consumingwebservice.wsdl.AddDomicilioResponse;
 import com.example.consumingwebservice.wsdl.AddUsuarioResponse;
 import com.example.consumingwebservice.wsdl.BilleteraVirtual;
+import com.example.consumingwebservice.wsdl.BilleteraVirtualToCuentaBancariaRequest;
+import com.example.consumingwebservice.wsdl.BilleteraVirtualToCuentaBancariaResponse;
 import com.example.consumingwebservice.wsdl.CuentaBancaria;
 import com.example.consumingwebservice.wsdl.GetCuentasBancariasResponse;
 import com.example.consumingwebservice.wsdl.GetDomiciliosResponse;
@@ -87,5 +89,11 @@ public class UsuarioController {
 	@GetMapping(path = "/{userId}/billeteraVirtual")
 	public BilleteraVirtual getUsuario(@PathVariable("userId") Long userId) {		
 		return ventasClient.getBilleteraVirtual(userId).getBilleteraVirtual();
+	}
+	
+	@PostMapping(path = "/transferir")
+	public String transferir(@RequestBody BilleteraVirtualToCuentaBancariaRequest request) {
+		BilleteraVirtualToCuentaBancariaResponse response = ventasClient.transferir(request);
+		return response.getEstado();
 	}
 }

@@ -33,6 +33,24 @@
         </xs:complexType>
     </xs:element>
     
+    <xs:element name="billeteraVirtualToCuentaBancariaRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="idVendedor" type="xs:long"/>
+                <xs:element name="idCuentaBancaria" type="xs:long"/>
+                <xs:element name="monto" type="xs:decimal"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="billeteraVirtualToCuentaBancariaResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="estado" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
     <xs:element name="getDomiciliosRequest">
         <xs:complexType>
             <xs:sequence>

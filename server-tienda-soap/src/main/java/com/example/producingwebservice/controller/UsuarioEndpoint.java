@@ -21,6 +21,8 @@ import io.spring.guides.gs_producing_web_service.AddDomicilioRequest;
 import io.spring.guides.gs_producing_web_service.AddDomicilioResponse;
 import io.spring.guides.gs_producing_web_service.AddUsuarioRequest;
 import io.spring.guides.gs_producing_web_service.AddUsuarioResponse;
+import io.spring.guides.gs_producing_web_service.BilleteraVirtualToCuentaBancariaRequest;
+import io.spring.guides.gs_producing_web_service.BilleteraVirtualToCuentaBancariaResponse;
 import io.spring.guides.gs_producing_web_service.GetBilleteraVirtualRequest;
 import io.spring.guides.gs_producing_web_service.GetBilleteraVirtualResponse;
 import io.spring.guides.gs_producing_web_service.GetCuentasBancariasRequest;
@@ -173,6 +175,16 @@ public class UsuarioEndpoint {
 		GetBilleteraVirtualResponse response = new GetBilleteraVirtualResponse();
 		
 		response.setBilleteraVirtual(usuarioService.getBilleteraVirtual(request.getId()));
+		
+		return response;
+	}
+	
+	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "billeteraVirtualToCuentaBancariaRequest")
+	@ResponsePayload
+	public BilleteraVirtualToCuentaBancariaResponse billeteraVirtualToCuentaBancaria(@RequestPayload BilleteraVirtualToCuentaBancariaRequest request) {
+		BilleteraVirtualToCuentaBancariaResponse response = new BilleteraVirtualToCuentaBancariaResponse();
+		
+		response.setEstado(usuarioService.billeteraVirtualToCuentaBancaria(request));
 		
 		return response;
 	}

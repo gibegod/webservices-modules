@@ -17,6 +17,8 @@ import com.example.consumingwebservice.wsdl.AddProductoResponse;
 import com.example.consumingwebservice.wsdl.AddUsuarioRequest;
 import com.example.consumingwebservice.wsdl.AddUsuarioResponse;
 import com.example.consumingwebservice.wsdl.AddVentaResponse;
+import com.example.consumingwebservice.wsdl.BilleteraVirtualToCuentaBancariaRequest;
+import com.example.consumingwebservice.wsdl.BilleteraVirtualToCuentaBancariaResponse;
 import com.example.consumingwebservice.wsdl.CuentaBancaria;
 import com.example.consumingwebservice.wsdl.Domicilio;
 import com.example.consumingwebservice.wsdl.GetBilleteraVirtualRequest;
@@ -242,6 +244,13 @@ public class VentasClient extends WebServiceGatewaySupport {
 		GetBilleteraVirtualRequest request = new GetBilleteraVirtualRequest();
 		request.setId(userId);
 		GetBilleteraVirtualResponse response = (GetBilleteraVirtualResponse) getWebServiceTemplate().marshalSendAndReceive(
+				wsServerDir, request,
+				new SoapActionCallback(soapActionCallback));
+		return response;
+	}
+	
+	public BilleteraVirtualToCuentaBancariaResponse transferir(BilleteraVirtualToCuentaBancariaRequest request) {
+		BilleteraVirtualToCuentaBancariaResponse response = (BilleteraVirtualToCuentaBancariaResponse) getWebServiceTemplate().marshalSendAndReceive(
 				wsServerDir, request,
 				new SoapActionCallback(soapActionCallback));
 		return response;

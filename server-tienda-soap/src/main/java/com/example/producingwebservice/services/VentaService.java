@@ -166,7 +166,28 @@ public class VentaService {
 		venta = ventaRepository.findById(idVenta).orElseThrow(() -> new RuntimeException("Error, venta no encontrada!"));
 		venta.setEstado(estado);
 		ventaRepository.save(venta);
+	}
+	
+	public String cancelarVenta(Long idComprador, Long idVenta) {
+		String estado = "OK, venta cancelada con éxito!";
+		VentaModel venta = new VentaModel();
+		venta = ventaRepository.findById(idVenta).orElseThrow(() -> new RuntimeException("Error, venta no encontrada!"));
 		
+		if(venta.getEstado().equals(Estado.FINALIZADO.name())){
+			return "Error, la venta ya se encuentra cerrada!";			
+		}
+		
+		//deberia volver para atras los cambios en el stock de los productos
+		//ACA VOY A NECESITAR TENER LOS VENTA ITEM PARA PODER VOLVER A SUMARLES LA CANTIDAD
+		
+		log.info("Se va a cancelar la compra en el servicio de banca.");
+		tarjetaService.cancelarCompra(idComprador, venta.getTarjeta().getIdTarjeta(), venta.getPrecioTotal());
+		
+		venta.setEstado(Estado.CANCELADO.name());
+		ventaRepository.save(venta);
+				
+		
+		return estado;
 	}
 
 }

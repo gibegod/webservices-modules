@@ -102,6 +102,23 @@ public class TarjetaService {
 		restTemplate.postForObject(url, null, Boolean.class);
 	}
 	
+	public void cancelarCompra(Long idComprador, Long idTarjeta, Float precioTotal) {		
+		Tarjeta tarjeta = getTarjeta(idComprador).stream()
+				.filter(t -> t.getIdTarjeta() == idTarjeta)
+				.collect(Collectors.toList()).get(0);
+		
+		float saldo = 0;
+		if(tarjeta.getTipo().equals(TipoTarjeta.DEBITO.name())) {
+			saldo = tarjeta.getSaldo() + precioTotal;			
+		}
+		else {
+			saldo = tarjeta.getSaldo() - precioTotal;
+		}
+		
+		String url = rootUrl + "/saldar?saldo=" + saldo + "&idTarjeta=" + idTarjeta;
+		restTemplate.postForObject(url, null, Boolean.class);
+	}
+	
 	public String vincularTarjeta(AddTarjetaRequest request) {
 		List<Tarjeta> tarjetas = getTarjeta(request.getTarjeta().getUsuario().getId());
 		

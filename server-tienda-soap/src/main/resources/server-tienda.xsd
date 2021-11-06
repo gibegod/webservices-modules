@@ -207,6 +207,23 @@
         </xs:complexType>
     </xs:element>
     
+    <xs:element name="cancelVentaRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="idVenta" type="xs:long"/>
+                <xs:element name="idComprador" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="cancelVentaResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="estado" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
     <xs:element name="finalizeVentaRequest">
         <xs:complexType>
             <xs:sequence>

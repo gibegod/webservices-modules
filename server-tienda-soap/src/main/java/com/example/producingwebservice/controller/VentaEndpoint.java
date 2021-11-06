@@ -14,6 +14,8 @@ import com.example.producingwebservice.services.VentaService;
 import io.spring.guides.gs_producing_web_service.ActualizarEstadoVentaRequest;
 import io.spring.guides.gs_producing_web_service.AddVentaRequest;
 import io.spring.guides.gs_producing_web_service.AddVentaResponse;
+import io.spring.guides.gs_producing_web_service.CancelVentaRequest;
+import io.spring.guides.gs_producing_web_service.CancelVentaResponse;
 import io.spring.guides.gs_producing_web_service.FinalizeVentaRequest;
 import io.spring.guides.gs_producing_web_service.FinalizeVentaResponse;
 import io.spring.guides.gs_producing_web_service.GetVentasPorIdCompradorRequest;
@@ -75,5 +77,14 @@ public class VentaEndpoint {
 	public void actualizarEstadoVenta(@RequestPayload ActualizarEstadoVentaRequest request) {
 		ventaService.actualizarEstadoVenta(request.getIdVenta(), request.getEstado());
 	}
+	
+	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "cancelVentaRequest")
+	@ResponsePayload
+	public CancelVentaResponse cancelVenta(@RequestPayload CancelVentaRequest request) {
+		CancelVentaResponse response = new CancelVentaResponse();
+		response.setEstado(ventaService.cancelarVenta(request.getIdComprador(), request.getIdVenta()));
+		return response;
+	}
+	
 
 }

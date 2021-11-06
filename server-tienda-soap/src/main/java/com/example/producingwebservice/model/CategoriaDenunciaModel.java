@@ -17,10 +17,14 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
+@Getter
+@Setter
 public class CategoriaDenunciaModel {
+	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Getter @Setter private Long id;
-	@Getter @Setter private String nombre;
+	private Long id;
+	
+	private String nombre;
 
 }

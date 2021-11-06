@@ -1,5 +1,7 @@
 package com.example.producingwebservice.model;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,23 +21,34 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
+@Getter
+@Setter
 public class DenunciaModel {
+	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Getter @Setter private Long id;
-	@Getter @Setter private String comentarioComprador;
-	@Getter @Setter private String estado;
-	@Getter @Setter private String comentarioResolucion;
+	private Long id;
+	
+	private String comentarioComprador;
+	private String comentarioResolucion;
+	private String estado;
+	private Boolean aceptado;
+	private Date fecha;
+	
 	@ManyToOne
-	@JoinColumn(name = "FK_CATEGORIADENUNCIA", nullable = false, updatable = false)
-	@Getter @Setter private CategoriaDenunciaModel categoria;
+	@JoinColumn(name = "id_categoria")
+	private CategoriaDenunciaModel categoria;
+	
 	@ManyToOne
-	@JoinColumn(name = "FK_PRODUCTO", nullable = false, updatable = false)
-	@Getter @Setter private ProductoModel producto;
+	@JoinColumn(name = "id_producto")
+	private ProductoModel producto;
+	
 	@ManyToOne
-	@JoinColumn(name = "FK_USUARIO_COMPRADOR", nullable = false, updatable = false)
-	@Getter @Setter private UsuarioModel comprador;
+	@JoinColumn(name = "id_comprador")
+	private UsuarioModel comprador;
+	
 	@ManyToOne
-	@JoinColumn(name = "FK_USUARIO_MESA", nullable = false, updatable = false)
-	@Getter @Setter private UsuarioModel mesaAyuda;
+	@JoinColumn(name = "id_usuario_mesa_ayuda")
+	private UsuarioModel usuarioMesaAyuda;
+	
 }

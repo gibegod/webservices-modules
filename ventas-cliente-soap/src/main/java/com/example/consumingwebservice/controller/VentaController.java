@@ -3,6 +3,7 @@ package com.example.consumingwebservice.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,6 +26,9 @@ public class VentaController {
 	@Autowired
 	private VentasClient ventasClient;
 	
+	@Value("${dias.reclamo.total}")
+	private String diasReclamoTotal;
+	
 	@PostMapping
 	public String addVenta(@RequestBody VentaDTO venta) {		
 		return ventasClient.addVenta(venta).getEstado();
@@ -41,6 +45,11 @@ public class VentaController {
 		ventasClient.actualizarEstadoVenta(idVenta, estado);
 		
 		return HttpStatus.OK;
+	}
+	
+	@GetMapping(path = "/dias-reclamo-total")
+	public String getDiasReclamoTotal(){
+		return diasReclamoTotal;
 	}
 
 }

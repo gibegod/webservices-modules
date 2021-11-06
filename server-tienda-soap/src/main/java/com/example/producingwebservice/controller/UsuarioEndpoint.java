@@ -113,7 +113,7 @@ public class UsuarioEndpoint {
 		
 		Optional<UsuarioModel> usuario = usuarioService.buscarUsuario(request.getUsuario());	
 		if (usuario.isPresent()) {
-			cuentaBancariaService.getCuentasBancarias(usuario.get().getId()).forEach((cuentaBancaria) -> {
+			cuentaBancariaService.getCuentasBancariasVinculadas(usuario.get().getId()).forEach((cuentaBancaria) -> {
 				response.getCuentaBancaria().add(cuentaBancariaMap.toCuentaBancariaXML(cuentaBancaria));
 			});
 		}

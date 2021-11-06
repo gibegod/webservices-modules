@@ -3,6 +3,7 @@ package com.example.producingwebservice.external.services;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.example.producingwebservice.external.model.CuentaBancaria;
 import com.example.producingwebservice.model.CuentaBancariaModel;
+import com.example.producingwebservice.model.UsuarioModel;
 import com.example.producingwebservice.repositories.CuentaBancariaRepository;
 import com.example.producingwebservice.repositories.UsuarioRepository;
 import com.example.producingwebservice.utils.Estado;
@@ -41,6 +43,24 @@ public class CuentaBancariaService {
 		} catch (Exception e) {
 			return new ArrayList<>();
 		}
+	}
+	
+	public List<CuentaBancaria> getCuentasBancariasVinculadas(Long idUsuario){
+		Optional<UsuarioModel> usuario = usuarioRepository.findById(idUsuario);
+		List<CuentaBancaria> cuentasBancarias = new ArrayList<>();
+		
+		if(!usuario.isEmpty()) {
+			List<CuentaBancariaModel> cuentasBancariasVinculadas = cuentaBancariaRepository.findByVendedor(usuario.get());
+			getCuentasBancarias(idUsuario).forEach(cuenta -> {
+				cuentasBancariasVinculadas.forEach(cuentaVinculada -> {
+					if(cuenta.getIdCuentaBancaria() == cuentaVinculada.getIdCuentaBancaria()) {
+						cuentasBancarias.add(cuenta);
+					}
+				});
+			});
+		}
+		
+		return cuentasBancarias;
 	}
 	
 	public String transferirSaldo(Float saldo, Long idUsuario, Long idCuentaBancaria){

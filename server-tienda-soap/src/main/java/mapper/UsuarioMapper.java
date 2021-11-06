@@ -67,6 +67,7 @@ public class UsuarioMapper {
 		tXML.setId(usuarioModel.getTipo().getId());
 		tXML.setTipo(usuarioModel.getTipo().getTipo());
 		uXML.setTipoUsuario(tXML);
+		uXML.setTelefono(usuarioModel.getTelefono());
 		
 		return uXML;
 	}

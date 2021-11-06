@@ -8,7 +8,7 @@ public enum Estado {
 	INICIADO ("INICIADO"), 
 	OK ("OK"), 
 	FINALIZADO ("FINALIZADO"),
-	EN_PREPARACION ("EN PREPARACIÓN");
+	EN_PREPARACION ("EN_PREPARACION");
 	
 	private final String estado;
 	

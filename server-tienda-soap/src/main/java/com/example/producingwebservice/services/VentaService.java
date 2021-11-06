@@ -148,5 +148,15 @@ public class VentaService {
 		}
 		return lstVentas;
 	}
+	
+	public void actualizarEstadoVenta(Long idVenta, String estado) {
+		log.info("Se va a actualizar con el estado {} la venta con id {} por solicitud de servicio correo", estado, idVenta);
+		
+		VentaModel venta = new VentaModel();
+		venta = ventaRepository.findById(idVenta).orElseThrow(() -> new RuntimeException("Error, venta no encontrada!"));
+		venta.setEstado(estado);
+		ventaRepository.save(venta);
+		
+	}
 
 }

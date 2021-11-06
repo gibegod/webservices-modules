@@ -11,6 +11,7 @@ import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 import com.example.producingwebservice.model.VentaModel;
 import com.example.producingwebservice.services.VentaService;
 
+import io.spring.guides.gs_producing_web_service.ActualizarEstadoVentaRequest;
 import io.spring.guides.gs_producing_web_service.AddVentaRequest;
 import io.spring.guides.gs_producing_web_service.AddVentaResponse;
 import io.spring.guides.gs_producing_web_service.FinalizeVentaRequest;
@@ -54,6 +55,12 @@ public class VentaEndpoint {
 			response.getVenta().add(ventaMapper.toVentaXML(v,true));
 		}
 		return response;
+	}
+	
+	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "actualizarEstadoVentaRequest")
+	@ResponsePayload
+	public void actualizarEstadoVenta(@RequestPayload ActualizarEstadoVentaRequest request) {
+		ventaService.actualizarEstadoVenta(request.getIdVenta(), request.getEstado());
 	}
 
 }

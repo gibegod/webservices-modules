@@ -7,6 +7,7 @@ import org.springframework.ws.soap.client.core.SoapActionCallback;
 
 import com.example.consumingwebservice.dto.CuentaBancariaDTO;
 import com.example.consumingwebservice.dto.VentaDTO;
+import com.example.consumingwebservice.wsdl.ActualizarEstadoVentaRequest;
 import com.example.consumingwebservice.wsdl.AddCategoriaProductoRequest;
 import com.example.consumingwebservice.wsdl.AddCategoriaProductoResponse;
 import com.example.consumingwebservice.wsdl.AddCuentaBancariaRequest;
@@ -257,6 +258,15 @@ public class VentasClient extends WebServiceGatewaySupport {
 				wsServerDir, request,
 				new SoapActionCallback(soapActionCallback));
 		return response;
-	}
+	}	
 	
+	public void actualizarEstadoVenta(Long idVenta, String estado) {
+		ActualizarEstadoVentaRequest request = new ActualizarEstadoVentaRequest();
+		request.setIdVenta(idVenta);
+		request.setEstado(estado);
+		
+		getWebServiceTemplate().marshalSendAndReceive(
+				wsServerDir, request,
+				new SoapActionCallback(soapActionCallback));
+	}	
 }

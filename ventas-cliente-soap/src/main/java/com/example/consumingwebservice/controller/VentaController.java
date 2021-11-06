@@ -3,6 +3,7 @@ package com.example.consumingwebservice.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -33,6 +34,13 @@ public class VentaController {
 	public List<Venta> getVentasPorIdVendedor(@PathVariable ("id") Long id){
 		GetVentasPorIdVendedorResponse response = ventasClient.getVentasPorIdVendedor(id);
 		return response.getVenta();
+	}
+	
+	@PostMapping(path = "/{id_venta}/actualizar/{estado}")
+	public HttpStatus actualizarEstadoVenta(@PathVariable ("id_venta") Long idVenta, @PathVariable ("estado") String estado){
+		ventasClient.actualizarEstadoVenta(idVenta, estado);
+		
+		return HttpStatus.OK;
 	}
 
 }

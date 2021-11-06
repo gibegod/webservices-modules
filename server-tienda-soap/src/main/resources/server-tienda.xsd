@@ -17,6 +17,15 @@
         </xs:complexType>
     </xs:element>
     
+    <xs:element name="actualizarEstadoVentaRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="idVenta" type="xs:long"/>
+                <xs:element name="estado" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
     <xs:element name="getBilleteraVirtualRequest">
         <xs:complexType>
             <xs:sequence>

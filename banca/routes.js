@@ -158,6 +158,18 @@ routes.get("/getTarjetas", (req, res)=>{
     })
 })
 
+routes.post("/saldar", (req, res)=>{
+    req.getConnection((err, conn)=>{
+        if(err) return res.send(err)
+			
+        conn.query("UPDATE tarjeta SET saldo = "+req.query.saldo+" WHERE idTarjeta = "+req.query.idTarjeta, (err, rows)=>{
+            if(err) return res.send(err)
+
+            res.send(true)
+        })
+    })
+})
+
 ///////// CUENTAS /////////////
 
 /**

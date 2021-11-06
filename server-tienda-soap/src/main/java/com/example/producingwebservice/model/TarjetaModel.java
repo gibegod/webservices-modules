@@ -1,7 +1,5 @@
 package com.example.producingwebservice.model;
 
-import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,37 +16,23 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "venta")
+@Table(name = "tarjeta")
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
 @Getter
 @Setter
 @Builder
-public class VentaModel {
-	
+public class TarjetaModel {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	private float precioTotal;
-	private String estado;
-	private Date fecha;	
-	
-	@ManyToOne
-	@JoinColumn(name = "id_domicilio")
-	private DomicilioModel domicilio;
-	
+
+	private Long idTarjeta;
+
 	@ManyToOne
 	@JoinColumn(name = "id_comprador")
 	private UsuarioModel comprador;
-	
-	@ManyToOne
-	@JoinColumn(name = "id_vendedor")
-	private UsuarioModel vendedor;
-	
-	@ManyToOne
-	@JoinColumn(name = "id_tarjeta")
-	private TarjetaModel tarjeta;
 
 }

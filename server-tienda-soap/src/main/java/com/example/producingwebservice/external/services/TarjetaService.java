@@ -3,6 +3,7 @@ package com.example.producingwebservice.external.services;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.example.producingwebservice.external.model.Tarjeta;
+import com.example.producingwebservice.utils.Estado;
 
 @Service
 public class TarjetaService {
@@ -20,13 +22,15 @@ public class TarjetaService {
 	@Value("${banca.root.url}")
 	private String rootUrl;
 	
-	public void validarTarjeta(Long idTarjeta, Long idUsuario) {
+	public String validarTarjeta(Long idTarjeta, Long idUsuario) {
 		String url = rootUrl + "/validarPropietario?idComprador="+idUsuario+"&idTarjeta="+idTarjeta;
 		Boolean valid = restTemplate.getForObject(url, Boolean.class);
 		
 		if(!valid) {
-			throw new RuntimeException("Error validando tarjeta!");
+			return "Error validando tarjeta en servicio de banca!";
 		}
+		
+		return Estado.OK.name();
 	}
 	
 	public List<Tarjeta> getTarjeta(Long idUsuario) {
@@ -37,6 +41,23 @@ public class TarjetaService {
 		} catch (Exception e) {
 			return new ArrayList<>();
 		}
+	}
+	
+	public void saldarCompra(Long idComprador, Long idTarjeta, Float precioTotal) {		
+		Tarjeta tarjeta = getTarjeta(idComprador).stream()
+				.filter(t -> t.getIdTarjeta() == idTarjeta)
+				.collect(Collectors.toList()).get(0);
+		
+		float saldo = 0;
+		if(tarjeta.getTipo().equals("DÉBITO")) {
+			saldo = tarjeta.getSaldo() - precioTotal;			
+		}
+		else {
+			saldo = tarjeta.getSaldo() + precioTotal;
+		}
+		
+		String url = rootUrl + "/saldar?saldo=" + saldo + "&idTarjeta=" + idTarjeta;
+		restTemplate.postForObject(url, null, Boolean.class);
 	}
 
 }

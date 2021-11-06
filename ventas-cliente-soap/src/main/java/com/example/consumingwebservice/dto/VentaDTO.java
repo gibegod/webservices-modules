@@ -1,8 +1,10 @@
 package com.example.consumingwebservice.dto;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import com.example.consumingwebservice.wsdl.AddVentaRequest;
+import com.example.consumingwebservice.wsdl.Ventaitem;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.AllArgsConstructor;
@@ -33,6 +35,9 @@ public class VentaDTO {
 	@JsonProperty("mediopago")
 	private Long idTarjeta;
 	
+	@JsonProperty("productos")
+	private List<Ventaitem> productos;
+	
 	public AddVentaRequest toSOAPRequest() {
 		AddVentaRequest request = new AddVentaRequest();
 		request.setPrecioTotal(BigDecimal.valueOf(precioTotal));
@@ -40,6 +45,7 @@ public class VentaDTO {
 		request.setIdComprador(idComprador);
 		request.setIdVendedor(idVendedor);
 		request.setIdTarjeta(idTarjeta);
+		request.getVentaitems().addAll(productos);
 		
 		return request;
 	}

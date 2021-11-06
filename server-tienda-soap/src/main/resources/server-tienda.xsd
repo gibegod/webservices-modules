@@ -175,7 +175,7 @@
                 <xs:element name="estado" type="xs:string"/>
             </xs:sequence>
         </xs:complexType>
-    </xs:element>
+    </xs:element> 
     
     <xs:element name="addVentaRequest">
         <xs:complexType>
@@ -185,9 +185,10 @@
                 <xs:element name="idComprador" type="xs:long"/>
                 <xs:element name="idVendedor" type="xs:long"/>
                 <xs:element name="idTarjeta" type="xs:long"/>
+                <xs:element name="ventaitems" type="tns:ventaitem" maxOccurs="unbounded"/>
             </xs:sequence>
         </xs:complexType>
-    </xs:element>
+    </xs:element>    
     
     <xs:element name="addVentaResponse">
         <xs:complexType>
@@ -511,6 +512,13 @@
             <xs:element name="cbu" type="xs:string"/>
             <xs:element name="dni" type="xs:string"/>
             <xs:element name="vendedor" type="tns:usuario"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="ventaitem">
+        <xs:sequence>
+        	<xs:element name="cantidad" type="xs:long"/>
+        	<xs:element name="idProducto" type="xs:long"/>
         </xs:sequence>
     </xs:complexType>
     

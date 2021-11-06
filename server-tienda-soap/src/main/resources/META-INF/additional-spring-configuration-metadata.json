@@ -18,5 +18,10 @@
     "name": "banca.root.url",
     "type": "java.lang.String",
     "description": "A description for 'banca.root.url'"
+  },
+  {
+    "name": "correo.root.url",
+    "type": "java.lang.String",
+    "description": "A description for 'correo.root.url'"
   }
 ]}

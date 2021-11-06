@@ -34,6 +34,7 @@ public class VentaModel {
 	private float precioTotal;
 	private String estado;
 	private Date fecha;	
+	private String idSeguimiento;
 	
 	@ManyToOne
 	@JoinColumn(name = "id_domicilio")

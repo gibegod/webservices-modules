@@ -7,6 +7,7 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.producingwebservice.external.services.CorreoService;
 import com.example.producingwebservice.external.services.TarjetaService;
 import com.example.producingwebservice.model.BilleteraVirtualModel;
 import com.example.producingwebservice.model.DomicilioModel;
@@ -55,6 +56,9 @@ public class VentaService {
 	@Autowired
 	private TarjetaService tarjetaService;	
 	
+	@Autowired
+	private CorreoService correoService;
+	
 	
 	public String guardarVenta(AddVentaRequest request) {		
 		DomicilioModel domicilio = domicilioRepository.findById(request.getIdDomicilio()).orElseThrow(()->new RuntimeException("Domicilio no encontrado!")); 
@@ -71,7 +75,7 @@ public class VentaService {
 		
 		VentaModel venta = VentaModel.builder()
 				.precioTotal(request.getPrecioTotal().floatValue())
-				.estado(Estado.INICIADO.name())
+				.estado(Estado.EN_PREPARACION.getEstado())
 				.fecha(new Date())
 				.domicilio(domicilio)
 				.comprador(comprador)
@@ -80,6 +84,7 @@ public class VentaService {
 				.build();		
 		venta = ventaRepository.save(venta);
 		
+		log.info("Se van a guardar los items del carrito.");
 		final Long idVenta = venta.getId();
 		request.getVentaitems().forEach((item) -> {
 			ProductoModel productoModel = productoRepository.findById(item.getIdProducto()).orElseThrow(() -> new RuntimeException("Error, producto no encontrado!"));
@@ -93,6 +98,11 @@ public class VentaService {
 			ventaItemRepository.save(ventaItemModel);
 		});
 		
+		log.info("Se va a enviar la venta al correo.");
+		String idSeguimiento = correoService.enviarVenta(venta.getComprador().getDni(), venta.getId());
+		venta.setIdSeguimiento(idSeguimiento);
+		ventaRepository.save(venta);
+		
 		return Estado.OK.name();
 	}
 	
@@ -103,11 +113,14 @@ public class VentaService {
 			return "Error, la venta ya se encuentra cerrada!";			
 		}
 		
+		log.info("Se va a actualizar la venta.");
 		venta.setEstado(Estado.FINALIZADO.name());
 		ventaRepository.save(venta);
 		
+		log.info("Se va a saldar la compra en el servicio de banca.");
 		tarjetaService.saldarCompra(venta.getComprador().getId(), venta.getTarjeta().getIdTarjeta(), venta.getPrecioTotal());
 		
+		log.info("Se va a actualizar la billetera virtual.");
 		billeteraRepository.findByVendedor(venta.getVendedor())
 			.ifPresentOrElse(
 					(billeteraVirtual) -> {

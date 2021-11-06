@@ -67,11 +67,11 @@ public class VentaService {
 		TarjetaModel tarjeta = tarjetaRepository.findById(request.getIdTarjeta()).orElseThrow(()->new RuntimeException("Tarjeta vinculada no encontrada!"));
 		
 		log.info("Se va a consultar servicio externo para validar tarjeta con id {} para comprador con id {}", request.getIdTarjeta(), request.getIdComprador());
-		String estadoBanca = tarjetaService.validarTarjeta(request.getIdTarjeta(), request.getIdComprador());
+		String estadoBanca = tarjetaService.validarTarjeta(request.getIdTarjeta(), request.getIdComprador(), request.getPrecioTotal().floatValue());
 		if(!estadoBanca.equals(Estado.OK.name())) {
 			return estadoBanca;
 		}
-		log.info("Validación de propietario correcta.");
+		log.info("Validación de propietario y saldo correcta.");
 		
 		VentaModel venta = VentaModel.builder()
 				.precioTotal(request.getPrecioTotal().floatValue())
@@ -98,6 +98,9 @@ public class VentaService {
 			ventaItemRepository.save(ventaItemModel);
 		});
 		
+		log.info("Se va a saldar la compra en el servicio de banca.");
+		tarjetaService.saldarCompra(venta.getComprador().getId(), venta.getTarjeta().getIdTarjeta(), venta.getPrecioTotal());
+		
 		log.info("Se va a enviar la venta al correo.");
 		String idSeguimiento = correoService.enviarVenta(venta.getComprador().getDni(), venta.getId());
 		venta.setIdSeguimiento(idSeguimiento);
@@ -115,10 +118,7 @@ public class VentaService {
 		
 		log.info("Se va a actualizar la venta.");
 		venta.setEstado(Estado.FINALIZADO.name());
-		ventaRepository.save(venta);
-		
-		log.info("Se va a saldar la compra en el servicio de banca.");
-		tarjetaService.saldarCompra(venta.getComprador().getId(), venta.getTarjeta().getIdTarjeta(), venta.getPrecioTotal());
+		ventaRepository.save(venta);		
 		
 		log.info("Se va a actualizar la billetera virtual.");
 		billeteraRepository.findByVendedor(venta.getVendedor())

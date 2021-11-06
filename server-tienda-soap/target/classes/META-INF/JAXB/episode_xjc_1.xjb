@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bindings version="2.1" xmlns="http://java.sun.com/xml/ns/jaxb">
+  <!--
+
+Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.2 
+Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
+Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
+Generado el: 2021.11.01 a las 04:51:30 PM ART 
+
+  -->
+  <bindings scd="x-schema::tns" xmlns:tns="http://spring.io/guides/gs-producing-web-service">
+    <schemaBindings map="false">
+      <package name="io.spring.guides.gs_producing_web_service"/>
+    </schemaBindings>
+    <bindings scd="tns:getUsuarioRequest">
+      <class ref="io.spring.guides.gs_producing_web_service.GetUsuarioRequest"/>
+    </bindings>
+    <bindings scd="tns:getUsuarioResponse">
+      <class ref="io.spring.guides.gs_producing_web_service.GetUsuarioResponse"/>
+    </bindings>
+    <bindings scd="~tns:usuario">
+      <class ref="io.spring.guides.gs_producing_web_service.Usuario"/>
+    </bindings>
+    <bindings scd="tns:getDomiciliosRequest">
+      <class ref="io.spring.guides.gs_producing_web_service.GetDomiciliosRequest"/>
+    </bindings>
+    <bindings scd="tns:getDomiciliosResponse">
+      <class ref="io.spring.guides.gs_producing_web_service.GetDomiciliosResponse"/>
+    </bindings>
+    <bindings scd="~tns:domicilio">
+      <class ref="io.spring.guides.gs_producing_web_service.Domicilio"/>
+    </bindings>
+    <bindings scd="tns:getProductoRequest">
+      <class ref="io.spring.guides.gs_producing_web_service.GetProductoRequest"/>
+    </bindings>
+    <bindings scd="tns:getProductoPorIdRequest">
+      <class ref="io.spring.guides.gs_producing_web_service.GetProductoPorIdRequest"/>
+    </bindings>
+    <bindings scd="tns:getProductoPorIdResponse">
+      <class ref="io.spring.guides.gs_producing_web_service.GetProductoPorIdResponse"/>
+    </bindings>
+    <bindings scd="~tns:producto">
+      <class ref="io.spring.guides.gs_producing_web_service.Producto"/>
+    </bindings>
+    <bindings scd="tns:getProductosRequest">
+      <class ref="io.spring.guides.gs_producing_web_service.GetProductosRequest"/>
+    </bindings>
+    <bindings scd="tns:getProductosResponse">
+      <class ref="io.spring.guides.gs_producing_web_service.GetProductosResponse"/>
+    </bindings>
+    <bindings scd="tns:getProductosPorIdVendedorRequest">
+      <class ref="io.spring.guides.gs_producing_web_service.GetProductosPorIdVendedorRequest"/>
+    </bindings>
+    <bindings scd="tns:getProductosPorIdVendedorResponse">
+      <class ref="io.spring.guides.gs_producing_web_service.GetProductosPorIdVendedorResponse"/>
+    </bindings>
+    <bindings scd="tns:getProductosPorNameRequest">
+      <class ref="io.spring.guides.gs_producing_web_service.GetProductosPorNameRequest"/>
+    </bindings>
+    <bindings scd="tns:getProductosPorNameResponse">
+      <class ref="io.spring.guides.gs_producing_web_service.GetProductosPorNameResponse"/>
+    </bindings>
+    <bindings scd="tns:getProductoResponse">
+      <class ref="io.spring.guides.gs_producing_web_service.GetProductoResponse"/>
+    </bindings>
+    <bindings scd="tns:getCategoriasProductoRequest">
+      <class ref="io.spring.guides.gs_producing_web_service.GetCategoriasProductoRequest"/>
+    </bindings>
+    <bindings scd="tns:getCategoriasProductoResponse">
+      <class ref="io.spring.guides.gs_producing_web_service.GetCategoriasProductoResponse"/>
+    </bindings>
+    <bindings scd="~tns:categoriaProducto">
+      <class ref="io.spring.guides.gs_producing_web_service.CategoriaProducto"/>
+    </bindings>
+    <bindings scd="tns:addProductoRequest">
+      <class ref="io.spring.guides.gs_producing_web_service.AddProductoRequest"/>
+    </bindings>
+    <bindings scd="tns:addProductoResponse">
+      <class ref="io.spring.guides.gs_producing_web_service.AddProductoResponse"/>
+    </bindings>
+    <bindings scd="tns:addVentaRequest">
+      <class ref="io.spring.guides.gs_producing_web_service.AddVentaRequest"/>
+    </bindings>
+    <bindings scd="tns:addVentaResponse">
+      <class ref="io.spring.guides.gs_producing_web_service.AddVentaResponse"/>
+    </bindings>
+    <bindings scd="tns:finalizeVentaRequest">
+      <class ref="io.spring.guides.gs_producing_web_service.FinalizeVentaRequest"/>
+    </bindings>
+    <bindings scd="tns:finalizeVentaResponse">
+      <class ref="io.spring.guides.gs_producing_web_service.FinalizeVentaResponse"/>
+    </bindings>
+    <bindings scd="tns:updateProductoRequest">
+      <class ref="io.spring.guides.gs_producing_web_service.UpdateProductoRequest"/>
+    </bindings>
+    <bindings scd="tns:updateProductoResponse">
+      <class ref="io.spring.guides.gs_producing_web_service.UpdateProductoResponse"/>
+    </bindings>
+    <bindings scd="tns:getCuentasBancariasRequest">
+      <class ref="io.spring.guides.gs_producing_web_service.GetCuentasBancariasRequest"/>
+    </bindings>
+    <bindings scd="tns:getCuentasBancariasResponse">
+      <class ref="io.spring.guides.gs_producing_web_service.GetCuentasBancariasResponse"/>
+    </bindings>
+    <bindings scd="~tns:cuentaBancaria">
+      <class ref="io.spring.guides.gs_producing_web_service.CuentaBancaria"/>
+    </bindings>
+    <bindings scd="tns:getTarjetasRequest">
+      <class ref="io.spring.guides.gs_producing_web_service.GetTarjetasRequest"/>
+    </bindings>
+    <bindings scd="tns:getTarjetasResponse">
+      <class ref="io.spring.guides.gs_producing_web_service.GetTarjetasResponse"/>
+    </bindings>
+    <bindings scd="~tns:tarjeta">
+      <class ref="io.spring.guides.gs_producing_web_service.Tarjeta"/>
+    </bindings>
+    <bindings scd="tns:addUsuarioRequest">
+      <class ref="io.spring.guides.gs_producing_web_service.AddUsuarioRequest"/>
+    </bindings>
+    <bindings scd="tns:addUsuarioResponse">
+      <class ref="io.spring.guides.gs_producing_web_service.AddUsuarioResponse"/>
+    </bindings>
+    <bindings scd="tns:updateUsuarioRequest">
+      <class ref="io.spring.guides.gs_producing_web_service.UpdateUsuarioRequest"/>
+    </bindings>
+    <bindings scd="tns:updateUsuarioResponse">
+      <class ref="io.spring.guides.gs_producing_web_service.UpdateUsuarioResponse"/>
+    </bindings>
+    <bindings scd="tns:loginValRequest">
+      <class ref="io.spring.guides.gs_producing_web_service.LoginValRequest"/>
+    </bindings>
+    <bindings scd="tns:loginValResponse">
+      <class ref="io.spring.guides.gs_producing_web_service.LoginValResponse"/>
+    </bindings>
+    <bindings scd="tns:addDomicilioRequest">
+      <class ref="io.spring.guides.gs_producing_web_service.AddDomicilioRequest"/>
+    </bindings>
+    <bindings scd="tns:addDomicilioResponse">
+      <class ref="io.spring.guides.gs_producing_web_service.AddDomicilioResponse"/>
+    </bindings>
+    <bindings scd="tns:addCategoriaProductoRequest">
+      <class ref="io.spring.guides.gs_producing_web_service.AddCategoriaProductoRequest"/>
+    </bindings>
+    <bindings scd="tns:addCategoriaProductoResponse">
+      <class ref="io.spring.guides.gs_producing_web_service.AddCategoriaProductoResponse"/>
+    </bindings>
+    <bindings scd="tns:addTarjetaRequest">
+      <class ref="io.spring.guides.gs_producing_web_service.AddTarjetaRequest"/>
+    </bindings>
+    <bindings scd="tns:addTarjetaResponse">
+      <class ref="io.spring.guides.gs_producing_web_service.AddTarjetaResponse"/>
+    </bindings>
+    <bindings scd="tns:addCuentaBancariaRequest">
+      <class ref="io.spring.guides.gs_producing_web_service.AddCuentaBancariaRequest"/>
+    </bindings>
+    <bindings scd="tns:addCuentaBancariaResponse">
+      <class ref="io.spring.guides.gs_producing_web_service.AddCuentaBancariaResponse"/>
+    </bindings>
+    <bindings scd="~tns:tipoUsuario">
+      <class ref="io.spring.guides.gs_producing_web_service.TipoUsuario"/>
+    </bindings>
+    <bindings scd="~tns:billeteraVirtual">
+      <class ref="io.spring.guides.gs_producing_web_service.BilleteraVirtual"/>
+    </bindings>
+    <bindings scd="~tns:categoriaDenuncia">
+      <class ref="io.spring.guides.gs_producing_web_service.CategoriaDenuncia"/>
+    </bindings>
+    <bindings scd="~tns:denuncia">
+      <class ref="io.spring.guides.gs_producing_web_service.Denuncia"/>
+    </bindings>
+    <bindings scd="~tns:reclamo">
+      <class ref="io.spring.guides.gs_producing_web_service.Reclamo"/>
+    </bindings>
+  </bindings>
+</bindings>
+

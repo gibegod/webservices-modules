@@ -1,0 +1,22 @@
+{"properties": [
+  {
+    "name": "rest.template.connect.timeout",
+    "type": "java.lang.String",
+    "description": "A description for 'rest.template.connect.timeout'"
+  },
+  {
+    "name": "rest.template.read.timeout",
+    "type": "java.lang.String",
+    "description": "A description for 'rest.template.read.timeout'"
+  },
+  {
+    "name": "rest.template.root.url",
+    "type": "java.lang.String",
+    "description": "A description for 'rest.template.root.url'"
+  },
+  {
+    "name": "banca.root.url",
+    "type": "java.lang.String",
+    "description": "A description for 'banca.root.url'"
+  }
+]}

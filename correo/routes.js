@@ -3,6 +3,8 @@ const routes = express.Router()
 
 const uuid = require('uuid');
 
+var http = require('http');
+
 /**
  *  @swagger
  *  /user:
@@ -139,11 +141,21 @@ routes.patch("/envio", (req, res)=>{
     req.getConnection((err, conn)=>{
         if(err) return res.send(err)
 
+        var idVenta = req.body.params.id_venta;
+        var estado = req.body.params.estado;
         conn.query("UPDATE envio SET estado = '"+req.body.params.estado+"' WHERE cod_seguimiento = '"+req.body.params.cod_seguimiento+"'", (err, rows)=>{
-            if(err) return res.send(err)
+             
+            var options = {
+                host: 'localhost',
+                port: 8084,
+                path: '/venta/'+idVenta+'/actualizar/'+estado,
+                method: 'POST'
+            }
 
-            res.send(rows)
-        })
+            var req = http.request(options);
+            req.end();
+            
+        })        
     })
 })
 

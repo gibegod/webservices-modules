@@ -158,6 +158,18 @@ routes.get("/getTarjetas", (req, res)=>{
     })
 })
 
+routes.post("/saldar", (req, res)=>{
+    req.getConnection((err, conn)=>{
+        if(err) return res.send(err)
+			
+        conn.query("UPDATE tarjeta SET saldo = "+req.query.saldo+" WHERE idTarjeta = "+req.query.idTarjeta, (err, rows)=>{
+            if(err) return res.send(err)
+
+            res.send(true)
+        })
+    })
+})
+
 ///////// CUENTAS /////////////
 
 /**
@@ -263,6 +275,18 @@ routes.get("/getCuentasBancarias", (req, res)=>{
 
             if(rows.length == 0) res.send(false)
             else res.send(rows)
+        })
+    })
+})
+
+routes.post("/transferir", (req, res)=>{
+    req.getConnection((err, conn)=>{
+        if(err) return res.send(err)
+			
+        conn.query("UPDATE cuentabancaria SET saldo = "+req.query.saldo+" WHERE idCuentaBancaria = "+req.query.idCuentaBancaria, (err, rows)=>{
+            if(err) return res.send(err)
+
+            res.send(true)
         })
     })
 })

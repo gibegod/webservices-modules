@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<bindings xmlns="http://java.sun.com/xml/ns/jaxb" if-exists="true" version="2.1">
+      
+    <!--
+
+Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.0 
+Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
+Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
+Generado el: 2021.11.01 a las 05:37:37 PM ART 
+
+  -->
+      
+    <bindings xmlns:tns="http://spring.io/guides/gs-producing-web-service" if-exists="true" scd="x-schema::tns">
+            
+        <schemaBindings map="false">
+                  
+            <package name="com.example.consumingwebservice.wsdl"/>
+                
+        </schemaBindings>
+            
+        <bindings if-exists="true" scd="tns:getUsuarioRequest">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.GetUsuarioRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:getUsuarioResponse">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.GetUsuarioResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="~tns:usuario">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.Usuario"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:getDomiciliosRequest">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.GetDomiciliosRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:getDomiciliosResponse">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.GetDomiciliosResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="~tns:domicilio">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.Domicilio"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:getProductoRequest">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.GetProductoRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:getProductoPorIdRequest">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.GetProductoPorIdRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:getProductoPorIdResponse">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.GetProductoPorIdResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="~tns:producto">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.Producto"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:getProductosRequest">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.GetProductosRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:getProductosResponse">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.GetProductosResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:getProductosPorIdVendedorRequest">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.GetProductosPorIdVendedorRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:getProductosPorIdVendedorResponse">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.GetProductosPorIdVendedorResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:getProductosPorNameRequest">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.GetProductosPorNameRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:getProductosPorNameResponse">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.GetProductosPorNameResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:getProductoResponse">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.GetProductoResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:getCategoriasProductoRequest">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.GetCategoriasProductoRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:getCategoriasProductoResponse">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.GetCategoriasProductoResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="~tns:categoriaProducto">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.CategoriaProducto"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:addProductoRequest">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.AddProductoRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:addProductoResponse">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.AddProductoResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:addVentaRequest">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.AddVentaRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:addVentaResponse">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.AddVentaResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:finalizeVentaRequest">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.FinalizeVentaRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:finalizeVentaResponse">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.FinalizeVentaResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:updateProductoRequest">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.UpdateProductoRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:updateProductoResponse">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.UpdateProductoResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:getCuentasBancariasRequest">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.GetCuentasBancariasRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:getCuentasBancariasResponse">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.GetCuentasBancariasResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="~tns:cuentaBancaria">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.CuentaBancaria"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:getTarjetasRequest">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.GetTarjetasRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:getTarjetasResponse">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.GetTarjetasResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="~tns:tarjeta">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.Tarjeta"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:addUsuarioRequest">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.AddUsuarioRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:addUsuarioResponse">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.AddUsuarioResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:updateUsuarioRequest">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.UpdateUsuarioRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:updateUsuarioResponse">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.UpdateUsuarioResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:loginValRequest">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.LoginValRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:loginValResponse">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.LoginValResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:addDomicilioRequest">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.AddDomicilioRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:addDomicilioResponse">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.AddDomicilioResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:addCategoriaProductoRequest">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.AddCategoriaProductoRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:addCategoriaProductoResponse">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.AddCategoriaProductoResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:addTarjetaRequest">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.AddTarjetaRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:addTarjetaResponse">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.AddTarjetaResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:addCuentaBancariaRequest">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.AddCuentaBancariaRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:addCuentaBancariaResponse">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.AddCuentaBancariaResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="~tns:tipoUsuario">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.TipoUsuario"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="~tns:billeteraVirtual">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.BilleteraVirtual"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="~tns:categoriaDenuncia">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.CategoriaDenuncia"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="~tns:denuncia">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.Denuncia"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="~tns:reclamo">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.Reclamo"/>
+                
+        </bindings>
+          
+    </bindings>
+    
+</bindings>

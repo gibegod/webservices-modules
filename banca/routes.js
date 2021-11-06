@@ -267,4 +267,16 @@ routes.get("/getCuentasBancarias", (req, res)=>{
     })
 })
 
+routes.post("/transferir", (req, res)=>{
+    req.getConnection((err, conn)=>{
+        if(err) return res.send(err)
+			
+        conn.query("UPDATE cuentabancaria SET saldo = "+req.query.saldo+" WHERE idCuentaBancaria = "+req.query.idCuentaBancaria, (err, rows)=>{
+            if(err) return res.send(err)
+
+            res.send(true)
+        })
+    })
+})
+
 module.exports = routes

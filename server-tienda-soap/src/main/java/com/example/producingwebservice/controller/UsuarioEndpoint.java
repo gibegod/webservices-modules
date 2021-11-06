@@ -21,6 +21,8 @@ import io.spring.guides.gs_producing_web_service.AddCuentaBancariaRequest;
 import io.spring.guides.gs_producing_web_service.AddCuentaBancariaResponse;
 import io.spring.guides.gs_producing_web_service.AddDomicilioRequest;
 import io.spring.guides.gs_producing_web_service.AddDomicilioResponse;
+import io.spring.guides.gs_producing_web_service.AddTarjetaRequest;
+import io.spring.guides.gs_producing_web_service.AddTarjetaResponse;
 import io.spring.guides.gs_producing_web_service.AddUsuarioRequest;
 import io.spring.guides.gs_producing_web_service.AddUsuarioResponse;
 import io.spring.guides.gs_producing_web_service.BilleteraVirtualToCuentaBancariaRequest;
@@ -155,13 +157,15 @@ public class UsuarioEndpoint {
 		return response;
 	}
 
-	/*@PayloadRoot(namespace = NAMESPACE_URI, localPart = "addTarjetaRequest")
+	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "addTarjetaRequest")
 	@ResponsePayload
 	public AddTarjetaResponse addTarjeta(@RequestPayload AddTarjetaRequest request) {
 		AddTarjetaResponse response = new AddTarjetaResponse();
-		response.setEstado(tarjetaService.guardarTarjeta(request.getTarjeta()));
+		
+		response.setEstado(tarjetaService.vincularTarjeta(request));
+		
 		return response;
-	}*/
+	}
 
 	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "addCuentaBancariaRequest")
 	@ResponsePayload

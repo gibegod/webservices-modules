@@ -19,6 +19,8 @@ import com.example.producingwebservice.repositories.UsuarioRepository;
 import com.example.producingwebservice.utils.Estado;
 import com.example.producingwebservice.utils.TipoTarjeta;
 
+import io.spring.guides.gs_producing_web_service.AddTarjetaRequest;
+
 @Service
 public class TarjetaService {
 	
@@ -98,6 +100,33 @@ public class TarjetaService {
 		
 		String url = rootUrl + "/saldar?saldo=" + saldo + "&idTarjeta=" + idTarjeta;
 		restTemplate.postForObject(url, null, Boolean.class);
+	}
+	
+	public String vincularTarjeta(AddTarjetaRequest request) {
+		List<Tarjeta> tarjetas = getTarjeta(request.getTarjeta().getUsuario().getId());
+		
+		if(tarjetas.isEmpty()) {
+			return "Error, el usuario no posee tarjetas en el servicio de banca!";
+		}
+		
+		tarjetas = tarjetas.stream()
+				.filter(t -> t.getNumero().equals(request.getTarjeta().getNumero()) && t.getCvc().equals(request.getTarjeta().getCvc()))
+				.collect(Collectors.toList());
+		
+		if(tarjetas.isEmpty()) {
+			return "Error, los datos ingresados no corresponden con alguna tarjeta registrada!";
+		}
+		
+		if(tarjetaRepository.findByIdTarjeta(tarjetas.get(0).getIdTarjeta()).isPresent()) {
+			return "Error, la tarjeta ya se encuentra vinculada!";
+		}
+		
+		tarjetaRepository.save(TarjetaModel.builder()
+				.idTarjeta(tarjetas.get(0).getIdTarjeta())
+				.comprador(usuarioRepository.findById(request.getTarjeta().getUsuario().getId()).orElseThrow(() -> new RuntimeException("Usuario no encontrado!")))
+				.build());
+		
+		return Estado.OK.name();
 	}
 
 }

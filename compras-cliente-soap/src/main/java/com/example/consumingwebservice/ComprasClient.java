@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.ws.client.core.support.WebServiceGatewaySupport;
 import org.springframework.ws.soap.client.core.SoapActionCallback;
 
+import com.example.consumingwebservice.dto.TarjetaDTO;
 import com.example.consumingwebservice.wsdl.AddDomicilioRequest;
 import com.example.consumingwebservice.wsdl.AddDomicilioResponse;
 import com.example.consumingwebservice.wsdl.AddTarjetaRequest;
@@ -103,12 +104,20 @@ public class ComprasClient extends WebServiceGatewaySupport {
 		return response;
 	}
 
-	public AddTarjetaResponse addTarjeta(Tarjeta tarjeta) {
+	public AddTarjetaResponse addTarjeta(TarjetaDTO tarjetaDTO) {
 		AddTarjetaRequest request = new AddTarjetaRequest();
+		Tarjeta tarjeta = new Tarjeta();
+		tarjeta.setNumero(tarjetaDTO.getNumero());
+		tarjeta.setCvc(tarjetaDTO.getCvc());
+		Usuario usuario = new Usuario();
+		usuario.setId(tarjetaDTO.getIdComprador());
+		tarjeta.setUsuario(usuario);
 		request.setTarjeta(tarjeta);
+		
 		AddTarjetaResponse response = (AddTarjetaResponse) getWebServiceTemplate().marshalSendAndReceive(
 				wsServerDir, request,
 				new SoapActionCallback(soapActionCallback));
+		
 		return response;
 	}
 

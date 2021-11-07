@@ -17,6 +17,8 @@ import com.example.producingwebservice.services.ProductoService;
 
 import io.spring.guides.gs_producing_web_service.AddCategoriaProductoRequest;
 import io.spring.guides.gs_producing_web_service.AddCategoriaProductoResponse;
+import io.spring.guides.gs_producing_web_service.AddDenunciaRequest;
+import io.spring.guides.gs_producing_web_service.AddDenunciaResponse;
 import io.spring.guides.gs_producing_web_service.AddProductoRequest;
 import io.spring.guides.gs_producing_web_service.AddProductoResponse;
 import io.spring.guides.gs_producing_web_service.GetCategoriasProductoRequest;
@@ -45,9 +47,10 @@ public class ProductoEndpoint {
 	CategoriaProductoMapper categoriaMapper = new CategoriaProductoMapper();
 	
 	@Autowired
-	ProductoService productoService;
+	private ProductoService productoService;
+	
 	@Autowired
-	CategoriaProductoService categoriaProductoService;
+	private CategoriaProductoService categoriaProductoService;
 	
 	
 	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "getProductoRequest")
@@ -137,6 +140,16 @@ public class ProductoEndpoint {
 		for (CategoriaProductoModel cpM : lstCategoriasProducto) {
 			response.getCategoriaProducto().add(categoriaMapper.toCategoriaProductoXML(cpM));
 		}
+		return response;
+	}
+	
+	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "addDenunciaRequest")
+	@ResponsePayload
+	public AddDenunciaResponse addDenuncia(@RequestPayload AddDenunciaRequest request) {
+		AddDenunciaResponse response = new AddDenunciaResponse();
+		
+		response.setEstado(productoService.addDenuncia(request));
+		
 		return response;
 	}
 

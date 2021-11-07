@@ -1,19 +1,25 @@
 package com.example.producingwebservice.services;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.producingwebservice.model.CategoriaDenunciaModel;
 import com.example.producingwebservice.model.CategoriaProductoModel;
+import com.example.producingwebservice.model.DenunciaModel;
 import com.example.producingwebservice.model.ProductoModel;
 import com.example.producingwebservice.model.UsuarioModel;
+import com.example.producingwebservice.repositories.CategoriaDenunciaRepository;
 import com.example.producingwebservice.repositories.CategoriaProductoRepository;
+import com.example.producingwebservice.repositories.DenunciaRepository;
 import com.example.producingwebservice.repositories.ProductoRepository;
 import com.example.producingwebservice.repositories.UsuarioRepository;
 import com.example.producingwebservice.utils.Estado;
 
+import io.spring.guides.gs_producing_web_service.AddDenunciaRequest;
 import io.spring.guides.gs_producing_web_service.Producto;
 import mapper.ProductoMapper;
 
@@ -21,11 +27,19 @@ import mapper.ProductoMapper;
 public class ProductoService {
 	
 	@Autowired
-	ProductoRepository productoRepository;
+	private ProductoRepository productoRepository;
+	
 	@Autowired
-	CategoriaProductoRepository categoriaProductoRepository;
+	private CategoriaProductoRepository categoriaProductoRepository;
+	
 	@Autowired
-	UsuarioRepository usuarioRepository;
+	private CategoriaDenunciaRepository categoriaDenunciaRepository;
+	
+	@Autowired
+	private UsuarioRepository usuarioRepository;
+	
+	@Autowired
+	private DenunciaRepository denunciaRepository;
 	
 	ProductoMapper productoMapper = new ProductoMapper();
 	
@@ -147,6 +161,23 @@ public class ProductoService {
 		}
 		
 		return estado;
+	}
+	
+	public String addDenuncia(AddDenunciaRequest request) {
+		ProductoModel producto = productoRepository.findById(request.getIdProducto()).orElseThrow(() -> new RuntimeException("Error, producto no encontrado!"));
+		CategoriaDenunciaModel categoria = categoriaDenunciaRepository.findById(request.getIdCategoria()).orElseThrow(() -> new RuntimeException("Error, categoría de denuncia no encontrada!"));
+		UsuarioModel usuario = usuarioRepository.findById(request.getIdComprador()).orElseThrow(() -> new RuntimeException("Error, usuario no encontrado!"));
+		
+		DenunciaModel denuncia = new DenunciaModel();
+		denuncia.setProducto(producto);
+		denuncia.setCategoria(categoria);
+		denuncia.setComprador(usuario);
+		denuncia.setComentarioComprador(request.getComentario());
+		denuncia.setFecha(new Date());
+		denuncia.setEstado(Estado.A_RESOLVER.name());
+		denunciaRepository.save(denuncia);
+		
+		return Estado.OK.name();
 	}
 
 }

@@ -34,6 +34,25 @@
         </xs:complexType>
     </xs:element>
     
+    <xs:element name="addDenunciaRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="idCategoria" type="xs:long"/>
+                <xs:element name="idProducto" type="xs:long"/>
+                <xs:element name="idComprador" type="xs:long"/>
+                <xs:element name="comentario" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="addDenunciaResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="estado" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
     <xs:element name="actualizarEstadoVentaRequest">
         <xs:complexType>
             <xs:sequence>

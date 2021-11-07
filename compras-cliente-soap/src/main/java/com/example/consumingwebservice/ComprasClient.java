@@ -5,8 +5,11 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.ws.client.core.support.WebServiceGatewaySupport;
 import org.springframework.ws.soap.client.core.SoapActionCallback;
 
+import com.example.consumingwebservice.dto.DenunciaDTO;
 import com.example.consumingwebservice.dto.ReclamoDTO;
 import com.example.consumingwebservice.dto.TarjetaDTO;
+import com.example.consumingwebservice.wsdl.AddDenunciaRequest;
+import com.example.consumingwebservice.wsdl.AddDenunciaResponse;
 import com.example.consumingwebservice.wsdl.AddDomicilioRequest;
 import com.example.consumingwebservice.wsdl.AddDomicilioResponse;
 import com.example.consumingwebservice.wsdl.AddReclamoRequest;
@@ -141,6 +144,20 @@ public class ComprasClient extends WebServiceGatewaySupport {
 		request.setComentario(reclamoDTO.getComentarioComprador());
 		
 		AddReclamoResponse response = (AddReclamoResponse) getWebServiceTemplate().marshalSendAndReceive(
+				wsServerDir, request,
+				new SoapActionCallback(soapActionCallback));
+		
+		return response.getEstado();
+	}
+	
+	public String addDenuncia(DenunciaDTO denunciaDTO) {
+		AddDenunciaRequest request = new AddDenunciaRequest();
+		request.setIdCategoria(denunciaDTO.getIdCategoria());
+		request.setIdComprador(denunciaDTO.getIdComprador());
+		request.setIdProducto(denunciaDTO.getIdProducto());
+		request.setComentario(denunciaDTO.getComentario());
+		
+		AddDenunciaResponse response = (AddDenunciaResponse) getWebServiceTemplate().marshalSendAndReceive(
 				wsServerDir, request,
 				new SoapActionCallback(soapActionCallback));
 		

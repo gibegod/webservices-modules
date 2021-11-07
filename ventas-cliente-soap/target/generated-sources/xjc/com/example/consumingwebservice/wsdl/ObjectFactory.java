@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.0 
 // Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2021.11.01 a las 05:37:37 PM ART 
+// Generado el: 2021.11.07 a las 02:34:56 PM ART 
 //
 
 
@@ -58,6 +58,54 @@ public class ObjectFactory {
      */
     public Usuario createUsuario() {
         return new Usuario();
+    }
+
+    /**
+     * Create an instance of {@link ActualizarEstadoVentaRequest }
+     * 
+     */
+    public ActualizarEstadoVentaRequest createActualizarEstadoVentaRequest() {
+        return new ActualizarEstadoVentaRequest();
+    }
+
+    /**
+     * Create an instance of {@link GetBilleteraVirtualRequest }
+     * 
+     */
+    public GetBilleteraVirtualRequest createGetBilleteraVirtualRequest() {
+        return new GetBilleteraVirtualRequest();
+    }
+
+    /**
+     * Create an instance of {@link GetBilleteraVirtualResponse }
+     * 
+     */
+    public GetBilleteraVirtualResponse createGetBilleteraVirtualResponse() {
+        return new GetBilleteraVirtualResponse();
+    }
+
+    /**
+     * Create an instance of {@link BilleteraVirtual }
+     * 
+     */
+    public BilleteraVirtual createBilleteraVirtual() {
+        return new BilleteraVirtual();
+    }
+
+    /**
+     * Create an instance of {@link BilleteraVirtualToCuentaBancariaRequest }
+     * 
+     */
+    public BilleteraVirtualToCuentaBancariaRequest createBilleteraVirtualToCuentaBancariaRequest() {
+        return new BilleteraVirtualToCuentaBancariaRequest();
+    }
+
+    /**
+     * Create an instance of {@link BilleteraVirtualToCuentaBancariaResponse }
+     * 
+     */
+    public BilleteraVirtualToCuentaBancariaResponse createBilleteraVirtualToCuentaBancariaResponse() {
+        return new BilleteraVirtualToCuentaBancariaResponse();
     }
 
     /**
@@ -221,11 +269,35 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link Ventaitem }
+     * 
+     */
+    public Ventaitem createVentaitem() {
+        return new Ventaitem();
+    }
+
+    /**
      * Create an instance of {@link AddVentaResponse }
      * 
      */
     public AddVentaResponse createAddVentaResponse() {
         return new AddVentaResponse();
+    }
+
+    /**
+     * Create an instance of {@link CancelVentaRequest }
+     * 
+     */
+    public CancelVentaRequest createCancelVentaRequest() {
+        return new CancelVentaRequest();
+    }
+
+    /**
+     * Create an instance of {@link CancelVentaResponse }
+     * 
+     */
+    public CancelVentaResponse createCancelVentaResponse() {
+        return new CancelVentaResponse();
     }
 
     /**
@@ -306,6 +378,46 @@ public class ObjectFactory {
      */
     public Tarjeta createTarjeta() {
         return new Tarjeta();
+    }
+
+    /**
+     * Create an instance of {@link GetVentasPorIdVendedorRequest }
+     * 
+     */
+    public GetVentasPorIdVendedorRequest createGetVentasPorIdVendedorRequest() {
+        return new GetVentasPorIdVendedorRequest();
+    }
+
+    /**
+     * Create an instance of {@link GetVentasPorIdVendedorResponse }
+     * 
+     */
+    public GetVentasPorIdVendedorResponse createGetVentasPorIdVendedorResponse() {
+        return new GetVentasPorIdVendedorResponse();
+    }
+
+    /**
+     * Create an instance of {@link Venta }
+     * 
+     */
+    public Venta createVenta() {
+        return new Venta();
+    }
+
+    /**
+     * Create an instance of {@link GetVentasPorIdCompradorRequest }
+     * 
+     */
+    public GetVentasPorIdCompradorRequest createGetVentasPorIdCompradorRequest() {
+        return new GetVentasPorIdCompradorRequest();
+    }
+
+    /**
+     * Create an instance of {@link GetVentasPorIdCompradorResponse }
+     * 
+     */
+    public GetVentasPorIdCompradorResponse createGetVentasPorIdCompradorResponse() {
+        return new GetVentasPorIdCompradorResponse();
     }
 
     /**
@@ -426,14 +538,6 @@ public class ObjectFactory {
      */
     public TipoUsuario createTipoUsuario() {
         return new TipoUsuario();
-    }
-
-    /**
-     * Create an instance of {@link BilleteraVirtual }
-     * 
-     */
-    public BilleteraVirtual createBilleteraVirtual() {
-        return new BilleteraVirtual();
     }
 
     /**

@@ -2,13 +2,15 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.0 
 // Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2021.11.01 a las 05:37:37 PM ART 
+// Generado el: 2021.11.07 a las 02:36:54 PM ART 
 //
 
 
 package com.example.consumingwebservice.wsdl;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -31,6 +33,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="idComprador" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
  *         &lt;element name="idVendedor" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
  *         &lt;element name="idTarjeta" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
+ *         &lt;element name="ventaitems" type="{http://spring.io/guides/gs-producing-web-service}ventaitem" maxOccurs="unbounded"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -45,7 +48,8 @@ import javax.xml.bind.annotation.XmlType;
     "idDomicilio",
     "idComprador",
     "idVendedor",
-    "idTarjeta"
+    "idTarjeta",
+    "ventaitems"
 })
 @XmlRootElement(name = "addVentaRequest")
 public class AddVentaRequest {
@@ -56,6 +60,8 @@ public class AddVentaRequest {
     protected long idComprador;
     protected long idVendedor;
     protected long idTarjeta;
+    @XmlElement(required = true)
+    protected List<Ventaitem> ventaitems;
 
     /**
      * Obtiene el valor de la propiedad precioTotal.
@@ -143,6 +149,35 @@ public class AddVentaRequest {
      */
     public void setIdTarjeta(long value) {
         this.idTarjeta = value;
+    }
+
+    /**
+     * Gets the value of the ventaitems property.
+     * 
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the ventaitems property.
+     * 
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getVentaitems().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link Ventaitem }
+     * 
+     * 
+     */
+    public List<Ventaitem> getVentaitems() {
+        if (ventaitems == null) {
+            ventaitems = new ArrayList<Ventaitem>();
+        }
+        return this.ventaitems;
     }
 
 }

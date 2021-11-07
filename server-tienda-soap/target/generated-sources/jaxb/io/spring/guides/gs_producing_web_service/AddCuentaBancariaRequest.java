@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.2 
 // Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2021.11.01 a las 04:51:30 PM ART 
+// Generado el: 2021.11.07 a las 02:30:23 PM ART 
 //
 
 
@@ -25,7 +25,8 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="cuentaBancaria" type="{http://spring.io/guides/gs-producing-web-service}cuentaBancaria"/&gt;
+ *         &lt;element name="cbu" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="idUsuario" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -36,36 +37,54 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "cuentaBancaria"
+    "cbu",
+    "idUsuario"
 })
 @XmlRootElement(name = "addCuentaBancariaRequest")
 public class AddCuentaBancariaRequest {
 
     @XmlElement(required = true)
-    protected CuentaBancaria cuentaBancaria;
+    protected String cbu;
+    protected long idUsuario;
 
     /**
-     * Obtiene el valor de la propiedad cuentaBancaria.
+     * Obtiene el valor de la propiedad cbu.
      * 
      * @return
      *     possible object is
-     *     {@link CuentaBancaria }
+     *     {@link String }
      *     
      */
-    public CuentaBancaria getCuentaBancaria() {
-        return cuentaBancaria;
+    public String getCbu() {
+        return cbu;
     }
 
     /**
-     * Define el valor de la propiedad cuentaBancaria.
+     * Define el valor de la propiedad cbu.
      * 
      * @param value
      *     allowed object is
-     *     {@link CuentaBancaria }
+     *     {@link String }
      *     
      */
-    public void setCuentaBancaria(CuentaBancaria value) {
-        this.cuentaBancaria = value;
+    public void setCbu(String value) {
+        this.cbu = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad idUsuario.
+     * 
+     */
+    public long getIdUsuario() {
+        return idUsuario;
+    }
+
+    /**
+     * Define el valor de la propiedad idUsuario.
+     * 
+     */
+    public void setIdUsuario(long value) {
+        this.idUsuario = value;
     }
 
 }

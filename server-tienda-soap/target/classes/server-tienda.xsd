@@ -17,6 +17,49 @@
         </xs:complexType>
     </xs:element>
     
+    <xs:element name="actualizarEstadoVentaRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="idVenta" type="xs:long"/>
+                <xs:element name="estado" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="getBilleteraVirtualRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="getBilleteraVirtualResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="billeteraVirtual" type="tns:billeteraVirtual"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="billeteraVirtualToCuentaBancariaRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="idVendedor" type="xs:long"/>
+                <xs:element name="idCuentaBancaria" type="xs:long"/>
+                <xs:element name="monto" type="xs:decimal"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="billeteraVirtualToCuentaBancariaResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="estado" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
     <xs:element name="getDomiciliosRequest">
         <xs:complexType>
             <xs:sequence>
@@ -141,7 +184,7 @@
                 <xs:element name="estado" type="xs:string"/>
             </xs:sequence>
         </xs:complexType>
-    </xs:element>
+    </xs:element> 
     
     <xs:element name="addVentaRequest">
         <xs:complexType>
@@ -151,11 +194,29 @@
                 <xs:element name="idComprador" type="xs:long"/>
                 <xs:element name="idVendedor" type="xs:long"/>
                 <xs:element name="idTarjeta" type="xs:long"/>
+                <xs:element name="ventaitems" type="tns:ventaitem" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>    
+    
+    <xs:element name="addVentaResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="estado" type="xs:string"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
     
-    <xs:element name="addVentaResponse">
+    <xs:element name="cancelVentaRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="idVenta" type="xs:long"/>
+                <xs:element name="idComprador" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="cancelVentaResponse">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="estado" type="xs:string"/>
@@ -223,6 +284,38 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="tarjeta" type="tns:tarjeta" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="getVentasPorIdVendedorRequest">
+        <xs:complexType>
+            <xs:sequence>
+            	<xs:element name="id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="getVentasPorIdVendedorResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="venta" type="tns:venta" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="getVentasPorIdCompradorRequest">
+        <xs:complexType>
+            <xs:sequence>
+            	<xs:element name="id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="getVentasPorIdCompradorResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="venta" type="tns:venta" maxOccurs="unbounded"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -327,7 +420,8 @@
     <xs:element name="addCuentaBancariaRequest">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="cuentaBancaria" type="tns:cuentaBancaria"/>
+                <xs:element name="cbu" type="xs:string"/>
+                <xs:element name="idUsuario" type="xs:long"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -459,6 +553,25 @@
             <xs:element name="alias" type="xs:string"/>
             <xs:element name="cbu" type="xs:string"/>
             <xs:element name="dni" type="xs:string"/>
+            <xs:element name="vendedor" type="tns:usuario"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="ventaitem">
+        <xs:sequence>
+        	<xs:element name="cantidad" type="xs:long"/>
+        	<xs:element name="idProducto" type="xs:long"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="venta">
+        <xs:sequence>
+        	<xs:element name="id" type="xs:long" minOccurs="0"/>
+            <xs:element name="precioTotal" type="xs:decimal"/>
+            <xs:element name="estado" type="xs:string"/>
+            <xs:element name="fecha" type="xs:date"/>
+            <xs:element name="domicilio" type="tns:domicilio"/>
+            <xs:element name="comprador" type="tns:usuario"/>
             <xs:element name="vendedor" type="tns:usuario"/>
         </xs:sequence>
     </xs:complexType>

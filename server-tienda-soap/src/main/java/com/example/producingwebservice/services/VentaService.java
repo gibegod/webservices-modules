@@ -13,6 +13,7 @@ import com.example.producingwebservice.external.services.TarjetaService;
 import com.example.producingwebservice.model.BilleteraVirtualModel;
 import com.example.producingwebservice.model.DomicilioModel;
 import com.example.producingwebservice.model.ProductoModel;
+import com.example.producingwebservice.model.ReclamoModel;
 import com.example.producingwebservice.model.TarjetaModel;
 import com.example.producingwebservice.model.UsuarioModel;
 import com.example.producingwebservice.model.VentaItemModel;
@@ -20,6 +21,7 @@ import com.example.producingwebservice.model.VentaModel;
 import com.example.producingwebservice.repositories.BilleteraVirtualRepository;
 import com.example.producingwebservice.repositories.DomicilioRepository;
 import com.example.producingwebservice.repositories.ProductoRepository;
+import com.example.producingwebservice.repositories.ReclamoRepository;
 import com.example.producingwebservice.repositories.TarjetaRepository;
 import com.example.producingwebservice.repositories.UsuarioRepository;
 import com.example.producingwebservice.repositories.VentaItemRepository;
@@ -53,6 +55,9 @@ public class VentaService {
 	
 	@Autowired
 	private TarjetaRepository tarjetaRepository;
+	
+	@Autowired
+	private ReclamoRepository reclamoRepository;
 	
 	@Autowired
 	private TarjetaService tarjetaService;	
@@ -195,6 +200,20 @@ public class VentaService {
 				
 		
 		return estado;
+	}
+	
+	public String addReclamo(Long idVenta, String comentario) {
+		VentaModel venta = ventaRepository.findById(idVenta).orElseThrow(() -> new RuntimeException("Error, venta no encontrada!"));
+		
+		ReclamoModel reclamo = new ReclamoModel();
+		reclamo.setVenta(venta);
+		reclamo.setComentarioComprador(comentario);
+		reclamo.setFecha(new Date());
+		reclamo.setEstado(Estado.A_RESOLVER.name());
+		
+		reclamoRepository.save(reclamo);
+		
+		return Estado.OK.name();
 	}
 
 }

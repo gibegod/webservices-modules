@@ -9,7 +9,8 @@ public enum Estado {
 	OK ("OK"), 
 	FINALIZADO ("FINALIZADO"),
 	EN_PREPARACION ("EN_PREPARACION"),
-	CANCELADO ("CANCELADO");
+	CANCELADO ("CANCELADO"),
+	A_RESOLVER ("A_RESOLVER");
 	
 	private final String estado;
 	

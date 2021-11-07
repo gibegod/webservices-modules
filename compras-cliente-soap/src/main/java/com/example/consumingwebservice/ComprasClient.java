@@ -5,9 +5,12 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.ws.client.core.support.WebServiceGatewaySupport;
 import org.springframework.ws.soap.client.core.SoapActionCallback;
 
+import com.example.consumingwebservice.dto.ReclamoDTO;
 import com.example.consumingwebservice.dto.TarjetaDTO;
 import com.example.consumingwebservice.wsdl.AddDomicilioRequest;
 import com.example.consumingwebservice.wsdl.AddDomicilioResponse;
+import com.example.consumingwebservice.wsdl.AddReclamoRequest;
+import com.example.consumingwebservice.wsdl.AddReclamoResponse;
 import com.example.consumingwebservice.wsdl.AddTarjetaRequest;
 import com.example.consumingwebservice.wsdl.AddTarjetaResponse;
 import com.example.consumingwebservice.wsdl.AddUsuarioRequest;
@@ -130,6 +133,18 @@ public class ComprasClient extends WebServiceGatewaySupport {
 				wsServerDir, request,
 				new SoapActionCallback(soapActionCallback));
 		return response;
+	}
+	
+	public String addReclamo(ReclamoDTO reclamoDTO) {
+		AddReclamoRequest request = new AddReclamoRequest();
+		request.setIdVenta(reclamoDTO.getIdVenta());
+		request.setComentario(reclamoDTO.getComentarioComprador());
+		
+		AddReclamoResponse response = (AddReclamoResponse) getWebServiceTemplate().marshalSendAndReceive(
+				wsServerDir, request,
+				new SoapActionCallback(soapActionCallback));
+		
+		return response.getEstado();
 	}
 
 }

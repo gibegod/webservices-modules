@@ -12,6 +12,8 @@ import com.example.producingwebservice.model.VentaModel;
 import com.example.producingwebservice.services.VentaService;
 
 import io.spring.guides.gs_producing_web_service.ActualizarEstadoVentaRequest;
+import io.spring.guides.gs_producing_web_service.AddReclamoRequest;
+import io.spring.guides.gs_producing_web_service.AddReclamoResponse;
 import io.spring.guides.gs_producing_web_service.AddVentaRequest;
 import io.spring.guides.gs_producing_web_service.AddVentaResponse;
 import io.spring.guides.gs_producing_web_service.CancelVentaRequest;
@@ -83,6 +85,16 @@ public class VentaEndpoint {
 	public CancelVentaResponse cancelVenta(@RequestPayload CancelVentaRequest request) {
 		CancelVentaResponse response = new CancelVentaResponse();
 		response.setEstado(ventaService.cancelarVenta(request.getIdComprador(), request.getIdVenta()));
+		return response;
+	}
+	
+	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "addReclamoRequest")
+	@ResponsePayload
+	public AddReclamoResponse addReclamo(@RequestPayload AddReclamoRequest request) {
+		AddReclamoResponse response = new AddReclamoResponse();
+		
+		response.setEstado(ventaService.addReclamo(request.getIdVenta(), request.getComentario()));
+		
 		return response;
 	}
 	

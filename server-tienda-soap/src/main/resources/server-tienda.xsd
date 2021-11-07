@@ -17,6 +17,23 @@
         </xs:complexType>
     </xs:element>
     
+    <xs:element name="addReclamoRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="idVenta" type="xs:long"/>
+                <xs:element name="comentario" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="addReclamoResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="estado" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
     <xs:element name="actualizarEstadoVentaRequest">
         <xs:complexType>
             <xs:sequence>

@@ -2,6 +2,7 @@ package com.example.producingwebservice.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -29,7 +30,9 @@ public class ReclamoModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	private String comentarioComprador;	
+	@Column(length = 100000)
+	private String comentarioComprador;
+	@Column(length = 100000)
 	private String comentarioResolucion;
 	private String estado;
 	private Boolean aceptado;

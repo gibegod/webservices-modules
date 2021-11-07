@@ -285,8 +285,24 @@ routes.get("/denuncias/filtrar", (req, res)=>{
 routes.put("/denuncias/atender", (req, res)=>{
     req.getConnection((err, conn)=>{
         if(err) return res.send(err)
+			
+		var aceptado = req.query.aceptado;
+		var comentarioResolucion = req.query.comentarioResolucion;
+		var idDenuncia = req.query.idDenuncia;
+		
+		if(aceptado == "true"){
+			conn.query("SELECT id_producto FROM denuncia WHERE id = '"+idDenuncia+"'", (err, rows)=>{
+				if(err) return res.send(err)
 
-        conn.query("UPDATE denuncia SET comentarioResolucion = '"+req.query.comentarioResolucion+"', estado = 'RESUELTO' WHERE idDenuncia = "+req.query.idDenuncia, (err, rows)=>{
+				var idProducto = rows[0].id_producto;
+				var q = "UPDATE producto SET activo = "+false+" WHERE id = "+idProducto;
+				conn.query(q, (err, rows)=>{
+					if(err) return res.send(err)
+				})
+			})			
+		}
+
+        conn.query("UPDATE denuncia SET comentario_resolucion = '"+comentarioResolucion+"', estado = 'RESUELTO', aceptado = "+aceptado+" WHERE id = "+idDenuncia, (err, rows)=>{
             if(err) return res.send(err)
 
             res.send(rows)

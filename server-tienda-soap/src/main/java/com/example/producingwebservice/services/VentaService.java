@@ -3,6 +3,7 @@ package com.example.producingwebservice.services;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -58,6 +59,7 @@ public class VentaService {
 	
 	@Autowired
 	private CorreoService correoService;
+	
 	
 	
 	public String guardarVenta(AddVentaRequest request) {		
@@ -177,8 +179,13 @@ public class VentaService {
 			return "Error, la venta ya se encuentra cerrada!";			
 		}
 		
-		//deberia volver para atras los cambios en el stock de los productos
-		//ACA VOY A NECESITAR TENER LOS VENTA ITEM PARA PODER VOLVER A SUMARLES LA CANTIDAD
+		List<VentaItemModel> ventaItemsModel = ventaItemRepository.findByVenta(venta);
+		
+		ventaItemsModel.forEach((item) -> { 
+			ProductoModel productoModel = productoRepository.findById(item.getProducto().getId()).orElseThrow(() -> new RuntimeException("Error, producto no encontrado!"));
+			productoModel.setStockActual(productoModel.getStockActual() + (int) item.getCantidad());
+			productoModel = productoRepository.save(productoModel);
+		});
 		
 		log.info("Se va a cancelar la compra en el servicio de banca.");
 		tarjetaService.cancelarCompra(idComprador, venta.getTarjeta().getIdTarjeta(), venta.getPrecioTotal());

@@ -21,6 +21,8 @@ import com.example.consumingwebservice.wsdl.AddUsuarioResponse;
 import com.example.consumingwebservice.wsdl.AddVentaResponse;
 import com.example.consumingwebservice.wsdl.BilleteraVirtualToCuentaBancariaRequest;
 import com.example.consumingwebservice.wsdl.BilleteraVirtualToCuentaBancariaResponse;
+import com.example.consumingwebservice.wsdl.CancelVentaRequest;
+import com.example.consumingwebservice.wsdl.CancelVentaResponse;
 import com.example.consumingwebservice.wsdl.Domicilio;
 import com.example.consumingwebservice.wsdl.GetBilleteraVirtualRequest;
 import com.example.consumingwebservice.wsdl.GetBilleteraVirtualResponse;
@@ -268,5 +270,16 @@ public class VentasClient extends WebServiceGatewaySupport {
 		getWebServiceTemplate().marshalSendAndReceive(
 				wsServerDir, request,
 				new SoapActionCallback(soapActionCallback));
-	}	
+	}
+	
+	public String cancelarVenta(Long idVenta, Long idComprador) {
+		CancelVentaRequest request = new CancelVentaRequest();
+		request.setIdVenta(idVenta);
+		request.setIdComprador(idComprador);
+		
+		CancelVentaResponse response = (CancelVentaResponse) getWebServiceTemplate().marshalSendAndReceive(
+				wsServerDir, request,
+				new SoapActionCallback(soapActionCallback));
+		return response.getEstado();
+	}
 }

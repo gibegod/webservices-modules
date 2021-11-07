@@ -1,6 +1,8 @@
 const express = require("express")
 const routes = express.Router()
 
+var http = require('http');
+
 /**
  *  @swagger
  *  /user:
@@ -150,7 +152,53 @@ routes.put("/reclamos/atender", (req, res)=>{
     req.getConnection((err, conn)=>{
         if(err) return res.send(err)
 
-        conn.query("UPDATE reclamo SET comentarioResolucion = '"+req.query.comentarioResolucion+"', estado = 'RESUELTO' WHERE idReclamo = "+req.query.idReclamo, (err, rows)=>{
+		var aceptado = req.query.aceptado;
+		var comentarioResolucion = req.query.comentarioResolucion;
+		var idReclamo = req.query.idReclamo;
+		
+		if(aceptado == "true"){
+			conn.query("SELECT id_venta FROM reclamo WHERE id = "+idReclamo, (err, rows)=>{
+				if(err) return res.send(err)
+	
+				var idVenta = rows[0].id_venta;
+				conn.query("UPDATE venta SET estado = 'RECLAMO ACEPTADO' WHERE id = "+idVenta, (err, rows)=>{
+					if(err) return res.send(err)
+				})
+				conn.query("SELECT * FROM venta WHERE id = "+idVenta, (err, rows)=>{
+					if(err) return res.send(err)
+
+					var precioTotal = rows[0].precio_total;
+					var idTarjetaTienda = rows[0].id_tarjeta;
+					
+					conn.query("SELECT id_tarjeta FROM tarjeta WHERE id = "+idTarjetaTienda, (err, rows)=>{
+						if(err) return res.send(err)
+							
+						var idTarjetaExterna = rows[0].id_tarjeta;
+						
+						var options = {
+							host: 'localhost',
+							port: 9002,
+							path: '/api/v1.0/devolucion-compra?idTarjeta='+idTarjetaExterna+'&monto='+precioTotal,
+							method: 'POST'
+						}
+
+						var req = http.request(options);
+						req.end();
+					})
+				})
+			})
+		} else {
+			conn.query("SELECT id_venta FROM reclamo WHERE id = "+idReclamo, (err, rows)=>{
+				if(err) return res.send(err)
+	
+				var idVenta = rows[0].id_venta;
+				conn.query("UPDATE venta SET estado = 'RECLAMO RECHAZADO' WHERE id = "+idVenta, (err, rows)=>{
+					if(err) return res.send(err)
+				})
+			})
+		}		
+		
+        conn.query("UPDATE reclamo SET comentario_resolucion = '"+comentarioResolucion+"', estado = 'RESUELTO', aceptado = "+aceptado+" WHERE id = "+idReclamo, (err, rows)=>{
             if(err) return res.send(err)
 
             res.send(rows)

@@ -170,6 +170,33 @@ routes.post("/saldar", (req, res)=>{
     })
 })
 
+routes.post("/devolucion-compra", (req, res)=>{
+    req.getConnection((err, conn)=>{
+        if(err) return res.send(err)
+			
+        var idTarjeta = req.query.idTarjeta;
+		var monto = req.query.monto;
+		
+		conn.query("SELECT * FROM tarjeta WHERE idTarjeta = "+idTarjeta, (err, rows)=>{
+			if(err) return res.send(err)
+				
+			var saldo = rows[0].saldo;
+			var tipo = rows[0].tipo;
+			
+			if(tipo == "DEBITO"){
+				saldo = parseFloat(saldo) + parseFloat(monto)
+			} else {
+				saldo = parseFloat(saldo) - parseFloat(monto)
+			}
+
+			var q = "UPDATE tarjeta SET saldo = "+saldo+" WHERE idTarjeta = "+idTarjeta;
+			conn.query(q, (err, rows)=>{
+				if(err) return res.send(err)
+			})	
+		})
+    })
+})
+
 ///////// CUENTAS /////////////
 
 /**

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.consumingwebservice.VentasClient;
+import com.example.consumingwebservice.dto.CategoriaProductoDTO;
 import com.example.consumingwebservice.dto.ProductoDTO;
 import com.example.consumingwebservice.mapper.ProductoMapper;
 import com.example.consumingwebservice.wsdl.AddCategoriaProductoResponse;
@@ -77,8 +78,8 @@ public class ProductoController {
 	}
 	
 	@PostMapping(path="/addCategoria")
-	public String addCategoriaProducto(@RequestBody String categoria) {
-		AddCategoriaProductoResponse response = ventasClient.addCategoriaProducto(categoria);
+	public String addCategoriaProducto(@RequestBody CategoriaProductoDTO categoriaDTO) {
+		AddCategoriaProductoResponse response = ventasClient.addCategoriaProducto(categoriaDTO.getNombre());
 		return response.getEstado();
 	}
 	

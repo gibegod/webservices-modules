@@ -57,4 +57,9 @@ public class VentaController {
 		return ventasClient.finalizarVenta(idVenta);
 	}
 
+	@PostMapping(path = "/{id_venta}/cancelar/{id_comprador}")
+	public String cancelarVenta(@PathVariable ("id_venta") Long idVenta, @PathVariable ("id_comprador") Long idComprador) {
+		return ventasClient.cancelarVenta(idVenta, idComprador);
+	}
+
 }

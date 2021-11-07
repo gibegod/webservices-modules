@@ -22,6 +22,8 @@ import com.example.consumingwebservice.wsdl.AddVentaResponse;
 import com.example.consumingwebservice.wsdl.BilleteraVirtualToCuentaBancariaRequest;
 import com.example.consumingwebservice.wsdl.BilleteraVirtualToCuentaBancariaResponse;
 import com.example.consumingwebservice.wsdl.Domicilio;
+import com.example.consumingwebservice.wsdl.FinalizeVentaRequest;
+import com.example.consumingwebservice.wsdl.FinalizeVentaResponse;
 import com.example.consumingwebservice.wsdl.GetBilleteraVirtualRequest;
 import com.example.consumingwebservice.wsdl.GetBilleteraVirtualResponse;
 import com.example.consumingwebservice.wsdl.GetCategoriasProductoRequest;
@@ -268,5 +270,16 @@ public class VentasClient extends WebServiceGatewaySupport {
 		getWebServiceTemplate().marshalSendAndReceive(
 				wsServerDir, request,
 				new SoapActionCallback(soapActionCallback));
-	}	
+	}
+	
+	public String finalizarVenta(Long idVenta) {
+		FinalizeVentaRequest request = new FinalizeVentaRequest();
+		request.setIdVenta(idVenta);
+		
+		FinalizeVentaResponse response = (FinalizeVentaResponse) getWebServiceTemplate().marshalSendAndReceive(
+				wsServerDir, request,
+				new SoapActionCallback(soapActionCallback));
+		
+		return response.getEstado();
+	}
 }

@@ -51,5 +51,10 @@ public class VentaController {
 	public String getDiasReclamoTotal(){
 		return diasReclamoTotal;
 	}
+	
+	@PostMapping(path = "/finalizar/{id_venta}")
+	public String finalizarVenta(@PathVariable ("id_venta") Long idVenta){
+		return ventasClient.finalizarVenta(idVenta);
+	}
 
 }

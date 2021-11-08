@@ -421,6 +421,22 @@
         </xs:complexType>
     </xs:element>
     
+    <xs:element name="deleteDomicilioRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="idDomicilio" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="deleteDomicilioResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="estado" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
     <xs:element name="addCategoriaProductoRequest">
         <xs:complexType>
             <xs:sequence>
@@ -553,6 +569,7 @@
             <xs:element name="provincia" type="xs:string"/>
             <xs:element name="pais" type="xs:string"/>
             <xs:element name="usuario" type="tns:usuario"/>
+            <xs:element name="activo" type="xs:boolean"/>
         </xs:sequence>
     </xs:complexType>
     

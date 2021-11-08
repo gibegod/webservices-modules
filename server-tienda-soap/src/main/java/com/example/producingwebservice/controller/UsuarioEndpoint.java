@@ -27,6 +27,8 @@ import io.spring.guides.gs_producing_web_service.AddUsuarioRequest;
 import io.spring.guides.gs_producing_web_service.AddUsuarioResponse;
 import io.spring.guides.gs_producing_web_service.BilleteraVirtualToCuentaBancariaRequest;
 import io.spring.guides.gs_producing_web_service.BilleteraVirtualToCuentaBancariaResponse;
+import io.spring.guides.gs_producing_web_service.DeleteDomicilioRequest;
+import io.spring.guides.gs_producing_web_service.DeleteDomicilioResponse;
 import io.spring.guides.gs_producing_web_service.GetBilleteraVirtualRequest;
 import io.spring.guides.gs_producing_web_service.GetBilleteraVirtualResponse;
 import io.spring.guides.gs_producing_web_service.GetCuentasBancariasRequest;
@@ -160,41 +162,42 @@ public class UsuarioEndpoint {
 	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "addTarjetaRequest")
 	@ResponsePayload
 	public AddTarjetaResponse addTarjeta(@RequestPayload AddTarjetaRequest request) {
-		AddTarjetaResponse response = new AddTarjetaResponse();
-		
-		response.setEstado(tarjetaService.vincularTarjeta(request));
-		
+		AddTarjetaResponse response = new AddTarjetaResponse();		
+		response.setEstado(tarjetaService.vincularTarjeta(request));		
 		return response;
 	}
 
 	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "addCuentaBancariaRequest")
 	@ResponsePayload
 	public AddCuentaBancariaResponse addCuentaBancaria(@RequestPayload AddCuentaBancariaRequest request) {
-		AddCuentaBancariaResponse response = new AddCuentaBancariaResponse();
-		
-		response.setEstado(cuentaBancariaService.vincularCuentaBancaria(request));
-		
+		AddCuentaBancariaResponse response = new AddCuentaBancariaResponse();		
+		response.setEstado(cuentaBancariaService.vincularCuentaBancaria(request));		
 		return response;
 	}
 	
 	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "getBilleteraVirtualRequest")
 	@ResponsePayload
 	public GetBilleteraVirtualResponse getBilleteraVirtual(@RequestPayload GetBilleteraVirtualRequest request) {
-		GetBilleteraVirtualResponse response = new GetBilleteraVirtualResponse();
-		
-		response.setBilleteraVirtual(usuarioService.getBilleteraVirtual(request.getId()));
-		
+		GetBilleteraVirtualResponse response = new GetBilleteraVirtualResponse();		
+		response.setBilleteraVirtual(usuarioService.getBilleteraVirtual(request.getId()));		
 		return response;
 	}
 	
 	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "billeteraVirtualToCuentaBancariaRequest")
 	@ResponsePayload
 	public BilleteraVirtualToCuentaBancariaResponse billeteraVirtualToCuentaBancaria(@RequestPayload BilleteraVirtualToCuentaBancariaRequest request) {
-		BilleteraVirtualToCuentaBancariaResponse response = new BilleteraVirtualToCuentaBancariaResponse();
-		
-		response.setEstado(usuarioService.billeteraVirtualToCuentaBancaria(request));
-		
+		BilleteraVirtualToCuentaBancariaResponse response = new BilleteraVirtualToCuentaBancariaResponse();		
+		response.setEstado(usuarioService.billeteraVirtualToCuentaBancaria(request));		
 		return response;
 	}
+	
+	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "deleteDomicilioRequest")
+	@ResponsePayload
+	public DeleteDomicilioResponse deleteDomicilio(@RequestPayload DeleteDomicilioRequest request) {
+		DeleteDomicilioResponse response = new DeleteDomicilioResponse();		
+		response.setEstado(domicilioService.deleteDomicilio(request.getIdDomicilio()));		
+		return response;
+	}
+	
 
 }

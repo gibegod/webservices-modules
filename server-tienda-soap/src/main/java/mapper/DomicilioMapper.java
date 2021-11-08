@@ -16,6 +16,7 @@ public class DomicilioMapper {
 		dm.setPais(domicilioXML.getPais());
 		dm.setPiso(domicilioXML.getPiso());
 		dm.setProvincia(domicilioXML.getProvincia());
+		dm.setActivo(domicilioXML.isActivo());
 		
 		return dm;
 	}
@@ -32,6 +33,7 @@ public class DomicilioMapper {
 		dXML.setPais(domicilioModel.getPais());
 		dXML.setPiso(domicilioModel.getPiso());
 		dXML.setProvincia(domicilioModel.getProvincia());
+		dXML.setActivo(domicilioModel.getActivo());
 		
 		return dXML;
 	}

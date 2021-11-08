@@ -68,7 +68,7 @@ public class VentaService {
 	
 	
 	public String guardarVenta(AddVentaRequest request) {		
-		DomicilioModel domicilio = domicilioRepository.findById(request.getIdDomicilio()).orElseThrow(()->new RuntimeException("Domicilio no encontrado!")); 
+		DomicilioModel domicilio = domicilioRepository.findByIdActivo(request.getIdDomicilio()).orElseThrow(()->new RuntimeException("Domicilio no encontrado!")); 
 		UsuarioModel comprador = usuarioRepository.findById(request.getIdComprador()).orElseThrow(()->new RuntimeException("Comprador no encontrado!"));
 		UsuarioModel vendedor = usuarioRepository.findById(request.getIdVendedor()).orElseThrow(()->new RuntimeException("Vendedor no encontrado!"));
 		TarjetaModel tarjeta = tarjetaRepository.findById(request.getIdTarjeta()).orElseThrow(()->new RuntimeException("Tarjeta vinculada no encontrada!"));

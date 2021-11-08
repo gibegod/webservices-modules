@@ -19,5 +19,6 @@ public class DomicilioDTO {
     private String provincia;
     private String pais;
     private Long idUsuario;
+    private Boolean activo;
 
 }

@@ -1,5 +1,6 @@
 package com.example.producingwebservice.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -30,6 +31,8 @@ public class DomicilioModel {
 	@Getter @Setter private String localidad;
 	@Getter @Setter private String provincia;
 	@Getter @Setter private String pais;
+	@Column(columnDefinition = "boolean default true")
+	@Getter @Setter private Boolean activo;
 	@ManyToOne
 	@JoinColumn(name = "FK_USUARIO", nullable = false, updatable = false)
 	@Getter @Setter private UsuarioModel comprador;

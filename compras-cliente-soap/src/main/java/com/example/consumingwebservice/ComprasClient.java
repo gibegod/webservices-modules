@@ -20,6 +20,8 @@ import com.example.consumingwebservice.wsdl.AddUsuarioRequest;
 import com.example.consumingwebservice.wsdl.AddUsuarioResponse;
 import com.example.consumingwebservice.wsdl.DeleteDomicilioRequest;
 import com.example.consumingwebservice.wsdl.DeleteDomicilioResponse;
+import com.example.consumingwebservice.wsdl.DeleteTarjetaRequest;
+import com.example.consumingwebservice.wsdl.DeleteTarjetaResponse;
 import com.example.consumingwebservice.wsdl.Domicilio;
 import com.example.consumingwebservice.wsdl.GetDomiciliosRequest;
 import com.example.consumingwebservice.wsdl.GetDomiciliosResponse;
@@ -170,6 +172,15 @@ public class ComprasClient extends WebServiceGatewaySupport {
 		DeleteDomicilioRequest request = new DeleteDomicilioRequest();
 		request.setIdDomicilio(idDomicilio);
 		DeleteDomicilioResponse response = (DeleteDomicilioResponse) getWebServiceTemplate().marshalSendAndReceive(
+				wsServerDir, request,
+				new SoapActionCallback(soapActionCallback));
+		return response;
+	}
+	
+	public DeleteTarjetaResponse deleteTarjeta(Long idTarjeta) {
+		DeleteTarjetaRequest request = new DeleteTarjetaRequest();
+		request.setIdTarjeta(idTarjeta);
+		DeleteTarjetaResponse response = (DeleteTarjetaResponse) getWebServiceTemplate().marshalSendAndReceive(
 				wsServerDir, request,
 				new SoapActionCallback(soapActionCallback));
 		return response;

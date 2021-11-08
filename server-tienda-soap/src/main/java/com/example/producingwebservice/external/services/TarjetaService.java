@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.example.producingwebservice.external.model.Tarjeta;
+import com.example.producingwebservice.model.CuentaBancariaModel;
 import com.example.producingwebservice.model.TarjetaModel;
 import com.example.producingwebservice.model.UsuarioModel;
 import com.example.producingwebservice.repositories.TarjetaRepository;
@@ -85,6 +86,16 @@ public class TarjetaService {
 		return tarjetas;		
 	}
 	
+	public String deleteTarjeta(Long idTarjeta) {
+		TarjetaModel tarjetaModel = tarjetaRepository.findByIdTarjeta(idTarjeta).orElseThrow(()->new RuntimeException("Vinculacion de Tarjeta no encontrada!"));
+		
+		if (!tarjetaModel.getActivo()) {return "ERROR, la tarjeta ya se encuentra inactiva";}
+		
+		tarjetaModel.setActivo(false);
+		tarjetaRepository.save(tarjetaModel);
+		return Estado.OK.name();
+	}
+	
 	public void saldarCompra(Long idComprador, Long idTarjeta, Float precioTotal) {		
 		Tarjeta tarjeta = getTarjeta(idComprador).stream()
 				.filter(t -> t.getIdTarjeta() == idTarjeta)
@@ -141,6 +152,7 @@ public class TarjetaService {
 		tarjetaRepository.save(TarjetaModel.builder()
 				.idTarjeta(tarjetas.get(0).getIdTarjeta())
 				.comprador(usuarioRepository.findById(request.getTarjeta().getUsuario().getId()).orElseThrow(() -> new RuntimeException("Usuario no encontrado!")))
+				.activo(true)
 				.build());
 		
 		return Estado.OK.name();

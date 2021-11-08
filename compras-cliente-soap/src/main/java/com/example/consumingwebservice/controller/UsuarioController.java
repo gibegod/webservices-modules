@@ -22,6 +22,7 @@ import com.example.consumingwebservice.wsdl.AddDomicilioResponse;
 import com.example.consumingwebservice.wsdl.AddTarjetaResponse;
 import com.example.consumingwebservice.wsdl.AddUsuarioResponse;
 import com.example.consumingwebservice.wsdl.DeleteDomicilioResponse;
+import com.example.consumingwebservice.wsdl.DeleteTarjetaResponse;
 import com.example.consumingwebservice.wsdl.GetDomiciliosResponse;
 import com.example.consumingwebservice.wsdl.GetTarjetasResponse;
 import com.example.consumingwebservice.wsdl.GetUsuarioResponse;
@@ -87,6 +88,12 @@ public class UsuarioController {
 	@PostMapping(path="/deleteDomicilio={id}")
 	public String eliminarDomicilio(@PathVariable("id") Long idDomicilio) {
 		DeleteDomicilioResponse response = comprasClient.deleteDomicilio(idDomicilio);
+		return response.getEstado();
+	}
+	
+	@PostMapping(path="/deleteTarjeta={id}")
+	public String eliminarTarjeta(@PathVariable("id") Long idTarjeta) {
+		DeleteTarjetaResponse response = comprasClient.deleteTarjeta(idTarjeta);
 		return response.getEstado();
 	}
 }

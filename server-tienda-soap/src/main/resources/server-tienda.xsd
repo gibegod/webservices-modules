@@ -457,6 +457,7 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="tarjeta" type="tns:tarjeta"/>
+                <xs:element name="activo" type="xs:boolean"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -496,6 +497,22 @@
     </xs:element>
     
     <xs:element name="deleteCuentaBancariaResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="estado" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+     <xs:element name="deleteTarjetaRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="idTarjeta" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="deleteTarjetaResponse">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="estado" type="xs:string"/>

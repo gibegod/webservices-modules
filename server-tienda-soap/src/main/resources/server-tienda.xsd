@@ -474,11 +474,28 @@
             <xs:sequence>
                 <xs:element name="cbu" type="xs:string"/>
                 <xs:element name="idUsuario" type="xs:long"/>
+                <xs:element name="activo" type="xs:boolean"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
     
     <xs:element name="addCuentaBancariaResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="estado" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+     <xs:element name="deleteCuentaBancariaRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="idCuentaBancaria" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="deleteCuentaBancariaResponse">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="estado" type="xs:string"/>

@@ -1,5 +1,6 @@
 package com.example.producingwebservice.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -34,5 +35,8 @@ public class CuentaBancariaModel {
 	@ManyToOne
 	@JoinColumn(name = "id_vendedor")
 	private UsuarioModel vendedor;
+	
+	@Column(columnDefinition = "boolean default true")
+	private Boolean activo;
 
 }

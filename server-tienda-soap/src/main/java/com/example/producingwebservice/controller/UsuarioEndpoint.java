@@ -27,6 +27,8 @@ import io.spring.guides.gs_producing_web_service.AddUsuarioRequest;
 import io.spring.guides.gs_producing_web_service.AddUsuarioResponse;
 import io.spring.guides.gs_producing_web_service.BilleteraVirtualToCuentaBancariaRequest;
 import io.spring.guides.gs_producing_web_service.BilleteraVirtualToCuentaBancariaResponse;
+import io.spring.guides.gs_producing_web_service.DeleteCuentaBancariaRequest;
+import io.spring.guides.gs_producing_web_service.DeleteCuentaBancariaResponse;
 import io.spring.guides.gs_producing_web_service.DeleteDomicilioRequest;
 import io.spring.guides.gs_producing_web_service.DeleteDomicilioResponse;
 import io.spring.guides.gs_producing_web_service.GetBilleteraVirtualRequest;
@@ -196,6 +198,14 @@ public class UsuarioEndpoint {
 	public DeleteDomicilioResponse deleteDomicilio(@RequestPayload DeleteDomicilioRequest request) {
 		DeleteDomicilioResponse response = new DeleteDomicilioResponse();		
 		response.setEstado(domicilioService.deleteDomicilio(request.getIdDomicilio()));		
+		return response;
+	}
+	
+	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "deleteCuentaBancariaRequest")
+	@ResponsePayload
+	public DeleteCuentaBancariaResponse deleteCuentaBancaria(@RequestPayload DeleteCuentaBancariaRequest request) {
+		DeleteCuentaBancariaResponse response = new DeleteCuentaBancariaResponse();		
+		response.setEstado(cuentaBancariaService.deleteCuentaBancaria(request.getIdCuentaBancaria()));		
 		return response;
 	}
 	

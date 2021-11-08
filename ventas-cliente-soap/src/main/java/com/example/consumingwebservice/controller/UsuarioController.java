@@ -24,6 +24,7 @@ import com.example.consumingwebservice.wsdl.AddUsuarioResponse;
 import com.example.consumingwebservice.wsdl.BilleteraVirtual;
 import com.example.consumingwebservice.wsdl.BilleteraVirtualToCuentaBancariaRequest;
 import com.example.consumingwebservice.wsdl.BilleteraVirtualToCuentaBancariaResponse;
+import com.example.consumingwebservice.wsdl.DeleteCuentaBancariaResponse;
 import com.example.consumingwebservice.wsdl.GetCuentasBancariasResponse;
 import com.example.consumingwebservice.wsdl.GetDomiciliosResponse;
 import com.example.consumingwebservice.wsdl.GetUsuarioResponse;
@@ -94,6 +95,12 @@ public class UsuarioController {
 	@PostMapping(path = "/transferir")
 	public String transferir(@RequestBody BilleteraVirtualToCuentaBancariaRequest request) {
 		BilleteraVirtualToCuentaBancariaResponse response = ventasClient.transferir(request);
+		return response.getEstado();
+	}
+	
+	@PostMapping(path = "/deleteCuentaBancaria={id}")
+	public String eliminarCuentaBancaria(@PathVariable("id") Long id) {
+		DeleteCuentaBancariaResponse response = ventasClient.deleteCuentaBancaria(id);
 		return response.getEstado();
 	}
 }

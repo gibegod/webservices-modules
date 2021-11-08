@@ -63,6 +63,16 @@ public class CuentaBancariaService {
 		return cuentasBancarias;
 	}
 	
+	public String deleteCuentaBancaria(Long idCuentaBancaria) {
+		CuentaBancariaModel cuentaBancariaModel = cuentaBancariaRepository.findByIdCuentaBancaria(idCuentaBancaria).orElseThrow(()->new RuntimeException("Vinculacion de Cuenta Bancaria no encontrada!"));
+		
+		if (!cuentaBancariaModel.getActivo()) {return "ERROR, la cuenta bancaria ya se encuentra inactiva";}
+		
+		cuentaBancariaModel.setActivo(false);
+		cuentaBancariaRepository.save(cuentaBancariaModel);
+		return Estado.OK.name();
+	}
+	
 	public String transferirSaldo(Float saldo, Long idUsuario, Long idCuentaBancaria){
 		List<CuentaBancaria> cuentasBancarias = getCuentasBancarias(idUsuario).stream()
 				.filter(c -> c.getIdCuentaBancaria() == idCuentaBancaria)
@@ -105,6 +115,7 @@ public class CuentaBancariaService {
 		cuentaBancariaRepository.save(CuentaBancariaModel.builder()
 				.idCuentaBancaria(cuentasBancarias.get(0).getIdCuentaBancaria())
 				.vendedor(usuarioRepository.findById(request.getIdUsuario()).orElseThrow(() -> new RuntimeException("Usuario no encontrado!")))
+				.activo(true)
 				.build());
 		
 		return Estado.OK.name();

@@ -23,6 +23,8 @@ import com.example.consumingwebservice.wsdl.BilleteraVirtualToCuentaBancariaRequ
 import com.example.consumingwebservice.wsdl.BilleteraVirtualToCuentaBancariaResponse;
 import com.example.consumingwebservice.wsdl.CancelVentaRequest;
 import com.example.consumingwebservice.wsdl.CancelVentaResponse;
+import com.example.consumingwebservice.wsdl.DeleteCuentaBancariaRequest;
+import com.example.consumingwebservice.wsdl.DeleteCuentaBancariaResponse;
 import com.example.consumingwebservice.wsdl.Domicilio;
 import com.example.consumingwebservice.wsdl.FinalizeVentaRequest;
 import com.example.consumingwebservice.wsdl.FinalizeVentaResponse;
@@ -294,5 +296,14 @@ public class VentasClient extends WebServiceGatewaySupport {
 				wsServerDir, request,
 				new SoapActionCallback(soapActionCallback));
 		return response.getEstado();
+	}
+	
+	public DeleteCuentaBancariaResponse deleteCuentaBancaria(Long id) {
+		DeleteCuentaBancariaRequest request = new DeleteCuentaBancariaRequest();
+		request.setIdCuentaBancaria(id);
+		DeleteCuentaBancariaResponse response = (DeleteCuentaBancariaResponse) getWebServiceTemplate().marshalSendAndReceive(
+				wsServerDir, request,
+				new SoapActionCallback(soapActionCallback));
+		return response;
 	}
 }

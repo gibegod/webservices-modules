@@ -22,7 +22,7 @@ public class ProductoMapper {
 		productoXML.setActivo(producto.isActivo());
 		
 		CategoriaProducto categoria = new CategoriaProducto();
-		categoria.setNombre(producto.getNombre());
+		categoria.setNombre(producto.getNombreCategoria());
 		productoXML.setCategoria(categoria);
 		
 		Usuario usuario = new Usuario();

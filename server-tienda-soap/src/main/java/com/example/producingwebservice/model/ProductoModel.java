@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -49,5 +50,8 @@ public class ProductoModel {
 	@ManyToOne
 	@JoinColumn(name = "FK_USUARIO", nullable = false, updatable = false)
 	private UsuarioModel vendedor;
+	
+	@Transient
+	private Integer cantidad;
 
 }

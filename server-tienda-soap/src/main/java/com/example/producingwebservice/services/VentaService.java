@@ -157,12 +157,17 @@ public class VentaService {
 	}
 	
 	public Iterable<VentaModel> traerVentasPorComprador(long id){
-		Iterable<VentaModel> lstVentas = new ArrayList<>();
-		try {
-			lstVentas = ventaRepository.findAllByIdComprador(id);
-		}catch(Exception e) {
-			
-		}
+		Iterable<VentaModel> lstVentas = ventaRepository.findAllByIdComprador(id);
+		
+		lstVentas.forEach(v -> {
+			ventaItemRepository.findByVenta(v).forEach(i -> {
+				ProductoModel prod = productoRepository.findById(i.getProducto().getId()).get();
+				prod.setCantidad(i.getCantidad());
+				
+				v.getItems().add(prod);
+			});
+		});
+		
 		return lstVentas;
 	}
 	

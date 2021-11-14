@@ -1,5 +1,6 @@
 package mapper;
 
+import java.math.BigDecimal;
 import java.util.GregorianCalendar;
 
 import javax.xml.datatype.DatatypeConfigurationException;
@@ -10,6 +11,7 @@ import com.example.producingwebservice.model.UsuarioModel;
 import com.example.producingwebservice.model.VentaModel;
 
 import io.spring.guides.gs_producing_web_service.Domicilio;
+import io.spring.guides.gs_producing_web_service.Producto;
 import io.spring.guides.gs_producing_web_service.Usuario;
 import io.spring.guides.gs_producing_web_service.Venta;
 
@@ -54,6 +56,19 @@ public class VentaMapper {
 		ventaXML.setDomicilio(domicilioXML);
 		ventaXML.setComprador(compradorXML);
 		ventaXML.setVendedor(vendedorXML);
+		ventaXML.setPrecioTotal(BigDecimal.valueOf(ventaModel.getPrecioTotal()));
+		ventaXML.setCodSeguimiento(ventaModel.getIdSeguimiento());
+		
+		ventaModel.getItems().forEach(i -> {
+			Producto p = new Producto();
+			p.setId(i.getId());
+			p.setNombre(i.getNombre());
+			p.setImagen(i.getImagen());
+			p.setPrecio(BigDecimal.valueOf(i.getPrecio()));
+			p.setCantidad(BigDecimal.valueOf(i.getCantidad()));
+			
+			ventaXML.getProductos().add(p);
+		});		
 
 		return ventaXML;
 	}

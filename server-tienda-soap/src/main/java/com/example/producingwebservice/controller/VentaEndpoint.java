@@ -67,10 +67,12 @@ public class VentaEndpoint {
 	@ResponsePayload
 	public GetVentasPorIdCompradorResponse getVentasPorComprador(@RequestPayload GetVentasPorIdCompradorRequest request) {
 		GetVentasPorIdCompradorResponse response = new GetVentasPorIdCompradorResponse();
+		
 		Iterable<VentaModel> lstVentas = ventaService.traerVentasPorComprador(request.getId());
 		for (VentaModel v : lstVentas) {
 			response.getVenta().add(ventaMapper.toVentaXML(v,true));
 		}
+		
 		return response;
 	}
 	

@@ -69,7 +69,7 @@ public class ProductoMapper {
 			tXML.setId(productoModel.getVendedor().getTipo().getId());
 		}
 		
-		cXML.setNombre(productoModel.getNombre());
+		cXML.setNombre(productoModel.getCategoria().getNombre());
 		tXML.setTipo(productoModel.getVendedor().getTipo().getTipo());
 		uXML.setNombre(productoModel.getVendedor().getNombre());
 		uXML.setApellido(productoModel.getVendedor().getApellido());

@@ -17,6 +17,21 @@
         </xs:complexType>
     </xs:element>
     
+    <xs:element name="getCategoriasDenunciaRequest">
+        <xs:complexType>
+            <xs:sequence>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="getCategoriasDenunciaResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="categoriasDenuncia" type="tns:categoriaDenuncia" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
     <xs:element name="addReclamoRequest">
         <xs:complexType>
             <xs:sequence>

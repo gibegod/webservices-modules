@@ -1,5 +1,6 @@
 package com.example.producingwebservice.services;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -8,9 +9,11 @@ import org.springframework.stereotype.Service;
 
 import com.example.producingwebservice.external.services.CuentaBancariaService;
 import com.example.producingwebservice.model.BilleteraVirtualModel;
+import com.example.producingwebservice.model.CategoriaDenunciaModel;
 import com.example.producingwebservice.model.TipoUsuarioModel;
 import com.example.producingwebservice.model.UsuarioModel;
 import com.example.producingwebservice.repositories.BilleteraVirtualRepository;
+import com.example.producingwebservice.repositories.CategoriaDenunciaRepository;
 import com.example.producingwebservice.repositories.TipoUsuarioRepository;
 import com.example.producingwebservice.repositories.UsuarioRepository;
 import com.example.producingwebservice.utils.Estado;
@@ -32,6 +35,9 @@ public class UsuarioService {
 	
 	@Autowired
 	private BilleteraVirtualRepository billeteraVirtualRepository;
+	
+	@Autowired
+	private CategoriaDenunciaRepository categoriaDenunciaRepository;
 	
 	@Autowired
 	private CuentaBancariaService cuentaBancariaService;
@@ -143,5 +149,9 @@ public class UsuarioService {
 		}				
 		
 		return estadoBanca;
+	}
+	
+	public List<CategoriaDenunciaModel> getCategoriasDenuncia() {
+		return (List<CategoriaDenunciaModel>) categoriaDenunciaRepository.findAll();
 	}
 }

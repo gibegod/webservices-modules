@@ -1,5 +1,6 @@
 package com.example.consumingwebservice.controller;
 
+import java.util.List;
 import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,9 @@ import com.example.consumingwebservice.wsdl.AddUsuarioResponse;
 import com.example.consumingwebservice.wsdl.BilleteraVirtual;
 import com.example.consumingwebservice.wsdl.BilleteraVirtualToCuentaBancariaRequest;
 import com.example.consumingwebservice.wsdl.BilleteraVirtualToCuentaBancariaResponse;
+import com.example.consumingwebservice.wsdl.CategoriaDenuncia;
 import com.example.consumingwebservice.wsdl.DeleteCuentaBancariaResponse;
+import com.example.consumingwebservice.wsdl.GetCategoriasDenunciaResponse;
 import com.example.consumingwebservice.wsdl.GetCuentasBancariasResponse;
 import com.example.consumingwebservice.wsdl.GetDomiciliosResponse;
 import com.example.consumingwebservice.wsdl.GetUsuarioResponse;
@@ -102,5 +105,11 @@ public class UsuarioController {
 	public String eliminarCuentaBancaria(@PathVariable("id") Long id) {
 		DeleteCuentaBancariaResponse response = ventasClient.deleteCuentaBancaria(id);
 		return response.getEstado();
+	}
+	
+	@GetMapping(path="/categorias-denuncia")
+	public List<CategoriaDenuncia> getCategoriasDenuncia(){
+		GetCategoriasDenunciaResponse response = ventasClient.getCategoriasDenuncia();
+		return response.getCategoriasDenuncia();
 	}
 }

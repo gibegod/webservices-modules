@@ -30,6 +30,8 @@ import com.example.consumingwebservice.wsdl.FinalizeVentaRequest;
 import com.example.consumingwebservice.wsdl.FinalizeVentaResponse;
 import com.example.consumingwebservice.wsdl.GetBilleteraVirtualRequest;
 import com.example.consumingwebservice.wsdl.GetBilleteraVirtualResponse;
+import com.example.consumingwebservice.wsdl.GetCategoriasDenunciaRequest;
+import com.example.consumingwebservice.wsdl.GetCategoriasDenunciaResponse;
 import com.example.consumingwebservice.wsdl.GetCategoriasProductoRequest;
 import com.example.consumingwebservice.wsdl.GetCategoriasProductoResponse;
 import com.example.consumingwebservice.wsdl.GetCuentasBancariasRequest;
@@ -232,7 +234,8 @@ public class VentasClient extends WebServiceGatewaySupport {
 		return response;
 	}
 	
-	public AddVentaResponse addVenta(VentaDTO venta) {		
+	public AddVentaResponse addVenta(VentaDTO venta) {
+		log.info("Enviando alta de venta a servicio soap: {}", wsServerDir);
 		AddVentaResponse response = (AddVentaResponse) getWebServiceTemplate().marshalSendAndReceive(
 				wsServerDir,
 				venta.toSOAPRequest(),
@@ -304,6 +307,16 @@ public class VentasClient extends WebServiceGatewaySupport {
 		DeleteCuentaBancariaResponse response = (DeleteCuentaBancariaResponse) getWebServiceTemplate().marshalSendAndReceive(
 				wsServerDir, request,
 				new SoapActionCallback(soapActionCallback));
+		return response;
+	}
+	
+	public GetCategoriasDenunciaResponse getCategoriasDenuncia() {
+		GetCategoriasDenunciaRequest request = new GetCategoriasDenunciaRequest();
+		
+		GetCategoriasDenunciaResponse response = (GetCategoriasDenunciaResponse) getWebServiceTemplate().marshalSendAndReceive(
+				wsServerDir, request,
+				new SoapActionCallback(soapActionCallback));
+		
 		return response;
 	}
 }

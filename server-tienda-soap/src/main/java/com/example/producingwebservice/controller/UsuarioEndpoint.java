@@ -35,6 +35,8 @@ import io.spring.guides.gs_producing_web_service.DeleteTarjetaRequest;
 import io.spring.guides.gs_producing_web_service.DeleteTarjetaResponse;
 import io.spring.guides.gs_producing_web_service.GetBilleteraVirtualRequest;
 import io.spring.guides.gs_producing_web_service.GetBilleteraVirtualResponse;
+import io.spring.guides.gs_producing_web_service.GetCategoriasDenunciaRequest;
+import io.spring.guides.gs_producing_web_service.GetCategoriasDenunciaResponse;
 import io.spring.guides.gs_producing_web_service.GetCuentasBancariasRequest;
 import io.spring.guides.gs_producing_web_service.GetCuentasBancariasResponse;
 import io.spring.guides.gs_producing_web_service.GetDomiciliosRequest;
@@ -219,5 +221,16 @@ public class UsuarioEndpoint {
 		return response;
 	}
 	
+	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "getCategoriasDenunciaRequest")
+	@ResponsePayload
+	public GetCategoriasDenunciaResponse getCategoriasDenuncia(@RequestPayload GetCategoriasDenunciaRequest request) {
+		GetCategoriasDenunciaResponse response = new GetCategoriasDenunciaResponse();	
+		
+		usuarioService.getCategoriasDenuncia().forEach(c -> {
+			response.getCategoriasDenuncia().add(usuarioMap.categoriaDenunciaModelToXML(c));
+		});
+		
+		return response;
+	}
 
 }

@@ -1,8 +1,10 @@
 package mapper;
 
+import com.example.producingwebservice.model.CategoriaDenunciaModel;
 import com.example.producingwebservice.model.TipoUsuarioModel;
 import com.example.producingwebservice.model.UsuarioModel;
 
+import io.spring.guides.gs_producing_web_service.CategoriaDenuncia;
 import io.spring.guides.gs_producing_web_service.TipoUsuario;
 import io.spring.guides.gs_producing_web_service.Usuario;
 
@@ -70,5 +72,14 @@ public class UsuarioMapper {
 		uXML.setTelefono(usuarioModel.getTelefono());
 		
 		return uXML;
+	}
+	
+	public CategoriaDenuncia categoriaDenunciaModelToXML(CategoriaDenunciaModel categoriaDenunciaModel) {
+		CategoriaDenuncia c = new CategoriaDenuncia();
+		
+		c.setId(categoriaDenunciaModel.getId());
+		c.setNombre(categoriaDenunciaModel.getNombre());
+		
+		return c;
 	}
 }
